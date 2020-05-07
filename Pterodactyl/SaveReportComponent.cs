@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Grasshopper.Kernel;
-using Rhino.Geometry;
 
 
 namespace Pterodactyl
@@ -27,20 +24,15 @@ namespace Pterodactyl
         {
         }
 
-        /// <summary>
-        /// This is the method that actually does the work.
-        /// </summary>
-        /// <param name="DA">The DA object can be used to retrieve data from input parameters and 
-        /// to store data in output parameters.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            string report = string.Empty;
+            DA.GetData(0, ref report);
+
             string path = string.Empty;
             DA.GetData(1, ref path);
 
-
-
-            string[] lines = { "# First line", "Second line", "Third line" };
-            System.IO.File.WriteAllLines(path, lines);
+            System.IO.File.WriteAllText(path, report);
         }
 
         /// <summary>

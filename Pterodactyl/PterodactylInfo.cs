@@ -25,7 +25,6 @@ namespace Pterodactyl
         {
             get
             {
-                //Return a short string describing the purpose of this GHA library.
                 return "Pterodactyl will help you to create reports";
             }
         }
