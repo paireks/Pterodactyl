@@ -1,4 +1,5 @@
 using System;
+using System.Drawing;
 using Pterodactyl;
 using UnitTests;
 using Xunit;
@@ -57,6 +58,14 @@ namespace UnitTests
         {
             string expected = "w.radaczynski@gmail.com";
             string actual = TestPterodactylInfoHelper.TestObject.AuthorContact;
+
+            Assert.Equal(expected, actual);
+        }
+        [Fact]
+        public void TestIcon()
+        {
+            Bitmap expected = null;
+            Bitmap actual = TestPterodactylInfoHelper.TestObject.Icon;
 
             Assert.Equal(expected, actual);
         }

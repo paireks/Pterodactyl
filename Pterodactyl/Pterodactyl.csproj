@@ -58,7 +58,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SaveReportComponent.cs" />
+    <Compile Include="SaveReportGH.cs" />
     <Compile Include="PterodactylInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
