@@ -4,11 +4,12 @@ using System.Drawing;
 using System.Linq;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Components;
+using Grasshopper.Kernel.Parameters;
 using Pterodactyl;
-using UnitTests;
+using UnitTestsGH;
 using Xunit;
 
-namespace UnitTests
+namespace UnitTestsGH
 {
     public class TestSaveReportGHHelper
     {
@@ -21,7 +22,6 @@ namespace UnitTests
             }
         }
     }
-
     public class TestSaveReportGH
     {
         [Theory]
@@ -57,20 +57,6 @@ namespace UnitTests
             System.Guid actual = TestSaveReportGHHelper.TestObject.ComponentGuid;
 
             Assert.Equal(expected, actual);
-        }
-    }
-
-    public class TestComponent : SaveReportGH
-    {
-        [Fact]
-        public void CorrectTest()
-        {
-            IGH_DataAccess dataAccess = TestSaveReportGHHelper.TestObject.Params.Input[1].A;
-            dataAccess.SetData(0, "Empty");
-            dataAccess.SetData(1, @"C:\Users\EngineerDesign\Desktop\Test.md");
-            SolveInstance(dataAccess);
-
-            Assert.Equal(1, 1);
         }
     }
 }

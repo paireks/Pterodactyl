@@ -3,3 +3,6 @@ C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\bin
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.csprojAssemblyReference.cache
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.pdb
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\bin\PterodactylEngine.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\bin\PterodactylEngine.pdb
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.csproj.CopyComplete

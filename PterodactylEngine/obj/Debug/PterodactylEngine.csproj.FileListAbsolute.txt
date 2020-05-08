@@ -1,0 +1,5 @@
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\PterodactylEngine\bin\Debug\PterodactylEngine.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\PterodactylEngine\bin\Debug\PterodactylEngine.pdb
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\PterodactylEngine\obj\Debug\PterodactylEngine.csprojAssemblyReference.cache
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\PterodactylEngine\obj\Debug\PterodactylEngine.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\PterodactylEngine\obj\Debug\PterodactylEngine.pdb

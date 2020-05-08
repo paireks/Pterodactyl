@@ -528,11 +528,23 @@
       },
       "Pterodactyl/1.0.0": {
         "type": "project",
+        "dependencies": {
+          "PterodactylEngine": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/Pterodactyl.dll": {}
         },
         "runtime": {
           "bin/placeholder/Pterodactyl.dll": {}
+        }
+      },
+      "PterodactylEngine/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/PterodactylEngine.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PterodactylEngine.dll": {}
         }
       }
     }
@@ -2895,6 +2907,11 @@
       "type": "project",
       "path": "../Pterodactyl/Pterodactyl.csproj",
       "msbuildProject": "../Pterodactyl/Pterodactyl.csproj"
+    },
+    "PterodactylEngine/1.0.0": {
+      "type": "project",
+      "path": "../PterodactylEngine/PterodactylEngine.csproj",
+      "msbuildProject": "../PterodactylEngine/PterodactylEngine.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2913,9 +2930,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\UnitTests\\UnitTests.csproj",
-      "projectName": "UnitTests",
-      "projectPath": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\UnitTests\\UnitTests.csproj",
+      "projectUniqueName": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\UnitTests\\UnitTestsGH.csproj",
+      "projectName": "UnitTestsGH",
+      "projectPath": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\UnitTests\\UnitTestsGH.csproj",
       "packagesPath": "C:\\Users\\EngineerDesign\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\UnitTests\\obj\\",
       "projectStyle": "PackageReference",

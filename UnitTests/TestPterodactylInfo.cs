@@ -1,10 +1,10 @@
 using System;
 using System.Drawing;
 using Pterodactyl;
-using UnitTests;
+using UnitTestsGH;
 using Xunit;
 
-namespace UnitTests
+namespace UnitTestsGH
 {
     public class TestPterodactylInfoHelper
     {
