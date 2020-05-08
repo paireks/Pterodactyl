@@ -21,7 +21,7 @@ namespace UnitTestEngine
     {
         [Theory]
         [ClassData(typeof(TestCreateReportHelper))]
-        public void CorrectData(List<string> reportParts, string title, bool tableOfContents, string reportExpected)
+        public void CorrectData(List<string> reportParts, string title, bool tableOfContents, string expectedReport)
         {
             CreateReport testObject = new CreateReport(reportParts, title, tableOfContents);
             Assert.Equal(reportParts, testObject.ReportParts);
