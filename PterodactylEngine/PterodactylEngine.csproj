@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateReport.cs" />
     <Compile Include="SaveReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

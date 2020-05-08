@@ -1,5 +1,6 @@
 ﻿using System;
 using Grasshopper.Kernel;
+using PterodactylEngine;
 
 
 namespace Pterodactyl
@@ -32,7 +33,7 @@ namespace Pterodactyl
             string path = string.Empty;
             DA.GetData(1, ref path);
 
-            System.IO.File.WriteAllText(path, report);
+            SaveReport reportDocument = new SaveReport(report, path);
         }
         protected override System.Drawing.Bitmap Icon
         {

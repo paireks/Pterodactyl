@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace PterodactylEngine
+﻿namespace PterodactylEngine
 {
     public class SaveReport
     {
@@ -16,18 +9,13 @@ namespace PterodactylEngine
         {
             Report = report;
             Path = path;
+            System.IO.File.WriteAllText(Path, Report);
         }
 
         public string Path
         {
             get { return _path; }
-            set
-            {
-                if (Uri.IsWellFormedUriString(value, UriKind.Absolute))
-                {
-                    _path = value;
-                }
-            }
+            set { _path = value; }
         }
 
         public string Report
@@ -35,8 +23,5 @@ namespace PterodactylEngine
             get { return _report; }
             set { _report = value; }
         }
-
-
-
     }
 }
