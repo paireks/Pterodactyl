@@ -21,7 +21,7 @@ namespace UnitTestsGH
         [Theory]
         [InlineData("Save Report", "Save Report",
             "Saves markdown file with your report data",
-            "Pterodactyl", "Tools")]
+            "Pterodactyl", "Report")]
         public void TestName(string name, string nickname, string description, string category, string subCategory)
         {
             Assert.Equal(name, TestSaveReportGhHelper.TestObject.Name);

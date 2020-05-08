@@ -10,7 +10,7 @@ namespace Pterodactyl
         public SaveReportGH()
           : base("Save Report", "Save Report",
               "Saves markdown file with your report data",
-              "Pterodactyl", "Tools")
+              "Pterodactyl", "Report")
         {
         }
 
