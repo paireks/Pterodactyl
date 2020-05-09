@@ -16,7 +16,7 @@ namespace Pterodactyl
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Text", "Text", "Math text written in TeX-style",
-                GH_ParamAccess.item, @"\bold{\bold{Euler's \; identity }\\ e^{i \pi} + 1 = 0)");
+                GH_ParamAccess.item, @"\bold{Euler's \; identity }\\ e^{i \pi} + 1 = 0");
         }
 
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
