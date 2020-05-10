@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CreateReport.cs" />
     <Compile Include="DynamicMathBlock.cs" />
+    <Compile Include="Heading.cs" />
     <Compile Include="MathBlock.cs" />
     <Compile Include="SaveReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
