@@ -36,6 +36,18 @@ namespace UnitTestEngine
         }
     }
 
+    public class TestDynamicMathBlockExceptionHelper : TheoryData<string, List<string>, List<double>, string>
+    {
+        public TestDynamicMathBlockExceptionHelper()
+        {
+            Add("Check",
+                new List<string> {},
+                new List<double> { 5 },
+                "Set Variables' Symbols (at least one). If you don't need to use " +
+                "dynamic variables - use Math Block component instead");
+        }
+    }
+
     public class TestDynamicMathBlock
     {
         [Theory]
@@ -53,6 +65,14 @@ namespace UnitTestEngine
             DynamicMathBlock testObject = new DynamicMathBlock(text, variablesSymbols, variablesValues);
             string actual = testObject.Format();
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [ClassData(typeof(TestDynamicMathBlockExceptionHelper))]
+        public void CheckExceptions(string text, List<string> variablesSymbols, List<double> variablesValues, string message)
+        {
+            var exception = Assert.Throws<ArgumentException>(() => new DynamicMathBlock(text, variablesSymbols, variablesValues));
+            Assert.Equal(message, exception.Message);
         }
     }
 }

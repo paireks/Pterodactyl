@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using PterodactylEngine;
 using Xunit;
 
@@ -15,6 +14,14 @@ namespace UnitTestEngine
             Add("Multiline check" + Environment.NewLine + "Hmm", 3, "### Multiline check"+ Environment.NewLine + "Hmm");
         }
     }
+    public class TestHeadingExceptionHelper : TheoryData<string, int, string>
+    {
+        public TestHeadingExceptionHelper()
+        {
+            Add("Lol nice heading tho", 0, "Level should be an integer between 1 and 6");
+            Add("Lol nice heading tho", 7, "Level should be an integer between 1 and 6");
+        }
+    }
 
     public class TestHeading
     {
@@ -24,6 +31,7 @@ namespace UnitTestEngine
         {
             Heading testObject = new Heading(text, level);
             Assert.Equal(text, testObject.Text);
+            Assert.Equal(level, testObject.Level);
         }
 
         [Theory]
@@ -34,6 +42,14 @@ namespace UnitTestEngine
             string actual = testObject.Create();
 
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [ClassData(typeof(TestHeadingExceptionHelper))]
+        public void CheckExceptions(string text, int level, string message)
+        {
+            var exception = Assert.Throws<ArgumentException>(() => new Heading(text, level));
+            Assert.Equal(message, exception.Message);
         }
 
     }
