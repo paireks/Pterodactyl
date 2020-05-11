@@ -44,6 +44,8 @@
     <Compile Include="CreateReport.cs" />
     <Compile Include="DynamicMathBlock.cs" />
     <Compile Include="Heading.cs" />
+    <Compile Include="Hyperlink.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="MathBlock.cs" />
     <Compile Include="Quote.cs" />
     <Compile Include="SaveReport.cs" />
