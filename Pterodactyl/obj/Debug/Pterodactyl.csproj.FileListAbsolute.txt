@@ -6,3 +6,5 @@ C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\bin\PterodactylEngine.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\bin\PterodactylEngine.pdb
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.csproj.CopyComplete
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.Properties.Resources.resources
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.csproj.GenerateResource.cache

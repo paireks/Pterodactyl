@@ -63,6 +63,11 @@
     <Compile Include="HeadingGH.cs" />
     <Compile Include="HyperlinkGH.cs" />
     <Compile Include="MathBlockGH.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="QuoteGH.cs" />
     <Compile Include="SaveReportGH.cs" />
     <Compile Include="PterodactylInfo.cs" />
@@ -76,6 +81,18 @@
       <Project>{051e55ca-2599-4a05-83b3-41a86b17bfd9}</Project>
       <Name>PterodactylEngine</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylCreateReport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylSaveReport.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
