@@ -62,6 +62,7 @@
     <Compile Include="DynamicMathBlockGH.cs" />
     <Compile Include="HeadingGH.cs" />
     <Compile Include="MathBlockGH.cs" />
+    <Compile Include="QuoteGH.cs" />
     <Compile Include="SaveReportGH.cs" />
     <Compile Include="PterodactylInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
