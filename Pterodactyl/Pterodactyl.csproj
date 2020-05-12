@@ -72,6 +72,7 @@
     <Compile Include="SaveReportGH.cs" />
     <Compile Include="PterodactylInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TaskListGH.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
