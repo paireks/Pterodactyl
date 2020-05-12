@@ -47,10 +47,12 @@
     <Compile Include="Hyperlink.cs" />
     <Compile Include="MathBlock.cs" />
     <Compile Include="OrderedList.cs" />
+    <Compile Include="PieChart.cs" />
     <Compile Include="Quote.cs" />
     <Compile Include="SaveReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TaskList.cs" />
+    <Compile Include="UnorderedList.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

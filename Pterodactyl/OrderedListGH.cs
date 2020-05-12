@@ -31,8 +31,8 @@ namespace Pterodactyl
             DA.GetDataList(0, text);
 
             string report;
-            OrderedList taskObject = new OrderedList(text);
-            report = taskObject.Create();
+            OrderedList reportObject = new OrderedList(text);
+            report = reportObject.Create();
 
             DA.SetData(0, report);
         }
@@ -42,6 +42,10 @@ namespace Pterodactyl
             {
                 return null;
             }
+        }
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.secondary; }
         }
         public override Guid ComponentGuid
         {

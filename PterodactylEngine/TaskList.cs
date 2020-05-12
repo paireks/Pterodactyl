@@ -18,7 +18,7 @@ namespace PterodactylEngine
 
             if (Text.Count != Done.Count) 
             {
-                throw new ArgumentException("Text values should match boolean (done) values." +
+                throw new ArgumentException("Text values should match boolean (done) values. " +
                     "Check if both input lists have the same number of elements.");
             }
         }

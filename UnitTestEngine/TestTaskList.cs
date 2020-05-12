@@ -22,10 +22,10 @@ namespace UnitTestEngine
         public TestTaskListExceptionHelper()
         {
             Add(new List<string> { "Empty" }, new List<bool> { false, true },
-                "Text values should match boolean (done) values." +
+                "Text values should match boolean (done) values. " +
                 "Check if both input lists have the same number of elements.");
             Add(new List<string> { "Empty","Closed" }, new List<bool> { false },
-                "Text values should match boolean (done) values." +
+                "Text values should match boolean (done) values. " +
                 "Check if both input lists have the same number of elements.");
         }
     }
