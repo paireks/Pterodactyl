@@ -63,6 +63,7 @@
     <Compile Include="HeadingGH.cs" />
     <Compile Include="HyperlinkGH.cs" />
     <Compile Include="MathBlockGH.cs" />
+    <Compile Include="OrderedListGH.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

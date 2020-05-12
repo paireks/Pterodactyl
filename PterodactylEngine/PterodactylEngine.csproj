@@ -46,6 +46,7 @@
     <Compile Include="Heading.cs" />
     <Compile Include="Hyperlink.cs" />
     <Compile Include="MathBlock.cs" />
+    <Compile Include="OrderedList.cs" />
     <Compile Include="Quote.cs" />
     <Compile Include="SaveReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
