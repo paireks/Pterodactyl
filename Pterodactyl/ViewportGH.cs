@@ -1,6 +1,7 @@
 ﻿using System;
 using Grasshopper.Kernel;
 using PterodactylRh;
+using PterodactylEngine;
 
 namespace Pterodactyl
 {
@@ -14,6 +15,8 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
+            pManager.AddTextParameter("Title", "Title", "Title image",
+                  GH_ParamAccess.item, "Example");
             pManager.AddTextParameter("Viewport Name", "Viewport Name", "Name of the viewport",
                   GH_ParamAccess.item);
             pManager.AddTextParameter("Path", "Path", "Directory where image of your viewport will be saved. Should end up with .png",
@@ -33,21 +36,29 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            string title = string.Empty;
             string viewportName = string.Empty;
             string pathToFile = string.Empty;
             bool drawAxes = false;
             bool drawGrid = false;
             bool drawGridAxes = false;
             bool transparentBackground = true;
-            DA.GetData(0, ref viewportName);
-            DA.GetData(1, ref pathToFile);
-            DA.GetData(2, ref drawAxes);
-            DA.GetData(3, ref drawGrid);
-            DA.GetData(4, ref drawGridAxes);
-            DA.GetData(5, ref transparentBackground);
+            DA.GetData(0, ref title);
+            DA.GetData(1, ref viewportName);
+            DA.GetData(2, ref pathToFile);
+            DA.GetData(3, ref drawAxes);
+            DA.GetData(4, ref drawGrid);
+            DA.GetData(5, ref drawGridAxes);
+            DA.GetData(6, ref transparentBackground);
 
             VieportRh reportDocument = new VieportRh();
             reportDocument.Capture(viewportName, pathToFile, drawAxes, drawGrid, drawGridAxes, transparentBackground);
+
+            string reportPart;
+            Image reportObject = new Image(title, pathToFile);
+            reportPart = reportObject.Create();
+
+            DA.SetData(0, reportPart);
         }
         protected override System.Drawing.Bitmap Icon
         {
