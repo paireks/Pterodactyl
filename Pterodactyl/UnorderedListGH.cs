@@ -39,7 +39,7 @@ namespace Pterodactyl
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylUnorderedList;
             }
         }
         public override GH_Exposure Exposure

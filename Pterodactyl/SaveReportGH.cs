@@ -39,7 +39,7 @@ namespace Pterodactyl
         {
             get
             {
-                return Properties.Resources.PterodactylSaveReport;
+                return null;
             }
         }
         public override Guid ComponentGuid

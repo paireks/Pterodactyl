@@ -73,9 +73,19 @@ namespace Pterodactyl.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PterodactylSaveReport {
+        internal static System.Drawing.Bitmap PterodactylImage {
             get {
-                object obj = ResourceManager.GetObject("PterodactylSaveReport", resourceCulture);
+                object obj = ResourceManager.GetObject("PterodactylImage", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PterodactylUnorderedList {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylUnorderedList", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
