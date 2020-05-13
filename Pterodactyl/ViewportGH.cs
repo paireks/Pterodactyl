@@ -1,6 +1,6 @@
 ﻿using System;
 using Grasshopper.Kernel;
-using PterodactylEngine;
+using PterodactylRh;
 
 namespace Pterodactyl
 {
@@ -25,6 +25,12 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            string viewportName = string.Empty;
+            DA.GetData(0, ref viewportName);
+
+
+            VieportRh reportDocument = new VieportRh();
+            reportDocument.Capture(viewportName);
         }
         protected override System.Drawing.Bitmap Icon
         {

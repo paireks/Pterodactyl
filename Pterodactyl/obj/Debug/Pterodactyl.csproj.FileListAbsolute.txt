@@ -8,3 +8,5 @@ C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\bin
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.csproj.CopyComplete
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.Properties.Resources.resources
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\obj\Debug\Pterodactyl.csproj.GenerateResource.cache
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\bin\PterodactylRh.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Pterodactyl\bin\PterodactylRh.pdb

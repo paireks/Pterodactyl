@@ -529,7 +529,8 @@
       "Pterodactyl/1.0.0": {
         "type": "project",
         "dependencies": {
-          "PterodactylEngine": "1.0.0"
+          "PterodactylEngine": "1.0.0",
+          "PterodactylRh": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Pterodactyl.dll": {}
@@ -545,6 +546,15 @@
         },
         "runtime": {
           "bin/placeholder/PterodactylEngine.dll": {}
+        }
+      },
+      "PterodactylRh/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/PterodactylRh.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/PterodactylRh.dll": {}
         }
       }
     }
@@ -2912,6 +2922,11 @@
       "type": "project",
       "path": "../PterodactylEngine/PterodactylEngine.csproj",
       "msbuildProject": "../PterodactylEngine/PterodactylEngine.csproj"
+    },
+    "PterodactylRh/1.0.0": {
+      "type": "project",
+      "path": "../PterodactylRh/PterodactylRh.csproj",
+      "msbuildProject": "../PterodactylRh/PterodactylRh.csproj"
     }
   },
   "projectFileDependencyGroups": {

@@ -24,3 +24,5 @@ C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\obj\D
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\obj\Debug\net45\UnitTestsGH.csproj.CopyComplete
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\obj\Debug\net45\UnitTestsGH.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\obj\Debug\net45\UnitTestsGH.pdb
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\PterodactylRh.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\PterodactylRh.pdb

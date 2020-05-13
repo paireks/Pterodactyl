@@ -87,6 +87,10 @@
       <Project>{051e55ca-2599-4a05-83b3-41a86b17bfd9}</Project>
       <Name>PterodactylEngine</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PterodactylRh\PterodactylRh.csproj">
+      <Project>{02209457-76e7-46a2-87e1-81a1d6cd561c}</Project>
+      <Name>PterodactylRh</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

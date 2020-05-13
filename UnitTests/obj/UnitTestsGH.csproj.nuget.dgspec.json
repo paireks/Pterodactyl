@@ -15,6 +15,17 @@
         "net45": {}
       }
     },
+    "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\PterodactylRh\\PterodactylRh.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\PterodactylRh\\PterodactylRh.csproj",
+        "projectName": "PterodactylRh",
+        "projectPath": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\PterodactylRh\\PterodactylRh.csproj"
+      },
+      "frameworks": {
+        "net45": {}
+      }
+    },
     "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\Pterodactyl\\Pterodactyl.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -26,6 +37,9 @@
             "projectReferences": {
               "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\PterodactylEngine\\PterodactylEngine.csproj": {
                 "projectPath": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\PterodactylEngine\\PterodactylEngine.csproj"
+              },
+              "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\PterodactylRh\\PterodactylRh.csproj": {
+                "projectPath": "C:\\Users\\EngineerDesign\\Desktop\\Projekty\\Pterodactyl\\Pterodactyl\\PterodactylRh\\PterodactylRh.csproj"
               }
             }
           }
