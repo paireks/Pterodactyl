@@ -25,7 +25,7 @@ namespace UnitTestEngine
         {
             string path = Path.GetTempPath() + pathName;
             SaveReport testObject = new SaveReport(report, path);
-            string actual = System.IO.File.ReadAllText(path);
+            string actual = File.ReadAllText(path);
 
             Assert.Equal(report, actual);
         }
