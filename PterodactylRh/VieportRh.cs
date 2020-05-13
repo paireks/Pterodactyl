@@ -6,26 +6,24 @@ namespace PterodactylRh
 {
     public class VieportRh
     {
-        public void Capture(string vieportName)
+        public void Capture(string vieportName, string pathToFile, bool drawAxes, bool drawGrid, bool drawGridAxes, bool transparentBackground)
         {
-            var another_view = Rhino.RhinoDoc.ActiveDoc.Views.Find(vieportName, false);
+            var view = Rhino.RhinoDoc.ActiveDoc.Views.Find(vieportName, false);
             var view_capture = new ViewCapture
             {
-                Width = another_view.ActiveViewport.Size.Width,
-                Height = another_view.ActiveViewport.Size.Height,
+                Width = view.ActiveViewport.Size.Width,
+                Height = view.ActiveViewport.Size.Height,
                 ScaleScreenItems = false,
-                DrawAxes = false,
-                DrawGrid = false,
-                DrawGridAxes = false,
-                TransparentBackground = true
+                DrawAxes = drawAxes,
+                DrawGrid = drawGrid,
+                DrawGridAxes = drawGridAxes,
+                TransparentBackground = transparentBackground
             };
 
-            var bitmap = view_capture.CaptureToBitmap(another_view);
+            var bitmap = view_capture.CaptureToBitmap(view);
             if (null != bitmap)
             {
-                var path = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-                var filename = Path.Combine(path, "SampleCsViewCapture.png");
-                bitmap.Save(filename, System.Drawing.Imaging.ImageFormat.Png);
+                bitmap.Save(pathToFile, System.Drawing.Imaging.ImageFormat.Png);
             }
         }
     }
