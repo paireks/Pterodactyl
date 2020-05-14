@@ -61,5 +61,14 @@ namespace UnitTestsGH
 
             Assert.Equal(expected, actual);
         }
+
+        [Fact]
+        public void TestExposure()
+        {
+            GH_Exposure expected = GH_Exposure.tertiary;
+            GH_Exposure actual = TestMathBlockGhHelper.TestObject.Exposure;
+
+            Assert.Equal(expected, actual);
+        }
     }
 }

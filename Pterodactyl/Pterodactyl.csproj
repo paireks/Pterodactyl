@@ -99,19 +99,22 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PterodactylCreateReport.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PterodactylSaveReport.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PterodactylOrderedList.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylUnorderedList.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPieChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylTaskList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylCreateReport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylHeading.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
