@@ -17,3 +17,8 @@ C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\obj\Debug\net45\UnitTestEngine.csproj.CopyComplete
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\obj\Debug\net45\UnitTestEngine.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\obj\Debug\net45\UnitTestEngine.pdb
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\bin\Debug\net45\GH_IO.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\bin\Debug\net45\Grasshopper.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\bin\Debug\net45\Eto.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\bin\Debug\net45\Rhino.UI.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTestEngine\bin\Debug\net45\RhinoCommon.dll

@@ -4,12 +4,7 @@ C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\D
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\xunit.abstractions.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\UnitTestsGH.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\UnitTestsGH.pdb
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\GH_IO.dll
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\Grasshopper.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\Microsoft.VisualStudio.CodeCoverage.Shim.dll
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\Eto.dll
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\Rhino.UI.dll
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\RhinoCommon.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\System.Runtime.InteropServices.RuntimeInformation.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\xunit.assert.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\xunit.core.dll
@@ -26,3 +21,8 @@ C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\obj\D
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\obj\Debug\net45\UnitTestsGH.pdb
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\PterodactylRh.dll
 C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\PterodactylRh.pdb
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\GH_IO.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\Grasshopper.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\Eto.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\Rhino.UI.dll
+C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\UnitTests\bin\Debug\net45\RhinoCommon.dll

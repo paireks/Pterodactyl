@@ -80,9 +80,6 @@
     <Compile Include="ViewportGH.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\PterodactylEngine\PterodactylEngine.csproj">
       <Project>{051e55ca-2599-4a05-83b3-41a86b17bfd9}</Project>
       <Name>PterodactylEngine</Name>
@@ -99,6 +96,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\PterodactylUnorderedList.png" />
   </ItemGroup>
   <ItemGroup>

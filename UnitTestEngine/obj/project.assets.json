@@ -8,6 +8,23 @@
           "build/netstandard1.0/coverlet.collector.targets": {}
         }
       },
+      "Grasshopper/6.24.20079.23341": {
+        "type": "package",
+        "dependencies": {
+          "RhinoCommon": "[6.24.20079.23341]"
+        },
+        "compile": {
+          "lib/net45/GH_IO.dll": {},
+          "lib/net45/Grasshopper.dll": {}
+        },
+        "runtime": {
+          "lib/net45/GH_IO.dll": {},
+          "lib/net45/Grasshopper.dll": {}
+        },
+        "build": {
+          "build/net45/Grasshopper.targets": {}
+        }
+      },
       "Microsoft.CodeCoverage/16.5.0": {
         "type": "package",
         "compile": {
@@ -76,6 +93,22 @@
           "System.Threading.Tasks": "4.3.0",
           "System.Xml.ReaderWriter": "4.3.0",
           "System.Xml.XDocument": "4.3.0"
+        }
+      },
+      "RhinoCommon/6.24.20079.23341": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Eto.dll": {},
+          "lib/net45/Rhino.UI.dll": {},
+          "lib/net45/RhinoCommon.dll": {}
+        },
+        "runtime": {
+          "lib/net45/Eto.dll": {},
+          "lib/net45/Rhino.UI.dll": {},
+          "lib/net45/RhinoCommon.dll": {}
+        },
+        "build": {
+          "build/net45/RhinoCommon.targets": {}
         }
       },
       "System.Collections/4.3.0": {
@@ -537,6 +570,22 @@
         "coverlet.collector.nuspec"
       ]
     },
+    "Grasshopper/6.24.20079.23341": {
+      "sha512": "23hXGHRR+b6pSHzQDdLH55GJKbLhSuktie7WQO2uh4twmC+IJfFi1CdEjvsnBdCVdlZ/ZKxi3tGWEWNWmbOxPQ==",
+      "type": "package",
+      "path": "grasshopper/6.24.20079.23341",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "build/net45/Grasshopper.targets",
+        "grasshopper.6.24.20079.23341.nupkg.sha512",
+        "grasshopper.nuspec",
+        "lib/net45/GH_IO.XML",
+        "lib/net45/GH_IO.dll",
+        "lib/net45/Grasshopper.dll",
+        "lib/net45/Grasshopper.xml"
+      ]
+    },
     "Microsoft.CodeCoverage/16.5.0": {
       "sha512": "PM5YLtyN45EyUGePJpaNogndlaQPrMgQQXHKMhMESC6KfSVvt+j7+dxBi8NYC6X6dZVysf7ngwhSW3wwvPJRSQ==",
       "type": "package",
@@ -619,6 +668,24 @@
         "dotnet_library_license.txt",
         "netstandard.library.1.6.1.nupkg.sha512",
         "netstandard.library.nuspec"
+      ]
+    },
+    "RhinoCommon/6.24.20079.23341": {
+      "sha512": "N6B6FiXtTjHERR/VX0sfKGeEL4a4AM+o4++80Qe23fdZ1a/CvrXZz7fBkgSFVBXkSL97nCsRvp/wXDKUAZW8Og==",
+      "type": "package",
+      "path": "rhinocommon/6.24.20079.23341",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Eto-LICENSE.txt",
+        "build/net45/RhinoCommon.targets",
+        "lib/net45/Eto.dll",
+        "lib/net45/Eto.xml",
+        "lib/net45/Rhino.UI.dll",
+        "lib/net45/RhinoCommon.XML",
+        "lib/net45/RhinoCommon.dll",
+        "rhinocommon.6.24.20079.23341.nupkg.sha512",
+        "rhinocommon.nuspec"
       ]
     },
     "System.Collections/4.3.0": {
@@ -2832,6 +2899,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETFramework,Version=v4.5": [
+      "Grasshopper >= 6.24.20079.23341",
       "Microsoft.NET.Test.Sdk >= 16.5.0",
       "PterodactylEngine >= 1.0.0",
       "coverlet.collector >= 1.2.1",
@@ -2880,6 +2948,10 @@
     "frameworks": {
       "net45": {
         "dependencies": {
+          "Grasshopper": {
+            "target": "Package",
+            "version": "[6.24.20079.23341, )"
+          },
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[16.5.0, )"

@@ -53,6 +53,10 @@
       "frameworks": {
         "net45": {
           "dependencies": {
+            "Grasshopper": {
+              "target": "Package",
+              "version": "[6.24.20079.23341, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.5.0, )"
