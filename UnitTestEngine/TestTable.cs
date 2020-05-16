@@ -11,9 +11,27 @@ namespace UnitTestEngine
         {
             Add(new List<string> { "Head 1", "Head 2", "Head 3" },
                 new List<int> { 0, 0, 0 },
-                new string[,] { { "2", "5" }, { "lol", "hrhr" } },
-                new List<string> { "Head" });
+                new string[,] { { "2", "5" }, { "lol", "hrhr" }, { "rrrr", "hohoho" } },
+                new List<string> { "" });
         }
+
+    }
+
+    public class TestMaxStringLengthHelper : TheoryData<List<string>, List<int>, string[,], List<int>>
+    {
+        public TestMaxStringLengthHelper()
+        {
+            Add(new List<string> { "Head 1", "Head 2", "A" },
+                new List<int> { 0, 0, 0 },
+                new string[,] 
+                { 
+                    { "2", "5" },
+                    { "lol", "hrhrhrh" },
+                    { "r", "h" } 
+                },
+                new List<int> { 6, 7, 1 });
+        }
+
     }
 
     public class TestTable
@@ -27,13 +45,16 @@ namespace UnitTestEngine
             Assert.Equal(alignment, testObject.Alignment);
             Assert.Equal(dataTree, testObject.DataTree);
         }
+    }
 
+    public class TestMaxStringLength
+    {
         [Theory]
-        [ClassData(typeof(TestTableHelper))]
-        public void CheckReportCreation(List<string> headings, List<int> alignment, Grasshopper.DataTree<string> dataTree, List<string> expected)
+        [ClassData(typeof(TestMaxStringLengthHelper))]
+        public void CorrectData(List<string> headings, List<int> alignment, string[,] dataTree, List<int> expected)
         {
             Table testObject = new Table(headings, alignment, dataTree);
-            List<string> actual = testObject.Create();
+            List<int> actual = testObject.MaxStringLength;
 
             Assert.Equal(expected, actual);
         }
