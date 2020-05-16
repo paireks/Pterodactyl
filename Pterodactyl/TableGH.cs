@@ -16,8 +16,9 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Table Headings", "Table Headings", "Headings inside table as list", GH_ParamAccess.list);
-            pManager.AddTextParameter("Data", "Data", "Data as tree", GH_ParamAccess.tree);
+            pManager.AddTextParameter("Table Headings", "Table Headings", "Headings inside table as text list", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Alignment", "Alignment", "Alignment for each column as matching integer list. 0 = left, 1 = center, 2 = right", GH_ParamAccess.list);
+            pManager.AddTextParameter("Data Tree", "Data Tree", "Data as tree", GH_ParamAccess.tree);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -30,7 +31,7 @@ namespace Pterodactyl
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylTable;
             }
         }
         public override Guid ComponentGuid
