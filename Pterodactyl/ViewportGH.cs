@@ -64,7 +64,7 @@ namespace Pterodactyl
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylViewport;
             }
         }
         public override GH_Exposure Exposure

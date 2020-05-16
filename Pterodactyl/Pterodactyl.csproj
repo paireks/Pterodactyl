@@ -60,7 +60,9 @@
   <ItemGroup>
     <Compile Include="CreateReportGH.cs" />
     <Compile Include="DynamicMathBlockGH.cs" />
+    <Compile Include="EmphasisGH.cs" />
     <Compile Include="HeadingGH.cs" />
+    <Compile Include="HorizontalLineGH.cs" />
     <Compile Include="HyperlinkGH.cs" />
     <Compile Include="ImageGH.cs" />
     <Compile Include="MathBlockGH.cs" />
@@ -75,8 +77,11 @@
     <Compile Include="SaveReportGH.cs" />
     <Compile Include="PterodactylInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrikeGH.cs" />
+    <Compile Include="StrongGH.cs" />
     <Compile Include="TableGH.cs" />
     <Compile Include="TaskListGH.cs" />
+    <Compile Include="UnderlineGH.cs" />
     <Compile Include="UnorderedListGH.cs" />
     <Compile Include="ViewportGH.cs" />
   </ItemGroup>
@@ -123,6 +128,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylViewport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylOrderedList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylDynamicMathBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylMathBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylEmphasis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylStrong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylUnderline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylHorizontalLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylStrike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hyperlink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylHyperlink.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

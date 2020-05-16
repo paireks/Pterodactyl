@@ -51,7 +51,7 @@ namespace Pterodactyl
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylDynamicMathBlock;
             }
         }
         public override GH_Exposure Exposure

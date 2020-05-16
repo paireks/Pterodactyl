@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
+using Rhino.Geometry;
 
 namespace Pterodactyl
 {
-    public class TableGH : GH_Component
+    public class EmphasisGH : GH_Component
     {
-        public TableGH()
-          : base("Table", "Table",
-              "Insert table",
-              "Pterodactyl", "Parts")
+        public EmphasisGH()
+          : base("Emphasis", "Emphasis",
+              "Format text -> emphasis",
+              "Pterodactyl", "Format")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Table Headings", "Table Headings", "Headings inside table as text list", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Alignment", "Alignment", "Alignment for each column as matching integer list. 0 = left, 1 = center, 2 = right", GH_ParamAccess.list);
-            pManager.AddTextParameter("Data Tree", "Data Tree", "Data as tree", GH_ParamAccess.tree);
+            pManager.AddTextParameter("Text", "Text", "Text to format",
+            GH_ParamAccess.item, "roar!");
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -30,12 +30,12 @@ namespace Pterodactyl
         {
             get
             {
-                return Properties.Resources.PterodactylTable;
+                return Properties.Resources.PterodactylEmphasis;
             }
         }
         public override Guid ComponentGuid
         {
-            get { return new Guid("a495a759-ad79-446c-9272-644766102a8b"); }
+            get { return new Guid("92a5c76a-6b8f-40bc-846c-95b6868c924f"); }
         }
     }
 }
