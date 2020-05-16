@@ -17,7 +17,8 @@ namespace Pterodactyl
         {
             pManager.AddTextParameter("Table Headings", "Table Headings", "Headings inside table as text list", GH_ParamAccess.list);
             pManager.AddNumberParameter("Alignment", "Alignment", "Alignment for each column as matching integer list. 0 = left, 1 = center, 2 = right", GH_ParamAccess.list);
-            pManager.AddTextParameter("Data Tree", "Data Tree", "Data as tree", GH_ParamAccess.tree);
+            pManager.AddTextParameter("Data Tree", "Data Tree", "Data as tree. Each branch is treated as one column." +
+                " Inside each branch should be a list of text elements, elements represent rows inside that column.", GH_ParamAccess.tree);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {

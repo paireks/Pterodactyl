@@ -30,8 +30,32 @@ namespace UnitTestEngine
                     { "r", "h" } 
                 },
                 new List<int> { 6, 7, 1 });
-        }
 
+            Add(new List<string> { "", "a"},
+                new List<int> { 0, 2 },
+                new string[,]
+                {
+                    { "", "", "" },
+                    { "a", "a", "a" },
+                },
+                new List<int> { 0, 1 });
+        }
+    }
+
+    public class TestPrepareColumnSize
+    {
+        [Theory]
+        [InlineData(0, 4)]
+        [InlineData(1, 4)]
+        [InlineData(4, 4)]
+        [InlineData(5, 5)]
+        [InlineData(1000, 1000)]
+        public void Data(int maxStringLength, int expected)
+        {
+            Table testObject = new Table(new List<string> {""}, new List<int> {0}, new string[,] { {"0","0"} });
+            int actual = testObject.PrepareColumnSize(maxStringLength);
+            Assert.Equal(expected, actual);
+        }
     }
 
     public class TestTable
