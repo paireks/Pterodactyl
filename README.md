@@ -1,6 +1,8 @@
 # Pterodactyl
 
-![logo pterodactyl 650x650px.png](https://github.com/paireks/Pterodactyl/blob/master/Images/logo%20pterodactyl%20650x650px.png?raw=true)
+<p align="center">
+  <img width="650" height="650" src="https://github.com/paireks/Pterodactyl/blob/master/Images/logo%20pterodactyl%20650x650px.png">
+</p>
 
 ## Purpose
 
@@ -12,7 +14,9 @@ Pterodactyl sends data (saves it locally) as .md, which is Markdown filename ext
 
 Basically it works like this:
 
-
+<p align="center">
+  <img width="500" src="https://github.com/paireks/Pterodactyl/blob/master/Images/Graph.png">
+</p>
 
 You can try other Markdown editors, Typora is recommended. 
 
@@ -20,12 +24,12 @@ You can try other Markdown editors, Typora is recommended.
 
 ## Features (1.0.0)
 
-
+![1_0_0.png](https://github.com/paireks/Pterodactyl/blob/master/Images/1_0_0.png?raw=true)
 
 - Format text (strong, emphasis, underline, strike)
 - Insert images
 - Create tables
-- Create lists (ordered list, unordered list, task list) 
+- Create lists (ordered list, unordered list, task list)
 - Capture and insert Rhino viewports
 - Create pie charts
 - Creates and saves report
