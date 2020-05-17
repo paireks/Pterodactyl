@@ -1,8 +1,6 @@
 # Pterodactyl
 
-[TOC]
-
-
+![logo pterodactyl 650x650px.png](https://github.com/paireks/Pterodactyl/blob/master/Images/logo%20pterodactyl%20650x650px.png?raw=true)
 
 ## Purpose
 
