@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
-using Rhino.Geometry;
+using PterodactylEngine;
 
 namespace Pterodactyl
 {
@@ -16,6 +16,7 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
+
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -23,7 +24,11 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            string reportPart;
+            HorizontalLine reportObject = new HorizontalLine();
+            reportPart = reportObject.Create();
 
+            DA.SetData(0, reportPart);
         }
         protected override System.Drawing.Bitmap Icon
         {

@@ -1,13 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PterodactylEngine
 {
-    class HorizontalLine
+    public class HorizontalLine
     {
+        public string Create()
+        {
+            string reportPart = "";
+            string linePart = new string('-', 6);
 
+            reportPart = Environment.NewLine + linePart + Environment.NewLine;
+
+            return reportPart;
+        }
     }
 }

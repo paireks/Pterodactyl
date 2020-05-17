@@ -1,13 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using PterodactylEngine;
+using Xunit;
 
 namespace UnitTestEngine
 {
-    class TestHorizontalLine
+    public class TestHorizontalLine
     {
-
+        [Fact]
+        public void CorrectData()
+        {
+            string expected = Environment.NewLine +  "------" + Environment.NewLine;
+            HorizontalLine testObject = new HorizontalLine();
+            Assert.Equal(expected, testObject.Create());
+        }
     }
 }
+

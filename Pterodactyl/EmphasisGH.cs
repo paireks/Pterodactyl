@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
-using Rhino.Geometry;
+using PterodactylEngine;
 
 namespace Pterodactyl
 {
@@ -25,6 +25,15 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            string text = string.Empty;
+
+            DA.GetData(0, ref text);
+
+            string reportPart;
+            Emphasis reportObject = new Emphasis(text);
+            reportPart = reportObject.Create();
+
+            DA.SetData(0, reportPart);
         }
         protected override System.Drawing.Bitmap Icon
         {

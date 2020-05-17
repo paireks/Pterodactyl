@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="CreateReport.cs" />
     <Compile Include="DynamicMathBlock.cs" />
+    <Compile Include="Emphasis.cs" />
     <Compile Include="Heading.cs" />
     <Compile Include="HorizontalLine.cs" />
     <Compile Include="Hyperlink.cs" />
@@ -70,8 +71,11 @@
     <Compile Include="Quote.cs" />
     <Compile Include="SaveReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Strike.cs" />
+    <Compile Include="Strong.cs" />
     <Compile Include="Table.cs" />
     <Compile Include="TaskList.cs" />
+    <Compile Include="Underline.cs" />
     <Compile Include="UnorderedList.cs" />
   </ItemGroup>
   <ItemGroup>
