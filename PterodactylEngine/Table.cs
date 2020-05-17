@@ -52,7 +52,7 @@ namespace PterodactylEngine
             set { _dataTree = value; }
         }
 
-        public List<int> MaxStringLength
+        public List<int> ColumnSizes
         {
             get
             {
@@ -60,7 +60,7 @@ namespace PterodactylEngine
                 
                 for (int i = 0; i < Headings.Count; i++) // for each column
                 {
-                    int currentMax = Headings[i].Length;
+                    int currentMax = Math.Max(Headings[i].Length, 4);
 
                     for (int j = 0; j < DataTree.GetLength(1); j++) // for each line in that column -> search longest string for column
                     {
@@ -77,20 +77,52 @@ namespace PterodactylEngine
             }
         }
 
-        public int PrepareColumnSize(int maxStringLength)
+        public string HeadingReport
         {
-            return Math.Max(maxStringLength, 4);
-        }
-
-        public List<string> CreateHeadingList(List<string> headingsList, int columnSize)
-        {
-            List<string> headingsReportPart = new List<string>();
-            for (int i = 0; i < headingsList.Count; i++)
+            get 
             {
-                
-            }
+                string headingsReportPart = "";
+                for (int i = 0; i < Headings.Count; i++) //for each column
+                {
+                    string spaces = new string(' ', ColumnSizes[i] - Headings[i].Length);
+                    headingsReportPart += "| " + Headings[i] + spaces + " ";
+                }
+                headingsReportPart += "|";
 
-            return headingsReportPart;
+                return headingsReportPart;
+            }
         }
+
+        public string AlignmentReport
+        {
+            get
+            {
+                string alignmentreportPart = "";
+
+
+                for (int i = 0; i < Headings.Count; i++) //for each column
+                {
+                    string alignmentStartSymbol = "-";
+                    string alignmentEndSymbol = "-";
+                    if (Alignment[i] == 1)
+                    {
+                        alignmentStartSymbol = ":";
+                        alignmentEndSymbol = ":";
+                    }
+                    else if (Alignment[i] == 2)
+                    {
+                        alignmentEndSymbol = ":";
+                    }
+                    else{}
+
+                    string symbols = new string('-', ColumnSizes[i] - 2);
+                    alignmentreportPart += "| " + alignmentStartSymbol + symbols + alignmentEndSymbol + " ";
+                }
+                alignmentreportPart += "|";
+
+                return alignmentreportPart;
+            }
+        }
+
     }
 }
