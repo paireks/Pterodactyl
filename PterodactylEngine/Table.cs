@@ -28,10 +28,18 @@ namespace PterodactylEngine
             }
 
         }
-
         public List<string> Create()
         {
-            return new List<string>();
+            List<string> reportParts = new List<string>();
+
+            reportParts.Add(HeadingReport);
+            reportParts.Add(AlignmentReport);
+            for (int i = 0; i < RowsReport.Count; i++)
+            {
+                reportParts.Add(RowsReport[i]);
+            }
+
+            return reportParts;
         }
 
         public List<string> Headings
