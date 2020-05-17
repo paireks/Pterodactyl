@@ -53,6 +53,27 @@ namespace UnitTestEngine
         }
     }
 
+    public class TestTableExceptionHelper : TheoryData<List<string>, List<int>, string[,], string>
+    {
+        public TestTableExceptionHelper()
+        {
+            Add(new List<string> { "Example column", "Example 2", "C3", "C4" },
+                new List<int> { 0, 2, 1 },
+                new string[,] { { "2", "5" }, { "lol", "hrhrhrh rhrhh" }, { "r", "h" }, { "aaaaaaaaaa", "bbbbbbbbb" } },
+                "Headings list should match alignment list. " +
+                "Check if both input lists have the same number of elements.");
+            Add(new List<string> { "Example column", "Example 2", "C3", "C4" },
+                new List<int> { 0, 2, 1, 0 },
+                new string[,] { { "2", "5" }, { "lol", "hrhrhrh rhrhh" }, { "r", "h" }},
+                "Headings list should match number of columns given in data tree. " +
+                "Check if both inputs have the same number of elements.");
+            Add(new List<string> { "Example column", "Example 2", "C3", "C4" },
+                new List<int> { 0, 2, 1, 5 },
+                new string[,] { { "2", "5" }, { "lol", "hrhrhrh rhrhh" }, { "r", "h" }, { "aaaaaaaaaa", "bbbbbbbbb" } },
+                "Alignment should be an integer between 0 and 2");
+        }
+    }
+
     public class TestTable
     {
         [Theory]
@@ -128,6 +149,14 @@ namespace UnitTestEngine
             List<string> actual = testObject.Create();
 
             Assert.Equal(expected, actual);
+        }
+
+        [Theory]
+        [ClassData(typeof(TestTableExceptionHelper))]
+        public void CheckExceptions(List<string> headings, List<int> alignment, string[,] dataTree, string message)
+        {
+            var exception = Assert.Throws<ArgumentException>(() => new Table(headings, alignment, dataTree));
+            Assert.Equal(message, exception.Message);
         }
     }
 }

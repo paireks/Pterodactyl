@@ -51,9 +51,21 @@ namespace PterodactylEngine
         public List<int> Alignment
         {
             get { return _alignment; }
-            set { _alignment = value; }
+            set
+            {
+                for (int i = 0; i < value.Count; i++)
+                {
+                    if (new List<int> { 0, 1, 2 }.Contains(value[i]))
+                    {
+                        _alignment = value;
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Alignment should be an integer between 0 and 2");
+                    }
+                }
+            }
         }
-
         public string[,] DataTree
         {
             get { return _dataTree; }
