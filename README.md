@@ -10,7 +10,7 @@ Pterodactyl is an open-source plug-in for Grasshopper (Rhino 6) created for the 
 
 ## How it works?
 
-Pterodactyl sends data (saves it locally) as .md, which is Markdown filename extension. To open it or to save it as PDF or HTML, you need Typora, which is completely free, lightweight text editor. You can download it [here](https://typora.io/).
+Pterodactyl sends data (saves it locally) as .md, which is Markdown filename extension. To open it or to save it as pdf, html, docx or LaTeX, you need Typora, which is completely free, lightweight text editor. You can download it [here](https://typora.io/).
 
 Basically it works like this:
 
