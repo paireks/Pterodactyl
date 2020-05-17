@@ -58,12 +58,109 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SaveReportComponent.cs" />
+    <Compile Include="CreateReportGH.cs" />
+    <Compile Include="DynamicMathBlockGH.cs" />
+    <Compile Include="EmphasisGH.cs" />
+    <Compile Include="HeadingGH.cs" />
+    <Compile Include="HorizontalLineGH.cs" />
+    <Compile Include="HyperlinkGH.cs" />
+    <Compile Include="ImageGH.cs" />
+    <Compile Include="MathBlockGH.cs" />
+    <Compile Include="OrderedListGH.cs" />
+    <Compile Include="PieChartGH.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="QuoteGH.cs" />
+    <Compile Include="SaveReportGH.cs" />
     <Compile Include="PterodactylInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StrikeGH.cs" />
+    <Compile Include="StrongGH.cs" />
+    <Compile Include="TableGH.cs" />
+    <Compile Include="TaskListGH.cs" />
+    <Compile Include="UnderlineGH.cs" />
+    <Compile Include="UnorderedListGH.cs" />
+    <Compile Include="ViewportGH.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PterodactylEngine\PterodactylEngine.csproj">
+      <Project>{051e55ca-2599-4a05-83b3-41a86b17bfd9}</Project>
+      <Name>PterodactylEngine</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PterodactylRh\PterodactylRh.csproj">
+      <Project>{02209457-76e7-46a2-87e1-81a1d6cd561c}</Project>
+      <Name>PterodactylRh</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\PterodactylUnorderedList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPieChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylTaskList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylCreateReport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylQuote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylHeading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylSaveReport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylTable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylViewport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylOrderedList.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylDynamicMathBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylMathBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylEmphasis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylStrong.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylUnderline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylHorizontalLine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylStrike.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hyperlink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylHyperlink.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

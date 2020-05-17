@@ -17,7 +17,6 @@ namespace Pterodactyl
         {
             get
             {
-                //Return a 24x24 pixel bitmap to represent this GHA library.
                 return null;
             }
         }
@@ -40,15 +39,13 @@ namespace Pterodactyl
         {
             get
             {
-                //Return a string identifying you or your company.
-                return "Wojciech Radaczyński";
+                return "Wojciech Radaczynski";
             }
         }
         public override string AuthorContact
         {
             get
             {
-                //Return a string representing your preferred contact details.
                 return "w.radaczynski@gmail.com";
             }
         }
