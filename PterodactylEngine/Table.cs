@@ -124,5 +124,30 @@ namespace PterodactylEngine
             }
         }
 
+        public List<string> RowsReport
+        {
+            get
+            {
+                List<string> rowsReport = new List<string>();
+
+                for (int i = 0; i < DataTree.GetLength(1); i++) //for each row
+                {
+                    string row = "";
+
+                    for (int j = 0; j < Headings.Count; j++) //for each column
+                    {
+                        string spaces = new string(' ', ColumnSizes[j] - DataTree[j, i].Length);
+
+                        row += "| " + DataTree[j, i] + spaces + " ";
+
+                    }
+                    row += "|";
+                    rowsReport.Add(row);
+                }
+
+                return rowsReport;
+            }
+        }
+
     }
 }
