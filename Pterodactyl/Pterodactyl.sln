@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pterodactyl", "Pterodactyl.csproj", "{74F03D25-2367-48B5-8AE7-76923EC6E69E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestsGH", "..\UnitTests\UnitTestsGH.csproj", "{29A56BBA-3764-4DFF-A958-118C694D1890}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PterodactylTests", "..\UnitTests\PterodactylTests.csproj", "{29A56BBA-3764-4DFF-A958-118C694D1890}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PterodactylEngine", "..\PterodactylEngine\PterodactylEngine.csproj", "{051E55CA-2599-4A05-83B3-41A86B17BFD9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTestEngine", "..\UnitTestEngine\UnitTestEngine.csproj", "{3BFA51A0-AF31-45B0-8280-C6FB72003BE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PterodactylEngineTests", "..\UnitTestEngine\PterodactylEngineTests.csproj", "{3BFA51A0-AF31-45B0-8280-C6FB72003BE3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PterodactylRh", "..\PterodactylRh\PterodactylRh.csproj", "{02209457-76E7-46A2-87E1-81A1D6CD561C}"
 EndProject
