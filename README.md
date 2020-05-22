@@ -1,5 +1,3 @@
-[![Coverage Status](https://coveralls.io/repos/github/paireks/Pterodactyl/badge.svg?branch=master)](https://coveralls.io/github/paireks/Pterodactyl?branch=master)
-
 # Pterodactyl
 
 <p align="center">
