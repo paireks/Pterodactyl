@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PterodactylEngineTests", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PterodactylRh", "..\PterodactylRh\PterodactylRh.csproj", "{02209457-76E7-46A2-87E1-81A1D6CD561C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PterodactylCharts", "..\PterodactylCharts\PterodactylCharts.csproj", "{1F4A1C4A-7520-4CE1-931D-2B7E56693F34}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +50,12 @@ Global
 		{02209457-76E7-46A2-87E1-81A1D6CD561C}.PterodactylEngineTests|Any CPU.Build.0 = PterodactylEngineTests|Any CPU
 		{02209457-76E7-46A2-87E1-81A1D6CD561C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02209457-76E7-46A2-87E1-81A1D6CD561C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F4A1C4A-7520-4CE1-931D-2B7E56693F34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F4A1C4A-7520-4CE1-931D-2B7E56693F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F4A1C4A-7520-4CE1-931D-2B7E56693F34}.PterodactylEngineTests|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4A1C4A-7520-4CE1-931D-2B7E56693F34}.PterodactylEngineTests|Any CPU.Build.0 = Release|Any CPU
+		{1F4A1C4A-7520-4CE1-931D-2B7E56693F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F4A1C4A-7520-4CE1-931D-2B7E56693F34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
