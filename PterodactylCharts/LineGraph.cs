@@ -12,8 +12,23 @@ namespace PterodactylCharts
     {
         public LineGraph()
         {
-
             InitializeComponent();
+        }
+
+        public void LineGraphData(bool showGraph, string title,
+            List<double> xValues, List<double> yValues, string xName,
+            string yName,
+            List<int> graphSizeSettings, string path) 
+        {
+
+            ShowGraph = showGraph;
+            Title = title;
+            XValues = xValues;
+            YValues = yValues;
+            XName = xName;
+            YName = yName;
+            GraphSizeSettings = graphSizeSettings;
+            Path = path;
 
             //Create Plotview object
             PlotView myPlot = new PlotView();
@@ -41,31 +56,12 @@ namespace PterodactylCharts
 
             //Set up plot for display
             myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            myPlot.Location = new System.Drawing.Point(GraphSizeSettings[0], GraphSizeSettings[1]);
-            myPlot.Size = new System.Drawing.Size(GraphSizeSettings[2], GraphSizeSettings[3]);
+            myPlot.Location = new System.Drawing.Point(0, 0);
+            myPlot.Size = new System.Drawing.Size(GraphSizeSettings[0], GraphSizeSettings[1]);
             myPlot.TabIndex = 0;
 
             //Add plot control to form
             Controls.Add(myPlot);
-        }
-
-
-    }
-    public class LineGraphData
-    {
-        public LineGraphData(bool showGraph, string title,
-            List<double> xValues, List<double> yValues, string xName,
-            string yName,
-            List<int> graphSizeSettings, string path)
-        {
-            ShowGraph = showGraph;
-            Title = title;
-            XValues = xValues;
-            YValues = yValues;
-            XName = xName;
-            YName = yName;
-            GraphSizeSettings = graphSizeSettings;
-            Path = path;
         }
 
         public bool ShowGraph { get; set; }

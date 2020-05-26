@@ -26,7 +26,7 @@ namespace Pterodactyl
             pManager.AddTextParameter("X Name", "X Name", "Sets x name", GH_ParamAccess.item, "Time");
             pManager.AddTextParameter("Y Name", "Y Name", "Sets y name", GH_ParamAccess.item, "Awesomeness");
             pManager.AddIntegerParameter("Graph Size Settings", "Graph Size Settings",
-                "Graph settings created by Graph Size Settings component", GH_ParamAccess.list, new List<int>{0, 0, 500, 500});
+                "Graph settings created by Graph Size Settings component", GH_ParamAccess.list, new List<int>{500, 500});
             pManager.AddTextParameter("Path", "Path", "Set path where graph should be saved as .png file" +
                                                       " if you want to save it, and/or if you want to create Report Part",
                 GH_ParamAccess.item);
@@ -55,7 +55,8 @@ namespace Pterodactyl
             DA.GetDataList(6, graphSizeSettings);
             DA.GetData(7, ref path);
 
-            LineGraphData graphObject = new LineGraphData(showGraph, title, xValues, yValues, xName, yName, graphSizeSettings, path);
+            LineGraph graphObject = new LineGraph();
+            graphObject.LineGraphData(showGraph, title, xValues, yValues, xName, yName, graphSizeSettings, path);
             if (showGraph)
             {
                 graphObject.ShowDialog();
