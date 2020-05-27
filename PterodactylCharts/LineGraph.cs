@@ -29,6 +29,11 @@ namespace PterodactylCharts
             YName = yName;
             Path = path;
 
+            if (XValues.Count != YValues.Count)
+            {
+                throw new ArgumentException("X Values should math Y Values - check if both lists have the same number of elements.");
+            }
+
             PlotView myPlot = new PlotView();
 
             var myModel = new PlotModel {Title = Title};
@@ -88,7 +93,6 @@ namespace PterodactylCharts
         public List<double> YValues { get; set; }
         public string XName { get; set; }
         public string YName { get; set; }
-        public List<int> GraphSizeSettings { get; set; }
         public string Path { get; set; }
     }
 }
