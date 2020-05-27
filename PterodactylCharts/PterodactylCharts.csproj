@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LineGraphEngine.cs" />
     <Compile Include="LineGraph.cs">
       <SubType>Form</SubType>
     </Compile>

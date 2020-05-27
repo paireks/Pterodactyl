@@ -61,6 +61,7 @@ namespace Pterodactyl
             }
 
             string reportPart = graphObject.Create();
+            graphObject.Export();
 
             DA.SetData(0, reportPart);
 

@@ -20,79 +20,21 @@ namespace PterodactylCharts
             List<double> xValues, List<double> yValues, string xName,
             string yName, string path)
         {
-
-            ShowGraph = showGraph;
-            Title = title;
-            XValues = xValues;
-            YValues = yValues;
-            XName = xName;
-            YName = yName;
-            Path = path;
-
-            if (XValues.Count != YValues.Count)
-            {
-                throw new ArgumentException("X Values should math Y Values - check if both lists have the same number of elements.");
-            }
-
-            PlotView myPlot = new PlotView();
-
-            var myModel = new PlotModel {Title = Title};
-
-            var lineSeries = new LineSeries
-            {
-                Color = OxyColors.Blue,
-                MarkerFill = OxyColors.Transparent,
-                DataFieldX = XName,
-                DataFieldY = YName,
-                Background = OxyColors.White
-            };
-
-            for (int i = 0; i < XValues.Count; i++)
-            {
-                lineSeries.Points.Add(new DataPoint(XValues[i], YValues[i]));
-            }
-
-            myModel.Series.Add(lineSeries);
-            myModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = XName });
-            myModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = YName });
-
-            myPlot.Model = myModel;
-
-            myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            myPlot.Location = new System.Drawing.Point(0, 0);
-            myPlot.Size = new System.Drawing.Size(600, 400);
-            myPlot.TabIndex = 0;
-
+            LineGraphObject = new LineGraphEngine(showGraph, title, xValues, yValues, xName, yName, path);
+            PlotView myPlot = LineGraphObject.ChartCreator();
             Controls.Add(myPlot);
-
-            if (Path.EndsWith(".png"))
-            {
-                var pngExporter = new PngExporter {Width = 600, Height = 400, Background = OxyColors.White};
-                pngExporter.ExportToFile(myModel, Path);
-            }
         }
-
         public string Create()
         {
-            string reportPart = "";
-
-            if (Path.EndsWith(".png"))
-            {
-                reportPart = "![" + Title + "](" + Path + ")";
-            }
-            else
-            {
-                reportPart = "";
-            }
+            string reportPart = LineGraphObject.Create();
             return reportPart;
         }
 
-        public bool ShowGraph { get; set; }
-        public string Title { get; set; }
-        public List<double> XValues { get; set; }
-        public List<double> YValues { get; set; }
-        public string XName { get; set; }
-        public string YName { get; set; }
-        public string Path { get; set; }
+        public void Export()
+        {
+            LineGraphObject.Export();
+        }
+
+        public LineGraphEngine LineGraphObject { get; set; }
     }
 }
