@@ -25,11 +25,10 @@ namespace Pterodactyl
                 GH_ParamAccess.list, new List<double> { 0.0, 10.0 });
             pManager.AddTextParameter("X Name", "X Name", "Sets x name", GH_ParamAccess.item, "Time");
             pManager.AddTextParameter("Y Name", "Y Name", "Sets y name", GH_ParamAccess.item, "Awesomeness");
-            pManager.AddIntegerParameter("Graph Size Settings", "Graph Size Settings",
-                "Graph settings created by Graph Size Settings component", GH_ParamAccess.list, new List<int>{500, 500});
             pManager.AddTextParameter("Path", "Path", "Set path where graph should be saved as .png file" +
-                                                      " if you want to save it, and/or if you want to create Report Part",
-                GH_ParamAccess.item);
+                                                      " if you want to save it, and/or if you want to create Report Part. Remember to end " +
+                                                      "path with .png extension.",
+                GH_ParamAccess.item, "");
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -52,16 +51,19 @@ namespace Pterodactyl
             DA.GetDataList(3, yValues);
             DA.GetData(4, ref xName);
             DA.GetData(5, ref yName);
-            DA.GetDataList(6, graphSizeSettings);
-            DA.GetData(7, ref path);
+            DA.GetData(6, ref path);
 
             LineGraph graphObject = new LineGraph();
-            graphObject.LineGraphData(showGraph, title, xValues, yValues, xName, yName, graphSizeSettings, path);
+            graphObject.LineGraphData(showGraph, title, xValues, yValues, xName, yName, path);
             if (showGraph)
             {
                 graphObject.ShowDialog();
             }
-            
+
+            string reportPart = graphObject.Create();
+
+            DA.SetData(0, reportPart);
+
         }
         protected override System.Drawing.Bitmap Icon
         {

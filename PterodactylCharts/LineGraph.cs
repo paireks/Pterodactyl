@@ -4,6 +4,7 @@ using System.IO;
 using OxyPlot.WindowsForms;
 using OxyPlot;
 using System.Windows.Forms;
+using OxyPlot.Axes;
 using OxyPlot.Series;
 
 namespace PterodactylCharts
@@ -17,8 +18,7 @@ namespace PterodactylCharts
 
         public void LineGraphData(bool showGraph, string title,
             List<double> xValues, List<double> yValues, string xName,
-            string yName,
-            List<int> graphSizeSettings, string path) 
+            string yName, string path)
         {
 
             ShowGraph = showGraph;
@@ -27,14 +27,11 @@ namespace PterodactylCharts
             YValues = yValues;
             XName = xName;
             YName = yName;
-            GraphSizeSettings = graphSizeSettings;
             Path = path;
 
-            //Create Plotview object
             PlotView myPlot = new PlotView();
 
-            //Create Plotmodel object
-            var myModel = new PlotModel { Title = Title };
+            var myModel = new PlotModel {Title = Title};
 
             var lineSeries = new LineSeries
             {
@@ -43,25 +40,45 @@ namespace PterodactylCharts
                 DataFieldX = XName,
                 DataFieldY = YName
             };
-            
+
             for (int i = 0; i < XValues.Count; i++)
             {
                 lineSeries.Points.Add(new DataPoint(XValues[i], YValues[i]));
             }
 
             myModel.Series.Add(lineSeries);
+            myModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = XName });
+            myModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = YName });
 
-            //Assign PlotModel to PlotView
             myPlot.Model = myModel;
 
-            //Set up plot for display
             myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
             myPlot.Location = new System.Drawing.Point(0, 0);
-            myPlot.Size = new System.Drawing.Size(GraphSizeSettings[0], GraphSizeSettings[1]);
+            myPlot.Size = new System.Drawing.Size(600, 400);
             myPlot.TabIndex = 0;
 
-            //Add plot control to form
             Controls.Add(myPlot);
+
+            if (Path.EndsWith(".png"))
+            {
+                var pngExporter = new PngExporter {Width = 600, Height = 400, Background = OxyColors.White};
+                pngExporter.ExportToFile(myModel, Path);
+            }
+        }
+
+        public string Create()
+        {
+            string reportPart = "";
+
+            if (Path.EndsWith(".png"))
+            {
+                reportPart = "![" + Title + "](" + Path + ")";
+            }
+            else
+            {
+                reportPart = "";
+            }
+            return reportPart;
         }
 
         public bool ShowGraph { get; set; }
