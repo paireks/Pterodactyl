@@ -38,7 +38,8 @@ namespace PterodactylCharts
                 Color = OxyColors.Blue,
                 MarkerFill = OxyColors.Transparent,
                 DataFieldX = XName,
-                DataFieldY = YName
+                DataFieldY = YName,
+                Background = OxyColors.White
             };
 
             for (int i = 0; i < XValues.Count; i++)
