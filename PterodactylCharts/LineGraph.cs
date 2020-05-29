@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using OxyPlot.WindowsForms;
 using OxyPlot;
@@ -17,10 +18,10 @@ namespace PterodactylCharts
         }
 
         public void LineGraphData(bool showGraph, string title,
-            List<double> xValues, List<double> yValues, string xName,
-            string yName, string path)
+            List<double> xValues, List<double> yValues, string xName, string yName,
+            Color color, string path)
         {
-            LineGraphObject = new LineGraphEngine(showGraph, title, xValues, yValues, xName, yName, path);
+            LineGraphObject = new LineGraphEngine(showGraph, title, xValues, yValues, xName, yName, color, path);
             PlotView myPlot = LineGraphObject.ChartCreator();
             Controls.Add(myPlot);
         }

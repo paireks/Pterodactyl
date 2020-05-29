@@ -10,10 +10,10 @@ using OxyPlot.Series;
 
 namespace PterodactylCharts
 {
-    public class LineGraphEngine
+    public class PointGraphEngine
     {
 
-        public LineGraphEngine(bool showGraph, string title,
+        public PointGraphEngine(bool showGraph, string title,
             List<double> xValues, List<double> yValues, string xName,
             string yName, Color color, string path)
         {
@@ -39,21 +39,21 @@ namespace PterodactylCharts
 
             MyModel = new PlotModel { Title = Title };
 
-            var lineSeries = new LineSeries
+            var pointSeries = new ScatterSeries
             {
-                Color = OxyColor.FromRgb(r: ColorData.R, g: ColorData.G, b: ColorData.B),
-                MarkerFill = OxyColors.Transparent,
-                DataFieldX = XName,
-                DataFieldY = YName,
+                MarkerType = MarkerType.Circle,
+                MarkerFill = OxyColor.FromRgb(r: ColorData.R, g: ColorData.G, b: ColorData.B),
+                DataFieldX = "Time",
+                DataFieldY = "Value",
                 Background = OxyColors.White
             };
 
             for (int i = 0; i < XValues.Count; i++)
             {
-                lineSeries.Points.Add(new DataPoint(XValues[i], YValues[i]));
+                pointSeries.Points.Add(new ScatterPoint(XValues[i], YValues[i]));
             }
 
-            MyModel.Series.Add(lineSeries);
+            MyModel.Series.Add(pointSeries);
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = XName });
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = YName });
 

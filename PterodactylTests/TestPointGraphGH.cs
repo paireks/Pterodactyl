@@ -5,30 +5,30 @@ using Xunit;
 
 namespace UnitTestsGH
 {
-    public class TestLineGraphGhHelper
+    public class TestPointGraphGhHelper
     {
-        public static LineGraphGH TestObject
+        public static PointGraphGH TestObject
         {
             get
             {
-                LineGraphGH testObject = new LineGraphGH();
+                PointGraphGH testObject = new PointGraphGH();
                 return testObject;
             }
         }
     }
-    public class TestLineGraphGh
+    public class TestPointGraphGh
     {
         [Theory]
-        [InlineData("Line Graph", "Line Graph",
-            "Create line graph",
+        [InlineData("Point Graph", "Point Graph",
+            "Create point graph",
             "Pterodactyl", "Basic Graphs")]
         public void TestName(string name, string nickname, string description, string category, string subCategory)
         {
-            Assert.Equal(name, TestLineGraphGhHelper.TestObject.Name);
-            Assert.Equal(nickname, TestLineGraphGhHelper.TestObject.NickName);
-            Assert.Equal(description, TestLineGraphGhHelper.TestObject.Description);
-            Assert.Equal(category, TestLineGraphGhHelper.TestObject.Category);
-            Assert.Equal(subCategory, TestLineGraphGhHelper.TestObject.SubCategory);
+            Assert.Equal(name, TestPointGraphGhHelper.TestObject.Name);
+            Assert.Equal(nickname, TestPointGraphGhHelper.TestObject.NickName);
+            Assert.Equal(description, TestPointGraphGhHelper.TestObject.Description);
+            Assert.Equal(category, TestPointGraphGhHelper.TestObject.Category);
+            Assert.Equal(subCategory, TestPointGraphGhHelper.TestObject.SubCategory);
         }
 
         [Theory]
@@ -45,10 +45,10 @@ namespace UnitTestsGH
         public void TestRegisterInputParams(int id, string name, string nickname,
             string description, GH_ParamAccess access)
         {
-            Assert.Equal(name, TestLineGraphGhHelper.TestObject.Params.Input[id].Name);
-            Assert.Equal(nickname, TestLineGraphGhHelper.TestObject.Params.Input[id].NickName);
-            Assert.Equal(description, TestLineGraphGhHelper.TestObject.Params.Input[id].Description);
-            Assert.Equal(access, TestLineGraphGhHelper.TestObject.Params.Input[id].Access);
+            Assert.Equal(name, TestPointGraphGhHelper.TestObject.Params.Input[id].Name);
+            Assert.Equal(nickname, TestPointGraphGhHelper.TestObject.Params.Input[id].NickName);
+            Assert.Equal(description, TestPointGraphGhHelper.TestObject.Params.Input[id].Description);
+            Assert.Equal(access, TestPointGraphGhHelper.TestObject.Params.Input[id].Access);
         }
 
         [Theory]
@@ -56,17 +56,17 @@ namespace UnitTestsGH
         public void TestRegisterOutputParams(int id, string name, string nickname,
             string description, GH_ParamAccess access)
         {
-            Assert.Equal(name, TestLineGraphGhHelper.TestObject.Params.Output[id].Name);
-            Assert.Equal(nickname, TestLineGraphGhHelper.TestObject.Params.Output[id].NickName);
-            Assert.Equal(description, TestLineGraphGhHelper.TestObject.Params.Output[id].Description);
-            Assert.Equal(access, TestLineGraphGhHelper.TestObject.Params.Output[id].Access);
+            Assert.Equal(name, TestPointGraphGhHelper.TestObject.Params.Output[id].Name);
+            Assert.Equal(nickname, TestPointGraphGhHelper.TestObject.Params.Output[id].NickName);
+            Assert.Equal(description, TestPointGraphGhHelper.TestObject.Params.Output[id].Description);
+            Assert.Equal(access, TestPointGraphGhHelper.TestObject.Params.Output[id].Access);
         }
 
         [Fact]
         public void TestGuid()
         {
-            Guid expected = new Guid("d476c66a-0dd5-40a6-a30c-15e69a20ab15");
-            Guid actual = TestLineGraphGhHelper.TestObject.ComponentGuid;
+            Guid expected = new Guid("d476c66a-0dd5-40a6-a30c-15e69a20ab16");
+            Guid actual = TestPointGraphGhHelper.TestObject.ComponentGuid;
 
             Assert.Equal(expected, actual);
         }

@@ -80,6 +80,7 @@
     <Compile Include="MathBlockGH.cs" />
     <Compile Include="OrderedListGH.cs" />
     <Compile Include="PieChartGH.cs" />
+    <Compile Include="PointGraphGH.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

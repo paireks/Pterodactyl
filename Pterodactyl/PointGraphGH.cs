@@ -7,11 +7,11 @@ using PterodactylCharts;
 
 namespace Pterodactyl
 {
-    public class LineGraphGH : GH_Component
+    public class PointGraphGH : GH_Component
     {
-        public LineGraphGH()
-          : base("Line Graph", "Line Graph",
-              "Create line graph",
+        public PointGraphGH()
+          : base("Point Graph", "Point Graph",
+              "Create point graph",
               "Pterodactyl", "Basic Graphs")
         {
         }
@@ -25,7 +25,7 @@ namespace Pterodactyl
                 GH_ParamAccess.list, new List<double> { 1, 1.414214, 2, 2.828427, 4, 5.656854, 8, 11.313708, 16, 22.627417 });
             pManager.AddTextParameter("X Name", "X Name", "Sets x name", GH_ParamAccess.item, "Time");
             pManager.AddTextParameter("Y Name", "Y Name", "Sets y name", GH_ParamAccess.item, "Awesomeness");
-            pManager.AddColourParameter("Color", "Color", "Sets data color", GH_ParamAccess.item, Color.FromArgb(0, 0, 0));
+            pManager.AddColourParameter("Color", "Color", "Sets data color", GH_ParamAccess.item, Color.FromArgb(0,0,0));
             pManager.AddTextParameter("Path", "Path", "Set path where graph should be saved as .png file" +
                                                       " if you want to save it, and/or if you want to create Report Part. Remember to end " +
                                                       "path with .png extension.",
@@ -55,8 +55,8 @@ namespace Pterodactyl
             DA.GetData(6, ref color);
             DA.GetData(7, ref path);
 
-            LineGraph graphObject = new LineGraph();
-            graphObject.LineGraphData(showGraph, title, xValues, yValues, xName, yName, color, path);
+            PointGraph graphObject = new PointGraph();
+            graphObject.PointGraphData(showGraph, title, xValues, yValues, xName, yName, color, path);
             if (showGraph)
             {
                 graphObject.ShowDialog();
@@ -77,7 +77,7 @@ namespace Pterodactyl
         }
         public override Guid ComponentGuid
         {
-            get { return new Guid("d476c66a-0dd5-40a6-a30c-15e69a20ab15"); }
+            get { return new Guid("d476c66a-0dd5-40a6-a30c-15e69a20ab16"); }
         }
     }
 }
