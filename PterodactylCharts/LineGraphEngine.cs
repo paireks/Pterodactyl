@@ -29,7 +29,7 @@ namespace PterodactylCharts
             if (XValues.Count != YValues.Count)
             {
                 throw new ArgumentException(
-                    "X Values should math Y Values - check if both lists have the same number of elements.");
+                    "X Values should match Y Values - check if both lists have the same number of elements.");
             }
         }
 
@@ -41,7 +41,7 @@ namespace PterodactylCharts
 
             var lineSeries = new LineSeries
             {
-                Color = OxyColor.FromRgb(r: ColorData.R, g: ColorData.G, b: ColorData.B),
+                Color = OxyColor.FromArgb(a: ColorData.A, r: ColorData.R, g: ColorData.G, b: ColorData.B),
                 MarkerFill = OxyColors.Transparent,
                 DataFieldX = XName,
                 DataFieldY = YName,

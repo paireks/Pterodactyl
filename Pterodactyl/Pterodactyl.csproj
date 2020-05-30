@@ -69,6 +69,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarChartGH.cs" />
     <Compile Include="LineGraphGH.cs" />
     <Compile Include="CreateReportGH.cs" />
     <Compile Include="DynamicMathBlockGH.cs" />

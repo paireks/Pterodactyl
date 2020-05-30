@@ -19,7 +19,7 @@ namespace UnitTestEngine
             Add(true, "Test title", new List<double> { 0.0, 1.0 }, new List<double> { 0.0, 1.0 }, "x", "y", Color.Black, "", "");
             Add(false, "Test title", new List<double> { 0.0, 1.0 }, new List<double> { 0.0, 1.0 }, "x", "y", Color.Black, @"SampleFolder\Test.png",
                 @"![Test title](SampleFolder\Test.png)");
-            Add(false, "Test title", new List<double> { 0.0, 1.0 }, new List<double> { 0.0, 1.0 }, "x", "y", Color.FromArgb(red:10, blue:11, green:12), "", "");
+            Add(false, "Test title", new List<double> { 0.0, 1.0 }, new List<double> { 0.0, 1.0 }, "x", "y", Color.FromArgb(red:10, blue:11, green:12, alpha: 14), "", "");
         }
     }
     public class TestPointGraphEngineExceptionHelper : TheoryData<bool, string, List<double>, List<double>, string, string, Color, string, string>
@@ -27,9 +27,9 @@ namespace UnitTestEngine
         public TestPointGraphEngineExceptionHelper()
         {
             Add(false, "Test title", new List<double> { 0.0 }, new List<double> { 0.0, 1.0 }, "x", "y", Color.Black, "", 
-                "X Values should math Y Values - check if both lists have the same number of elements.");
+                "X Values should match Y Values - check if both lists have the same number of elements.");
             Add(false, "Test title", new List<double> { 0.0, 1.0 }, new List<double> { 0.0 }, "x", "y", Color.Black, "",
-                "X Values should math Y Values - check if both lists have the same number of elements.");
+                "X Values should match Y Values - check if both lists have the same number of elements.");
         }
     }
 

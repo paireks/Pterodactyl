@@ -54,6 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarChart.Designer.cs">
+      <DependentUpon>BarChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BarChartEngine.cs" />
     <Compile Include="LineGraphEngine.cs" />
     <Compile Include="LineGraph.cs">
       <SubType>Form</SubType>

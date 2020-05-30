@@ -10,26 +10,24 @@ using OxyPlot.Series;
 
 namespace PterodactylCharts
 {
-    public class PointGraphEngine
+    public class BarChartEngine
     {
 
-        public PointGraphEngine(bool showGraph, string title,
-            List<double> xValues, List<double> yValues, string xName,
-            string yName, Color color, string path)
+        public BarChartEngine(bool showGraph, string title,
+            List<double> values, List<string> names, string textFormat, List<Color> colors, string path)
         {
             ShowGraph = showGraph;
             Title = title;
-            XValues = xValues;
-            YValues = yValues;
-            XName = xName;
-            YName = yName;
-            ColorData = color;
+            Values = values;
+            Names = names;
+            TextFormat = textFormat;
+            Colors = colors;
             Path = path;
 
-            if (XValues.Count != YValues.Count)
+            if (Values.Count != Names.Count || Values.Count != Colors.Count)
             {
                 throw new ArgumentException(
-                    "X Values should match Y Values - check if both lists have the same number of elements.");
+                    "Values should match Names and Colors - check if each list has the same number of elements.");
             }
         }
 
@@ -39,23 +37,27 @@ namespace PterodactylCharts
 
             MyModel = new PlotModel { Title = Title };
 
-            var pointSeries = new ScatterSeries
+            var barSeries = new BarSeries
             {
-                MarkerType = MarkerType.Circle,
-                MarkerFill = OxyColor.FromArgb(a: ColorData.A, r: ColorData.R, g: ColorData.G, b: ColorData.B),
-                DataFieldX = "Time",
-                DataFieldY = "Value",
                 Background = OxyColors.White
+
             };
 
-            for (int i = 0; i < XValues.Count; i++)
+            for (int i = 0; i < Values.Count; i++)
             {
-                pointSeries.Points.Add(new ScatterPoint(XValues[i], YValues[i]));
+                barSeries.Items.Add(new BarItem{Value = Values[i], Color = OxyColor.FromArgb(a: Colors[i].A, r: Colors[i].R, g: Colors[i].G, b: Colors[i].B)});
             }
 
-            MyModel.Series.Add(pointSeries);
-            MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = XName });
-            MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = YName });
+            barSeries.LabelFormatString = TextFormat;
+            barSeries.LabelPlacement = LabelPlacement.Middle;
+
+            MyModel.Series.Add(barSeries);
+
+            MyModel.Axes.Add(new CategoryAxis
+            {
+                Position = AxisPosition.Left,
+                ItemsSource = Names
+            });
 
             myPlot.Model = MyModel;
 
@@ -91,14 +93,12 @@ namespace PterodactylCharts
             return reportPart;
         }
 
-
         public bool ShowGraph { get; set; }
         public string Title { get; set; }
-        public List<double> XValues { get; set; }
-        public List<double> YValues { get; set; }
-        public string XName { get; set; }
-        public string YName { get; set; }
-        public Color ColorData { get; set; }
+        public List<double> Values { get; set; }
+        public List<string> Names { get; set; }
+        public string TextFormat { get; set; }
+        public List<Color> Colors { get; set; }
         public string Path { get; set; }
         public PlotModel MyModel { get; set; }
     }
