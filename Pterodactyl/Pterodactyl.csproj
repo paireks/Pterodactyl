@@ -180,6 +180,18 @@
   <ItemGroup>
     <None Include="Resources\PterodactylHyperlink.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylAdvancedLineGraph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylBarChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylLineGraph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPointGraph.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

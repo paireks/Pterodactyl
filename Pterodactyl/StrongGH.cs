@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Drawing;
 using Grasshopper.Kernel;
 using PterodactylEngine;
 
@@ -36,7 +36,7 @@ namespace Pterodactyl
 
             DA.SetData(0, reportPart);
         }
-        protected override System.Drawing.Bitmap Icon
+        protected override Bitmap Icon
         {
             get
             {
