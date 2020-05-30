@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PterodactylEngine")]
+[assembly: AssemblyTitle("PterodactylCharts")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PterodactylEngine")]
+[assembly: AssemblyProduct("PterodactylCharts")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("051e55ca-2599-4a05-83b3-41a86b17bfd9")]
+[assembly: Guid("1f4a1c4a-7520-4ce1-931d-2b7e56693f34")]
 
 // Version information for an assembly consists of the following four values:
 //

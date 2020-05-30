@@ -21,7 +21,7 @@ namespace UnitTestsGH
         [Theory]
         [InlineData("Pie Chart", "Pie Chart",
             "Add pie chart",
-            "Pterodactyl", "Charts")]
+            "Pterodactyl", "Gadgets")]
         public void TestName(string name, string nickname, string description, string category, string subCategory)
         {
             Assert.Equal(name, TestPieChartGhHelper.TestObject.Name);

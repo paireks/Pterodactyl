@@ -69,6 +69,8 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BarChartGH.cs" />
+    <Compile Include="LineGraphGH.cs" />
     <Compile Include="CreateReportGH.cs" />
     <Compile Include="DynamicMathBlockGH.cs" />
     <Compile Include="EmphasisGH.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="MathBlockGH.cs" />
     <Compile Include="OrderedListGH.cs" />
     <Compile Include="PieChartGH.cs" />
+    <Compile Include="PointGraphGH.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -97,6 +100,10 @@
     <Compile Include="ViewportGH.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\PterodactylCharts\PterodactylCharts.csproj">
+      <Project>{1f4a1c4a-7520-4ce1-931d-2b7e56693f34}</Project>
+      <Name>PterodactylCharts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\PterodactylEngine\PterodactylEngine.csproj">
       <Project>{051e55ca-2599-4a05-83b3-41a86b17bfd9}</Project>
       <Name>PterodactylEngine</Name>
@@ -172,6 +179,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylHyperlink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylAdvancedLineGraph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylBarChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylLineGraph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPointGraph.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
