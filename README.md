@@ -22,9 +22,7 @@ You can try other Markdown editors, Typora is recommended.
 
 
 
-## Features (1.0.0)
-
-![1_0_0.png](https://github.com/paireks/Pterodactyl/blob/master/Images/1_0_0.png?raw=true)
+## Features (1.1.1)
 
 - Format text (strong, emphasis, underline, strike)
 - Insert images
@@ -41,9 +39,7 @@ You can try other Markdown editors, Typora is recommended.
 
 ## Future plans
 
-- Reference links
-- Math charts
-- Graphs
+- Advanced math graphs
 - Karamba3D templates
 
 ## License (MIT License)
