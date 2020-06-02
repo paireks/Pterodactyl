@@ -36,6 +36,7 @@ You can try other Markdown editors, Typora is recommended.
 - Add heading
 - Math block - write math equations in TeX-style
 - Dynamic math block - write math equations with dynamically changing variables in TeX-style
+- Math charts - line graph, point graph, bar chart
 
 ## Future plans
 
