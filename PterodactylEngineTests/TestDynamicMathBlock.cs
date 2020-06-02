@@ -16,7 +16,7 @@ namespace UnitTestEngine
             Add(@"log_{2}x = 5 \\ sin(<x>)^2 + cos(<x>)^2 = 1",
                 new List<string> {"x"},
                 new List<double> {2.1209},
-                "$$" + Environment.NewLine + @"log_{2}x = 5 \\ sin(2,1209)^2 + cos(2,1209)^2 = 1" + Environment.NewLine + "$$");
+                "$$" + Environment.NewLine + @"log_{2}x = 5 \\ sin(2.1209)^2 + cos(2.1209)^2 = 1" + Environment.NewLine + "$$");
             Add(@"<x>, <y>, <z>, <xyz>",
                 new List<string> {"x", "y", "z", "xyz"},
                 new List<double> {1, 2, 3, 4},

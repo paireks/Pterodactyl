@@ -1,8 +1,8 @@
-﻿using System;
-using PterodactylEngine;
+﻿using PterodactylEngine;
+using PterodactylEngine.MarkdownTools;
 using Xunit;
 
-namespace UnitTestEngine
+namespace PterodactylEngineTests.MarkdownTools
 {
     public class TestImageHelper : TheoryData<string, string, string>
     {
@@ -12,17 +12,8 @@ namespace UnitTestEngine
                 @"![PterodactylImage](C:\Users\Pterodactyl.png)");
         }
     }
-    public class TestImage
+    public class ImageTests
     {
-        [Theory]
-        [ClassData(typeof(TestImageHelper))]
-        public void CorrectData(string title, string path, string expected)
-        {
-            Image testObject = new Image(title, path);
-            Assert.Equal(title, testObject.Text);
-            Assert.Equal(path, testObject.Path);
-        }
-
         [Theory]
         [ClassData(typeof(TestImageHelper))]
         public void CheckReportCreation(string title, string path, string expected)

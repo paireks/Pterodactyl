@@ -1,8 +1,8 @@
-﻿using System;
-using PterodactylEngine;
+﻿using PterodactylEngine;
+using PterodactylEngine.MarkdownTools;
 using Xunit;
 
-namespace UnitTestEngine
+namespace PterodactylEngineTests.MarkdownTools
 {
     public class TestHyperlinkHelper : TheoryData<string, string, string>
     {
@@ -12,17 +12,8 @@ namespace UnitTestEngine
         }
     }
 
-    public class TestHyperlink
+    public class HyperlinkTests
     {
-        [Theory]
-        [ClassData(typeof(TestHyperlinkHelper))]
-        public void CorrectData(string text, string link, string expected)
-        {
-            Hyperlink testObject = new Hyperlink(text, link);
-            Assert.Equal(text, testObject.Text);
-            Assert.Equal(link, testObject.Link);
-        }
-
         [Theory]
         [ClassData(typeof(TestHyperlinkHelper))]
         public void CheckReportCreation(string text, string link, string expected)

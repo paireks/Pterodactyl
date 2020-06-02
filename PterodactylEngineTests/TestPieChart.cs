@@ -11,10 +11,10 @@ namespace UnitTestEngine
         {
             Add("Test Title", new List<string> { "First", "Second" }, new List<double> { 1, 2.07 },
                 "```mermaid" + Environment.NewLine + "pie title Test Title" + Environment.NewLine +
-                "    \"First\" : 1" + Environment.NewLine + "    \"Second\" : 2,07" + Environment.NewLine + "```");
+                "    \"First\" : 1" + Environment.NewLine + "    \"Second\" : 2.07" + Environment.NewLine + "```");
             Add("Test Title", new List<string> { "First" }, new List<double> { 5.1230123 },
                  "```mermaid" + Environment.NewLine + "pie title Test Title" + Environment.NewLine +
-                "    \"First\" : 5,1230123" + Environment.NewLine + "```");
+                "    \"First\" : 5.1230123" + Environment.NewLine + "```");
         }
     }
 
