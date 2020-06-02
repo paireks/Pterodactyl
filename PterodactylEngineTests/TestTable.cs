@@ -62,15 +62,34 @@ namespace UnitTestEngine
     {
         public TestCreateTableHelper()
         {
-            Add(new List<string> { "Example column", "Example 2", "C3", "C4" },
-                new List<int> { 0, 2, 1, 0 },
-                new string[,] { { "2", "5" }, { "lol", "hrhrhrh rhrhh" }, { "r", "h" }, { "aaaaaaaaaa", "bbbbbbbbb" } },
+            Add(new List<string> {"Example column", "Example 2", "C3", "C4"},
+                new List<int> {0, 2, 1, 0},
+                new string[,] {{"2", "5"}, {"lol", "hrhrhrh rhrhh"}, {"r", "h"}, {"aaaaaaaaaa", "bbbbbbbbb"}},
                 new List<string>
                 {
                     "| Example column | Example 2     | C3   | C4         |",
                     "| -------------- | ------------: | :--: | ---------- |",
                     "| 2              | lol           | r    | aaaaaaaaaa |",
                     "| 5              | hrhrhrh rhrhh | h    | bbbbbbbbb  |"
+                });
+            Add(new List<string> { "One column" },
+                new List<int> { 1 },
+                new string[,] { { "One", "Two" } },
+                new List<string>
+                {
+                    "| One column |",
+                    "| :--------: |",
+                    "| One        |",
+                    "| Two        |"
+                });
+            Add(new List<string> { "First column", "Second column" },
+                new List<int> { 1, 1 },
+                new string[,] { { "One" }, { "Two" } },
+                new List<string>
+                {
+                    "| First column | Second column |",
+                    "| :----------: | :-----------: |",
+                    "| One          | Two           |",
                 });
         }
     }
