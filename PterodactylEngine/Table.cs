@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace PterodactylEngine
 {
@@ -28,15 +29,87 @@ namespace PterodactylEngine
             }
 
         }
+
         public List<string> Create()
         {
             List<string> reportParts = new List<string>();
 
-            reportParts.Add(HeadingReport);
-            reportParts.Add(AlignmentReport);
-            for (int i = 0; i < RowsReport.Count; i++)
+            List<int> listOfMaxLettersForEachColumn = new List<int>();
+
+
+            StringBuilder headingsReportPart = new StringBuilder();
+            StringBuilder alignmentReportPart = new StringBuilder();
+            List<StringBuilder> rows = new List<StringBuilder>();
+
+            for (int i = 0; i < Headings.Count; i++) //for each column
             {
-                reportParts.Add(RowsReport[i]);
+                int currentMax = Math.Max(Headings[i].Length, 4);
+
+                for (int j = 0;
+                    j < DataTree.GetLength(1);
+                    j++) // for each line in that column -> search longest string for column
+                {
+                    if (DataTree[i, j].Length > currentMax)
+                    {
+                        currentMax = DataTree[i, j].Length;
+                    }
+                }
+
+                if (i == 0)
+                {
+                    for (int j = 0; j < DataTree.GetLength(1); j++)
+                    {
+                        StringBuilder newCell = new StringBuilder();
+                        newCell.AppendFormat("| {0}{1} ", DataTree[i, j], new string(' ', currentMax - DataTree[i, j].Length));
+                        rows.Add(newCell);
+                    }
+                }
+                else if (0 < i && i < Headings.Count)
+                {
+                    for (int j = 0; j < DataTree.GetLength(1); j++)
+                    {
+                        rows[j].AppendFormat("| {0}{1} ", DataTree[i, j], new string(' ', currentMax - DataTree[i, j].Length));
+                    }
+                }
+                else
+                {
+                    for (int j = 0; j < DataTree.GetLength(1); j++)
+                    {
+                        rows[j].AppendFormat("|");
+                    }
+                }
+
+                headingsReportPart.AppendFormat("| {0}{1} ", Headings[i],
+                    new string(' ', currentMax - Headings[i].Length));
+
+                string alignmentStartSymbol = "-";
+                string alignmentEndSymbol = "-";
+                if (Alignment[i] == 1)
+                {
+                    alignmentStartSymbol = ":";
+                    alignmentEndSymbol = ":";
+                }
+                else if (Alignment[i] == 2)
+                {
+                    alignmentEndSymbol = ":";
+                }
+
+                string symbols = new string('-', currentMax - 2);
+                alignmentReportPart.AppendFormat("| {0}{1}{2} ", alignmentStartSymbol, symbols, alignmentEndSymbol);
+
+
+            }
+
+            headingsReportPart.AppendFormat("|");
+            alignmentReportPart.Append("|");
+
+            reportParts.Add(headingsReportPart.ToString());
+            reportParts.Add(alignmentReportPart.ToString());
+
+            foreach (var row in rows)
+            {
+                row.Append("|");
+                reportParts.Add(row.ToString());
             }
 
             return reportParts;
@@ -71,103 +144,5 @@ namespace PterodactylEngine
             get { return _dataTree; }
             set { _dataTree = value; }
         }
-
-        public List<int> ColumnSizes
-        {
-            get
-            {
-                List<int> listOfMaxLettersForEachColumn = new List<int>();
-                
-                for (int i = 0; i < Headings.Count; i++) // for each column
-                {
-                    int currentMax = Math.Max(Headings[i].Length, 4);
-
-                    for (int j = 0; j < DataTree.GetLength(1); j++) // for each line in that column -> search longest string for column
-                    {
-                        if (DataTree[i, j].Length > currentMax)
-                        {
-                            currentMax = DataTree[i, j].Length;
-                        }
-                    }
-
-                    listOfMaxLettersForEachColumn.Add(currentMax);
-                }
-
-                return listOfMaxLettersForEachColumn;
-            }
-        }
-
-        public string HeadingReport
-        {
-            get 
-            {
-                string headingsReportPart = "";
-                for (int i = 0; i < Headings.Count; i++) //for each column
-                {
-                    string spaces = new string(' ', ColumnSizes[i] - Headings[i].Length);
-                    headingsReportPart += "| " + Headings[i] + spaces + " ";
-                }
-                headingsReportPart += "|";
-
-                return headingsReportPart;
-            }
-        }
-
-        public string AlignmentReport
-        {
-            get
-            {
-                string alignmentreportPart = "";
-
-
-                for (int i = 0; i < Headings.Count; i++) //for each column
-                {
-                    string alignmentStartSymbol = "-";
-                    string alignmentEndSymbol = "-";
-                    if (Alignment[i] == 1)
-                    {
-                        alignmentStartSymbol = ":";
-                        alignmentEndSymbol = ":";
-                    }
-                    else if (Alignment[i] == 2)
-                    {
-                        alignmentEndSymbol = ":";
-                    }
-                    else{}
-
-                    string symbols = new string('-', ColumnSizes[i] - 2);
-                    alignmentreportPart += "| " + alignmentStartSymbol + symbols + alignmentEndSymbol + " ";
-                }
-                alignmentreportPart += "|";
-
-                return alignmentreportPart;
-            }
-        }
-
-        public List<string> RowsReport
-        {
-            get
-            {
-                List<string> rowsReport = new List<string>();
-
-                for (int i = 0; i < DataTree.GetLength(1); i++) //for each row
-                {
-                    string row = "";
-
-                    for (int j = 0; j < Headings.Count; j++) //for each column
-                    {
-                        string spaces = new string(' ', ColumnSizes[j] - DataTree[j, i].Length);
-
-                        row += "| " + DataTree[j, i] + spaces + " ";
-
-                    }
-                    row += "|";
-                    rowsReport.Add(row);
-                }
-
-                return rowsReport;
-            }
-        }
-
     }
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using PterodactylEngine;
 using Xunit;
+using Xunit.Sdk;
 
 namespace UnitTestEngine
 {
@@ -36,23 +37,6 @@ namespace UnitTestEngine
         }
     }
 
-    public class TestCreateTableHelper : TheoryData<List<string>, List<int>, string[,], List<string>>
-    {
-        public TestCreateTableHelper()
-        {
-            Add(new List<string> { "Example column", "Example 2", "C3", "C4" },
-                new List<int> { 0, 2, 1, 0 },
-                new string[,] { { "2", "5" }, { "lol", "hrhrhrh rhrhh" }, { "r", "h" }, { "aaaaaaaaaa", "bbbbbbbbb" } },
-                new List<string>
-                {
-                "| Example column | Example 2     | C3   | C4         |",
-                "| -------------- | ------------: | :--: | ---------- |",
-                "| 2              | lol           | r    | aaaaaaaaaa |",
-                "| 5              | hrhrhrh rhrhh | h    | bbbbbbbbb  |"
-                });
-        }
-    }
-
     public class TestTableExceptionHelper : TheoryData<List<string>, List<int>, string[,], string>
     {
         public TestTableExceptionHelper()
@@ -74,6 +58,23 @@ namespace UnitTestEngine
         }
     }
 
+    public class TestCreateTableHelper : TheoryData<List<string>, List<int>, string[,], List<string>>
+    {
+        public TestCreateTableHelper()
+        {
+            Add(new List<string> { "Example column", "Example 2", "C3", "C4" },
+                new List<int> { 0, 2, 1, 0 },
+                new string[,] { { "2", "5" }, { "lol", "hrhrhrh rhrhh" }, { "r", "h" }, { "aaaaaaaaaa", "bbbbbbbbb" } },
+                new List<string>
+                {
+                    "| Example column | Example 2     | C3   | C4         |",
+                    "| -------------- | ------------: | :--: | ---------- |",
+                    "| 2              | lol           | r    | aaaaaaaaaa |",
+                    "| 5              | hrhrhrh rhrhh | h    | bbbbbbbbb  |"
+                });
+        }
+    }
+
     public class TestTable
     {
         [Theory]
@@ -89,68 +90,21 @@ namespace UnitTestEngine
         }
     }
 
-    public class TestTableMethods
-    {
-        [Theory]
-        [ClassData(typeof(TestTableHelper))]
-        public void TestColumnSizes(List<string> headings, List<int> alignment,
-            string[,] dataTree, List<int> expected, string headingReport, string alignmentReport,
-            List<string> rowsReport)
-        {
-            Table testObject = new Table(headings, alignment, dataTree);
-            List<int> actual = testObject.ColumnSizes;
-
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
-        [ClassData(typeof(TestTableHelper))]
-        public void TestHeadingReport(List<string> headings, List<int> alignment,
-            string[,] dataTree, List<int> columnSizes, string expected, string alignmentReport,
-            List<string> rowsReport)
-        {
-            Table testObject = new Table(headings, alignment, dataTree);
-            string actual = testObject.HeadingReport;
-
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
-        [ClassData(typeof(TestTableHelper))]
-        public void TestAlignmentReport(List<string> headings, List<int> alignment,
-            string[,] dataTree, List<int> columnSizes, string headingReport, string expected,
-            List<string> rowsReport)
-        {
-            Table testObject = new Table(headings, alignment, dataTree);
-            string actual = testObject.AlignmentReport;
-
-            Assert.Equal(expected, actual);
-        }
-
-        [Theory]
-        [ClassData(typeof(TestTableHelper))]
-        public void TestRowsReport(List<string> headings, List<int> alignment,
-            string[,] dataTree, List<int> columnSizes, string headingReport, string alignmentReport,
-            List<string> expected)
-        {
-            Table testObject = new Table(headings, alignment, dataTree);
-            List<string> actual = testObject.RowsReport;
-
-            Assert.Equal(expected, actual);
-        }
-    }
-    public class TestCreateTable
+    public class TestTableCreate
     {
         [Theory]
         [ClassData(typeof(TestCreateTableHelper))]
-        public void TestColumnSizes(List<string> headings, List<int> alignment, string[,] dataTree, List<string> expected)
+        public void CorrectData(List<string> headings, List<int> alignment, string[,] dataTree, List<string> expected)
         {
             Table testObject = new Table(headings, alignment, dataTree);
             List<string> actual = testObject.Create();
 
             Assert.Equal(expected, actual);
         }
+    }
 
+    public class TestTableException
+    {
         [Theory]
         [ClassData(typeof(TestTableExceptionHelper))]
         public void CheckExceptions(List<string> headings, List<int> alignment, string[,] dataTree, string message)
