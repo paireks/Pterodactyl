@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using PterodactylEngine;
+using PterodactylEngine.MarkdownTools;
 using Xunit;
 
-namespace UnitTestEngine
+namespace PterodactylEngineTests.MarkdownTools
 {
     public class TestUnderlineHelper : TheoryData<string, string>
     {
@@ -14,16 +14,8 @@ namespace UnitTestEngine
         }
     }
 
-    public class TestUnderline
+    public class UnderlineTest
     {
-        [Theory]
-        [ClassData(typeof(TestUnderlineHelper))]
-        public void CorrectData(string text, string expected)
-        {
-            Underline testObject = new Underline(text);
-            Assert.Equal(text, testObject.Text);
-        }
-
         [Theory]
         [ClassData(typeof(TestUnderlineHelper))]
         public void CheckReportCreation(string text, string expected)

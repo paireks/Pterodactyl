@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using PterodactylEngine;
+using PterodactylEngine.MarkdownTools;
 using Xunit;
 
-namespace UnitTestEngine
+namespace PterodactylEngineTests.MarkdownTools
 {
     public class TestStrikeHelper : TheoryData<string, string>
     {
@@ -14,16 +14,8 @@ namespace UnitTestEngine
         }
     }
 
-    public class TestStrike
+    public class StrikeTests
     {
-        [Theory]
-        [ClassData(typeof(TestStrikeHelper))]
-        public void CorrectData(string text, string expected)
-        {
-            Strike testObject = new Strike(text);
-            Assert.Equal(text, testObject.Text);
-        }
-
         [Theory]
         [ClassData(typeof(TestStrikeHelper))]
         public void CheckReportCreation(string text, string expected)

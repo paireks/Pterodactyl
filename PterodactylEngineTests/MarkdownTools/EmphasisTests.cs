@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using PterodactylEngine;
+using PterodactylEngine.MarkdownTools;
 using Xunit;
 
-namespace UnitTestEngine
+namespace PterodactylEngineTests.MarkdownTools
 {
     public class TestEmphasisHelper : TheoryData<string, string>
     {
@@ -14,16 +14,8 @@ namespace UnitTestEngine
         }
     }
 
-    public class TestEmphasis
+    public class EmphasisTests
     {
-        [Theory]
-        [ClassData(typeof(TestEmphasisHelper))]
-        public void CorrectData(string text, string expected)
-        {
-            Emphasis testObject = new Emphasis(text);
-            Assert.Equal(text, testObject.Text);
-        }
-
         [Theory]
         [ClassData(typeof(TestEmphasisHelper))]
         public void CheckReportCreation(string text, string expected)
