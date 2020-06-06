@@ -63,6 +63,26 @@ namespace Pterodactyl.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PterodactylAdvancedLineGraph {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylAdvancedLineGraph", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PterodactylBarChart {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylBarChart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PterodactylCreateReport {
             get {
                 object obj = ResourceManager.GetObject("PterodactylCreateReport", resourceCulture);
@@ -133,6 +153,16 @@ namespace Pterodactyl.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PterodactylLineGraph {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylLineGraph", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PterodactylMathBlock {
             get {
                 object obj = ResourceManager.GetObject("PterodactylMathBlock", resourceCulture);
@@ -156,6 +186,16 @@ namespace Pterodactyl.Properties {
         internal static System.Drawing.Bitmap PterodactylPieChart {
             get {
                 object obj = ResourceManager.GetObject("PterodactylPieChart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PterodactylPointGraph {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylPointGraph", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

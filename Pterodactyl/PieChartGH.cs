@@ -11,7 +11,7 @@ namespace Pterodactyl
         public PieChartGH()
           : base("Pie Chart", "Pie Chart",
               "Add pie chart",
-              "Pterodactyl", "Charts")
+              "Pterodactyl", "Gadgets")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)

@@ -22,9 +22,7 @@ You can try other Markdown editors, Typora is recommended.
 
 
 
-## Features (1.0.0)
-
-![1_0_0.png](https://github.com/paireks/Pterodactyl/blob/master/Images/1_0_0.png?raw=true)
+## Features (1.1.1)
 
 - Format text (strong, emphasis, underline, strike)
 - Insert images
@@ -38,17 +36,16 @@ You can try other Markdown editors, Typora is recommended.
 - Add heading
 - Math block - write math equations in TeX-style
 - Dynamic math block - write math equations with dynamically changing variables in TeX-style
+- Math charts - line graph, point graph, bar chart
 
 ## Future plans
 
-- Reference links
-- Math charts
-- Graphs
+- Advanced math graphs
 - Karamba3D templates
 
 ## License (MIT License)
 
-Copyright 2020 Wojciech Radaczyński
+Copyright © 2020 Wojciech Radaczyński
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -57,6 +54,12 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [Link to license](https://opensource.org/licenses/MIT)
+
+Credits:
+
+OxyPlot 
+- license: https://github.com/oxyplot/oxyplot/blob/develop/LICENSE
+- sourcecode / info: https://github.com/oxyplot/oxyplot
 
 ## Tutorials
 

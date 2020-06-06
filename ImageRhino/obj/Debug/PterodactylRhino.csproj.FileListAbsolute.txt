@@ -1,5 +1,0 @@
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\ImageRhino\bin\Debug\ImageRhino.dll
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\ImageRhino\bin\Debug\ImageRhino.pdb
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\ImageRhino\obj\Debug\PterodactylRhino.csprojAssemblyReference.cache
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\ImageRhino\obj\Debug\ImageRhino.dll
-C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\ImageRhino\obj\Debug\ImageRhino.pdb
