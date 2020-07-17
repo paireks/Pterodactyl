@@ -21,8 +21,8 @@ namespace PterodactylCharts
         {
             ShowGraph = showGraph;
             Title = title;
-            XValues = xValues;
-            YValues = yValues;
+            XValues = new List<List<double>>{ xValues };
+            YValues = new List<List<double>>{ yValues };
             XName = xName;
             YName = yName;
             Colors = new List<Color> {color};
@@ -39,7 +39,7 @@ namespace PterodactylCharts
         }
 
         public LineGraphEngine(bool showGraph, string title,
-            double[,] xValues, double[,] yValues,
+            List<List<double>> xValues, List<List<double>> yValues,
             string xName, string yName,
             List<Color> colors, Color backgroundColor,
             int graphWidth, int graphHeight,
@@ -49,8 +49,8 @@ namespace PterodactylCharts
         {
             ShowGraph = showGraph;
             Title = title;
-            XValuesTable = xValues;
-            YValuesTable = yValues;
+            XValues = xValues;
+            YValues = yValues;
             XName = xName;
             YName = yName;
             Colors = colors;
@@ -84,9 +84,9 @@ namespace PterodactylCharts
                         b: BackgroundColor.B)
                 };
 
-                for (int j = 0; j < XValues.Count; j++)
+                for (int j = 0; j < XValues[i].Count; j++)
                 {
-                    lineSeries.Points.Add(new DataPoint(XValues[j], YValues[j]));
+                    lineSeries.Points.Add(new DataPoint(XValues[i][j], YValues[i][j]));
                 }
 
                 MyModel.Series.Add(lineSeries);
@@ -138,10 +138,8 @@ namespace PterodactylCharts
 
         public bool ShowGraph { get; set; }
         public string Title { get; set; }
-        public List<double> XValues { get; set; }
-        public double[,] XValuesTable { get; set; }
-        public List<double> YValues { get; set; }
-        public double[,] YValuesTable { get; set; }
+        public List<List<double>> XValues { get; set; }
+        public List<List<double>> YValues { get; set; }
         public string XName { get; set; }
         public string YName { get; set; }
         public List<Color> Colors { get; set; }
