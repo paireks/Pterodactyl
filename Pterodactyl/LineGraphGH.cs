@@ -66,7 +66,6 @@ namespace Pterodactyl
             string reportPart = graphObject.Create();
 
             DA.SetData(0, reportPart);
-
         }
         protected override System.Drawing.Bitmap Icon
         {

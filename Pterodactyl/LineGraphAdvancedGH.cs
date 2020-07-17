@@ -32,16 +32,16 @@ namespace Pterodactyl
             pManager.AddTextParameter("X Name", "X Name", "Sets x name", GH_ParamAccess.item, "Time");
             pManager.AddTextParameter("Y Name", "Y Name", "Sets y name", GH_ParamAccess.item, "Awesomeness");
             pManager.AddColourParameter("Colors", "Colors", "Colors as list. Number of colors should match number of branches " +
-                                                            "in X and Y Values inputs.", GH_ParamAccess.item, Color.FromArgb(0, 0, 0));
+                                                            "in X and Y Values inputs.", GH_ParamAccess.list, Color.FromArgb(0, 0, 0));
             pManager.AddColourParameter("Background Color", "Background Color", "Sets color of the background",
                 GH_ParamAccess.item, Color.FromArgb(255, 255, 255));
-            pManager.AddNumberParameter("Graph Width", "Graph Width", "Sets graph width", GH_ParamAccess.item, 600);
-            pManager.AddNumberParameter("Graph Height", "Graph Height", "Sets graph height", GH_ParamAccess.item, 400);
+            pManager.AddIntegerParameter("Graph Width", "Graph Width", "Sets graph width as integer", GH_ParamAccess.item, 600);
+            pManager.AddIntegerParameter("Graph Height", "Graph Height", "Sets graph height as integer", GH_ParamAccess.item, 400);
             pManager.AddTextParameter("Text Annotations", "Text Annotations",
-                "Test annotations as list, should match Text Locations.",
+                "Text annotations as list, should match Text Locations.",
                 GH_ParamAccess.list);
             pManager.AddPointParameter("Text Locations", "Text Locations",
-                "Text locations as list of points, that match Text Annotations.",
+                "Text locations as list of points, that match Text Annotations. Only reads X and Y value of points.",
                 GH_ParamAccess.list);
             pManager.AddTextParameter("Path", "Path", "Set path where graph should be saved as .png file" +
                                                       " if you want to save it, and/or if you want to create Report Part. Remember to end " +
@@ -54,7 +54,82 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            bool showGraph = false;
+            string title = "";
+            Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number> xValuesTree = new Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
+            Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number> yValuesTree = new Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
+            string xName = "";
+            string yName = "";
+            List<Color> colors = new List<Color>();
+            Color backgroundColor = new Color();
+            int graphWidth = new int();
+            int graphHeight = new int();
+            List<string> textAnnotations = new List<string>();
+            List<Point3d> textLocations = new List<Point3d>();
+            string path = "";
 
+            DA.GetData(0, ref showGraph);
+            DA.GetData(1, ref title);
+            DA.GetDataTree("X Values", out xValuesTree);
+            DA.GetDataTree("Y Values", out yValuesTree);
+            DA.GetData(4, ref xName);
+            DA.GetData(5, ref yName);
+            DA.GetDataList(6, colors);
+            DA.GetData(7, ref backgroundColor);
+            DA.GetData(8, ref graphWidth);
+            DA.GetData(9, ref graphHeight);
+            DA.GetDataList(10, textAnnotations);
+            DA.GetDataList(11, textLocations);
+            DA.GetData(12, ref path);
+
+            List<List<double>> xValues = new List<List<double>>();
+            List<List<double>> yValues = new List<List<double>>();
+
+            for (int i = 0; i < colors.Count; i++)
+            {
+                List<double> currentBranchXValues = new List<double>();
+                for (int j = 0; j < xValuesTree.get_Branch(i).Count; j++)
+                {
+                    currentBranchXValues.Add(Convert.ToDouble(xValuesTree.get_Branch(i)[j].ToString()));
+                }
+                xValues.Add(currentBranchXValues);
+
+                List<double> currentBranchYValues = new List<double>();
+                for (int j = 0; j < yValuesTree.get_Branch(i).Count; j++)
+                {
+                    currentBranchYValues.Add(Convert.ToDouble(yValuesTree.get_Branch(i)[j].ToString()));
+                }
+                yValues.Add(currentBranchYValues);
+            }
+
+            List<double> textLocationXValues = new List<double>();
+            List<double> textLocationYValues = new List<double>();
+
+            for (int i = 0; i < textLocations.Count; i++)
+            {
+                textLocationXValues.Add(textLocations[i].X);
+                textLocationYValues.Add(textLocations[i].Y);
+            }
+
+            LineGraph graphObject = new LineGraph();
+            graphObject.LineGraphData(showGraph, title,
+                xValues, yValues,
+                xName, yName,
+                colors, backgroundColor,
+                graphWidth, graphHeight,
+                textAnnotations,
+                textLocationXValues, textLocationYValues,
+                path);
+
+            if (showGraph)
+            {
+                graphObject.ShowDialog();
+            }
+
+            graphObject.Export();
+            string reportPart = graphObject.Create();
+
+            DA.SetData(0, reportPart);
         }
         protected override System.Drawing.Bitmap Icon
         {

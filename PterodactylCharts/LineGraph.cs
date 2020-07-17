@@ -25,6 +25,26 @@ namespace PterodactylCharts
             PlotView myPlot = LineGraphObject.ChartCreator();
             Controls.Add(myPlot);
         }
+        public void LineGraphData(bool showGraph, string title,
+            List<List<double>> xValues, List<List<double>> yValues,
+            string xName, string yName,
+            List<Color> colors, Color backgroundColor,
+            int graphWidth, int graphHeight,
+            List<string> textAnnotations,
+            List<double> textLocationXValues, List<double> textLocationYValues,
+            string path)
+        {
+            LineGraphObject = new LineGraphEngine(showGraph, title,
+                xValues, yValues,
+                xName, yName,
+                colors, backgroundColor,
+                graphWidth, graphHeight,
+                textAnnotations,
+                textLocationXValues, textLocationYValues,
+                path);
+            PlotView myPlot = LineGraphObject.ChartCreator();
+            Controls.Add(myPlot);
+        }
         public string Create()
         {
             string reportPart = LineGraphObject.Create();
