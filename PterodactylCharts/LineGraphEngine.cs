@@ -5,6 +5,7 @@ using System.IO;
 using OxyPlot.WindowsForms;
 using OxyPlot;
 using System.Windows.Forms;
+using System.Xml;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
@@ -14,8 +15,9 @@ namespace PterodactylCharts
     {
 
         public LineGraphEngine(bool showGraph, string title,
-            List<double> xValues, List<double> yValues, string xName,
-            string yName, Color color, string path)
+            List<double> xValues, List<double> yValues,
+            string xName, string yName,
+            Color color, string path)
         {
             ShowGraph = showGraph;
             Title = title;
@@ -24,6 +26,9 @@ namespace PterodactylCharts
             XName = xName;
             YName = yName;
             ColorData = color;
+            BackgroundColor = Color.FromArgb(255, 255, 255);
+            GraphWidth = 600;
+            GraphHeight = 400;
             Path = path;
 
             if (XValues.Count != YValues.Count)
@@ -31,6 +36,31 @@ namespace PterodactylCharts
                 throw new ArgumentException(
                     "X Values should match Y Values - check if both lists have the same number of elements.");
             }
+        }
+
+        public LineGraphEngine(bool showGraph, string title,
+            double[,] xValues, double[,] yValues,
+            string xName, string yName,
+            List<Color> colors, Color backgroundColor,
+            int graphWidth, int graphHeight,
+            List<string> textAnnotations, 
+            List<double> textLocationXValues, List<double> textLocationYValues,
+            string path)
+        {
+            ShowGraph = showGraph;
+            Title = title;
+            XValuesTable = xValues;
+            YValuesTable = yValues;
+            XName = xName;
+            YName = yName;
+            ColorListData = colors;
+            BackgroundColor = backgroundColor;
+            GraphWidth = graphWidth;
+            GraphHeight = graphHeight;
+            TextAnnotations = textAnnotations;
+            TextLocationXValues = textLocationXValues;
+            TextLocationYValues = textLocationYValues;
+            Path = path;
         }
 
         public PlotView ChartCreator()
@@ -61,7 +91,7 @@ namespace PterodactylCharts
 
             myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
             myPlot.Location = new System.Drawing.Point(0, 0);
-            myPlot.Size = new System.Drawing.Size(600, 400);
+            myPlot.Size = new System.Drawing.Size(GraphWidth, GraphHeight);
             myPlot.TabIndex = 0;
 
             return myPlot;
@@ -71,7 +101,12 @@ namespace PterodactylCharts
         {
             if (Path.EndsWith(".png"))
             {
-                var pngExporter = new PngExporter { Width = 600, Height = 400, Background = OxyColors.White };
+                var pngExporter = new PngExporter { Width = GraphWidth, Height = GraphHeight,
+                    Background = OxyColor.FromArgb(
+                        BackgroundColor.A,
+                        BackgroundColor.R,
+                        BackgroundColor.G,
+                        BackgroundColor.B)};
                 pngExporter.ExportToFile(MyModel, Path);
             }
         }
@@ -95,10 +130,19 @@ namespace PterodactylCharts
         public bool ShowGraph { get; set; }
         public string Title { get; set; }
         public List<double> XValues { get; set; }
+        public double[,] XValuesTable { get; set; }
         public List<double> YValues { get; set; }
+        public double[,] YValuesTable { get; set; }
         public string XName { get; set; }
         public string YName { get; set; }
         public Color ColorData { get; set; }
+        public List<Color> ColorListData { get; set; }
+        public Color BackgroundColor { get; set; }
+        public int GraphWidth { get; set; }
+        public int GraphHeight { get; set; }
+        public List<string> TextAnnotations { get; set; }
+        public List<double> TextLocationXValues { get; set; }
+        public List<double> TextLocationYValues { get; set; }
         public string Path { get; set; }
         public PlotModel MyModel { get; set; }
     }
