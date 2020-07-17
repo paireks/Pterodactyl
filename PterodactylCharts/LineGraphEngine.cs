@@ -31,7 +31,7 @@ namespace PterodactylCharts
             GraphHeight = 400;
             Path = path;
 
-            if (XValues.Count != YValues.Count)
+            if (XValues[0].Count != YValues[0].Count)
             {
                 throw new ArgumentException(
                     "X Values should match Y Values - check if both lists have the same number of elements.");
