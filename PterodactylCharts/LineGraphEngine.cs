@@ -25,7 +25,7 @@ namespace PterodactylCharts
             YValues = yValues;
             XName = xName;
             YName = yName;
-            ColorData = color;
+            Colors = new List<Color> {color};
             BackgroundColor = Color.FromArgb(255, 255, 255);
             GraphWidth = 600;
             GraphHeight = 400;
@@ -53,7 +53,7 @@ namespace PterodactylCharts
             YValuesTable = yValues;
             XName = xName;
             YName = yName;
-            ColorListData = colors;
+            Colors = colors;
             BackgroundColor = backgroundColor;
             GraphWidth = graphWidth;
             GraphHeight = graphHeight;
@@ -69,21 +69,30 @@ namespace PterodactylCharts
 
             MyModel = new PlotModel { Title = Title };
 
-            var lineSeries = new LineSeries
+            for (int i = 0; i < Colors.Count; i++)
             {
-                Color = OxyColor.FromArgb(a: ColorData.A, r: ColorData.R, g: ColorData.G, b: ColorData.B),
-                MarkerFill = OxyColors.Transparent,
-                DataFieldX = XName,
-                DataFieldY = YName,
-                Background = OxyColors.White
-            };
+                var lineSeries = new LineSeries
+                {
+                    Color = OxyColor.FromArgb(a: Colors[i].A, r: Colors[i].R, g: Colors[i].G, b: Colors[i].B),
+                    MarkerFill = OxyColors.Transparent,
+                    DataFieldX = XName,
+                    DataFieldY = YName,
+                    Background = OxyColor.FromArgb(
+                        a: BackgroundColor.A,
+                        r: BackgroundColor.R,
+                        g: BackgroundColor.G,
+                        b: BackgroundColor.B)
+                };
 
-            for (int i = 0; i < XValues.Count; i++)
-            {
-                lineSeries.Points.Add(new DataPoint(XValues[i], YValues[i]));
+                for (int j = 0; j < XValues.Count; j++)
+                {
+                    lineSeries.Points.Add(new DataPoint(XValues[j], YValues[j]));
+                }
+
+                MyModel.Series.Add(lineSeries);
             }
 
-            MyModel.Series.Add(lineSeries);
+
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = XName });
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = YName });
 
@@ -135,8 +144,7 @@ namespace PterodactylCharts
         public double[,] YValuesTable { get; set; }
         public string XName { get; set; }
         public string YName { get; set; }
-        public Color ColorData { get; set; }
-        public List<Color> ColorListData { get; set; }
+        public List<Color> Colors { get; set; }
         public Color BackgroundColor { get; set; }
         public int GraphWidth { get; set; }
         public int GraphHeight { get; set; }
