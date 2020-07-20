@@ -29,6 +29,16 @@ namespace Pterodactyl
                                                                 " Each tree branch should be a list of y values." +
                                                                 " Each branch represents new series of data.",
                 GH_ParamAccess.tree);
+            pManager.AddTextParameter("Values Names", "Values Names",
+                "List of names of values, each item should match each branch of X and Y Values. It will appear if" +
+                " Show Legend == True.", GH_ParamAccess.list);
+            pManager.AddBooleanParameter("Show Legend", "Show Legend", "If true - legend will appear",
+                GH_ParamAccess.item);
+            pManager.AddTextParameter("Legend Title", "Legend Title", "Legend title",
+                GH_ParamAccess.item, "Legend");
+            pManager.AddIntegerParameter("Legend Position", "Legend Position",
+                "Legend Position as integer from 0 to 11. 0-2 = Top positions, 3-5 = Bottom positions, 6-8 = Left positions," +
+                "9-11 = Right positions.", GH_ParamAccess.item, 0);
             pManager.AddTextParameter("X Name", "X Name", "Sets x name", GH_ParamAccess.item, "Time");
             pManager.AddTextParameter("Y Name", "Y Name", "Sets y name", GH_ParamAccess.item, "Awesomeness");
             pManager.AddColourParameter("Colors", "Colors", "Colors as list. Number of colors should match number of branches " +
@@ -58,6 +68,10 @@ namespace Pterodactyl
             string title = "";
             Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number> xValuesTree = new Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
             Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number> yValuesTree = new Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
+            List<string> valuesNames = new List<string>();
+            bool showLegend = false;
+            string legentTitle = "";
+            int legendPosition = new int();
             string xName = "";
             string yName = "";
             List<Color> colors = new List<Color>();
@@ -72,15 +86,19 @@ namespace Pterodactyl
             DA.GetData(1, ref title);
             DA.GetDataTree("X Values", out xValuesTree);
             DA.GetDataTree("Y Values", out yValuesTree);
-            DA.GetData(4, ref xName);
-            DA.GetData(5, ref yName);
-            DA.GetDataList(6, colors);
-            DA.GetData(7, ref backgroundColor);
-            DA.GetData(8, ref graphWidth);
-            DA.GetData(9, ref graphHeight);
-            DA.GetDataList(10, textAnnotations);
-            DA.GetDataList(11, textLocations);
-            DA.GetData(12, ref path);
+            DA.GetDataList(4, valuesNames);
+            DA.GetData(5, ref showLegend);
+            DA.GetData(6, ref legentTitle);
+            DA.GetData(7, ref legendPosition);
+            DA.GetData(8, ref xName);
+            DA.GetData(9, ref yName);
+            DA.GetDataList(10, colors);
+            DA.GetData(11, ref backgroundColor);
+            DA.GetData(12, ref graphWidth);
+            DA.GetData(13, ref graphHeight);
+            DA.GetDataList(14, textAnnotations);
+            DA.GetDataList(15, textLocations);
+            DA.GetData(16, ref path);
 
             List<List<double>> xValues = new List<List<double>>();
             List<List<double>> yValues = new List<List<double>>();
@@ -113,7 +131,8 @@ namespace Pterodactyl
 
             LineGraph graphObject = new LineGraph();
             graphObject.LineGraphData(showGraph, title,
-                xValues, yValues,
+                xValues, yValues, valuesNames,
+                showLegend, legentTitle, legendPosition,
                 xName, yName,
                 colors, backgroundColor,
                 graphWidth, graphHeight,

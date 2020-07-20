@@ -23,12 +23,19 @@ namespace PterodactylCharts
             Title = title;
             XValues = new List<List<double>>{ xValues };
             YValues = new List<List<double>>{ yValues };
+            ValuesNames = new List<string> { "Values" };
+            ShowLegend = false;
+            LegendTitle = "";
+            LegendPositionAsInt = 0;
             XName = xName;
             YName = yName;
             Colors = new List<Color> {color};
             BackgroundColor = Color.FromArgb(255, 255, 255);
             GraphWidth = 600;
             GraphHeight = 400;
+            TextAnnotations = null;
+            TextLocationXValues = new List<double>();
+            TextLocationYValues = new List<double>();
             Path = path;
 
             if (XValues[0].Count != YValues[0].Count)
@@ -40,6 +47,8 @@ namespace PterodactylCharts
 
         public LineGraphEngine(bool showGraph, string title,
             List<List<double>> xValues, List<List<double>> yValues,
+            List<string> valuesNames,
+            bool showLegend, string legendTitle, int legendPositionAsInt,
             string xName, string yName,
             List<Color> colors, Color backgroundColor,
             int graphWidth, int graphHeight,
@@ -51,6 +60,10 @@ namespace PterodactylCharts
             Title = title;
             XValues = xValues;
             YValues = yValues;
+            ValuesNames = valuesNames;
+            ShowLegend = showLegend;
+            LegendTitle = legendTitle;
+            LegendPositionAsInt = legendPositionAsInt;
             XName = xName;
             YName = yName;
             Colors = colors;
@@ -83,6 +96,10 @@ namespace PterodactylCharts
                         g: BackgroundColor.G,
                         b: BackgroundColor.B)
                 };
+                if (ShowLegend)
+                {
+                    lineSeries.Title = ValuesNames[i];
+                }
 
                 for (int j = 0; j < XValues[i].Count; j++)
                 {
@@ -92,6 +109,12 @@ namespace PterodactylCharts
                 MyModel.Series.Add(lineSeries);
             }
 
+            if (ShowLegend)
+            {
+                MyModel.LegendTitle = LegendTitle;
+                LegendPosition legendPosition = (LegendPosition)LegendPositionAsInt;
+                MyModel.LegendPosition = legendPosition;
+            }
 
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = XName });
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = YName });
@@ -140,6 +163,10 @@ namespace PterodactylCharts
         public string Title { get; set; }
         public List<List<double>> XValues { get; set; }
         public List<List<double>> YValues { get; set; }
+        public List<string> ValuesNames { get; set; }
+        public bool ShowLegend { get; set; }
+        public string LegendTitle { get; set; }
+        public int LegendPositionAsInt { get; set; }
         public string XName { get; set; }
         public string YName { get; set; }
         public List<Color> Colors { get; set; }

@@ -27,6 +27,8 @@ namespace PterodactylCharts
         }
         public void LineGraphData(bool showGraph, string title,
             List<List<double>> xValues, List<List<double>> yValues,
+            List<string> valuesNames,
+            bool showLegend, string legendTitle, int legendPositionAsInt,
             string xName, string yName,
             List<Color> colors, Color backgroundColor,
             int graphWidth, int graphHeight,
@@ -34,8 +36,10 @@ namespace PterodactylCharts
             List<double> textLocationXValues, List<double> textLocationYValues,
             string path)
         {
-            LineGraphObject = new LineGraphEngine(showGraph, title,
-                xValues, yValues,
+            LineGraphObject = new LineGraphEngine(
+                showGraph, title,
+                xValues, yValues, valuesNames,
+                showLegend, legendTitle, legendPositionAsInt,
                 xName, yName,
                 colors, backgroundColor,
                 graphWidth, graphHeight,
