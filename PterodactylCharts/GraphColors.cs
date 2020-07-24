@@ -15,6 +15,11 @@ namespace PterodactylCharts
             BackgroundColor = backgroundColor;
         }
 
+        public override string ToString()
+        {
+            return "Graph Colors";
+        }
+
         public Color BackgroundColor { get; set; }
 
         public List<Color> DataColors { get; set; }

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace PterodactylCharts
 {
-    public class Legend
+    public class GraphLegend
     {
-        public Legend(string title, int position)
+        public GraphLegend(string title, int position)
         {
             Title = title;
             Position = position;
@@ -17,7 +17,7 @@ namespace PterodactylCharts
         public override string ToString()
         {
             StringBuilder stringRepresentation = new StringBuilder();
-            stringRepresentation.AppendFormat("Legend{0}Title: {1}{0}Position: {2}", Environment.NewLine, Title, Position.ToString());
+            stringRepresentation.AppendFormat("Graph Legend{0}Title: {1}{0}Position: {2}", Environment.NewLine, Title, Position.ToString());
             return stringRepresentation.ToString();
         }
 

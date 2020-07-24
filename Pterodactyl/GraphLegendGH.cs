@@ -7,11 +7,11 @@ using Rhino.Geometry;
 
 namespace Pterodactyl
 {
-    public class LegendGH : GH_Component
+    public class GraphLegendGH : GH_Component
     {
-        public LegendGH()
-          : base("Legend", "Legend",
-              "Create legend",
+        public GraphLegendGH()
+          : base("Graph Legend", "Graph Legend",
+              "Create legend for graph",
               "Pterodactyl", "Advanced Graphs")
         {
         }
@@ -36,7 +36,7 @@ namespace Pterodactyl
             DA.GetData(0, ref title);
             DA.GetData(1, ref position);
 
-            Legend legend = new Legend(title, position);
+            GraphLegend legend = new GraphLegend(title, position);
 
             DA.SetData(0, legend);
         }
