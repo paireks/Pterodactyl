@@ -68,6 +68,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CodeBlock.cs" />
     <Compile Include="CreateReport.cs" />
     <Compile Include="DynamicMathBlock.cs" />
     <Compile Include="Emphasis.cs" />
