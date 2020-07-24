@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarChartGH.cs" />
+    <Compile Include="LegendGH.cs" />
     <Compile Include="LineGraphAdvancedGH.cs" />
     <Compile Include="LineGraphGH.cs" />
     <Compile Include="CreateReportGH.cs" />

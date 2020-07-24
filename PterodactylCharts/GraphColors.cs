@@ -1,12 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PterodactylCharts
 {
-    class GraphColors
+    public class GraphColors
     {
+        public GraphColors(List<Color> dataColors, Color backgroundColor)
+        {
+            DataColors = dataColors;
+            BackgroundColor = backgroundColor;
+        }
+
+        public Color BackgroundColor { get; set; }
+
+        public List<Color> DataColors { get; set; }
     }
 }

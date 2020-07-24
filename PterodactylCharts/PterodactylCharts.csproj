@@ -61,6 +61,7 @@
       <DependentUpon>BarChart.cs</DependentUpon>
     </Compile>
     <Compile Include="BarChartEngine.cs" />
+    <Compile Include="GraphSettings.cs" />
     <Compile Include="GraphColors.cs" />
     <Compile Include="GraphSizes.cs" />
     <Compile Include="Legend.cs" />

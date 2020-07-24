@@ -8,5 +8,6 @@ namespace PterodactylCharts
 {
     class TextAnnotations
     {
+        public TextAnnotations() { }
     }
 }

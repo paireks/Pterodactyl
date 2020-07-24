@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace PterodactylCharts
 {
-    class GraphSizes
+    public class GraphSizes
     {
+        public GraphSizes(int width, int height)
+        {
+            Width = width;
+            Height = height;
+        }
+
+        public int Height { get; set; }
+
+        public int Width { get; set; }
     }
 }
