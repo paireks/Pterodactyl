@@ -10,7 +10,7 @@ namespace Pterodactyl
     {
         public PieChartGH()
           : base("Pie Chart", "Pie Chart",
-              "Add pie chart",
+              "Add pie chart, if you want to generate Report Part - set Path",
               "Pterodactyl", "Gadgets")
         {
         }

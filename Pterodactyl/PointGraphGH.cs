@@ -11,7 +11,7 @@ namespace Pterodactyl
     {
         public PointGraphGH()
           : base("Point Graph", "Point Graph",
-              "Create point graph",
+              "Create point graph, if you want to generate Report Part - set Path",
               "Pterodactyl", "Basic Graphs")
         {
         }

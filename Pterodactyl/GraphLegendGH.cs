@@ -26,7 +26,7 @@ namespace Pterodactyl
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Legend", "Legend", "Created legend", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Graph Legend", "Graph Legend", "Created legend", GH_ParamAccess.item);
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {

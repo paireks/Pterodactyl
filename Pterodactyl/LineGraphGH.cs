@@ -11,7 +11,7 @@ namespace Pterodactyl
     {
         public LineGraphGH()
           : base("Line Graph", "Line Graph",
-              "Create line graph",
+              "Create line graph, if you want to generate Report Part - set Path",
               "Pterodactyl", "Basic Graphs")
         {
         }
