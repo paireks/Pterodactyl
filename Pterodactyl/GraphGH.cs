@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
+using PterodactylCharts;
 using Rhino.Geometry;
 
 namespace Pterodactyl
@@ -29,7 +30,17 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            bool showGraph = false;
+            GraphElements graphElements = null;
+            GraphSettings graphSettings = null;
+            string path = "";
 
+            DA.GetData(0, ref showGraph);
+            DA.GetData(1, ref graphElements);
+            DA.GetData(2, ref graphSettings);
+            DA.GetData(3, ref path);
+
+            //LineGraphEngine lineGraphEngine = new LineGraphEngine(showGraph);
         }
         protected override System.Drawing.Bitmap Icon
         {
