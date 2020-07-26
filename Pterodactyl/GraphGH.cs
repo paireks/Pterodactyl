@@ -16,8 +16,8 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Show Graph", "Show Graph", "Show graph", GH_ParamAccess.item);
-            pManager.AddGenericParameter("Graph Items", "Graph Items", "Add graph items", GH_ParamAccess.item);
+            pManager.AddBooleanParameter("Show Graph", "Show Graph", "Show graph", GH_ParamAccess.item, false);
+            pManager.AddGenericParameter("Graph Elements", "Graph Elements", "Add graph elements", GH_ParamAccess.item);
             pManager.AddGenericParameter("Graph Settings", "Graph Settings", "Add graph settings", GH_ParamAccess.item);
             pManager.AddTextParameter("Path", "Path", "Set path where graph should be saved as .png file" +
                                                       " if you want to save it, and/or if you want to create Report Part. Remember to end " +

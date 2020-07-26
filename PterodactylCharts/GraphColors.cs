@@ -17,7 +17,9 @@ namespace PterodactylCharts
 
         public override string ToString()
         {
-            return "Graph Colors";
+            StringBuilder stringRepresentation = new StringBuilder();
+            stringRepresentation.AppendFormat("Graph Colors{0}Data colors: {1}", Environment.NewLine, DataColors.Count);
+            return stringRepresentation.ToString();
         }
 
         public Color BackgroundColor { get; set; }
