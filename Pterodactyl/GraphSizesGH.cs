@@ -43,6 +43,10 @@ namespace Pterodactyl
                 return null;
             }
         }
+        public override GH_Exposure Exposure
+        {
+            get { return GH_Exposure.tertiary; }
+        }
         public override Guid ComponentGuid
         {
             get { return new Guid("d677815c-993d-43f9-abae-4538b4c327a6"); }

@@ -72,6 +72,7 @@
     <Compile Include="BarChartGH.cs" />
     <Compile Include="CodeBlockGH.cs" />
     <Compile Include="GraphColorsGH.cs" />
+    <Compile Include="GraphDataGH.cs" />
     <Compile Include="GraphGH.cs" />
     <Compile Include="GraphSettingsGH.cs" />
     <Compile Include="GraphSizesGH.cs" />
