@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using OxyPlot.WindowsForms;
+﻿using OxyPlot.WindowsForms;
 using OxyPlot;
-using System.Windows.Forms;
-using System.Xml;
 using OxyPlot.Axes;
 using OxyPlot.Series;
-using PterodactylCharts.Properties;
 
 namespace PterodactylCharts
 {

@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using OxyPlot.WindowsForms;
 using OxyPlot;
-using System.Windows.Forms;
-using System.Xml;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
@@ -33,9 +30,6 @@ namespace PterodactylCharts
             BackgroundColor = Color.FromArgb(255, 255, 255);
             GraphWidth = 600;
             GraphHeight = 400;
-            TextAnnotations = null;
-            TextLocationXValues = new List<double>();
-            TextLocationYValues = new List<double>();
             Path = path;
 
             if (XValues[0].Count != YValues[0].Count)
@@ -43,38 +37,6 @@ namespace PterodactylCharts
                 throw new ArgumentException(
                     "X Values should match Y Values - check if both lists have the same number of elements.");
             }
-        }
-
-
-        public LineGraphEngine(bool showGraph, string title,
-            List<List<double>> xValues, List<List<double>> yValues,
-            List<string> valuesNames,
-            bool showLegend, string legendTitle, int legendPositionAsInt,
-            string xName, string yName,
-            List<Color> colors, Color backgroundColor,
-            int graphWidth, int graphHeight,
-            List<string> textAnnotations, 
-            List<double> textLocationXValues, List<double> textLocationYValues,
-            string path)
-        {
-            ShowGraph = showGraph;
-            Title = title;
-            XValues = xValues;
-            YValues = yValues;
-            ValuesNames = valuesNames;
-            ShowLegend = showLegend;
-            LegendTitle = legendTitle;
-            LegendPositionAsInt = legendPositionAsInt;
-            XName = xName;
-            YName = yName;
-            Colors = colors;
-            BackgroundColor = backgroundColor;
-            GraphWidth = graphWidth;
-            GraphHeight = graphHeight;
-            TextAnnotations = textAnnotations;
-            TextLocationXValues = textLocationXValues;
-            TextLocationYValues = textLocationYValues;
-            Path = path;
         }
 
         public PlotView ChartCreator()
@@ -123,8 +85,8 @@ namespace PterodactylCharts
             myPlot.Model = MyModel;
 
             myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            myPlot.Location = new System.Drawing.Point(0, 0);
-            myPlot.Size = new System.Drawing.Size(GraphWidth, GraphHeight);
+            myPlot.Location = new Point(0, 0);
+            myPlot.Size = new Size(GraphWidth, GraphHeight);
             myPlot.TabIndex = 0;
 
             return myPlot;
@@ -174,9 +136,6 @@ namespace PterodactylCharts
         public Color BackgroundColor { get; set; }
         public int GraphWidth { get; set; }
         public int GraphHeight { get; set; }
-        public List<string> TextAnnotations { get; set; }
-        public List<double> TextLocationXValues { get; set; }
-        public List<double> TextLocationYValues { get; set; }
         public string Path { get; set; }
         public PlotModel MyModel { get; set; }
     }

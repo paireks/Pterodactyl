@@ -82,7 +82,6 @@
     <Compile Include="GraphSettingsGH.cs" />
     <Compile Include="GraphSizesGH.cs" />
     <Compile Include="GraphLegendGH.cs" />
-    <Compile Include="LineGraphAdvancedGH.cs" />
     <Compile Include="LineGraphGH.cs" />
     <Compile Include="CreateReportGH.cs" />
     <Compile Include="DynamicMathBlockGH.cs" />
