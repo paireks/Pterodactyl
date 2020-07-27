@@ -16,14 +16,14 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddGenericParameter("Flowchart Node", "Flowchart Node", "First node for link", GH_ParamAccess.item);
             pManager.AddIntegerParameter("Type", "Type", "Type as integer. 0 - normal, 1 - open, 2 - dotted, 3 - thick" , GH_ParamAccess.item, 0);
+            pManager.AddGenericParameter("Node", "Node", "First node for link", GH_ParamAccess.item);
             pManager.AddTextParameter("Text", "Text", "Additional text that will be displayed on a link (optional)",
                 GH_ParamAccess.item, "");
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Flowchart Link", "Flowchart Link",
+            pManager.AddGenericParameter("Link", "Link",
                 "Flowchart link, connect it with another node", GH_ParamAccess.item);
         }
         protected override void SolveInstance(IGH_DataAccess DA)

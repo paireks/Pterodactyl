@@ -21,7 +21,7 @@ namespace UnitTestsGH
         [Theory]
         [InlineData("Page Break", "Page Break",
             "Insert page break, so it will be visible when export to .pdf",
-            "Pterodactyl", "Format")]
+            "Pterodactyl", "Parts")]
         public void TestName(string name, string nickname, string description, string category, string subCategory)
         {
             Assert.Equal(name, TestPageBreakGhHelper.TestObject.Name);

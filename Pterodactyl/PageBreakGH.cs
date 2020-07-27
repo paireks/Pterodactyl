@@ -12,7 +12,7 @@ namespace Pterodactyl
         public PageBreakGH()
             : base("Page Break", "Page Break",
                 "Insert page break, so it will be visible when export to .pdf",
-                "Pterodactyl", "Format")
+                "Pterodactyl", "Parts")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)

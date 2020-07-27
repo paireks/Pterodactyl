@@ -16,9 +16,8 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Id", "Id", "Id name of the node", GH_ParamAccess.item);
             pManager.AddTextParameter("Text", "Text", "Add text inside node", GH_ParamAccess.item, "Sample text");
-            pManager.AddGenericParameter("Input", "Input", "Add inputs (flowchart nodes or links) or leave empty", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Node/Link", "Node/Link", "Add inputs (flowchart nodes or links) or leave empty", GH_ParamAccess.list);
             pManager.AddIntegerParameter("Shape", "Shape",
                 "Set shape of the node as int. 0 - rectangle, 1 - round edges, 2 - stadium-shaped," +
                 " 3 - subroutine, 4 - cylindrical, 5 - circle, 6 - asymetric, 7 - rhombus, 8 - hexagon",
@@ -26,7 +25,7 @@ namespace Pterodactyl
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Flowchart Node", "Flowchart Node", "Node for flowchart", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Node", "Node", "Node for flowchart", GH_ParamAccess.item);
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
