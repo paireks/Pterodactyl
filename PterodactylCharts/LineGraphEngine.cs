@@ -45,6 +45,7 @@ namespace PterodactylCharts
             }
         }
 
+
         public LineGraphEngine(bool showGraph, string title,
             List<List<double>> xValues, List<List<double>> yValues,
             List<string> valuesNames,

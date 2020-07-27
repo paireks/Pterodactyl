@@ -9,8 +9,9 @@ namespace PterodactylCharts
 {
     public class GraphSettings
     {
-        public GraphSettings(int graphType, GraphSizes graphSizes, GraphColors graphColors, GraphAxis graphAxis)
+        public GraphSettings(string graphTitle, int graphType, GraphSizes graphSizes, GraphColors graphColors, GraphAxis graphAxis)
         {
+            Title = graphTitle;
             Type = graphType;
             Colors = graphColors;
             Sizes = graphSizes;
@@ -22,6 +23,7 @@ namespace PterodactylCharts
             return "Graph Settings";
         }
 
+        public string Title { get; set; }
         public int Type { get; set; }
         public GraphColors Colors { get; set; }
         public GraphSizes Sizes { get; set; }

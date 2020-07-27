@@ -61,9 +61,16 @@
       <DependentUpon>BarChart.cs</DependentUpon>
     </Compile>
     <Compile Include="BarChartEngine.cs" />
+    <Compile Include="Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graph.Designer.cs">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </Compile>
     <Compile Include="GraphAxis.cs" />
     <Compile Include="GraphData.cs" />
     <Compile Include="GraphElements.cs" />
+    <Compile Include="GraphEngine.cs" />
     <Compile Include="GraphSettings.cs" />
     <Compile Include="GraphColors.cs" />
     <Compile Include="GraphSizes.cs" />

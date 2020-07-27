@@ -40,7 +40,17 @@ namespace Pterodactyl
             DA.GetData(2, ref graphSettings);
             DA.GetData(3, ref path);
 
-            //LineGraphEngine lineGraphEngine = new LineGraphEngine(showGraph);
+            Graph graphObject = new Graph();
+            graphObject.GraphData(showGraph, graphElements, graphSettings, path);
+            if (showGraph)
+            {
+                graphObject.ShowDialog();
+            }
+
+            graphObject.Export();
+            string reportPart = graphObject.Create();
+
+            DA.SetData(0, reportPart);
         }
         protected override System.Drawing.Bitmap Icon
         {
