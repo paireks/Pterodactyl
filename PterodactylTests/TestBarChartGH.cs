@@ -20,7 +20,7 @@ namespace UnitTestsGH
     {
         [Theory]
         [InlineData("Bar Chart", "Bar Chart",
-            "Create bar chart",
+            "Create bar chart, if you want to generate Report Part - set Path",
             "Pterodactyl", "Basic Graphs")]
         public void TestName(string name, string nickname, string description, string category, string subCategory)
         {

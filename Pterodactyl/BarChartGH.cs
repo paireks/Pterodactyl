@@ -11,7 +11,7 @@ namespace Pterodactyl
     {
         public BarChartGH()
           : base("Bar Chart", "Bar Chart",
-              "Create bar chart",
+              "Create bar chart, if you want to generate Report Part - set Path",
               "Pterodactyl", "Basic Graphs")
         {
         }
