@@ -1,4 +1,5 @@
-﻿using OxyPlot.WindowsForms;
+﻿using System.Drawing;
+using OxyPlot.WindowsForms;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
@@ -20,32 +21,13 @@ namespace PterodactylCharts
 
             MyModel = new PlotModel { Title = Settings.Title };
 
-            for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
+            if (Settings.Type == 0)
             {
-                var lineSeries = new LineSeries
-                {
-                    Color = OxyColor.FromArgb(a: Settings.Colors.DataColors[i].A,
-                                              r: Settings.Colors.DataColors[i].R,
-                                              g: Settings.Colors.DataColors[i].G,
-                                              b: Settings.Colors.DataColors[i].B),
-                    MarkerFill = OxyColors.Transparent,
-                    DataFieldX = Settings.Axis.XAxisName,
-                    DataFieldY = Settings.Axis.YAxisName,
-                    Background = OxyColor.FromArgb(
-                        a: Settings.Colors.BackgroundColor.A,
-                        r: Settings.Colors.BackgroundColor.R,
-                        g: Settings.Colors.BackgroundColor.G,
-                        b: Settings.Colors.BackgroundColor.B)
-                };
-
-                lineSeries.Title = Elements.Data.ValuesNames[i];
-                
-                for (int j = 0; j < Elements.Data.XValues[i].Count; j++)
-                {
-                    lineSeries.Points.Add(new DataPoint(Elements.Data.XValues[i][j], Elements.Data.YValues[i][j]));
-                }
-
-                MyModel.Series.Add(lineSeries);
+                AddLineSeries(MyModel);
+            }
+            else if (Settings.Type == 1)
+            {
+                AddPointSeries(MyModel);
             }
 
             MyModel.LegendTitle = Elements.Legend.Title;
@@ -97,7 +79,68 @@ namespace PterodactylCharts
             }
             return reportPart;
         }
+        public void AddLineSeries(PlotModel model)
+        {
 
+            for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
+            {
+                var lineSeries = new LineSeries
+                {
+                    Color = OxyColor.FromArgb(a: Settings.Colors.DataColors[i].A,
+                        r: Settings.Colors.DataColors[i].R,
+                        g: Settings.Colors.DataColors[i].G,
+                        b: Settings.Colors.DataColors[i].B),
+                    MarkerFill = OxyColors.Transparent,
+                    DataFieldX = Settings.Axis.XAxisName,
+                    DataFieldY = Settings.Axis.YAxisName,
+                    Background = OxyColor.FromArgb(
+                        a: Settings.Colors.BackgroundColor.A,
+                        r: Settings.Colors.BackgroundColor.R,
+                        g: Settings.Colors.BackgroundColor.G,
+                        b: Settings.Colors.BackgroundColor.B)
+                };
+
+                lineSeries.Title = Elements.Data.ValuesNames[i];
+
+                for (int j = 0; j < Elements.Data.XValues[i].Count; j++)
+                {
+                    lineSeries.Points.Add(new DataPoint(Elements.Data.XValues[i][j], Elements.Data.YValues[i][j]));
+                }
+
+                model.Series.Add(lineSeries);
+            }
+        }
+
+        public void AddPointSeries(PlotModel model)
+        {
+            for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
+            {
+                var pointSeries = new ScatterSeries()
+                {
+                    MarkerType = MarkerType.Circle,
+                    MarkerFill = OxyColor.FromArgb(a: Settings.Colors.DataColors[i].A,
+                        r: Settings.Colors.DataColors[i].R,
+                        g: Settings.Colors.DataColors[i].G,
+                        b: Settings.Colors.DataColors[i].B),
+                    DataFieldX = Settings.Axis.XAxisName,
+                    DataFieldY = Settings.Axis.YAxisName,
+                    Background = OxyColor.FromArgb(
+                        a: Settings.Colors.BackgroundColor.A,
+                        r: Settings.Colors.BackgroundColor.R,
+                        g: Settings.Colors.BackgroundColor.G,
+                        b: Settings.Colors.BackgroundColor.B)
+                };
+
+                pointSeries.Title = Elements.Data.ValuesNames[i];
+
+                for (int j = 0; j < Elements.Data.XValues[i].Count; j++)
+                {
+                    pointSeries.Points.Add(new ScatterPoint(Elements.Data.XValues[i][j], Elements.Data.YValues[i][j]));
+                }
+
+                model.Series.Add(pointSeries);
+            }
+        }
 
         public bool ShowGraph { get; set; }
         public GraphElements Elements { get; set; }
