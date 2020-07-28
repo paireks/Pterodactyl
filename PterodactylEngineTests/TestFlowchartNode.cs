@@ -27,6 +27,20 @@ namespace UnitTestEngine
                     {new FlowchartNode("First", null, 0)}, 0)
             },
             0, new List<string> { "First --> Second", "Second --> Third" });
+            Add("Fourth", new List<FlowchartNode>
+                {
+                    new FlowchartNode("Third", new List<FlowchartNode>
+                        {new FlowchartNode("Second", new List<FlowchartNode>
+                            {new FlowchartNode("First", null, 0)}, 0)}, 0)
+                },
+                0, new List<string> { "First --> Second", "Second --> Third", "Third --> Fourth" });
+            Add("Third", new List<FlowchartNode>
+                {
+                    new FlowchartNode("Second", new List<FlowchartNode>
+                        {new FlowchartNode("First", null, 0)}, 0),
+                    new FlowchartNode("First", null, 0)
+                },
+                0, new List<string> { "First --> Second", "Second --> Third", "First --> Third" });
         }
     }
     public class TestFlowchartNode

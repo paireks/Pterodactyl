@@ -21,13 +21,11 @@ namespace PterodactylEngine
             {
                 foreach (var node in InputNodes)
                 {
-                    if (node.FlowchartPart.Count != 0)
+                    for (int i = 0; i < node.FlowchartPart.Count; i++)
                     {
-                        for (int i = 0; i < node.FlowchartPart.Count; i++)
-                        {
-                            FlowchartPart.Add(node.FlowchartPart[i]);
-                        }
+                        FlowchartPart.Add(node.FlowchartPart[i]);
                     }
+
                     FlowchartPart.Add(node.Text + " --> " + Text);
                 }
             }
