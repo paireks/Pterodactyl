@@ -73,7 +73,7 @@
     <Compile Include="CodeBlockGH.cs" />
     <Compile Include="FlowchartGH.cs" />
     <Compile Include="FlowchartLinkGH.cs" />
-    <Compile Include="FlowchartNodesGH.cs" />
+    <Compile Include="FlowchartNodeGH.cs" />
     <Compile Include="GraphAxisGH.cs" />
     <Compile Include="GraphColorsGH.cs" />
     <Compile Include="GraphDataGH.cs" />

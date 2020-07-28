@@ -6,10 +6,10 @@ using Rhino.Geometry;
 
 namespace Pterodactyl
 {
-    public class FlowchartNodesGH : GH_Component
+    public class FlowchartNodeGH : GH_Component
     {
-        public FlowchartNodesGH()
-          : base("Flowchart Nodes", "Flowchart Nodes",
+        public FlowchartNodeGH()
+          : base("Flowchart Node", "Flowchart Node",
               "Add node for flowchart",
               "Pterodactyl", "Tools")
         {
