@@ -82,6 +82,7 @@
     <Compile Include="GraphSettingsGH.cs" />
     <Compile Include="GraphSizesGH.cs" />
     <Compile Include="GraphLegendGH.cs" />
+    <Compile Include="LineDataGH.cs" />
     <Compile Include="LineGraphGH.cs" />
     <Compile Include="CreateReportGH.cs" />
     <Compile Include="DynamicMathBlockGH.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="OrderedListGH.cs" />
     <Compile Include="PageBreakGH.cs" />
     <Compile Include="PieChartGH.cs" />
+    <Compile Include="PointDataGH.cs" />
     <Compile Include="PointGraphGH.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

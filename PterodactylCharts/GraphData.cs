@@ -8,11 +8,13 @@ namespace PterodactylCharts
     {
         public GraphData(List<List<double>> xValues,
             List<List<double>> yValues,
-            List<string> valuesNames)
+            List<string> valuesNames,
+            List<DataType> dataTypes)
         {
             XValues = xValues;
             YValues = yValues;
             ValuesNames = valuesNames;
+            DataTypes = dataTypes;
         }
         public override string ToString()
         {
@@ -24,5 +26,6 @@ namespace PterodactylCharts
         public List<List<double>> XValues { get; set; }
         public List<List<double>> YValues { get; set; }
         public List<string> ValuesNames { get; set; }
+        public List<DataType> DataTypes { get; set; }
     }
 }

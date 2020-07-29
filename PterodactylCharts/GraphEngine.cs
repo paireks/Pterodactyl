@@ -1,4 +1,5 @@
-﻿using System.Drawing;
+﻿using System.Collections.Generic;
+using System.Drawing;
 using OxyPlot.WindowsForms;
 using OxyPlot;
 using OxyPlot.Axes;
@@ -27,7 +28,14 @@ namespace PterodactylCharts
             }
             else if (Settings.Type == 1)
             {
-                AddPointSeries(MyModel);
+                for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
+                {
+                    AddPointSeries(MyModel, Elements.Data.DataTypes[i].DataColor,
+                        Elements.Data.DataTypes[i].Markers,
+                        Elements.Data.ValuesNames[i],
+                        Elements.Data.XValues[i],
+                        Elements.Data.YValues[i]);
+                }
             }
 
             MyModel.LegendTitle = Elements.Legend.Title;
@@ -111,17 +119,16 @@ namespace PterodactylCharts
             }
         }
 
-        public void AddPointSeries(PlotModel model)
+        public void AddPointSeries(PlotModel model, Color dataColor, int marker, string valueName, List<double> xValues, List<double> yValues)
         {
-            for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
-            {
-                var pointSeries = new ScatterSeries()
+            var pointSeries = new ScatterSeries()
                 {
-                    MarkerType = MarkerType.Circle,
-                    MarkerFill = OxyColor.FromArgb(a: Settings.Colors.DataColors[i].A,
-                        r: Settings.Colors.DataColors[i].R,
-                        g: Settings.Colors.DataColors[i].G,
-                        b: Settings.Colors.DataColors[i].B),
+                    MarkerType = (MarkerType)marker,
+                    MarkerFill = OxyColor.FromArgb(
+                        a: dataColor.A,
+                        r: dataColor.R,
+                        g: dataColor.G,
+                        b: dataColor.B),
                     DataFieldX = Settings.Axis.XAxisName,
                     DataFieldY = Settings.Axis.YAxisName,
                     Background = OxyColor.FromArgb(
@@ -131,15 +138,14 @@ namespace PterodactylCharts
                         b: Settings.Colors.BackgroundColor.B)
                 };
 
-                pointSeries.Title = Elements.Data.ValuesNames[i];
+                pointSeries.Title = valueName;
 
-                for (int j = 0; j < Elements.Data.XValues[i].Count; j++)
+                for (int i = 0; i < xValues.Count; i++)
                 {
-                    pointSeries.Points.Add(new ScatterPoint(Elements.Data.XValues[i][j], Elements.Data.YValues[i][j]));
+                    pointSeries.Points.Add(new ScatterPoint(xValues[i], yValues[i]));
                 }
 
                 model.Series.Add(pointSeries);
-            }
         }
 
         public bool ShowGraph { get; set; }

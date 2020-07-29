@@ -28,6 +28,8 @@ namespace Pterodactyl
             pManager.AddTextParameter("Values Names", "Values Names",
                 "List of names of values, each item should match each branch of X and Y Values. It will appear if" +
                 " Show Legend == True.", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Data Type", "Data Type",
+                "Set data type as list, each data type should match each series of data", GH_ParamAccess.list);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -38,10 +40,12 @@ namespace Pterodactyl
             Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number> xValuesTree = new Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
             Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number> yValuesTree = new Grasshopper.Kernel.Data.GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
             List<string> valuesNames = new List<string>();
+            List<DataType> dataTypes = new List<DataType>();
 
             DA.GetDataTree("X Values", out xValuesTree);
             DA.GetDataTree("Y Values", out yValuesTree);
             DA.GetDataList(2, valuesNames);
+            DA.GetDataList(3, dataTypes);
 
             List<List<double>> xValues = new List<List<double>>();
             List<List<double>> yValues = new List<List<double>>();
@@ -63,7 +67,7 @@ namespace Pterodactyl
                 yValues.Add(currentBranchYValues);
             }
 
-            GraphData graphData = new GraphData(xValues, yValues, valuesNames);
+            GraphData graphData = new GraphData(xValues, yValues, valuesNames, dataTypes);
 
             DA.SetData(0, graphData);
         }
