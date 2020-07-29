@@ -12,7 +12,7 @@ namespace Pterodactyl
         public GraphElementsGH()
           : base("Graph Elements", "Graph Elements",
               "Add elements of graph",
-              "Pterodactyl", "Advanced Graphs")
+              "Pterodactyl", "Advanced Graph")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)

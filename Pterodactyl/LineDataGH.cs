@@ -12,7 +12,7 @@ namespace Pterodactyl
         public LineDataGH()
           : base("Line Data", "Line Data",
               "Add line data",
-              "Pterodactyl", "Advanced Graphs")
+              "Pterodactyl", "Advanced Graph")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)

@@ -12,7 +12,7 @@ namespace Pterodactyl
         public GraphLegendGH()
           : base("Graph Legend", "Graph Legend",
               "Create legend for graph",
-              "Pterodactyl", "Advanced Graphs")
+              "Pterodactyl", "Advanced Graph")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)

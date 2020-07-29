@@ -12,7 +12,7 @@ namespace Pterodactyl
         public GraphAxisGH()
           : base("Graph Axis", "Graph Axis",
               "Add axises for the graph",
-              "Pterodactyl", "Advanced Graphs")
+              "Pterodactyl", "Advanced Graph")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)

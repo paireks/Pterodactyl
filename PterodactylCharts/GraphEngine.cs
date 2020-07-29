@@ -22,20 +22,19 @@ namespace PterodactylCharts
 
             MyModel = new PlotModel { Title = Settings.Title };
 
-            if (Settings.Type == 0)
+            for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
             {
-                AddLineSeries(MyModel);
-            }
-            else if (Settings.Type == 1)
-            {
-                for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
+                if (Elements.Data.DataTypes[i].TypeOfData == 0)
                 {
-                    AddPointSeries(MyModel, Elements.Data.DataTypes[i].DataColor,
-                        Elements.Data.DataTypes[i].Markers,
-                        Elements.Data.ValuesNames[i],
-                        Elements.Data.XValues[i],
-                        Elements.Data.YValues[i]);
+                    AddLineSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
+                        Elements.Data.XValues[i], Elements.Data.YValues[i]);
                 }
+                else if (Elements.Data.DataTypes[i].TypeOfData == 1)
+                {
+                    AddPointSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
+                        Elements.Data.XValues[i], Elements.Data.YValues[i]);
+                }
+
             }
 
             MyModel.LegendTitle = Elements.Legend.Title;
@@ -48,8 +47,8 @@ namespace PterodactylCharts
             myPlot.Model = MyModel;
 
             myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            myPlot.Location = new System.Drawing.Point(0, 0);
-            myPlot.Size = new System.Drawing.Size(Settings.Sizes.Width, Settings.Sizes.Height);
+            myPlot.Location = new Point(0, 0);
+            myPlot.Size = new Size(Settings.Sizes.Width, Settings.Sizes.Height);
             myPlot.TabIndex = 0;
 
             return myPlot;
@@ -64,10 +63,10 @@ namespace PterodactylCharts
                     Width = Settings.Sizes.Width,
                     Height = Settings.Sizes.Height,
                     Background = OxyColor.FromArgb(
-                        Settings.Colors.BackgroundColor.A,
-                        Settings.Colors.BackgroundColor.R,
-                        Settings.Colors.BackgroundColor.G,
-                        Settings.Colors.BackgroundColor.B)
+                        Settings.GraphColor.A,
+                        Settings.GraphColor.R,
+                        Settings.GraphColor.G,
+                        Settings.GraphColor.B)
                 };
                 pngExporter.ExportToFile(MyModel, Path);
             }
@@ -87,65 +86,62 @@ namespace PterodactylCharts
             }
             return reportPart;
         }
-        public void AddLineSeries(PlotModel model)
+        public void AddLineSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues)
         {
-
-            for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
+            var lineSeries = new LineSeries
             {
-                var lineSeries = new LineSeries
-                {
-                    Color = OxyColor.FromArgb(a: Settings.Colors.DataColors[i].A,
-                        r: Settings.Colors.DataColors[i].R,
-                        g: Settings.Colors.DataColors[i].G,
-                        b: Settings.Colors.DataColors[i].B),
-                    MarkerFill = OxyColors.Transparent,
-                    DataFieldX = Settings.Axis.XAxisName,
-                    DataFieldY = Settings.Axis.YAxisName,
-                    Background = OxyColor.FromArgb(
-                        a: Settings.Colors.BackgroundColor.A,
-                        r: Settings.Colors.BackgroundColor.R,
-                        g: Settings.Colors.BackgroundColor.G,
-                        b: Settings.Colors.BackgroundColor.B)
-                };
+                Color = OxyColor.FromArgb(
+                    a: dataType.DataColor.A,
+                    r: dataType.DataColor.R,
+                    g: dataType.DataColor.G,
+                    b: dataType.DataColor.B),
+                MarkerFill = OxyColors.Transparent,
+                DataFieldX = Settings.Axis.XAxisName,
+                DataFieldY = Settings.Axis.YAxisName,
+                Background = OxyColor.FromArgb(
+                    a: Settings.GraphColor.A,
+                    r: Settings.GraphColor.R,
+                    g: Settings.GraphColor.G,
+                    b: Settings.GraphColor.B)
+            };
 
-                lineSeries.Title = Elements.Data.ValuesNames[i];
+            lineSeries.Title = valueName;
 
-                for (int j = 0; j < Elements.Data.XValues[i].Count; j++)
-                {
-                    lineSeries.Points.Add(new DataPoint(Elements.Data.XValues[i][j], Elements.Data.YValues[i][j]));
-                }
-
-                model.Series.Add(lineSeries);
+            for (int i = 0; i < xValues.Count; i++)
+            {
+                lineSeries.Points.Add(new DataPoint(xValues[i], yValues[i]));
             }
+
+            model.Series.Add(lineSeries);
         }
 
-        public void AddPointSeries(PlotModel model, Color dataColor, int marker, string valueName, List<double> xValues, List<double> yValues)
+        public void AddPointSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues)
         {
             var pointSeries = new ScatterSeries()
-                {
-                    MarkerType = (MarkerType)marker,
-                    MarkerFill = OxyColor.FromArgb(
-                        a: dataColor.A,
-                        r: dataColor.R,
-                        g: dataColor.G,
-                        b: dataColor.B),
-                    DataFieldX = Settings.Axis.XAxisName,
-                    DataFieldY = Settings.Axis.YAxisName,
-                    Background = OxyColor.FromArgb(
-                        a: Settings.Colors.BackgroundColor.A,
-                        r: Settings.Colors.BackgroundColor.R,
-                        g: Settings.Colors.BackgroundColor.G,
-                        b: Settings.Colors.BackgroundColor.B)
-                };
+            {
+                MarkerType = (MarkerType)dataType.Markers,
+                MarkerFill = OxyColor.FromArgb(
+                    a: dataType.DataColor.A,
+                    r: dataType.DataColor.R,
+                    g: dataType.DataColor.G,
+                    b: dataType.DataColor.B),
+                DataFieldX = Settings.Axis.XAxisName,
+                DataFieldY = Settings.Axis.YAxisName,
+                Background = OxyColor.FromArgb(
+                    a: Settings.GraphColor.A,
+                    r: Settings.GraphColor.R,
+                    g: Settings.GraphColor.G,
+                    b: Settings.GraphColor.B)
+            };
 
-                pointSeries.Title = valueName;
+            pointSeries.Title = valueName;
 
-                for (int i = 0; i < xValues.Count; i++)
-                {
-                    pointSeries.Points.Add(new ScatterPoint(xValues[i], yValues[i]));
-                }
+            for (int i = 0; i < xValues.Count; i++)
+            {
+                pointSeries.Points.Add(new ScatterPoint(xValues[i], yValues[i]));
+            }
 
-                model.Series.Add(pointSeries);
+            model.Series.Add(pointSeries);
         }
 
         public bool ShowGraph { get; set; }

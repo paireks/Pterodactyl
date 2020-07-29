@@ -73,7 +73,6 @@
     <Compile Include="GraphElements.cs" />
     <Compile Include="GraphEngine.cs" />
     <Compile Include="GraphSettings.cs" />
-    <Compile Include="GraphColors.cs" />
     <Compile Include="GraphSizes.cs" />
     <Compile Include="GraphLegend.cs" />
     <Compile Include="LineGraphEngine.cs" />

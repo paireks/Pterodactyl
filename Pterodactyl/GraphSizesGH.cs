@@ -12,7 +12,7 @@ namespace Pterodactyl
         public GraphSizesGH()
           : base("Graph Sizes", "Graph Sizes",
               "Set sizes of graph",
-              "Pterodactyl", "Advanced Graphs")
+              "Pterodactyl", "Advanced Graph")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)

@@ -1,12 +1,13 @@
-﻿namespace PterodactylCharts
+﻿using System.Drawing;
+
+namespace PterodactylCharts
 {
     public class GraphSettings
     {
-        public GraphSettings(string graphTitle, int graphType, GraphSizes graphSizes, GraphColors graphColors, GraphAxis graphAxis)
+        public GraphSettings(string graphTitle, GraphSizes graphSizes, Color graphColor, GraphAxis graphAxis)
         {
             Title = graphTitle;
-            Type = graphType;
-            Colors = graphColors;
+            GraphColor = graphColor;
             Sizes = graphSizes;
             Axis = graphAxis;
         }
@@ -17,8 +18,7 @@
         }
 
         public string Title { get; set; }
-        public int Type { get; set; }
-        public GraphColors Colors { get; set; }
+        public Color GraphColor { get; set; }
         public GraphSizes Sizes { get; set; }
         public GraphAxis Axis { get; set; }
     }

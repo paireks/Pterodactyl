@@ -12,7 +12,7 @@ namespace Pterodactyl
         public GraphGH()
           : base("Graph", "Graph",
               "Create graph, if you want to generate Report Part - set Path",
-              "Pterodactyl", "Advanced Graphs")
+              "Pterodactyl", "Advanced Graph")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)

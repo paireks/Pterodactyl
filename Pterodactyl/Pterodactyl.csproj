@@ -75,7 +75,6 @@
     <Compile Include="FlowchartLinkGH.cs" />
     <Compile Include="FlowchartNodeGH.cs" />
     <Compile Include="GraphAxisGH.cs" />
-    <Compile Include="GraphColorsGH.cs" />
     <Compile Include="GraphDataGH.cs" />
     <Compile Include="GraphGH.cs" />
     <Compile Include="GraphElementsGH.cs" />
