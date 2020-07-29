@@ -94,6 +94,7 @@
     <Compile Include="OrderedListGH.cs" />
     <Compile Include="PageBreakGH.cs" />
     <Compile Include="PieChartGH.cs" />
+    <Compile Include="PieChartToolGH.cs" />
     <Compile Include="PointDataGH.cs" />
     <Compile Include="PointGraphGH.cs" />
     <Compile Include="Properties\Resources.Designer.cs">

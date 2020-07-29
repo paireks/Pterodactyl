@@ -7,11 +7,11 @@ namespace UnitTestsGH
 {
     public class TestPieChartGhHelper
     {
-        public static PieChartGH TestObject
+        public static PieChartToolGH TestObject
         {
             get
             {
-                PieChartGH testObject = new PieChartGH();
+                PieChartToolGH testObject = new PieChartToolGH();
                 return testObject;
             }
         }

@@ -9,17 +9,16 @@ using OxyPlot.Series;
 
 namespace PterodactylCharts
 {
-    public class BarChartEngine
+    public class PieChartEngine
     {
 
-        public BarChartEngine(bool showGraph, string title,
-            List<double> values, List<string> names, string textFormat, List<Color> colors, string path)
+        public PieChartEngine(bool showGraph, string title,
+            List<double> values, List<string> names, List<Color> colors, string path)
         {
             ShowGraph = showGraph;
             Title = title;
             Values = values;
             Names = names;
-            TextFormat = textFormat;
             Colors = colors;
             Path = path;
 
@@ -36,33 +35,27 @@ namespace PterodactylCharts
 
             MyModel = new PlotModel { Title = Title };
 
-            var barSeries = new BarSeries
+            var pieSeries = new PieSeries
             {
-                Background = OxyColors.White
-
+                StrokeThickness = 2.0,
+                InsideLabelPosition = 0.8,
+                AngleSpan = 360,
+                StartAngle = 0
             };
 
             for (int i = 0; i < Values.Count; i++)
             {
-                barSeries.Items.Add(new BarItem{Value = Values[i], Color = OxyColor.FromArgb(a: Colors[i].A, r: Colors[i].R, g: Colors[i].G, b: Colors[i].B)});
+                pieSeries.Slices.Add(new PieSlice(Names[i], Values[i]) { IsExploded = false,
+                    Fill = OxyColor.FromArgb(Colors[i].A, Colors[i].R, Colors[i].G, Colors[i].B) });
             }
 
-            barSeries.LabelFormatString = TextFormat;
-            barSeries.LabelPlacement = LabelPlacement.Middle;
-
-            MyModel.Series.Add(barSeries);
-
-            MyModel.Axes.Add(new CategoryAxis
-            {
-                Position = AxisPosition.Left,
-                ItemsSource = Names
-            });
+            MyModel.Series.Add(pieSeries);
 
             myPlot.Model = MyModel;
 
             myPlot.Dock = DockStyle.Bottom;
             myPlot.Location = new Point(0, 0);
-            myPlot.Size = new Size(600, 400);
+            myPlot.Size = new Size(400, 400);
             myPlot.TabIndex = 0;
 
             return myPlot;
@@ -72,7 +65,7 @@ namespace PterodactylCharts
         {
             if (Path.EndsWith(".png"))
             {
-                var pngExporter = new PngExporter { Width = 600, Height = 400, Background = OxyColors.White };
+                var pngExporter = new PngExporter { Width = 400, Height = 400, Background = OxyColors.White };
                 pngExporter.ExportToFile(MyModel, Path);
             }
         }
@@ -96,7 +89,6 @@ namespace PterodactylCharts
         public string Title { get; set; }
         public List<double> Values { get; set; }
         public List<string> Names { get; set; }
-        public string TextFormat { get; set; }
         public List<Color> Colors { get; set; }
         public string Path { get; set; }
         public PlotModel MyModel { get; set; }

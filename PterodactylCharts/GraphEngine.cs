@@ -34,7 +34,6 @@ namespace PterodactylCharts
                     AddPointSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
                         Elements.Data.XValues[i], Elements.Data.YValues[i]);
                 }
-
             }
 
             MyModel.LegendTitle = Elements.Legend.Title;
@@ -62,11 +61,7 @@ namespace PterodactylCharts
                 {
                     Width = Settings.Sizes.Width,
                     Height = Settings.Sizes.Height,
-                    Background = OxyColor.FromArgb(
-                        Settings.GraphColor.A,
-                        Settings.GraphColor.R,
-                        Settings.GraphColor.G,
-                        Settings.GraphColor.B)
+                    Background = OxyColor.FromArgb(Settings.GraphColor.A, Settings.GraphColor.R, Settings.GraphColor.G, Settings.GraphColor.B)
                 };
                 pngExporter.ExportToFile(MyModel, Path);
             }
@@ -90,19 +85,11 @@ namespace PterodactylCharts
         {
             var lineSeries = new LineSeries
             {
-                Color = OxyColor.FromArgb(
-                    a: dataType.DataColor.A,
-                    r: dataType.DataColor.R,
-                    g: dataType.DataColor.G,
-                    b: dataType.DataColor.B),
+                Color = OxyColor.FromArgb(a: dataType.DataColor.A, r: dataType.DataColor.R, g: dataType.DataColor.G, b: dataType.DataColor.B),
                 MarkerFill = OxyColors.Transparent,
                 DataFieldX = Settings.Axis.XAxisName,
                 DataFieldY = Settings.Axis.YAxisName,
-                Background = OxyColor.FromArgb(
-                    a: Settings.GraphColor.A,
-                    r: Settings.GraphColor.R,
-                    g: Settings.GraphColor.G,
-                    b: Settings.GraphColor.B)
+                Background = OxyColor.FromArgb(a: Settings.GraphColor.A, r: Settings.GraphColor.R, g: Settings.GraphColor.G, b: Settings.GraphColor.B)
             };
 
             lineSeries.Title = valueName;
@@ -120,18 +107,10 @@ namespace PterodactylCharts
             var pointSeries = new ScatterSeries()
             {
                 MarkerType = (MarkerType)dataType.Markers,
-                MarkerFill = OxyColor.FromArgb(
-                    a: dataType.DataColor.A,
-                    r: dataType.DataColor.R,
-                    g: dataType.DataColor.G,
-                    b: dataType.DataColor.B),
+                MarkerFill = OxyColor.FromArgb(a: dataType.DataColor.A, r: dataType.DataColor.R, g: dataType.DataColor.G, b: dataType.DataColor.B),
                 DataFieldX = Settings.Axis.XAxisName,
                 DataFieldY = Settings.Axis.YAxisName,
-                Background = OxyColor.FromArgb(
-                    a: Settings.GraphColor.A,
-                    r: Settings.GraphColor.R,
-                    g: Settings.GraphColor.G,
-                    b: Settings.GraphColor.B)
+                Background = OxyColor.FromArgb(a: Settings.GraphColor.A, r: Settings.GraphColor.R, g: Settings.GraphColor.G, b: Settings.GraphColor.B)
             };
 
             pointSeries.Title = valueName;
