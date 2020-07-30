@@ -9,6 +9,11 @@ namespace PterodactylCharts
         {
             Title = title;
             Position = position;
+
+            if (Position > 12 || Position < 0)
+            {
+                throw new ArgumentException("Position should be between 0 and 12");
+            }
         }
 
         public override string ToString()

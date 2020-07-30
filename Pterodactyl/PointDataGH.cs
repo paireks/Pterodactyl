@@ -20,8 +20,7 @@ namespace Pterodactyl
             pManager.AddColourParameter("Color", "Color", "Add color for point data", GH_ParamAccess.item,
                 Color.Black);
             pManager.AddIntegerParameter("Marker", "Marker",
-                "Choose marker as int. 0 - None, 1 - Circle," +
-                " 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus, 7 - Star, 8 - Custom",
+                "Choose marker as int. 0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle",
                 GH_ParamAccess.item, 1);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)

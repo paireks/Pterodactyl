@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.Concurrent;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PterodactylCharts
 {
@@ -21,15 +18,20 @@ namespace PterodactylCharts
             Markers = markers;
 
             TypeOfData = 1;
+
+            if (Markers > 4 || Markers < 0)
+            {
+                throw new ArgumentException("Marker can't be larger than 4 or smaller than 0"); 
+            }
         }
         public override string ToString()
         {
-            string stringRepresentation = string.Empty;
+            string stringRepresentation;
             if (TypeOfData == 0)
             {
                 stringRepresentation = "Line Data";
             }
-            else if (TypeOfData == 1)
+            else
             {
                 stringRepresentation = "Point Data";
             }
@@ -37,7 +39,7 @@ namespace PterodactylCharts
         }
 
         public Color DataColor { get; set; }
-        public int TypeOfData { get; set; }
+        public int TypeOfData { get; }
         public int Markers { get; set; }
     }
 }

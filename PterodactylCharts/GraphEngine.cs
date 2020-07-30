@@ -29,7 +29,7 @@ namespace PterodactylCharts
                     AddLineSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
                         Elements.Data.XValues[i], Elements.Data.YValues[i]);
                 }
-                else if (Elements.Data.DataTypes[i].TypeOfData == 1)
+                else
                 {
                     AddPointSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
                         Elements.Data.XValues[i], Elements.Data.YValues[i]);

@@ -9,6 +9,15 @@ namespace PterodactylCharts
         {
             Width = width;
             Height = height;
+
+            if (Width < 200 || Height < 200)
+            {
+                throw new ArgumentException("Width and Height values shouldn't be smaller than 200");
+            }
+            if (Width > 1000 || Height > 1000)
+            {
+                throw new ArgumentException("Width and Height values shouldn't be larger than 1000");
+            }
         }
 
         public override string ToString()
