@@ -31,7 +31,7 @@ namespace Pterodactyl
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylFlowchart;
             }
         }
         public override GH_Exposure Exposure

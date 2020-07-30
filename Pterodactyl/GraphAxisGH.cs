@@ -40,7 +40,7 @@ namespace Pterodactyl
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylGraphAxis;
             }
         }
         public override GH_Exposure Exposure
