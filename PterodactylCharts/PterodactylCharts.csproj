@@ -61,6 +61,13 @@
       <DependentUpon>BarChart.cs</DependentUpon>
     </Compile>
     <Compile Include="BarChartEngine.cs" />
+    <Compile Include="ColumnChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColumnChart.Designer.cs">
+      <DependentUpon>ColumnChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnChartEngine.cs" />
     <Compile Include="DataType.cs" />
     <Compile Include="Graph.cs">
       <SubType>Form</SubType>

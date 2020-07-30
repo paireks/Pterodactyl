@@ -9,16 +9,17 @@ using OxyPlot.Series;
 
 namespace PterodactylCharts
 {
-    public class PieChartEngine
+    public class ColumnChartEngine
     {
 
-        public PieChartEngine(bool showGraph, string title,
-            List<double> values, List<string> names, List<Color> colors, string path)
+        public ColumnChartEngine(bool showGraph, string title,
+            List<double> values, List<string> names, string textFormat, List<Color> colors, string path)
         {
             ShowGraph = showGraph;
             Title = title;
             Values = values;
             Names = names;
+            TextFormat = textFormat;
             Colors = colors;
             Path = path;
 
@@ -35,21 +36,27 @@ namespace PterodactylCharts
 
             MyModel = new PlotModel { Title = Title };
 
-            var pieSeries = new PieSeries
+            var columnSeries = new ColumnSeries
             {
-                StrokeThickness = 2.0,
-                InsideLabelPosition = 0.8,
-                AngleSpan = 360,
-                StartAngle = 0
+                Background = OxyColors.White
+
             };
 
             for (int i = 0; i < Values.Count; i++)
             {
-                pieSeries.Slices.Add(new PieSlice(Names[i], Values[i]) { IsExploded = false,
-                    Fill = OxyColor.FromArgb(Colors[i].A, Colors[i].R, Colors[i].G, Colors[i].B) });
+                columnSeries.Items.Add(new ColumnItem { Value = Values[i], Color = OxyColor.FromArgb(a: Colors[i].A, r: Colors[i].R, g: Colors[i].G, b: Colors[i].B) });
             }
 
-            MyModel.Series.Add(pieSeries);
+            columnSeries.LabelFormatString = TextFormat;
+            columnSeries.LabelPlacement = LabelPlacement.Middle;
+
+            MyModel.Series.Add(columnSeries);
+
+            MyModel.Axes.Add(new CategoryAxis
+            {
+                Position = AxisPosition.Bottom,
+                ItemsSource = Names
+            });
 
             myPlot.Model = MyModel;
 
@@ -89,6 +96,7 @@ namespace PterodactylCharts
         public string Title { get; set; }
         public List<double> Values { get; set; }
         public List<string> Names { get; set; }
+        public string TextFormat { get; set; }
         public List<Color> Colors { get; set; }
         public string Path { get; set; }
         public PlotModel MyModel { get; set; }

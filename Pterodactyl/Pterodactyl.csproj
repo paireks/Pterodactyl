@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="BarChartGH.cs" />
     <Compile Include="CodeBlockGH.cs" />
+    <Compile Include="ColumnChartGH.cs" />
     <Compile Include="FlowchartGH.cs" />
     <Compile Include="FlowchartLinkGH.cs" />
     <Compile Include="FlowchartNodeGH.cs" />
