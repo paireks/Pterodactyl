@@ -31,7 +31,7 @@ namespace Pterodactyl
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylPageBreak;
             }
         }
         public override Guid ComponentGuid

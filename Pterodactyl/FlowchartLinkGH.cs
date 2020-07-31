@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
+using PterodactylEngine;
 using Rhino.Geometry;
 
 namespace Pterodactyl
@@ -28,12 +29,26 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+
+            int type = 0;
+            FlowchartNode node = null;
+            string text = string.Empty;
+
+            DA.GetData(0, ref type);
+            DA.GetData(1, ref node);
+            DA.GetData(2, ref text);
+
+            FlowchartLink link = new FlowchartLink(type, text);
+            FlowchartNode nodeWithModifiedLink = link.ReturnModifiedNode(node);
+
+            DA.SetData(0, nodeWithModifiedLink);
+
         }
         protected override System.Drawing.Bitmap Icon
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylFlowchartLink;
             }
         }
         public override GH_Exposure Exposure

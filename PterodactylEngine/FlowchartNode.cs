@@ -17,6 +17,8 @@ namespace PterodactylEngine
 
             FlowchartPart = new List<string>();
 
+            LinkOutTextPart = " --> ";
+
             if (InputNodes != null)
             {
                 foreach (var node in InputNodes)
@@ -26,7 +28,7 @@ namespace PterodactylEngine
                         FlowchartPart.Add(node.FlowchartPart[i]);
                     }
 
-                    FlowchartPart.Add(node.Text + " --> " + Text);
+                    FlowchartPart.Add(node.Text + node.LinkOutTextPart + ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1]);
                 }
             }
         }
@@ -34,8 +36,8 @@ namespace PterodactylEngine
         public List<string> FlowchartPart { get; set; }
         public string Text { get; set; }
         public List<FlowchartNode> InputNodes { get; set; }
+        public string LinkOutTextPart { get; set; }
         public int Shape { get; set; }
-
         private string[,] ShapeTextPart
         {
             get

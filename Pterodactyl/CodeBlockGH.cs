@@ -43,7 +43,7 @@ namespace Pterodactyl
         {
             get
             {
-                return null;
+                return Properties.Resources.PterodactylCodeBlock;
             }
         }
         public override GH_Exposure Exposure
