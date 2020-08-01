@@ -191,28 +191,16 @@
     <None Include="Resources\PterodactylStrike.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\hyperlink.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylHyperlink.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylAdvancedLineGraph.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PterodactylBarChart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylLineGraph.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylPointGraph.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Flowchart.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\GraphAxis.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylGraphAxis.png" />
@@ -230,7 +218,19 @@
     <None Include="Resources\PterodactylPageBreak.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\PterodactylColumnChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylBarChart.png" />
+  </ItemGroup>
+  <ItemGroup>
     <None Include="Resources\PterodactylCodeBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphLegend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphSettings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

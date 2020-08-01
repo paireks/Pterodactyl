@@ -127,6 +127,9 @@
   <data name="PterodactylCodeBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylCodeBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PterodactylColumnChart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylColumnChart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PterodactylCreateReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylCreateReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -144,6 +147,12 @@
   </data>
   <data name="PterodactylGraphAxis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylGraphAxis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraphLegend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraphLegend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraphSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraphSettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PterodactylGraphSizes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylGraphSizes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
