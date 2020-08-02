@@ -233,6 +233,16 @@ namespace Pterodactyl.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PterodactylLineData {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylLineData", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PterodactylLineGraph {
             get {
                 object obj = ResourceManager.GetObject("PterodactylLineGraph", resourceCulture);
@@ -276,6 +286,16 @@ namespace Pterodactyl.Properties {
         internal static System.Drawing.Bitmap PterodactylPieChart {
             get {
                 object obj = ResourceManager.GetObject("PterodactylPieChart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PterodactylPointData {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylPointData", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

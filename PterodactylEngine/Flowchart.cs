@@ -24,11 +24,17 @@ namespace PterodactylEngine
 
             reportPart.AppendFormat(Environment.NewLine);
 
+            List<string> rewrittenFlowchartReportParts = new List<string>();
+
             foreach (var node in LastNodes)
             {
                 foreach (var flowchartReportPart in node.FlowchartReportsPart)
                 {
-                    reportPart.AppendFormat(flowchartReportPart + Environment.NewLine);
+                    if (!rewrittenFlowchartReportParts.Contains(flowchartReportPart))
+                    {
+                        reportPart.AppendFormat(flowchartReportPart + Environment.NewLine);
+                        rewrittenFlowchartReportParts.Add(flowchartReportPart);
+                    }
                 }
             }
 

@@ -25,10 +25,19 @@ namespace PterodactylEngine
             {
                 for (int i = 0; i < node.FlowchartReportsPart.Count; i++)
                 {
-                    FlowchartReportsPart.Add(node.FlowchartReportsPart[i]);
+                    if (!FlowchartReportsPart.Contains(node.FlowchartReportsPart[i]))
+                    {
+                        FlowchartReportsPart.Add(node.FlowchartReportsPart[i]);
+                    }
                 }
 
-                FlowchartReportsPart.Add(node.Text + node.LinkOutTextPart + ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1]);
+                string newFlowchartReportPart = node.Text + node.LinkOutTextPart + ShapeTextPart[Shape, 0] + Text +
+                                                ShapeTextPart[Shape, 1];
+
+                if (!FlowchartReportsPart.Contains(newFlowchartReportPart))
+                {
+                    FlowchartReportsPart.Add(node.Text + node.LinkOutTextPart + ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1]);
+                }
             }
         }
 

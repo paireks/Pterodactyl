@@ -233,6 +233,12 @@
   <ItemGroup>
     <None Include="Resources\PterodactylFlowchart.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPointData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylLineData.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
