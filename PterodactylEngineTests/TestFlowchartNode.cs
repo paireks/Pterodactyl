@@ -60,7 +60,7 @@ namespace UnitTestEngine
         public void CheckReportCreation(string text, List<FlowchartNode> inputNodes, int shape, List<string> flowchartPart)
         {
             FlowchartNode testObject = new FlowchartNode(text, inputNodes, shape);
-            List<string> actual = testObject.FlowchartPart;
+            List<string> actual = testObject.FlowchartReportsPart;
 
             Assert.Equal(flowchartPart, actual);
         }

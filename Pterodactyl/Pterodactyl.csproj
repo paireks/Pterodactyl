@@ -75,6 +75,7 @@
     <Compile Include="FlowchartGH.cs" />
     <Compile Include="FlowchartLinkGH.cs" />
     <Compile Include="FlowchartNodeGH.cs" />
+    <Compile Include="FlowchartStartNodeGH.cs" />
     <Compile Include="GraphAxisGH.cs" />
     <Compile Include="GraphDataGH.cs" />
     <Compile Include="GraphGH.cs" />
@@ -206,9 +207,6 @@
     <None Include="Resources\PterodactylGraphAxis.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PterodactylFlowchart.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylFlowchartLink.png" />
   </ItemGroup>
   <ItemGroup>
@@ -231,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylGraphSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylFlowchart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

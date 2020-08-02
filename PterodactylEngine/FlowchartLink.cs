@@ -13,23 +13,27 @@ namespace PterodactylEngine
         {
             LinkType = linkType;
             Text = text;
+
+            if (LinkType < 0 || LinkType > 3)
+            {
+                throw new ArgumentException("Link type can be only between 0 and 3");
+            }
         }
 
         public FlowchartNode ReturnModifiedNode(FlowchartNode node)
         {
             if (String.IsNullOrEmpty(Text))
             {
-                Node.LinkOutTextPart = LinkTextPart[LinkType, 1];
+                node.LinkOutTextPart = LinkTextPart[LinkType, 1];
             }
             else
             {
-                Node.LinkOutTextPart = LinkTextPart[LinkType, 0] + Text + LinkTextPart[LinkType, 1];
+                node.LinkOutTextPart = LinkTextPart[LinkType, 0] + Text + LinkTextPart[LinkType, 1];
             }
 
-            return Node;
+            return node;
         }
 
-        public FlowchartNode Node { get; set; }
         public string Text { get; set; }
         public int LinkType { get; set; }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 
 using Grasshopper.Kernel;
+using PterodactylEngine;
 using Rhino.Geometry;
 
 namespace Pterodactyl
@@ -18,7 +19,7 @@ namespace Pterodactyl
         {
             pManager.AddBooleanParameter("Direction", "Direction",
                 "Set direction, True = from left to right, False = from top to bottom", GH_ParamAccess.item, true);
-            pManager.AddTextParameter("Last Nodes", "Last Nodes", "Add last node / nodes of a flowchart as list", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Last Nodes", "Last Nodes", "Add last node / nodes of a flowchart as list", GH_ParamAccess.list);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -26,6 +27,16 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            bool direction = true;
+            List<FlowchartNode> lastNodes = new List<FlowchartNode>();
+
+            DA.GetData(0, ref direction);
+            DA.GetDataList(1, lastNodes);
+
+            Flowchart flowchart = new Flowchart(direction, lastNodes);
+            string reportPart = flowchart.Create();
+
+            DA.SetData(0, reportPart);
         }
         protected override System.Drawing.Bitmap Icon
         {

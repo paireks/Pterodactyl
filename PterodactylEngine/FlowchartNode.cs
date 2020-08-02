@@ -9,32 +9,46 @@ namespace PterodactylEngine
 {
     public class FlowchartNode
     {
+        private string _text;
         public FlowchartNode(string text, List<FlowchartNode> inputNodes, int shape)
         {
             Text = text;
             InputNodes = inputNodes;
             Shape = shape;
 
-            FlowchartPart = new List<string>();
+            FlowchartReportsPart = new List<string>();
 
             LinkOutTextPart = " --> ";
 
-            if (InputNodes != null)
+            if (InputNodes == null) return;
+            foreach (var node in InputNodes)
             {
-                foreach (var node in InputNodes)
+                for (int i = 0; i < node.FlowchartReportsPart.Count; i++)
                 {
-                    for (int i = 0; i < node.FlowchartPart.Count; i++)
-                    {
-                        FlowchartPart.Add(node.FlowchartPart[i]);
-                    }
-
-                    FlowchartPart.Add(node.Text + node.LinkOutTextPart + ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1]);
+                    FlowchartReportsPart.Add(node.FlowchartReportsPart[i]);
                 }
+
+                FlowchartReportsPart.Add(node.Text + node.LinkOutTextPart + ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1]);
             }
         }
 
-        public List<string> FlowchartPart { get; set; }
-        public string Text { get; set; }
+        public FlowchartNode(string text, int shape)
+        {
+            Text = text;
+            Shape = shape;
+
+            FlowchartReportsPart = new List<string>();
+
+            LinkOutTextPart = " --> ";
+        }
+
+        public List<string> FlowchartReportsPart { get; set; }
+
+        public string Text
+        {
+            get { return _text; }
+            set { _text = value.Replace(" ", "_"); }
+        }
         public List<FlowchartNode> InputNodes { get; set; }
         public string LinkOutTextPart { get; set; }
         public int Shape { get; set; }

@@ -72,6 +72,7 @@
     <Compile Include="CreateReport.cs" />
     <Compile Include="DynamicMathBlock.cs" />
     <Compile Include="Emphasis.cs" />
+    <Compile Include="Flowchart.cs" />
     <Compile Include="FlowchartLink.cs" />
     <Compile Include="FlowchartNode.cs" />
     <Compile Include="Heading.cs" />
