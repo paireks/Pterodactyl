@@ -19,24 +19,24 @@ namespace PterodactylEngine
             FlowchartReportsPart = new List<string>();
 
             LinkOutTextPart = " --> ";
+            NodeOutTextPart = ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1];
 
             if (InputNodes == null) return;
-            foreach (var node in InputNodes)
+            foreach (var inputNode in InputNodes)
             {
-                for (int i = 0; i < node.FlowchartReportsPart.Count; i++)
+                for (int i = 0; i < inputNode.FlowchartReportsPart.Count; i++)
                 {
-                    if (!FlowchartReportsPart.Contains(node.FlowchartReportsPart[i]))
+                    if (!FlowchartReportsPart.Contains(inputNode.FlowchartReportsPart[i]))
                     {
-                        FlowchartReportsPart.Add(node.FlowchartReportsPart[i]);
+                        FlowchartReportsPart.Add(inputNode.FlowchartReportsPart[i]);
                     }
                 }
 
-                string newFlowchartReportPart = node.Text + node.LinkOutTextPart + ShapeTextPart[Shape, 0] + Text +
-                                                ShapeTextPart[Shape, 1];
+                string newFlowchartReportPart = inputNode.NodeOutTextPart + inputNode.LinkOutTextPart + NodeOutTextPart;
 
                 if (!FlowchartReportsPart.Contains(newFlowchartReportPart))
                 {
-                    FlowchartReportsPart.Add(node.Text + node.LinkOutTextPart + ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1]);
+                    FlowchartReportsPart.Add(newFlowchartReportPart);
                 }
             }
         }
@@ -49,6 +49,7 @@ namespace PterodactylEngine
             FlowchartReportsPart = new List<string>();
 
             LinkOutTextPart = " --> ";
+            NodeOutTextPart = ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1];
         }
 
         public override string ToString()
@@ -64,6 +65,7 @@ namespace PterodactylEngine
             set { _text = value.Replace(" ", "_"); }
         }
         public List<FlowchartNode> InputNodes { get; set; }
+        public string NodeOutTextPart { get; }
         public string LinkOutTextPart { get; set; }
         public int Shape { get; set; }
         private string[,] ShapeTextPart

@@ -15,6 +15,16 @@ namespace UnitTestEngine
                 new FlowchartNode("First", null, 0)
             },
             0, new List<string>{"First --> Second"});
+            Add("Second", new List<FlowchartNode>
+            {
+                new FlowchartNode("First", null, 0)
+            },
+            1, new List<string> { "First --> (Second)" });
+            Add("Second", new List<FlowchartNode>
+            {
+                new FlowchartNode("First", null, 3)
+            },
+            1, new List<string> { "[[First]] --> (Second)" });
             Add("Third", new List<FlowchartNode>
             {
                 new FlowchartNode("First", null, 0),
@@ -41,6 +51,16 @@ namespace UnitTestEngine
                     new FlowchartNode("First", null, 0)
                 },
                 0, new List<string> { "First --> Second", "Second --> Third", "First --> Third" });
+            Add("Fourth", new List<FlowchartNode> //Diamond example
+            {
+                new FlowchartNode("Third1", new List<FlowchartNode>
+                {new FlowchartNode("Second", new List<FlowchartNode>
+                    {new FlowchartNode("First", null, 0)}, 0)}, 0),
+                new FlowchartNode("Third2", new List<FlowchartNode>
+                {new FlowchartNode("Second", new List<FlowchartNode>
+                    {new FlowchartNode("First", null, 0)}, 0)}, 0)
+            },
+                0, new List<string> { "First --> Second", "Second --> Third1", "Third1 --> Fourth", "Second --> Third2", "Third2 --> Fourth" });
         }
     }
     public class TestFlowchartNode_Combinations
