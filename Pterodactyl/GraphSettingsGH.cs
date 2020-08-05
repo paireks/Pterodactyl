@@ -20,7 +20,7 @@ namespace Pterodactyl
             pManager.AddTextParameter("Title", "Title", "Set title for a graph", GH_ParamAccess.item,
                 "Title");
             pManager.AddGenericParameter("Graph Sizes", "Graph Sizes", "Set graph sizes", GH_ParamAccess.item);
-            pManager.AddColourParameter("Color", "Color", "Set background color for graph", GH_ParamAccess.item);
+            pManager.AddColourParameter("Color", "Color", "Set background color for graph", GH_ParamAccess.item, Color.White);
             pManager.AddGenericParameter("Graph Axis", "Graph Axis", "Set axises of graph", GH_ParamAccess.item);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)

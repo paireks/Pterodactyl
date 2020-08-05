@@ -51,7 +51,7 @@ namespace Pterodactyl
         }
         public override Guid ComponentGuid
         {
-            get { return new Guid("5c320088-9e10-48a9-beac-44e65dae2120"); }
+            get { return new Guid("b40a0ebe-dfe8-4586-82a6-cc95395fc9ef"); }
         }
     }
 }

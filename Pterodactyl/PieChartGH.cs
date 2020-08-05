@@ -19,11 +19,11 @@ namespace Pterodactyl
         {
             pManager.AddBooleanParameter("Show Graph", "Show Graph", "True = show graph, False = hide", GH_ParamAccess.item, false);
             pManager.AddTextParameter("Title", "Title", "Title of your chart", GH_ParamAccess.item, "Reaction to Pterodactyl plugin");
-            pManager.AddNumberParameter("Values", "Values", "Values for each bar as list",
+            pManager.AddNumberParameter("Values", "Values", "Values for each slice as list",
                 GH_ParamAccess.list, new List<double> { 54, 34, 1 });
             pManager.AddTextParameter("Slices Names", "Slices Names", "Sets slices names as list", GH_ParamAccess.list,
                 new List<string> { "Happy", "Excited", "Holy cow" });
-            pManager.AddColourParameter("Colors", "Colors", "Sets data colors, each color for each bar", GH_ParamAccess.list,
+            pManager.AddColourParameter("Colors", "Colors", "Sets data colors, each color for each slice", GH_ParamAccess.list,
                 new List<Color>
                 {
                     Color.FromArgb(255,119,0),
