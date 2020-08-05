@@ -34,6 +34,11 @@ namespace PterodactylEngine
             return node;
         }
 
+        public override string ToString()
+        {
+            return "Flowchart Link";
+        }
+
         public string Text { get; set; }
         public int LinkType { get; set; }
 

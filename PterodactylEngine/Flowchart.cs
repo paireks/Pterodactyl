@@ -19,9 +19,7 @@ namespace PterodactylEngine
             StringBuilder reportPart = new StringBuilder();
 
             reportPart.AppendFormat("```mermaid" + Environment.NewLine);
-
             reportPart.AppendFormat(Direction ? "graph LR" : "graph TD");
-
             reportPart.AppendFormat(Environment.NewLine);
 
             List<string> rewrittenFlowchartReportParts = new List<string>();

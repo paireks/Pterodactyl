@@ -51,6 +51,11 @@ namespace PterodactylEngine
             LinkOutTextPart = " --> ";
         }
 
+        public override string ToString()
+        {
+            return "Flowchart Node: " + Text;
+        }
+
         public List<string> FlowchartReportsPart { get; set; }
 
         public string Text
