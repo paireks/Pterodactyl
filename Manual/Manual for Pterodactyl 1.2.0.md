@@ -215,7 +215,7 @@ So that way you can combine code block with the results of those blocks.
 
 Of course other languages syntax also will be highlighted, for example:
 
-![CodeBlockC#Example](Img\CodeBlockC#Example.png)
+![CodeBlockC#Example](Img\CodeBlockCSharpExample.png)
 
 
 

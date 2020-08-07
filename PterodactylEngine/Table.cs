@@ -27,7 +27,6 @@ namespace PterodactylEngine
                 throw new ArgumentException("Headings list should match number of columns given in data tree. " +
                     "Check if both inputs have the same number of elements.");
             }
-
         }
 
         public List<string> Create()

@@ -134,6 +134,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -142,9 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PterodactylPieChart.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylTaskList.png" />
@@ -195,9 +193,6 @@
     <None Include="Resources\PterodactylHyperlink.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PterodactylAdvancedLineGraph.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylLineGraph.png" />
   </ItemGroup>
   <ItemGroup>
@@ -222,9 +217,6 @@
     <None Include="Resources\PterodactylBarChart.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PterodactylCodeBlock.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylGraphLegend.png" />
   </ItemGroup>
   <ItemGroup>
@@ -240,13 +232,25 @@
     <None Include="Resources\PterodactylLineData.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PterodactylGraph.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylFlowchartStartNode.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylFlowchartNode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylCodeBlock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPieChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPieChartTool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraph.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

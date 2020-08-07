@@ -107,6 +107,12 @@
     <EmbeddedResource Include="BarChart.resx">
       <DependentUpon>BarChart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ColumnChart.resx">
+      <DependentUpon>ColumnChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph.resx">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LineGraph.resx">
       <DependentUpon>LineGraph.cs</DependentUpon>
     </EmbeddedResource>

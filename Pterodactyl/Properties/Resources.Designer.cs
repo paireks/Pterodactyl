@@ -63,16 +63,6 @@ namespace Pterodactyl.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PterodactylAdvancedLineGraph {
-            get {
-                object obj = ResourceManager.GetObject("PterodactylAdvancedLineGraph", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap PterodactylBarChart {
             get {
                 object obj = ResourceManager.GetObject("PterodactylBarChart", resourceCulture);
@@ -186,6 +176,16 @@ namespace Pterodactyl.Properties {
         internal static System.Drawing.Bitmap PterodactylGraphAxis {
             get {
                 object obj = ResourceManager.GetObject("PterodactylGraphAxis", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PterodactylGraphData {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylGraphData", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -316,6 +316,16 @@ namespace Pterodactyl.Properties {
         internal static System.Drawing.Bitmap PterodactylPieChart {
             get {
                 object obj = ResourceManager.GetObject("PterodactylPieChart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PterodactylPieChartTool {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylPieChartTool", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
