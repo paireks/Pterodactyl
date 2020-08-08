@@ -193,6 +193,16 @@ namespace Pterodactyl.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PterodactylGraphElements {
+            get {
+                object obj = ResourceManager.GetObject("PterodactylGraphElements", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PterodactylGraphLegend {
             get {
                 object obj = ResourceManager.GetObject("PterodactylGraphLegend", resourceCulture);
