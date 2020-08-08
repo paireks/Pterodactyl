@@ -78,9 +78,51 @@ So we have our first document written using Pterodactyl. Now to save it as .pdf 
 
 ## Advanced Graph
 
+![AdvancedGraphs](Img\AdvancedGraphs.png)
+
 ### About
 
 Advanced Graph component will help you to create complex graph with many different data, styles, etc.
+
+### Tips
+
+**Look at first at the tips given in a Basic Graph chapter - all of them will work for Advanced Graph as well.**
+
+Here are the tips that will work only for Advanced Graphs:
+
+- If you need to create a line plot that has a markers: combine Line data with Point data for the same set of data:
+
+  ![AdvancedGraphTip1](Img\AdvancedGraphTip1.png)
+
+### Components
+
+#### Graph
+
+Graph component will create a graph for you.
+
+![GraphComponent](Img\GraphComponent.png)
+
+To create this graph you need to connect Graph Elements and Graph Settings component.
+
+This component looks pretty much the same as the components from Basic Graphs. It also requires Path with .png extension to create the Report Part that can be added to report. The best approach is to connect Button component to Show Graph input.
+
+#### Graph Elements
+
+![GraphElements](Img\GraphElements.png)
+
+Graph Elements collect Graph Data and Graph Legend together and pass it to Graph component.
+
+#### Graph Data
+
+![GraphData](Img\GraphData.png)
+
+Graph Data has a crucial role in Advanced Graph because you will set a data that you want to add to the plot there.
+
+X Values and Y Values are inputs that require tree of data to plug in. Each branch represents each set of data. Component also requires to set Value Names that will represents those sets of data in the Legend that will appear on a plot. The number of branches in X Values and Y Values must be the same as the number of elements if Values Names and Data Types.
+
+Data Types let you decide how sets of data will represent inside plot.
+
+
 
 ## Basic Graphs
 
@@ -110,7 +152,15 @@ All those components have many things in common, so there are the tips for all o
 
   ![GraphInteraction](Img\GraphInteraction.png)
 
-  
+- There is a simple way to display our graphs / charts inside Rhino (inside our viewports). To do this we can use build-in component called Import Image.
+
+  If you plug the same file path to File input (F) - our graph will appear inside Rhino viewport:
+
+  ![GraphImage](Img\GraphImage.png)
+
+  You can optionally plug rectangle to Rectangle input (R) - this way you can decide how big and where out graph will appear in a Rhino viewport.
+
+  Import Image component takes actually some visible amount of time to re-import the image every time it changes, so you have to for example let go a slider that is connected to graph / chart components to see the new results.
 
 ### Components
 
