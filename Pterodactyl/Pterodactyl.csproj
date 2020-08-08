@@ -241,9 +241,6 @@
     <None Include="Resources\PterodactylGraphData.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\PterodactylCodeBlock.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylPieChart.png" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylGraphElements.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylCodeBlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

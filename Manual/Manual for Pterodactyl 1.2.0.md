@@ -4,6 +4,8 @@
 
 ## Introduction
 
+<img src="Img\Logo.png" alt="Logo" style="zoom:50%;" />
+
 Hey! Thank you for using Pterodactyl! ;)
 
 Pterodactyl is an open-source plug-in for Grasshopper.
@@ -19,7 +21,7 @@ Pterodactyl is an open-source plug-in for Grasshopper.
 
 **Tutorials:** You can find many tutorials on my YT channel here: https://www.youtube.com/channel/UCfXkMo1rOMhKGBoNwd7JPsw
 
-### License
+### License (MIT License)
 
 Copyright © 2020 Wojciech Radaczyński
 
@@ -82,9 +84,87 @@ Advanced Graph component will help you to create complex graph with many differe
 
 ## Basic Graphs
 
+![BasicGraphs](Img\BasicGraphs.png)
+
 ### About
 
 Basic Graphs components will help you to create simple graphs and charts. With one big component you will create a simple graph. If you need more complex graph - check out Advanced Graph components.
+
+### Tips
+
+All those components have many things in common, so there are the tips for all of them:
+
+- Show Graph input will open the window that will show your graph in a new window. The best approach is to plug Button component (build-in Grasshopper component) to this input, so every time you click this Button - the window with your graph will appear and you can look at the results: 
+
+  ![ShowGraph](Img\ShowGraph.png)
+
+- To create Report Part - you have to set the Path first. That's because the graph will appear in your document as .png file, so you need to save it first, and then import as image, like that:
+
+  ![BasicGraphsTip2](Img\BasicGraphsTip2.png)
+
+  Then you can later add it as Report Part to your document:
+
+  ![BasicGraphsTip2_1](Img\BasicGraphsTip2_1.png)
+
+- You can interact with the window that will appear after setting Show Graph to true - by clicking at the data. It is especially helpful in Line Graph and Point Graph where you can click for example at the local values to get some more info:
+
+  ![GraphInteraction](Img\GraphInteraction.png)
+
+  
+
+### Components
+
+#### Bar Chart
+
+Bar Chart will create bar chart for given data.
+
+![BarChartExample](Img\BarChartExample.png)
+
+You can change Text Format input to set how the values will be presented.
+
+Remember that number of Values must be the same as number of Bar Names and Colors.
+
+#### Column Chart
+
+Column Chart will create column chart for given data.
+
+![ColumnChart](Img\ColumnChart.png)
+
+You can change Text Format input to set how the values will be presented.
+
+Remember that Values, Column Names and Colors must have the same number of elements.
+
+#### Pie Chart
+
+Pie Chart will create pie chart for given data.
+
+![PieChart](Img\PieChart.png)
+
+Remember that Values, Slices Names and Colors must have the same number of elements.
+
+#### Point Graph
+
+Point Graph will create a graph with point representation of the given data.
+
+![PointGraph](Img\PointGraph.png)
+
+As you can see at the example above: there are 3 different points: (10, 5), (20, 15), (30, 45). You have to make sure that every X Value has it's own Y Value. We can create more complex graphs like this:
+
+ ![PointGraph1](Img\PointGraph1.png)
+
+If we change right now the parameters of the Series component (build-in Grasshopper component), then our sinus function will look much more clearer:
+
+![PointGraph2](Img\PointGraph2.png)
+
+#### Line Graph
+
+Line Graph works similar to Point Graph, but it connects all the points with the lines. So let's try the same example like with Point Graph above:
+
+![LineGraph1](Img\LineGraph1.png)
+
+And again, if we change our parameters:
+
+![LineGraph2](Img\LineGraph2.png)
 
 ## Format
 
@@ -217,9 +297,101 @@ Of course other languages syntax also will be highlighted, for example:
 
 ![CodeBlockC#Example](Img\CodeBlockCSharpExample.png)
 
+#### Math Block
 
+Math Block will help you to create beautiful and complex equations. It let you write them in TeX, for example:
+
+![MathBlock](Img\MathBlock.png)
+
+You don't need to learn all the TeX syntax if you don't want to - there are many websites that will help you to build complex equations without knowing anything about LaTeX. For example:
+
+https://www.latex4technics.com/
+
+With this website you can create those complex definitions just by clicking on a different symbols. Then you can just copy-paste the result to Text input of Math Block component.
+
+#### Dynamic Math Block
+
+Dynamic math block let you combine writing complex equations with dynamically changing variables.
+
+![DynamicMathBlock1](Img\DynamicMathBlock1.png)
+
+As you can see above: when you put the variable name in Text input in angle brackets, then it will automatically change it's value to the Variable Value. You can do the same with multiple variables like this:
+
+![DynamicMathBlock2](Img\DynamicMathBlock2.png)
+
+This can be helpful to create reports of your calculations. Look at the Math Block to read more about LaTeX syntax that can be used here as well.
+
+#### Image
+
+If you want to add an image to your report - use Image component. All you need to do is to add a title of your image, and path to this file.
+
+![Image](Img\Image.png)
+
+Remember that path need to contain a file name with the extension (like .png for example). 
+
+#### Viewport
+
+Viewport component let you capture the viewport to .png file and insert it to your report.
+
+Viewport Name input must be the same as the name of your viewport that you want to capture. It captures current position / view of your elements that are inside that viewport.
+
+![Viewport](Img\Viewport.png)
+
+There are multiple settings that you can set to change the result image. Also changing the style of the viewport or the size of it will affect the result .png file:
+
+![Viewport1](C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Manual\Img\Viewport1.png)
+
+Sometimes there is a need to click "Recompute" inside Grasshopper to refresh the image shown in Typora. To do this click right mouse button anywhere in Grasshopper and click Recompute.
 
 ## Report
+
+![Report](Img\Report.png)
+
+### About
+
+Report components are the main components of the Pterodactyl plug-in. They are always required to create the report and open it with the Typora or other Markdown editor.
+
+![ReportExample](Img\ReportExample.png)
+
+### Components
+
+#### Create Report
+
+Create Report component will create your report, but to save it and open you need to use Save Report component.
+
+To create the report plug all the Report Parts you have to the Report Parts input. The order of this list of Report Parts will be the order of all those parts in your document:
+
+![CreateReport1](Img\CreateReport1.png)
+
+If you have to manage multiple parts - Entwine component (which is build in component in Grasshopper) can be helpful. That way it's easier to have a control of an order of report parts:
+
+![CreateReport2](Img\CreateReport2.png)
+
+Remember to flatten the output of Entwine (right click on the output -> Flatten).
+
+You can set a Title and Table of Contents for the document here:
+
+![CreateReport3](Img\CreateReport3.png)
+
+To open the document - see the Save Report component.
+
+#### Save Report
+
+Save Report component allow you to save your created report and open it in your favorite Markdown editor.
+
+ ![SaveReport1](Img\SaveReport1.png)
+
+To save the report you need to connect Create Report output and a path where your report will be saved. Remember that path need to have a name of the file at the end with .md extension for example: *C:\Users\MyUserName\Desktop\MyReport.md*
+
+Save Report will create a .md file in the given location. You can open this file with any Markdown editor (Typora recommended). 
+
+File can be constantly opened in Typora, but remember that it won't always refresh after changes - not all changes in Grasshopper will make Typora refresh, (but most of them will). To make sure it'll refresh try some of these options:
+
+- Recompute document inside Grasshopper (right click anywhere in Grasshopper -> Recompute)
+- Click on a Typora
+- Close and reopen Typora
+
+Many Markdown editors (like Mark Text) won't allow you to do constant changes outside editors (with Grasshopper) and they want you to confirm that you're going to change document externally every time something changes.
 
 ## Tools
 
