@@ -122,7 +122,62 @@ X Values and Y Values are inputs that require tree of data to plug in. Each bran
 
 Data Types let you decide how sets of data will represent inside plot.
 
+Examples:
 
+![DataGraphExample1](Img\DataGraphExample1.png)
+
+![DataTypeExample2](Img\DataTypeExample2.png)
+
+![GraphDataExample3](Img\GraphDataExample3.png)
+
+#### Data Type (Point Data / Line Data)
+
+There are two types of data that you can create: Line or Point. Both of those components take Color as an argument. In Point Data you can also set type of the markers, by setting Marker input from 0 to 4.
+
+![DataTypes](Img\DataTypes.png)
+
+#### Graph Legend
+
+Graph Legend will help you to set the legend in your graph.
+
+![GraphLegend](Img\GraphLegend.png)
+
+You need to set a title of the legend and a position (as an integer number).
+
+You can set position from 0 to 12, here it's how it works:
+
+<img src="Img\GraphLegendPosition.png" alt="GraphLegendPosition" style="zoom:50%;" />
+
+To set the colors of the data that are shown in the legend - set them in Data Type component.
+
+#### Graph Settings
+
+Graph Settings requires to take 4 arguments: 
+
+- Title - this will be a title of the graph,
+- Graph Sizes (from Graph Sizes component),
+- Color - this will be a background color of the graph,
+- Graph Axis (from Graph Axis component)
+
+Graph Settings need to be connected with Graph component.
+
+ ![GraphSettings](Img\GraphSettings.png)
+
+#### Graph Sizes
+
+Graph Sizes will let you set the size of a graph. Width and Height can be between 200 and 1000.
+
+When you change the Height - it will be visible in a preview window (Show Graph) and in the report.
+
+When you change the Width - it will be visible only in the report - that's because width in a preview depends on a size of a window.
+
+![GraphSizes](Img\GraphSizes.png)
+
+#### Graph Axis
+
+This component will set the names of the x and y axis:
+
+![GraphAxis](Img\GraphAxis.png)
 
 ## Basic Graphs
 
@@ -444,5 +499,15 @@ File can be constantly opened in Typora, but remember that it won't always refre
 Many Markdown editors (like Mark Text) won't allow you to do constant changes outside editors (with Grasshopper) and they want you to confirm that you're going to change document externally every time something changes.
 
 ## Tools
+
+### About
+
+Tools component are the components based on Mermaid: https://mermaid-js.github.io/
+
+### Components
+
+#### Pie Chart
+
+
 
 ## Typora Tips

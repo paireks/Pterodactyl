@@ -50,7 +50,7 @@ namespace Pterodactyl
             List<List<double>> xValues = new List<List<double>>();
             List<List<double>> yValues = new List<List<double>>();
 
-            for (int i = 0; i < valuesNames.Count; i++)
+            for (int i = 0; i < xValuesTree.PathCount; i++)
             {
                 List<double> currentBranchXValues = new List<double>();
                 for (int j = 0; j < xValuesTree.get_Branch(i).Count; j++)

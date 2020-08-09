@@ -38,6 +38,11 @@ namespace UnitTestEngine
                 new List<string> { "First", "Second" },
                 new List<DataType> { new DataType(Color.Navy), new DataType(Color.AliceBlue) },
                 "Inside each branch of X Values and Y Values trees numbers of elements of lists should match");
+            Add(new List<List<double>> { new List<double> { 0, 1, 2 }, new List<double> { 1, 2, 5.5 }, new List<double>{ 4, 5, 6} },
+                new List<List<double>> { new List<double> { -2, 4, 0 }, new List<double> { 5, 2, -1 }, new List<double> { 4, 5, 6 } },
+                new List<string> { "First", "Second" },
+                new List<DataType> { new DataType(Color.Navy), new DataType(Color.AliceBlue) },
+                "X Values tree's number of branches != Values Names elements of list");
             Add(new List<List<double>> { new List<double> { 0, 1, 2 }, new List<double> { 1, 2, 5.5 } },
                 new List<List<double>> { new List<double> { -2, 0, 4 }, new List<double> { 5, 2, -1 } },
                 new List<string> { "First" },
