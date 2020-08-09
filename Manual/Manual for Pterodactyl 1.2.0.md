@@ -500,14 +500,41 @@ Many Markdown editors (like Mark Text) won't allow you to do constant changes ou
 
 ## Tools
 
+![Tools](Img\Tools.png)
+
 ### About
 
 Tools component are the components based on Mermaid: https://mermaid-js.github.io/
 
-### Components
+### Pie Chart
 
-#### Pie Chart
+![PieChartTool](Img\PieChartTool.png)
+
+Categories and Values must have the same number of elements.
+
+You can also create pie chart with another component in Basic Graph group - called also Pie Chart.
+
+### Flowchart Tools
+
+Above you'll find all the components that will help you to build flowcharts.
+
+Creating flowchart can help you for example to document your complex Grasshopper definitions.
+
+In flowchart you have nodes and links between those nodes:
+
+![Flowchart0](Img\Flowchart0.png)
+
+To start flowchart we need to use Flowchart Start Node, then we connect Flowchart Nodes or Links, then at the end we connect end Flowchart Nodes to Flowchart component that will create Report Part.
+
+To modify the link between both nodes - we need to add Flowchart Link component between those nodes:
+
+![FlowchartModifiedLink](Img\FlowchartModifiedLink.png)
+
+There are 4 types (0 - 3) of link that you can choose.
+
+You can as well change a style of a node (change the shape of it):
 
 
 
 ## Typora Tips
+
