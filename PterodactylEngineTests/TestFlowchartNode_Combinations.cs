@@ -19,12 +19,12 @@ namespace UnitTestEngine
             {
                 new FlowchartNode("First", null, 0)
             },
-            1, new List<string> { "First --> (Second)" });
+            1, new List<string> { "First --> Second(Second)" });
             Add("Second", new List<FlowchartNode>
             {
                 new FlowchartNode("First", null, 3)
             },
-            1, new List<string> { "[[First]] --> (Second)" });
+            1, new List<string> { "First[[First]] --> Second(Second)" });
             Add("Third", new List<FlowchartNode>
             {
                 new FlowchartNode("First", null, 0),

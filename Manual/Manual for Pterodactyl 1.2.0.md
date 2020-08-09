@@ -70,7 +70,7 @@ Let's add it to Create Report and Save Report component like this:
 
 ![1Example0](Img\1Example0.png)
 
-Ok, so right now let's add some text. We do it just by adding plain text as Report Part, like that:
+OK, so right now let's add some text. We do it just by adding plain text as Report Part, like that:
 
 ![1Example1](Img\1Example1.png)
 
@@ -86,7 +86,7 @@ Advanced Graph component will help you to create complex graph with many differe
 
 ### Tips
 
-**Look at first at the tips given in a Basic Graph chapter - all of them will work for Advanced Graph as well.**
+**Look at the tips given in a Basic Graph chapter at first - all of them will work for Advanced Graph as well.**
 
 Here are the tips that will work only for Advanced Graphs:
 
@@ -213,7 +213,7 @@ All those components have many things in common, so there are the tips for all o
 
   ![GraphImage](Img\GraphImage.png)
 
-  You can optionally plug rectangle to Rectangle input (R) - this way you can decide how big and where out graph will appear in a Rhino viewport.
+  You can optionally plug rectangle to Rectangle input (R) - this way you can decide how big and where our graph will appear in a Rhino viewport.
 
   Import Image component takes actually some visible amount of time to re-import the image every time it changes, so you have to for example let go a slider that is connected to graph / chart components to see the new results.
 
@@ -279,25 +279,25 @@ And again, if we change our parameters:
 
 Format components will help you to format your text. Without format it looks like this:
 
-![WithoutFormat](Img\WithoutFormat.png)
+<img src="Img\WithoutFormat.png" alt="WithoutFormat" style="zoom:80%;" />
 
 So now let's try different format components.
 
 #### Emphasis
 
-![Emphasis](Img\Emphasis.png)
+<img src="Img\Emphasis.png" alt="Emphasis" style="zoom: 80%;" />
 
 #### Strong
 
-![Strong](Img\Strong.png)
+<img src="Img\Strong.png" alt="Strong" style="zoom:80%;" />
 
 #### Strike
 
-![Strike](Img\Strike.png)
+<img src="Img\Strike.png" alt="Strike" style="zoom:80%;" />
 
 #### Underline
 
-![Underline](Img\Underline.png)
+<img src="Img\Underline.png" alt="Underline" style="zoom:80%;" />
 
 ## Parts
 
@@ -446,7 +446,7 @@ There are multiple settings that you can set to change the result image. Also ch
 
 ![Viewport1](C:\Users\EngineerDesign\Desktop\Projekty\Pterodactyl\Pterodactyl\Manual\Img\Viewport1.png)
 
-Sometimes there is a need to click "Recompute" inside Grasshopper to refresh the image shown in Typora. To do this click right mouse button anywhere in Grasshopper and click Recompute.
+Sometimes there is a need to click "Recompute" inside Grasshopper to refresh the image shown in Typora. To do this click right mouse button anywhere in Grasshopper and click Recompute, then click on a Typora window.
 
 ## Report
 
@@ -532,9 +532,23 @@ To modify the link between both nodes - we need to add Flowchart Link component 
 
 There are 4 types (0 - 3) of link that you can choose.
 
-You can as well change a style of a node (change the shape of it):
+You can as well change a style of a node (change the shape of it from 0 to 8):
 
+![FlowchartShape](Img\FlowchartShape.png)
 
+The text for the node is also it's id, so if you connect two nodes with the same name:
 
-## Typora Tips
+![FlowchartTheSameName](Img\FlowchartTheSameName.png)
+
+Let's plug two nodes to one starting node:
+
+![Flowchart2in1](Img\Flowchart2in1.png)
+
+No let's try to connect those two to a new one:
+
+![Flowchart1in2](Img\Flowchart1in2.png)
+
+Let's present more complex flowchart example:
+
+![FlowchartComplexExample](Img\FlowchartComplexExample.png)
 

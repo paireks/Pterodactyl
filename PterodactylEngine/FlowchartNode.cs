@@ -19,7 +19,15 @@ namespace PterodactylEngine
             FlowchartReportsPart = new List<string>();
 
             LinkOutTextPart = " --> ";
-            NodeOutTextPart = ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1];
+            if (Shape == 0)
+            {
+                NodeOutTextPart = ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1];
+            }
+            else
+            {
+                NodeOutTextPart = Text + ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1];
+            }
+            
 
             if (InputNodes == null) return;
             foreach (var inputNode in InputNodes)
@@ -49,7 +57,14 @@ namespace PterodactylEngine
             FlowchartReportsPart = new List<string>();
 
             LinkOutTextPart = " --> ";
-            NodeOutTextPart = ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1];
+            if (Shape == 0)
+            {
+                NodeOutTextPart = ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1];
+            }
+            else
+            {
+                NodeOutTextPart = Text + ShapeTextPart[Shape, 0] + Text + ShapeTextPart[Shape, 1];
+            }
         }
 
         public override string ToString()

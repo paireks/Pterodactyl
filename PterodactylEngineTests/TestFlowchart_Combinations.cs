@@ -28,7 +28,7 @@ namespace UnitTestEngine
                         new FlowchartNode("First", 1)
                     }, 0)
                 }, 0)
-            }, "```mermaid\r\ngraph LR\r\n(First) --> Second\r\nSecond --> Third\r\n```");
+            }, "```mermaid\r\ngraph LR\r\nFirst(First) --> Second\r\nSecond --> Third\r\n```");
             Add(true, new List<FlowchartNode>
             {
                 new FlowchartNode("Third", new List<FlowchartNode>
