@@ -20,8 +20,8 @@ namespace UnitTestsGH
     {
         [Theory]
         [InlineData("Pie Chart", "Pie Chart",
-            "Add pie chart",
-            "Pterodactyl", "Gadgets")]
+            "Create pie chart, if you want to generate Report Part - set Path",
+            "Pterodactyl", "Basic Graphs")]
         public void TestName(string name, string nickname, string description, string category, string subCategory)
         {
             Assert.Equal(name, TestPieChartGhHelper.TestObject.Name);
@@ -32,9 +32,12 @@ namespace UnitTestsGH
         }
 
         [Theory]
-        [InlineData(0, "Title", "Title", "Title of your pie chart", GH_ParamAccess.item)]
-        [InlineData(1, "Categories", "Categories", "Categories as text list", GH_ParamAccess.list)]
-        [InlineData(2, "Values", "Values", "Values for each category as number list", GH_ParamAccess.list)]
+        [InlineData(0, "Show Graph", "Show Graph", "True = show graph, False = hide", GH_ParamAccess.item)]
+        [InlineData(1, "Title", "Title", "Title of your chart", GH_ParamAccess.item)]
+        [InlineData(2, "Values", "Values", "Values for each slice as list",
+            GH_ParamAccess.list)]
+        [InlineData(3, "Slices Names", "Slices Names", "Sets slices names as list", GH_ParamAccess.list)]
+        [InlineData(4, "Colors", "Colors", "Sets data colors, each color for each slice", GH_ParamAccess.list)]
         public void TestRegisterInputParams(int id, string name, string nickname,
             string description, GH_ParamAccess access)
         {
@@ -58,7 +61,7 @@ namespace UnitTestsGH
         [Fact]
         public void TestGuid()
         {
-            Guid expected = new Guid("26a43f20-9ede-4f7c-b5dd-95ab3e2a9ad1");
+            Guid expected = new Guid("39dd40f8-cd47-4da4-8716-36d735954ef6");
             Guid actual = TestPieChartGhHelper.TestObject.ComponentGuid;
 
             Assert.Equal(expected, actual);

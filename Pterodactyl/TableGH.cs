@@ -35,17 +35,17 @@ namespace Pterodactyl
             DA.GetDataList(1, alignment);
             DA.GetDataTree("Data Tree", out dataTree);
 
-            int currentColumnHeight = 1;
+            int columnHeight = dataTree.get_Branch(0).Count;
 
-            for (int i = 0; i < dataTree.Branches.Count; i++) //for each column check for highest
+            for (int i = 1; i < dataTree.Branches.Count; i++) //check if columns have the same size
             {
-                if (dataTree.get_Branch(i).Count > currentColumnHeight)
+                if (dataTree.get_Branch(i).Count != columnHeight)
                 {
-                    currentColumnHeight = dataTree.get_Branch(i).Count;
+                    throw new ArgumentException("Columns heights must be the same");
                 }
             }
 
-            string[,] dataTreeArray = new string[dataTree.Branches.Count, currentColumnHeight];
+            string[,] dataTreeArray = new string[dataTree.Branches.Count, columnHeight];
 
             for (int i = 0; i < dataTree.Branches.Count; i++) //for each column
             {
@@ -54,15 +54,12 @@ namespace Pterodactyl
                     dataTreeArray[i, j] = dataTree.get_Branch(i)[j].ToString();
                 }
             }
-            
 
             List<string> report;
             Table reportObject = new Table(headings, alignment, dataTreeArray);
             report = reportObject.Create();
 
             DA.SetDataList(0, report);
-
-
         }
         protected override System.Drawing.Bitmap Icon
         {

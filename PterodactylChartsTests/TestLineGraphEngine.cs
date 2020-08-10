@@ -44,11 +44,11 @@ namespace UnitTestEngine
             LineGraphEngine testObject = new LineGraphEngine(showGraph, title, xValues, yValues, xName, yName, color, path);
             Assert.Equal(showGraph, testObject.ShowGraph);
             Assert.Equal(title, testObject.Title);
-            Assert.Equal(xValues, testObject.XValues);
-            Assert.Equal(yValues, testObject.YValues);
+            Assert.Equal(new List<List<double>>{xValues}, testObject.XValues);
+            Assert.Equal(new List<List<double>> { yValues }, testObject.YValues);
             Assert.Equal(xName, testObject.XName);
             Assert.Equal(yName, testObject.YName);
-            Assert.Equal(color, testObject.ColorData);
+            Assert.Equal(new List<Color>{color}, testObject.Colors);
             Assert.Equal(path, testObject.Path);
         }
 

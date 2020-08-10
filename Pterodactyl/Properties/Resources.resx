@@ -118,11 +118,14 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="PterodactylAdvancedLineGraph" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PterodactylAdvancedLineGraph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PterodactylBarChart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylBarChart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylCodeBlock" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylCodeBlock.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylColumnChart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylColumnChart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PterodactylCreateReport" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylCreateReport.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -132,6 +135,39 @@
   </data>
   <data name="PterodactylEmphasis" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylEmphasis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylFlowchart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylFlowchart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylFlowchartLink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylFlowchartLink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylFlowchartNode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylFlowchartNode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylFlowchartStartNode" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylFlowchartStartNode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraph" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraphAxis" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraphAxis.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraphData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraphData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraphElements" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraphElements.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraphLegend" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraphLegend.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraphSettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraphSettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylGraphSizes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylGraphSizes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PterodactylHeading" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylHeading.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -145,6 +181,9 @@
   <data name="PterodactylImage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylImage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PterodactylLineData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylLineData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PterodactylLineGraph" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylLineGraph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -154,8 +193,17 @@
   <data name="PterodactylOrderedList" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylOrderedList.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PterodactylPageBreak" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylPageBreak.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="PterodactylPieChart" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylPieChart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylPieChartTool" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylPieChartTool.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PterodactylPointData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PterodactylPointData.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PterodactylPointGraph" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PterodactylPointGraph.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

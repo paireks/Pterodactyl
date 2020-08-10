@@ -20,7 +20,7 @@ namespace UnitTestsGH
     {
         [Theory]
         [InlineData("Point Graph", "Point Graph",
-            "Create point graph",
+            "Create point graph, if you want to generate Report Part - set Path",
             "Pterodactyl", "Basic Graphs")]
         public void TestName(string name, string nickname, string description, string category, string subCategory)
         {

@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using OxyPlot.WindowsForms;
 using OxyPlot;
-using System.Windows.Forms;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 
@@ -14,19 +12,27 @@ namespace PterodactylCharts
     {
 
         public LineGraphEngine(bool showGraph, string title,
-            List<double> xValues, List<double> yValues, string xName,
-            string yName, Color color, string path)
+            List<double> xValues, List<double> yValues,
+            string xName, string yName,
+            Color color, string path)
         {
             ShowGraph = showGraph;
             Title = title;
-            XValues = xValues;
-            YValues = yValues;
+            XValues = new List<List<double>>{ xValues };
+            YValues = new List<List<double>>{ yValues };
+            ValuesNames = new List<string> { "Values" };
+            ShowLegend = false;
+            LegendTitle = "";
+            LegendPositionAsInt = 0;
             XName = xName;
             YName = yName;
-            ColorData = color;
+            Colors = new List<Color> {color};
+            BackgroundColor = Color.FromArgb(255, 255, 255);
+            GraphWidth = 600;
+            GraphHeight = 400;
             Path = path;
 
-            if (XValues.Count != YValues.Count)
+            if (XValues[0].Count != YValues[0].Count)
             {
                 throw new ArgumentException(
                     "X Values should match Y Values - check if both lists have the same number of elements.");
@@ -39,29 +45,48 @@ namespace PterodactylCharts
 
             MyModel = new PlotModel { Title = Title };
 
-            var lineSeries = new LineSeries
+            for (int i = 0; i < Colors.Count; i++)
             {
-                Color = OxyColor.FromArgb(a: ColorData.A, r: ColorData.R, g: ColorData.G, b: ColorData.B),
-                MarkerFill = OxyColors.Transparent,
-                DataFieldX = XName,
-                DataFieldY = YName,
-                Background = OxyColors.White
-            };
+                var lineSeries = new LineSeries
+                {
+                    Color = OxyColor.FromArgb(a: Colors[i].A, r: Colors[i].R, g: Colors[i].G, b: Colors[i].B),
+                    MarkerFill = OxyColors.Transparent,
+                    DataFieldX = XName,
+                    DataFieldY = YName,
+                    Background = OxyColor.FromArgb(
+                        a: BackgroundColor.A,
+                        r: BackgroundColor.R,
+                        g: BackgroundColor.G,
+                        b: BackgroundColor.B)
+                };
+                if (ShowLegend)
+                {
+                    lineSeries.Title = ValuesNames[i];
+                }
 
-            for (int i = 0; i < XValues.Count; i++)
-            {
-                lineSeries.Points.Add(new DataPoint(XValues[i], YValues[i]));
+                for (int j = 0; j < XValues[i].Count; j++)
+                {
+                    lineSeries.Points.Add(new DataPoint(XValues[i][j], YValues[i][j]));
+                }
+
+                MyModel.Series.Add(lineSeries);
             }
 
-            MyModel.Series.Add(lineSeries);
+            if (ShowLegend)
+            {
+                MyModel.LegendTitle = LegendTitle;
+                LegendPosition legendPosition = (LegendPosition)LegendPositionAsInt;
+                MyModel.LegendPosition = legendPosition;
+            }
+
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = XName });
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = YName });
 
             myPlot.Model = MyModel;
 
             myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            myPlot.Location = new System.Drawing.Point(0, 0);
-            myPlot.Size = new System.Drawing.Size(600, 400);
+            myPlot.Location = new Point(0, 0);
+            myPlot.Size = new Size(GraphWidth, GraphHeight);
             myPlot.TabIndex = 0;
 
             return myPlot;
@@ -71,7 +96,12 @@ namespace PterodactylCharts
         {
             if (Path.EndsWith(".png"))
             {
-                var pngExporter = new PngExporter { Width = 600, Height = 400, Background = OxyColors.White };
+                var pngExporter = new PngExporter { Width = GraphWidth, Height = GraphHeight,
+                    Background = OxyColor.FromArgb(
+                        BackgroundColor.A,
+                        BackgroundColor.R,
+                        BackgroundColor.G,
+                        BackgroundColor.B)};
                 pngExporter.ExportToFile(MyModel, Path);
             }
         }
@@ -94,11 +124,18 @@ namespace PterodactylCharts
 
         public bool ShowGraph { get; set; }
         public string Title { get; set; }
-        public List<double> XValues { get; set; }
-        public List<double> YValues { get; set; }
+        public List<List<double>> XValues { get; set; }
+        public List<List<double>> YValues { get; set; }
+        public List<string> ValuesNames { get; set; }
+        public bool ShowLegend { get; set; }
+        public string LegendTitle { get; set; }
+        public int LegendPositionAsInt { get; set; }
         public string XName { get; set; }
         public string YName { get; set; }
-        public Color ColorData { get; set; }
+        public List<Color> Colors { get; set; }
+        public Color BackgroundColor { get; set; }
+        public int GraphWidth { get; set; }
+        public int GraphHeight { get; set; }
         public string Path { get; set; }
         public PlotModel MyModel { get; set; }
     }

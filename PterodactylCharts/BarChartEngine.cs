@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using OxyPlot.WindowsForms;
 using OxyPlot;
 using System.Windows.Forms;
@@ -61,9 +60,9 @@ namespace PterodactylCharts
 
             myPlot.Model = MyModel;
 
-            myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
-            myPlot.Location = new System.Drawing.Point(0, 0);
-            myPlot.Size = new System.Drawing.Size(600, 400);
+            myPlot.Dock = DockStyle.Bottom;
+            myPlot.Location = new Point(0, 0);
+            myPlot.Size = new Size(600, 400);
             myPlot.TabIndex = 0;
 
             return myPlot;

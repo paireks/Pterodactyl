@@ -49,5 +49,12 @@ namespace Pterodactyl
                 return "w.radaczynski@gmail.com";
             }
         }
+        public override string Version
+        {
+            get
+            {
+                return "1.2.0.0";
+            }
+        }
     }
 }

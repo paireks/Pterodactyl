@@ -27,7 +27,6 @@ namespace PterodactylEngine
                 throw new ArgumentException("Headings list should match number of columns given in data tree. " +
                     "Check if both inputs have the same number of elements.");
             }
-
         }
 
         public List<string> Create()
@@ -64,18 +63,11 @@ namespace PterodactylEngine
                         rows.Add(newCell);
                     }
                 }
-                else if (0 < i && i < Headings.Count)
-                {
-                    for (int j = 0; j < DataTree.GetLength(1); j++)
-                    {
-                        rows[j].AppendFormat("| {0}{1} ", DataTree[i, j], new string(' ', currentMax - DataTree[i, j].Length));
-                    }
-                }
                 else
                 {
                     for (int j = 0; j < DataTree.GetLength(1); j++)
                     {
-                        rows[j].AppendFormat("|");
+                        rows[j].AppendFormat("| {0}{1} ", DataTree[i, j], new string(' ', currentMax - DataTree[i, j].Length));
                     }
                 }
 

@@ -70,6 +70,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarChartGH.cs" />
+    <Compile Include="CodeBlockGH.cs" />
+    <Compile Include="ColumnChartGH.cs" />
+    <Compile Include="FlowchartGH.cs" />
+    <Compile Include="FlowchartLinkGH.cs" />
+    <Compile Include="FlowchartNodeGH.cs" />
+    <Compile Include="FlowchartStartNodeGH.cs" />
+    <Compile Include="GraphAxisGH.cs" />
+    <Compile Include="GraphDataGH.cs" />
+    <Compile Include="GraphGH.cs" />
+    <Compile Include="GraphElementsGH.cs" />
+    <Compile Include="GraphSettingsGH.cs" />
+    <Compile Include="GraphSizesGH.cs" />
+    <Compile Include="GraphLegendGH.cs" />
+    <Compile Include="LineDataGH.cs" />
     <Compile Include="LineGraphGH.cs" />
     <Compile Include="CreateReportGH.cs" />
     <Compile Include="DynamicMathBlockGH.cs" />
@@ -80,7 +94,10 @@
     <Compile Include="ImageGH.cs" />
     <Compile Include="MathBlockGH.cs" />
     <Compile Include="OrderedListGH.cs" />
+    <Compile Include="PageBreakGH.cs" />
     <Compile Include="PieChartGH.cs" />
+    <Compile Include="PieChartToolGH.cs" />
+    <Compile Include="PointDataGH.cs" />
     <Compile Include="PointGraphGH.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -117,6 +134,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylImage.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PterodactylPieChart.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylTaskList.png" />
@@ -175,22 +190,70 @@
     <None Include="Resources\PterodactylStrike.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\hyperlink.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\PterodactylHyperlink.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PterodactylAdvancedLineGraph.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\PterodactylBarChart.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylLineGraph.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PterodactylPointGraph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphAxis.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylFlowchartLink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphSizes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPageBreak.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylColumnChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylBarChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphLegend.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphSettings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylFlowchart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPointData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylLineData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylFlowchartStartNode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylFlowchartNode.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphData.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPieChart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPieChartTool.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraph.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylGraphElements.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylCodeBlock.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

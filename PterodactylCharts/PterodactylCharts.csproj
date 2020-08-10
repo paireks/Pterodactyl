@@ -61,6 +61,27 @@
       <DependentUpon>BarChart.cs</DependentUpon>
     </Compile>
     <Compile Include="BarChartEngine.cs" />
+    <Compile Include="ColumnChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ColumnChart.Designer.cs">
+      <DependentUpon>ColumnChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ColumnChartEngine.cs" />
+    <Compile Include="DataType.cs" />
+    <Compile Include="Graph.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graph.Designer.cs">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GraphAxis.cs" />
+    <Compile Include="GraphData.cs" />
+    <Compile Include="GraphElements.cs" />
+    <Compile Include="GraphEngine.cs" />
+    <Compile Include="GraphSettings.cs" />
+    <Compile Include="GraphSizes.cs" />
+    <Compile Include="GraphLegend.cs" />
     <Compile Include="LineGraphEngine.cs" />
     <Compile Include="LineGraph.cs">
       <SubType>Form</SubType>
@@ -68,6 +89,13 @@
     <Compile Include="LineGraph.Designer.cs">
       <DependentUpon>LineGraph.cs</DependentUpon>
     </Compile>
+    <Compile Include="PieChart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PieChart.Designer.cs">
+      <DependentUpon>PieChart.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PieChartEngine.cs" />
     <Compile Include="PointGraph.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,13 +103,21 @@
       <DependentUpon>PointGraph.cs</DependentUpon>
     </Compile>
     <Compile Include="PointGraphEngine.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="BarChart.resx">
       <DependentUpon>BarChart.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ColumnChart.resx">
+      <DependentUpon>ColumnChart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Graph.resx">
+      <DependentUpon>Graph.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LineGraph.resx">
       <DependentUpon>LineGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PieChart.resx">
+      <DependentUpon>PieChart.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PointGraph.resx">
       <DependentUpon>PointGraph.cs</DependentUpon>
