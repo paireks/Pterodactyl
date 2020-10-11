@@ -4,6 +4,7 @@ using System.Drawing;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using PterodactylCharts;
+using System.Windows.Forms;
 
 namespace Pterodactyl
 {
@@ -60,6 +61,7 @@ namespace Pterodactyl
                     }
                 }
             }
+            dialogImage = null;
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -78,9 +80,9 @@ namespace Pterodactyl
             DA.GetDataList(4, colors);
 
             ColumnChart chartObject = new ColumnChart();
-            chartObject.ColumnChartData(false, title, values, names, textFormat, colors, path);
-
+            chartObject.ColumnChartData(true, title, values, names, textFormat, colors, path);
             chartObject.Export();
+            dialogImage = chartObject;
             using (Image i = Image.FromFile(path))
             {
                 using (Bitmap b = new Bitmap(i))
@@ -114,6 +116,19 @@ namespace Pterodactyl
                 }
             }
             base.RemovedFromDocument(document);
+        }
+
+        private ColumnChart dialogImage;
+
+        public override void AppendAdditionalMenuItems(ToolStripDropDown menu)
+        {
+            base.AppendAdditionalMenuItems(menu);
+            Menu_AppendItem(menu, "Show Chart", ShowChart, this.Icon, (dialogImage != null), false);
+        }
+
+        private void ShowChart(object sender, EventArgs e)
+        {
+            if (dialogImage != null) dialogImage.ShowDialog();
         }
 
         protected override System.Drawing.Bitmap Icon

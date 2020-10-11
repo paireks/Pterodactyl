@@ -4,6 +4,7 @@ using System.Drawing;
 using Grasshopper.Kernel;
 using Rhino.Geometry;
 using PterodactylCharts;
+using System.Windows.Forms;
 //using ShapeDiver.Public.Grasshopper.Parameters;
 
 namespace Pterodactyl
@@ -84,7 +85,7 @@ namespace Pterodactyl
             DA.GetDataList(4, colors);
 
             BarChart chartObject = new BarChart();
-            chartObject.BarChartData(false, title, values, names, textFormat, colors, path);
+            chartObject.BarChartData(true, title, values, names, textFormat, colors, path);
 
             chartObject.Export();
             using (Image i = Image.FromFile(path))
@@ -121,6 +122,20 @@ namespace Pterodactyl
             }
             base.RemovedFromDocument(document);
         }
+
+        private BarChart dialogImage;
+
+        public override void AppendAdditionalMenuItems(ToolStripDropDown menu)
+        {
+            base.AppendAdditionalMenuItems(menu);
+            Menu_AppendItem(menu, "Show Chart", ShowChart, this.Icon, (dialogImage != null), false);
+        }
+
+        private void ShowChart(object sender, EventArgs e)
+        {
+            if (dialogImage != null) dialogImage.ShowDialog();
+        }
+
 
         protected override System.Drawing.Bitmap Icon
         {

@@ -19,7 +19,7 @@ namespace Pterodactyl
 
         public override GH_Exposure Exposure => GH_Exposure.hidden;
 
-        protected override Bitmap Icon => Properties.Resources.PterodactylImage;
+        protected override Bitmap Icon => Properties.Resources.sd_parameter_bitmap_24x24;
 
         protected override PterodactylGrasshopperBitmapGoo PreferredCast(object data)
         {
