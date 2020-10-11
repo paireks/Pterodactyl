@@ -17,7 +17,6 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddBooleanParameter("Show Graph", "Show Graph", "True = show graph, False = hide", GH_ParamAccess.item, false);
             pManager.AddTextParameter("Title", "Title", "Title of your chart", GH_ParamAccess.item, "Wingspan comparison (size matters)");
             pManager.AddNumberParameter("Values", "Values", "Values for each column as list",
                 GH_ParamAccess.list, new List<double> { 0.68, 0.81, 1.00, 1.20, 1.60, 6.00 });
@@ -34,45 +33,89 @@ namespace Pterodactyl
                     Color.FromArgb(168,45,160),
                     Color.FromArgb(115,115,115)
                 });
-            pManager.AddTextParameter("Path", "Path", "Set path where graph should be saved as .png file" +
-                                                      " if you want to save it, and/or if you want to create Report Part. Remember to end " +
-                                                      "path with .png extension.",
-                GH_ParamAccess.item, "");
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("Report Part", "Report Part", "Created part of the report", GH_ParamAccess.item);
+            pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Created part of the report", GH_ParamAccess.item);
         }
+
+        protected override void BeforeSolveInstance()
+        {
+            base.BeforeSolveInstance();
+            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()))
+            {
+                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath());
+            }
+            else
+            {
+                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()).Length > 0)
+                {
+                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()))
+                    {
+                        if (f.Contains(this.InstanceGuid.ToString()))
+                        {
+                            try { System.IO.File.Delete(f); }
+                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + ": " + ex.Message); }
+                        }
+                    }
+                }
+            }
+        }
+
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            bool showGraph = false;
             string title = "";
             List<double> values = new List<double>();
             List<string> names = new List<string>();
             string textFormat = "";
             List<Color> colors = new List<Color>();
-            string path = "";
+            string path = PterodactylGrasshopperBitmapGoo.CreateTemporaryFilePath(this);
 
-            DA.GetData(0, ref showGraph);
-            DA.GetData(1, ref title);
-            DA.GetDataList(2, values);
-            DA.GetDataList(3, names);
-            DA.GetData(4, ref textFormat);
-            DA.GetDataList(5, colors);
-            DA.GetData(6, ref path);
+            DA.GetData(0, ref title);
+            DA.GetDataList(1, values);
+            DA.GetDataList(2, names);
+            DA.GetData(3, ref textFormat);
+            DA.GetDataList(4, colors);
 
             ColumnChart chartObject = new ColumnChart();
-            chartObject.ColumnChartData(showGraph, title, values, names, textFormat, colors, path);
-            if (showGraph)
-            {
-                chartObject.ShowDialog();
-            }
+            chartObject.ColumnChartData(false, title, values, names, textFormat, colors, path);
 
             chartObject.Export();
-            string reportPart = chartObject.Create();
-
-            DA.SetData(0, reportPart);
+            using (Image i = Image.FromFile(path))
+            {
+                using (Bitmap b = new Bitmap(i))
+                {
+                    string reportPart = chartObject.Create();
+                    PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo(b.Clone(new Rectangle(0, 0, b.Width, b.Height), b.PixelFormat)
+                                                             , reportPart);
+                    DA.SetData(0, GH_bmp);
+                }
+            }
         }
+
+        public override void RemovedFromDocument(GH_Document document)
+        {
+            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()))
+            {
+                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath());
+            }
+            else
+            {
+                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()).Length > 0)
+                {
+                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()))
+                    {
+                        if (f.Contains(this.InstanceGuid.ToString()))
+                        {
+                            try { System.IO.File.Delete(f); }
+                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + ": " + ex.Message); }
+                        }
+                    }
+                }
+            }
+            base.RemovedFromDocument(document);
+        }
+
         protected override System.Drawing.Bitmap Icon
         {
             get
