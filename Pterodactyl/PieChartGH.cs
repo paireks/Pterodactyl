@@ -76,6 +76,7 @@ namespace Pterodactyl
             chartObject.PieChartData(true, title, values, names, colors, path);
 
             chartObject.Export();
+            dialogImage = chartObject;
             using (Image i = Image.FromFile(path))
             {
                 using (Bitmap b = new Bitmap(i))

@@ -88,6 +88,7 @@ namespace Pterodactyl
             chartObject.BarChartData(true, title, values, names, textFormat, colors, path);
 
             chartObject.Export();
+            dialogImage = chartObject;
             using (Image i = Image.FromFile(path))
             {
                 using (Bitmap b = new Bitmap(i))

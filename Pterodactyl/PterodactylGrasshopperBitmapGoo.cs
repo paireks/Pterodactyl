@@ -90,11 +90,13 @@ namespace Pterodactyl
 
         public static string CreateTemporaryFilePath(GH_Component owner)
         {
+            if (!System.IO.Directory.Exists(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\")) System.IO.Directory.CreateDirectory(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\");
             return (Grasshopper.Folders.AppDataFolder + "Pterodactyl\\" + ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds().ToString() + "_"
                                                                                                             + owner.InstanceGuid.ToString() + ".png");
         }
         public static string CreateTemporaryFolderPath()
         {
+            if (!System.IO.Directory.Exists(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\")) System.IO.Directory.CreateDirectory(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\");
             return (Grasshopper.Folders.AppDataFolder + "Pterodactyl\\");
         }
     }

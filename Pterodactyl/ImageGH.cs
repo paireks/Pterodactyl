@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Drawing;
+using System.Drawing.Imaging;
 using Grasshopper.Kernel;
 using PterodactylEngine;
+using ShapeDiver.Public.Grasshopper.Parameters;
 
 namespace Pterodactyl
 {
@@ -18,28 +20,90 @@ namespace Pterodactyl
         {
             pManager.AddTextParameter("Title", "Title", "Image title",
                 GH_ParamAccess.item, "Title");
-            pManager.AddTextParameter("Path", "Path", "Local path to image",
+            pManager.AddParameter(new GrasshopperBitmapParam(), "Image", "Image", "Image to use. Right-click to set an Image or Multiple Images." +
+                "If you wish to add an image by path (Local use only), try using Squid (ShapeDiver version - included in the ShapeDiver installation).",
                 GH_ParamAccess.item);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("Report Part", "Report Part", "Created part of the report", GH_ParamAccess.item);
+            pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Created part of the report", GH_ParamAccess.item);
         }
+
+        protected override void BeforeSolveInstance()
+        {
+            base.BeforeSolveInstance();
+            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()))
+            {
+                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath());
+            }
+            else
+            {
+                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()).Length > 0)
+                {
+                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()))
+                    {
+                        if (f.Contains(this.InstanceGuid.ToString()))
+                        {
+                            try { System.IO.File.Delete(f); }
+                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + ": " + ex.Message); }
+                        }
+                    }
+                }
+            }
+        }
+
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string title = "";
-            string path = "";
+            GrasshopperBitmapGoo GH_b = new GrasshopperBitmapGoo();
+            string path = PterodactylGrasshopperBitmapGoo.CreateTemporaryFilePath(this);
 
             DA.GetData(0, ref title);
-            DA.GetData(1, ref path);
+            DA.GetData(1, ref GH_b);
 
-            string reportPart;
-            Image reportObject = new Image(title, path);
-            reportPart = reportObject.Create();
+            try { GH_b.Value.Save(path, ImageFormat.Png); }
+            catch (Exception ex)
+            {
+                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Unable to write to file at " + path + " : " + ex.Message);
+                return;
+            }
 
-            DA.SetData(0, reportPart);
-
+            PterodactylEngine.Image reportObject = new PterodactylEngine.Image(title, path);
+            using (System.Drawing.Image i = System.Drawing.Image.FromFile(path))
+            {
+                using (Bitmap b = new Bitmap(i))
+                {
+                    string reportPart = reportObject.Create();
+                    PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo(b.Clone(new Rectangle(0, 0, b.Width, b.Height), b.PixelFormat)
+                                                             , reportPart);
+                    DA.SetData(0, GH_bmp);
+                }
+            }
         }
+
+        public override void RemovedFromDocument(GH_Document document)
+        {
+            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()))
+            {
+                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath());
+            }
+            else
+            {
+                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()).Length > 0)
+                {
+                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.CreateTemporaryFolderPath()))
+                    {
+                        if (f.Contains(this.InstanceGuid.ToString()))
+                        {
+                            try { System.IO.File.Delete(f); }
+                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + ": " + ex.Message); }
+                        }
+                    }
+                }
+            }
+            base.RemovedFromDocument(document);
+        }
+
         protected override System.Drawing.Bitmap Icon
         {
             get

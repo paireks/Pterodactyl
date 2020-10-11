@@ -76,6 +76,7 @@ namespace Pterodactyl
             graphObject.LineGraphData(true, title, xValues, yValues, xName, yName, color, path);
 
             graphObject.Export();
+            dialogImage = graphObject;
             using (Image i = Image.FromFile(path))
             {
                 using (Bitmap b = new Bitmap(i))
