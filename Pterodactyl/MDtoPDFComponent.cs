@@ -18,9 +18,9 @@ namespace Pterodactyl
         /// Initializes a new instance of the MDtoPDFComponent class.
         /// </summary>
         public MDtoPDFComponent()
-          : base("MD to PDF", "MD2PDF",
-              "Convert Markdown to PDF",
-              "Pterodactyl", "Utilities")
+          : base("Convert to PDF / HTML", "MD2PDF/HTML",
+              "Convert Markdown to PDF and HTML",
+              "Pterodactyl", "Report")
         {
         }
 

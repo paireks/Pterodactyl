@@ -11,7 +11,7 @@ namespace Pterodactyl
     {
         public FlowchartLinkGH()
           : base("Flowchart Link", "Flowchart Link",
-              "Add flowchart link between two nodes",
+              "Add flowchart link between two nodes. This Report Part is not supported by the PDF or HTML conversion.",
               "Pterodactyl", "Tools")
         {
         }

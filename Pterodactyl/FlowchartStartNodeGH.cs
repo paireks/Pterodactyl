@@ -11,7 +11,7 @@ namespace Pterodactyl
     {
         public FlowchartStartNodeGH()
           : base("Flowchart Start Node", "Flowchart Start Node",
-              "Add starting node for flowchart",
+              "Add starting node for flowchart. This Report Part is not supported by the PDF or HTML conversion.",
               "Pterodactyl", "Tools")
         {
         }

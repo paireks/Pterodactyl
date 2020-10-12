@@ -10,7 +10,7 @@ namespace Pterodactyl
     {
         public PieChartToolGH()
           : base("Pie Chart", "Pie Chart",
-              "Add simple pie chart",
+              "Add simple pie chart. This Report Part is not supported by the PDF or HTML conversion.",
               "Pterodactyl", "Tools")
         {
         }

@@ -11,7 +11,7 @@ namespace Pterodactyl
     {
         public FlowchartGH()
           : base("Flowchart", "Flowchart",
-              "Add flowchart",
+              "Add flowchart. This Report Part is not supported by the PDF or HTML conversion.",
               "Pterodactyl", "Tools")
         {
         }
