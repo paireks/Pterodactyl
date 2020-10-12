@@ -6,6 +6,9 @@ using Rhino.Geometry;
 using ShapeDiver.Public.Grasshopper.Parameters;
 using PdfSharp.Pdf;
 using PdfSharp.Pdf.IO;
+using FSharp.Markdown;
+using System.IO;
+using OpenHtmlToPdf;
 
 namespace Pterodactyl
 {
@@ -35,6 +38,7 @@ namespace Pterodactyl
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
             pManager.AddParameter(new GrasshopperPdfDocumentParam(), "PDF", "PDF", "Converted PDF", GH_ParamAccess.item);
+            pManager.AddTextParameter("HTML", "HTML", "HTML text", GH_ParamAccess.item);
         }
 
         protected override void BeforeSolveInstance()
@@ -68,9 +72,23 @@ namespace Pterodactyl
         {
             string md = string.Empty;
             string path = PterodactylGrasshopperBitmapGoo.CreateTemporaryFilePath(this, "pdf");
+            string pathHTML = PterodactylGrasshopperBitmapGoo.CreateTemporaryFilePath(this, "html");
+            if (!DA.GetData(0, ref md)) return;
             try
             {
                 //Create PDF
+                MarkdownDocument mdDoc = Markdown.Parse(md);
+                string html = Markdown.WriteHtml(mdDoc);
+                System.IO.StreamWriter s = System.IO.File.CreateText(pathHTML);
+                s.Write(html);
+                s.Close();
+                DA.SetData(1, html);
+                using (FileStream file = new FileStream(path, FileMode.Create, FileAccess.Write))
+                {
+                    byte[] pdf_content = Pdf.From(html).OfSize(PaperSize.A4).Portrait().Content();
+                    file.Write(pdf_content, 0, pdf_content.Length);
+                    file.Close();
+                }
             }
             catch (Exception ex2)
             {
