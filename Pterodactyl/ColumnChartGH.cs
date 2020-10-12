@@ -56,7 +56,7 @@ namespace Pterodactyl
                         if (f.Contains(this.InstanceGuid.ToString()))
                         {
                             try { System.IO.File.Delete(f); }
-                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + ": " + ex.Message); }
+                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + " : " + ex.Message); }
                         }
                     }
                 }
@@ -110,7 +110,7 @@ namespace Pterodactyl
                         if (f.Contains(this.InstanceGuid.ToString()))
                         {
                             try { System.IO.File.Delete(f); }
-                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + ": " + ex.Message); }
+                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + " : " + ex.Message); }
                         }
                     }
                 }

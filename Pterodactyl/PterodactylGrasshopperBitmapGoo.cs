@@ -88,11 +88,11 @@ namespace Pterodactyl
             return true;
         }
 
-        public static string CreateTemporaryFilePath(GH_Component owner)
+        public static string CreateTemporaryFilePath(GH_Component owner, string format = "png")
         {
             if (!System.IO.Directory.Exists(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\")) System.IO.Directory.CreateDirectory(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\");
             return (Grasshopper.Folders.AppDataFolder + "Pterodactyl\\" + ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds().ToString() + "_"
-                                                                                                            + owner.InstanceGuid.ToString() + ".png");
+                                                                                                            + owner.InstanceGuid.ToString() + "." + format);
         }
         public static string CreateTemporaryFolderPath()
         {

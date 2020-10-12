@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PterodactylRh", "..\Pteroda
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PterodactylCharts", "..\PterodactylCharts\PterodactylCharts.csproj", "{1F4A1C4A-7520-4CE1-931D-2B7E56693F34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PterodactylChartsTests", "..\PterodactylChartsTests\PterodactylChartsTests.csproj", "{9F2D98BA-BD29-441F-ADF6-64135D475BBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PterodactylChartsTests", "..\PterodactylChartsTests\PterodactylChartsTests.csproj", "{9F2D98BA-BD29-441F-ADF6-64135D475BBA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
