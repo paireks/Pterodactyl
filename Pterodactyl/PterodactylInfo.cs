@@ -10,7 +10,7 @@ namespace Pterodactyl
         {
             get
             {
-                return "Pterodactyl";
+                return "Pterodactyl [ShapeDiver Version]";
             }
         }
         public override Bitmap Icon
@@ -24,7 +24,7 @@ namespace Pterodactyl
         {
             get
             {
-                return "Pterodactyl will help you to create reports";
+                return "Pterodactyl will help you to create reports. This version of Pterodactyl is supported by ShapeDiver.";
             }
         }
         public override Guid Id
@@ -39,7 +39,7 @@ namespace Pterodactyl
         {
             get
             {
-                return "Wojciech Radaczynski";
+                return "Wojciech Radaczynski and Praneet Mathur [for ShapeDiver]";
             }
         }
         public override string AuthorContact

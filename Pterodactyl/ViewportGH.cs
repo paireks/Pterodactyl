@@ -89,7 +89,7 @@ namespace Pterodactyl
                 {
                     string reportPart = reportObject.Create();
                     PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo(b.Clone(new System.Drawing.Rectangle(0, 0, b.Width, b.Height), b.PixelFormat)
-                                                             , reportPart);
+                                                             , reportPart, pathToFile);
                     DA.SetData(0, GH_bmp);
                 }
             }

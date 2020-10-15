@@ -5,6 +5,7 @@ using ShapeDiver.Public.Grasshopper.Parameters;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,9 +30,10 @@ namespace Pterodactyl
         {
         }
         
-        public PterodactylGrasshopperBitmapGoo(Bitmap b, string p) : base(b)
+        public PterodactylGrasshopperBitmapGoo(Bitmap b, string r, string p) : base(b)
         {
-            this.ReportPart = p;
+            this.ReportPart = r;
+            this.FilePath = p;
         }
 
         private string _reportPart = "";
@@ -46,7 +48,19 @@ namespace Pterodactyl
             }
         }
 
-        public override string ToString()
+        private string _filePath = "";
+        public string FilePath { 
+            get
+            {
+                return this._filePath;
+            }
+            set
+            {
+                this._filePath = value;
+            }
+        }
+
+public override string ToString()
         {
             string v = this;
             return v;
@@ -60,7 +74,7 @@ namespace Pterodactyl
         public new IGH_Goo Duplicate()
         {
             Bitmap b = (Bitmap)this.Value.Clone();
-            return new PterodactylGrasshopperBitmapGoo(b, this.ReportPart);
+            return new PterodactylGrasshopperBitmapGoo(b, this.ReportPart, this.FilePath);
         }
 
         public new bool Read(GH_IReader reader)
@@ -75,9 +89,15 @@ namespace Pterodactyl
                 this.ReportPart = null;
                 return false;
             }
+            if (!reader.ItemExists("FilePath"))
+            {
+                this.FilePath = null;
+                return false;
+            }
 
             this.Value = reader.GetDrawingBitmap("Image");
             this.ReportPart = reader.GetString("ReportPart");
+            this.FilePath = reader.GetString("FilePath");
             return true;
         }
 
@@ -85,6 +105,7 @@ namespace Pterodactyl
         {
             writer.SetDrawingBitmap("Image", this.Value);
             writer.SetString("ReportPart", this.ReportPart);
+            writer.SetString("FilePath", this.FilePath);
             return true;
         }
 
