@@ -6,14 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Pterodactyl
+class PterodactylCategoryIcon : GH_AssemblyPriority
 {
-    class CategoryIcon : GH_AssemblyPriority
+    public override GH_LoadingInstruction PriorityLoad()
     {
-        public override GH_LoadingInstruction PriorityLoad()
-        {
-            Instances.ComponentServer.AddCategoryIcon("Pterodactyl", Properties.Resources.tab_icon);
-            return GH_LoadingInstruction.Proceed;
-        }
+        Instances.ComponentServer.AddCategoryIcon("Pterodactyl", Pterodactyl.Properties.Resources.tab_icon);
+        Instances.ComponentServer.AddCategorySymbolName("Pterodactyl", 'P');
+        return GH_LoadingInstruction.Proceed;
     }
 }
