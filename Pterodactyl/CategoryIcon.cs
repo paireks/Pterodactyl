@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-class PterodactylCategoryIcon : GH_AssemblyPriority
+public class PterodactylCategoryIcon : GH_AssemblyPriority
 {
     public override GH_LoadingInstruction PriorityLoad()
     {
