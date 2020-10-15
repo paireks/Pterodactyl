@@ -127,6 +127,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BarChartGH.cs" />
+    <Compile Include="CategoryIcon.cs" />
     <Compile Include="CodeBlockGH.cs" />
     <Compile Include="ColumnChartGH.cs" />
     <Compile Include="FlowchartGH.cs" />
@@ -322,6 +323,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="FSharp.Markdown.Pdf.XML" />
+    <None Include="Resources\tab_icon.png" />
     <None Include="Resources\temp.png" />
     <None Include="Resources\export.png" />
   </ItemGroup>
