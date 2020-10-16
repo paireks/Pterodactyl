@@ -11,10 +11,11 @@ namespace Pterodactyl
     {
         public FlowchartStartNodeGH()
           : base("Flowchart Start Node", "Flowchart Start Node",
-              "Add starting node for flowchart. This Report Part is not supported by the PDF or HTML conversion.",
+              "Add starting node for flowchart",
               "Pterodactyl", "Tools")
         {
         }
+        public override bool IsBakeCapable => false;
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {

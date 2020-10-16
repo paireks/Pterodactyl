@@ -45,6 +45,7 @@ namespace Pterodactyl
         {
             pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Created part of the report", GH_ParamAccess.item);
         }
+        public override bool IsBakeCapable => false;
 
         protected override void BeforeSolveInstance()
         {

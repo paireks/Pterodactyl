@@ -8,11 +8,15 @@ namespace Pterodactyl
     public class SaveReportGH : GH_Component
     {
         public SaveReportGH()
-          : base("Save Report", "Save Report",
-              "Saves markdown file with your report data",
+          : base("Save Report [OBSOLETE]", "Save Report [OBSOLETE]",
+              "Saves markdown file with your report data [OBSOLETE]",
               "Pterodactyl", "Report")
         {
         }
+        public override bool IsBakeCapable => false;
+
+        public override GH_Exposure Exposure => GH_Exposure.hidden;
+        public override bool Obsolete => true;
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {

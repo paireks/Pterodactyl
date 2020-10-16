@@ -13,6 +13,7 @@ namespace Pterodactyl
               "Pterodactyl", "Report")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Report Parts", "Report Parts", "Report parts as list", GH_ParamAccess.list, "Empty");

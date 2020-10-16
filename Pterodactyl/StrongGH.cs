@@ -15,6 +15,7 @@ namespace Pterodactyl
               "Pterodactyl", "Format")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Text", "Text", "Text to format",
