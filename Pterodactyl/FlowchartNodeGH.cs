@@ -11,10 +11,11 @@ namespace Pterodactyl
     {
         public FlowchartNodeGH()
           : base("Flowchart Node", "Flowchart Node",
-              "Add node for flowchart.  This Report Part is not supported by the PDF or HTML conversion.",
+              "Add node for flowchart",
               "Pterodactyl", "Tools")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Text", "Text", "Add text inside node", GH_ParamAccess.item, "Sample text");

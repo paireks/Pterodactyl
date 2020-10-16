@@ -15,6 +15,7 @@ namespace Pterodactyl
               "Pterodactyl", "Advanced Graph")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("X Axis Name", "X Axis Name", "Name of the X axis", GH_ParamAccess.item, "x");

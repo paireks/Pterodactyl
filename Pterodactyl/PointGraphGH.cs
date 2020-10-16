@@ -16,6 +16,7 @@ namespace Pterodactyl
               "Pterodactyl", "Basic Graphs")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Title", "Title", "Title of your graph", GH_ParamAccess.item, "Awesomeness of Pterodactyl plugin");

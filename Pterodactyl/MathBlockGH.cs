@@ -8,10 +8,11 @@ namespace Pterodactyl
     {
         public MathBlockGH()
           : base("Math Block", "Math Block",
-              "Creates math block",
+              "Creates math block. This Report Part might not appear properly in PDF exports.",
               "Pterodactyl", "Parts")
         {
         }
+        public override bool IsBakeCapable => false;
 
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {

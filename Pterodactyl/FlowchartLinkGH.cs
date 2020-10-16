@@ -11,10 +11,11 @@ namespace Pterodactyl
     {
         public FlowchartLinkGH()
           : base("Flowchart Link", "Flowchart Link",
-              "Add flowchart link between two nodes. This Report Part is not supported by the PDF or HTML conversion.",
+              "Add flowchart link between two nodes",
               "Pterodactyl", "Tools")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddIntegerParameter("Type", "Type", "Type as integer. 0 - normal, 1 - open, 2 - dotted, 3 - thick" , GH_ParamAccess.item, 0);

@@ -9,10 +9,11 @@ namespace Pterodactyl
     {
         public DynamicMathBlockGH()
           : base("Dynamic Math Block", "Dynamic Math Block",
-              "Creates dynamic math block, that can change variables values automatically.",
+              "Creates dynamic math block, that can change variables values automatically. This Report Part might not appear properly in PDF exports.",
               "Pterodactyl", "Parts")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Text", "Text", "Math text written in TeX-style. Put dynamic variables in <> brackets. " +

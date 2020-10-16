@@ -11,10 +11,11 @@ namespace Pterodactyl
     {
         public FlowchartGH()
           : base("Flowchart", "Flowchart",
-              "Add flowchart. This Report Part is not supported by the PDF or HTML conversion.",
+              "Add flowchart",
               "Pterodactyl", "Tools")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddBooleanParameter("Direction", "Direction",

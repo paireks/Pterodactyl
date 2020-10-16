@@ -19,6 +19,7 @@ namespace Pterodactyl
               "Pterodactyl", "Tools")
         {
         }
+        public override bool IsBakeCapable => false;
 
         /// <summary>
         /// Registers all the input parameters for this component.

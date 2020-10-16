@@ -15,6 +15,7 @@ namespace Pterodactyl
               "Pterodactyl", "Advanced Graph")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddIntegerParameter("Width", "Width", "Set width", GH_ParamAccess.item, 600);

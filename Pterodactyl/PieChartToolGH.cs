@@ -10,10 +10,11 @@ namespace Pterodactyl
     {
         public PieChartToolGH()
           : base("Pie Chart", "Pie Chart",
-              "Add simple pie chart. This Report Part is not supported by the PDF or HTML conversion.",
+              "Add simple pie chart. This Report Part might not appear properly in PDF exports.",
               "Pterodactyl", "Tools")
         {
         }
+        public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Title", "Title", "Title of your pie chart", GH_ParamAccess.item, "Reaction to Pterodactyl plugin") ;
