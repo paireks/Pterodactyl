@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Linq;
+using System.Management;
 using Grasshopper.Kernel;
 
 namespace Pterodactyl
@@ -53,7 +55,18 @@ namespace Pterodactyl
         {
             get
             {
-                return "1.2.0.0";
+                return "1.3.0.0";
+            }
+        }
+
+        public static bool IsRunningOnWindowsServer
+        {
+            get
+            {
+                string name = (string)((from x in new ManagementObjectSearcher("SELECT Caption FROM Win32_OperatingSystem").Get().Cast<ManagementObject>()
+                            select x.GetPropertyValue("Caption")).FirstOrDefault());
+                if (name != null) return (name.Contains("server") || name.Contains("Server"));
+                else return false;
             }
         }
     }

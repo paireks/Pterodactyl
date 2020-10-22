@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.IO;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Grasshopper.Kernel.Types;
@@ -26,7 +26,8 @@ namespace Pterodactyl
         /// </summary>
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Image based Report Part", GH_ParamAccess.item);
+            pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Image based Report Part. If left empty, returns the temp folder path.", GH_ParamAccess.item);
+            this.Params.Input[0].Optional = true;
         }
 
         /// <summary>
@@ -44,13 +45,21 @@ namespace Pterodactyl
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             PterodactylGrasshopperBitmapGoo goo = null;
-            if (!DA.GetData(0, ref goo)) return;
-            if (!goo.IsValid)
+            string path = "";
+            if (!DA.GetData(0, ref goo))
             {
-                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid Report Part : " + goo.IsValidWhyNot);
-                return;
+                path = Path.GetTempPath() + "Pterodactyl\\";
             }
-            DA.SetData(0, new GH_String(goo.FilePath));
+            else
+            {
+                if (!goo.IsValid)
+                {
+                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid Report Part : " + goo.IsValidWhyNot);
+                    return;
+                }
+                path = goo.FilePath;
+            }
+            DA.SetData(0, new GH_String(path));
         }
 
         /// <summary>
@@ -66,7 +75,7 @@ namespace Pterodactyl
             }
         }
 
-        public override GH_Exposure Exposure => GH_Exposure.tertiary;
+        public override GH_Exposure Exposure => GH_Exposure.hidden;
 
         /// <summary>
         /// Gets the unique ID for this component. Do not change this ID after release.

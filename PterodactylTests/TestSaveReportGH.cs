@@ -7,11 +7,11 @@ namespace UnitTestsGH
 {
     public class TestSaveReportGhHelper
     {
-        public static SaveReportGH TestObject
+        public static ExportMDComponent TestObject
         {
             get
             {
-                SaveReportGH testObject = new SaveReportGH();
+                ExportMDComponent testObject = new ExportMDComponent();
                 return testObject;
             }
         }

@@ -111,14 +111,14 @@ public override string ToString()
 
         public static string CreateTemporaryFilePath(GH_Component owner, string format = "png")
         {
-            if (!System.IO.Directory.Exists(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\")) System.IO.Directory.CreateDirectory(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\");
-            return (Grasshopper.Folders.AppDataFolder + "Pterodactyl\\" + ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds().ToString() + "_"
+            if (!System.IO.Directory.Exists(Path.GetTempPath() + "Pterodactyl\\")) System.IO.Directory.CreateDirectory(Path.GetTempPath() + "Pterodactyl\\");
+            return (Path.GetTempPath() + "Pterodactyl\\" + ((DateTimeOffset)DateTime.Now).ToUnixTimeSeconds().ToString() + "_"
                                                                                                             + owner.InstanceGuid.ToString() + "." + format);
         }
-        public static string CreateTemporaryFolderPath()
+        public static string GetTemporaryFolderPath()
         {
-            if (!System.IO.Directory.Exists(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\")) System.IO.Directory.CreateDirectory(Grasshopper.Folders.AppDataFolder + "Pterodactyl\\");
-            return (Grasshopper.Folders.AppDataFolder + "Pterodactyl\\");
+            if (!System.IO.Directory.Exists(Path.GetTempPath() + "Pterodactyl\\")) System.IO.Directory.CreateDirectory(Path.GetTempPath() + "Pterodactyl\\");
+            return (Path.GetTempPath() + "Pterodactyl\\");
         }
     }
 }
