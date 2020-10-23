@@ -33,10 +33,9 @@ namespace Pterodactyl
         {
             pManager.AddTextParameter("HTML", "HTML", "Exported HTML from the 'Export HTML' Component", GH_ParamAccess.item);
             pManager.AddTextParameter("Page Size", "PageSize", "Page Size for the exported PDF", GH_ParamAccess.item, "A4");
-            Param_FilePath param = new Param_FilePath();
-            param.FileFilter = "PDF Files|*.pdf";
-            pManager.AddParameter(param, "File Path", "Path", "Set the PDF File location. Existing files will be overwritten.", GH_ParamAccess.item);
-            this.Params.Input[2].Optional = true;
+            pManager.AddTextParameter("File Name", "File Name", "File Name (without extension)", GH_ParamAccess.item, "ReportPDF");
+            pManager.AddParameter(new Param_FilePath(), "Folder Path", "Path", "Folder where your files will be saved. Existing files will be overwritten.", GH_ParamAccess.item);
+            this.Params.Input[3].Optional = true;
         }
 
         /// <summary>
@@ -111,24 +110,28 @@ namespace Pterodactyl
                     if (!PterodactylInfo.IsRunningOnWindowsServer)
                     {
                         GH_String fpath = new GH_String();
-                        if (DA.GetData(2, ref fpath))
+                        if (DA.GetData(3, ref fpath))
                         {
                             try
                             {
-                                string fpath1 = fpath.Value;
-                                if (!File.Exists(fpath1))
+                                if (!Directory.Exists(fpath.Value))
                                 {
-                                    if (!fpath1.EndsWith(".pdf"))
+                                    if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
+                                    else
                                     {
-                                        if (fpath1.EndsWith("\\"))
-                                        {
-                                            fpath1 = fpath1 + "ReportPDF";
-                                        }
-                                        fpath1 = fpath1 + ".pdf";
+                                        AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
+                                        return;
                                     }
                                 }
+                                string fname = "";
+                                if (!DA.GetData(2, ref fname)) return;
+                                if (fname.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+                                {
+                                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid File Name");
+                                    return;
+                                }
                                 FileInfo f = new FileInfo(path);
-                                f.CopyTo(fpath1, true);
+                                f.CopyTo(fpath.Value + "/" + fname + ".pdf", true);
                             }
                             catch (Exception ex)
                             {

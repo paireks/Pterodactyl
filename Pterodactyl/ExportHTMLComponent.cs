@@ -29,12 +29,12 @@ namespace Pterodactyl
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddTextParameter("Report", "Report", "Report to export", GH_ParamAccess.item);
-            pManager.AddTextParameter("File Name", "File Name", "File Name (without extension)", GH_ParamAccess.item, "ReportHTML");
-            pManager.AddParameter(new Param_FilePath(), "Folder Path", "Path", "Folder where your files will be saved. Existing files will be overwritten.", GH_ParamAccess.item);
-            this.Params.Input[2].Optional = true;
             pManager.AddTextParameter("Custom CSS", "CSS", "Use a stylesheet link or a CSS string for Custom CSS styling of the HTML page. Please ensure there are no errors in the link tag/CSS, or the output will not appear as expected. " +
                 "Link Example: <link href=\"custom.css\" rel=\"stylesheet\" type=\"text/css\"> . " +
                 "CSS Example: h1 { color: red; } . Do not use relative paths.", GH_ParamAccess.item);
+            this.Params.Input[1].Optional = true;
+            pManager.AddTextParameter("File Name", "File Name", "File Name (without extension)", GH_ParamAccess.item, "ReportHTML");
+            pManager.AddParameter(new Param_FilePath(), "Folder Path", "Path", "Folder where your files will be saved. Existing files will be overwritten.", GH_ParamAccess.item);
             this.Params.Input[3].Optional = true;
         }
 
@@ -68,13 +68,9 @@ namespace Pterodactyl
                 pipelineBuilder = pipelineBuilder.UseAdvancedExtensions().UseGridTables().UseFigures().UseDiagrams().UseMathematics();
                 MarkdownPipeline pipeline = pipelineBuilder.Build();
                 string css = "";
-                if (DA.GetData(3, ref css))
+                if (DA.GetData(1, ref css))
                 {
-                    if ((!(css.Contains("<link href") && css.Contains("rel=\"stylesheet\" type=\"text/css\">"))) && (css.Contains("{")))
-                    {
-                        css = "<style>\n" + css + "\n</style>";
-                    }
-                    else if (((!(css.Contains("<link href") && css.Contains("rel=\"stylesheet\" type=\"text/css\">"))) && (!css.Contains("{"))) || (css.Contains("<script>")))
+                    if (css.Contains("<script") || css.Contains("javascript") || css.Contains(".js"))
                     {
                         css = "";
                         AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Forbidden CSS Input");
@@ -89,7 +85,7 @@ namespace Pterodactyl
                 if (!PterodactylInfo.IsRunningOnWindowsServer)
                 {
                     GH_String fpath = new GH_String();
-                    if (DA.GetData(2, ref fpath))
+                    if (DA.GetData(3, ref fpath))
                     {
                         if (!Directory.Exists(fpath.Value))
                         {
@@ -101,7 +97,7 @@ namespace Pterodactyl
                             }
                         }
                         string fname = "";
-                        if (!DA.GetData(1, ref fname)) return;
+                        if (!DA.GetData(2, ref fname)) return;
                         if (fname.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
                         {
                             AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid File Name");
