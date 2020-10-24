@@ -339,7 +339,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetPath)" "C:\Users\Praneet Mathur\AppData\Roaming\Grasshopper\Libraries\Pterodactyl\Pterodactyl.gha"
+    <PostBuildEvent>Copy "$(TargetPath)" "C:\Users\code-structures\AppData\Roaming\Grasshopper\Libraries\Pterodactyl\Pterodactyl.gha"
 
 </PostBuildEvent>
   </PropertyGroup>
