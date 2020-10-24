@@ -52,6 +52,7 @@ namespace Pterodactyl
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            bool CloudMode = true;
             try
             {
                 string md = "";
@@ -87,33 +88,37 @@ namespace Pterodactyl
                     GH_String fpath = new GH_String();
                     if (DA.GetData(3, ref fpath))
                     {
-                        if (!Directory.Exists(fpath.Value))
+                        if (fpath.Value != null && fpath.Value != string.Empty)
                         {
-                            if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
-                            else
+                            CloudMode = false;
+                            if (!Directory.Exists(fpath.Value))
                             {
-                                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
+                                if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
+                                else
+                                {
+                                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
+                                    return;
+                                }
+                            }
+                            string fname = "";
+                            if (!DA.GetData(2, ref fname)) return;
+                            if (fname.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+                            {
+                                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid File Name");
                                 return;
                             }
-                        }
-                        string fname = "";
-                        if (!DA.GetData(2, ref fname)) return;
-                        if (fname.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
-                        {
-                            AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid File Name");
-                            return;
-                        }
-                        foreach (string img in Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-                        {
-                            FileInfo f1 = new FileInfo(img);
-                            if (f1.Extension == ".png")
+                            foreach (string img in Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
                             {
-                                if (!Directory.Exists(fpath.Value + "/" + fname + "_HTML/")) Directory.CreateDirectory(fpath.Value + "/" + fname + "_HTML/");
-                                f1.CopyTo(fpath.Value + "/" + fname + "_HTML/" + f1.Name, true);
+                                FileInfo f1 = new FileInfo(img);
+                                if (f1.Extension == ".png")
+                                {
+                                    if (!Directory.Exists(fpath.Value + "/" + fname + "_HTML/")) Directory.CreateDirectory(fpath.Value + "/" + fname + "_HTML/");
+                                    f1.CopyTo(fpath.Value + "/" + fname + "_HTML/" + f1.Name, true);
+                                }
                             }
-                        }
-                        html = html.Replace("/replace_Pterodactyl_images/", (fname + "_HTML/"));
-                        File.WriteAllText(fpath.Value + "/" + fname + ".html", html);
+                            html = html.Replace("/replace_Pterodactyl_images/", (fname + "_HTML/"));
+                            File.WriteAllText(fpath.Value + "/" + fname + ".html", html);
+                        }                        
                     }
                 }
                 else
@@ -122,6 +127,8 @@ namespace Pterodactyl
                 }
                 html = htmlOriginal.Replace("/replace_Pterodactyl_images/", pathFolder);
                 DA.SetData(0, html);
+                if (CloudMode) this.Message = "Cloud Mode";
+                else this.Message = string.Empty;
             }
             catch (Exception ex)
             {

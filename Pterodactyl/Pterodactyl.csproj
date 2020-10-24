@@ -135,7 +135,6 @@
     <Compile Include="FlowchartLinkGH.cs" />
     <Compile Include="FlowchartNodeGH.cs" />
     <Compile Include="FlowchartStartNodeGH.cs" />
-    <Compile Include="GetTemporaryPathComponent.cs" />
     <Compile Include="GraphAxisGH.cs" />
     <Compile Include="GraphDataGH.cs" />
     <Compile Include="GraphGH.cs" />

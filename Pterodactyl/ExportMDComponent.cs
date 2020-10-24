@@ -47,6 +47,7 @@ namespace Pterodactyl
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            bool CloudMode = true;
             try
             {
                 string md = "";
@@ -64,35 +65,40 @@ namespace Pterodactyl
                     GH_String fpath = new GH_String();
                     if (DA.GetData(2, ref fpath))
                     {
-                        if (!Directory.Exists(fpath.Value))
+                        if (fpath.Value != null && fpath.Value != string.Empty)
                         {
-                            if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
-                            else
+                            CloudMode = false;
+                            if (!Directory.Exists(fpath.Value))
                             {
-                                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
-                                return;
+                                if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
+                                else
+                                {
+                                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
+                                    return;
+                                }
                             }
-                        }
-                        foreach (string img in Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-                        {
-                            FileInfo f1 = new FileInfo(img);
-                            if (f1.Extension == ".png")
+                            foreach (string img in Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
                             {
-                                if (!Directory.Exists(fpath.Value + "/" + fname + "_MD/")) Directory.CreateDirectory(fpath.Value + "/" + fname + "_MD/");
-                                f1.CopyTo(fpath.Value + "/" + fname + "_MD/" + f1.Name, true);
+                                FileInfo f1 = new FileInfo(img);
+                                if (f1.Extension == ".png")
+                                {
+                                    if (!Directory.Exists(fpath.Value + "/" + fname + "_MD/")) Directory.CreateDirectory(fpath.Value + "/" + fname + "_MD/");
+                                    f1.CopyTo(fpath.Value + "/" + fname + "_MD/" + f1.Name, true);
+                                }
                             }
-                        }
+                        }                        
                     }
                     md = md.Replace(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath(), (fname + "_MD/"));
                     File.WriteAllText(fpath.Value + "/" + fname + ".md", md);
                 }
-                else AddRuntimeMessage(GH_RuntimeMessageLevel.Remark, "Running on ShapeDiver Cloud");
                 DA.SetData(0, mdOriginal);
+                if (CloudMode) this.Message = "Cloud Mode";
+                else this.Message = string.Empty;
             }
             catch (Exception ex)
             {
                 AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Exception Caught: " + ex.Message);
-            }            
+            }
         }
 
         /// <summary>

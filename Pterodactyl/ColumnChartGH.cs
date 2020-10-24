@@ -12,7 +12,7 @@ namespace Pterodactyl
     {
         public ColumnChartGH()
           : base("Column Chart", "Column Chart",
-              "Create column chart, if you want to generate Report Part - set Path",
+              "Create column chart",
               "Pterodactyl", "Basic Graphs")
         {
         }
@@ -38,7 +38,7 @@ namespace Pterodactyl
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Created part of the report", GH_ParamAccess.item);
+            pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Created part of the report (Markdown text with referenced Image)", GH_ParamAccess.item);
         }
 
         protected override void BeforeSolveInstance()

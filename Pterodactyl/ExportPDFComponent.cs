@@ -75,6 +75,7 @@ namespace Pterodactyl
         /// <param name="DA">The DA object is used to retrieve from inputs and store in outputs.</param>
         protected override void SolveInstance(IGH_DataAccess DA)
         {
+            bool CloudMode = true;
             try
             {
                 string html = "";
@@ -114,24 +115,28 @@ namespace Pterodactyl
                         {
                             try
                             {
-                                if (!Directory.Exists(fpath.Value))
+                                if (fpath.Value != null && fpath.Value != string.Empty)
                                 {
-                                    if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
-                                    else
+                                    CloudMode = false;
+                                    if (!Directory.Exists(fpath.Value))
                                     {
-                                        AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
+                                        if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
+                                        else
+                                        {
+                                            AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
+                                            return;
+                                        }
+                                    }
+                                    string fname = "";
+                                    if (!DA.GetData(2, ref fname)) return;
+                                    if (fname.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
+                                    {
+                                        AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid File Name");
                                         return;
                                     }
-                                }
-                                string fname = "";
-                                if (!DA.GetData(2, ref fname)) return;
-                                if (fname.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
-                                {
-                                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid File Name");
-                                    return;
-                                }
-                                FileInfo f = new FileInfo(path);
-                                f.CopyTo(fpath.Value + "/" + fname + ".pdf", true);
+                                    FileInfo f = new FileInfo(path);
+                                    f.CopyTo(fpath.Value + "/" + fname + ".pdf", true);
+                                }                                
                             }
                             catch (Exception ex)
                             {
@@ -143,6 +148,8 @@ namespace Pterodactyl
                     {
                         GrasshopperPdfDocumentGoo GH_pdf = new GrasshopperPdfDocumentGoo(PdfReader.Open(path, PdfDocumentOpenMode.Import));
                         DA.SetData(0, GH_pdf);
+                        if (CloudMode) this.Message = "Cloud Mode";
+                        else this.Message = string.Empty;
                     }
                     else
                     {

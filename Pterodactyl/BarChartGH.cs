@@ -36,14 +36,10 @@ namespace Pterodactyl
                     Color.FromArgb(168,45,160),
                     Color.FromArgb(115,115,115)
                 });
-            //pManager.AddTextParameter("Path", "Path", "Set path where graph should be saved as .png file" +
-            //                                          " if you want to save it, and/or if you want to create Report Part. Remember to end " +
-            //                                          "path with .png extension.",
-            //    GH_ParamAccess.item, "");
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Created part of the report", GH_ParamAccess.item);
+            pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Created part of the report (Markdown text with referenced Image)", GH_ParamAccess.item);
         }
         public override bool IsBakeCapable => false;
 
