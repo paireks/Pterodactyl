@@ -339,9 +339,7 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetPath)" "C:\Users\code-structures\AppData\Roaming\Grasshopper\Libraries\Pterodactyl\Pterodactyl.gha"
-
-</PostBuildEvent>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)Pterodactyl.gha"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <FallbackCulture>en-US</FallbackCulture>

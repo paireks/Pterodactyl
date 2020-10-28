@@ -117,25 +117,23 @@ namespace Pterodactyl
                             {
                                 if (fpath.Value != null && fpath.Value != string.Empty)
                                 {
-                                    CloudMode = false;
                                     if (!Directory.Exists(fpath.Value))
                                     {
-                                        if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
-                                        else
+                                        AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
+                                    }
+                                    else
+                                    {
+                                        CloudMode = false;
+                                        string fname = "";
+                                        if (!DA.GetData(2, ref fname)) return;
+                                        if (fname.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
                                         {
-                                            AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
+                                            AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid File Name");
                                             return;
                                         }
+                                        FileInfo f = new FileInfo(path);
+                                        f.CopyTo(fpath.Value + "/" + fname + ".pdf", true);
                                     }
-                                    string fname = "";
-                                    if (!DA.GetData(2, ref fname)) return;
-                                    if (fname.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0)
-                                    {
-                                        AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Invalid File Name");
-                                        return;
-                                    }
-                                    FileInfo f = new FileInfo(path);
-                                    f.CopyTo(fpath.Value + "/" + fname + ".pdf", true);
                                 }                                
                             }
                             catch (Exception ex)

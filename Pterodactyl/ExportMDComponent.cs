@@ -67,29 +67,27 @@ namespace Pterodactyl
                     {
                         if (fpath.Value != null && fpath.Value != string.Empty)
                         {
-                            CloudMode = false;
                             if (!Directory.Exists(fpath.Value))
                             {
-                                if (Directory.Exists((new FileInfo(fpath.Value)).Directory.FullName)) fpath.Value = (new FileInfo(fpath.Value)).Directory.FullName;
-                                else
-                                {
-                                    AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
-                                    return;
-                                }
+                                AddRuntimeMessage(GH_RuntimeMessageLevel.Error, "Please Select a valid Folder location to save the files. The selected folder does not exist.");
                             }
-                            foreach (string img in Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
+                            else
                             {
-                                FileInfo f1 = new FileInfo(img);
-                                if (f1.Extension == ".png")
+                                CloudMode = false;
+                                foreach (string img in Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
                                 {
-                                    if (!Directory.Exists(fpath.Value + "/" + fname + "_MD/")) Directory.CreateDirectory(fpath.Value + "/" + fname + "_MD/");
-                                    f1.CopyTo(fpath.Value + "/" + fname + "_MD/" + f1.Name, true);
+                                    FileInfo f1 = new FileInfo(img);
+                                    if (f1.Extension == ".png")
+                                    {
+                                        if (!Directory.Exists(fpath.Value + "/" + fname + "_MD/")) Directory.CreateDirectory(fpath.Value + "/" + fname + "_MD/");
+                                        f1.CopyTo(fpath.Value + "/" + fname + "_MD/" + f1.Name, true);
+                                    }
                                 }
+                                md = md.Replace(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath(), (fname + "_MD/"));
+                                File.WriteAllText(fpath.Value + "/" + fname + ".md", md);
                             }
                         }                        
                     }
-                    md = md.Replace(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath(), (fname + "_MD/"));
-                    File.WriteAllText(fpath.Value + "/" + fname + ".md", md);
                 }
                 DA.SetData(0, mdOriginal);
                 if (CloudMode) this.Message = "Cloud Mode";
