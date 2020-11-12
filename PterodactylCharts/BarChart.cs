@@ -37,5 +37,10 @@ namespace PterodactylCharts
         }
 
         public BarChartEngine BarChartObject { get; set; }
+
+        public Bitmap ExportBitmap()
+        {
+            return BarChartObject.ExportBitmap();
+        }
     }
 }

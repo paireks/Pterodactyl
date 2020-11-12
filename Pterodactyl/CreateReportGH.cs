@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Grasshopper.Kernel;
 using PterodactylEngine;
+using ShapeDiver.Public.Grasshopper.Parameters;
 
 namespace Pterodactyl
 {
@@ -16,17 +17,17 @@ namespace Pterodactyl
         public override bool IsBakeCapable => false;
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Report Parts", "Report Parts", "Report parts (Markdown text) as list", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Report Parts", "Report Parts", "Report parts (Markdown text) as list", GH_ParamAccess.list);
             pManager.AddTextParameter("Title", "Title", "Sets report's title", GH_ParamAccess.item, "");
             pManager.AddBooleanParameter("Table Of Contents", "Table Of Contents", "Creates table of contents if True", GH_ParamAccess.item, false);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddTextParameter("Report", "Report", "Created report", GH_ParamAccess.item);
+            pManager.AddParameter(new ShapeDiverMLDocParam(), "Report", "Report", "Created report", GH_ParamAccess.item);
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            List<string> reportParts = new List<string>();
+            List<object> reportParts = new List<object>();
             string title = string.Empty;
             bool tableOfContents = false;
 
@@ -34,9 +35,8 @@ namespace Pterodactyl
             DA.GetData(1, ref title);
             DA.GetData(2, ref tableOfContents);
 
-            string report;
             CreateReport reportObject = new CreateReport(reportParts, title, tableOfContents);
-            report = reportObject.Create();
+            MarkdownDocument report = reportObject.Create();
 
             DA.SetData(0, report);
         }

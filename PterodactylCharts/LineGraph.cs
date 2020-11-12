@@ -2,6 +2,7 @@
 using System.Drawing;
 using OxyPlot.WindowsForms;
 using System.Windows.Forms;
+using System;
 
 namespace PterodactylCharts
 {
@@ -32,5 +33,10 @@ namespace PterodactylCharts
         }
 
         public LineGraphEngine LineGraphObject { get; set; }
+
+        public Bitmap ExportBitmap()
+        {
+            return LineGraphObject.ExportBitmap();
+        }
     }
 }

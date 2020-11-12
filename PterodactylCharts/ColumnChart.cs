@@ -37,5 +37,10 @@ namespace PterodactylCharts
         }
 
         public ColumnChartEngine ColumnChartObject { get; set; }
+
+        public Bitmap ExportBitmap()
+        {
+            return ColumnChartObject.ExportBitmap();
+        }
     }
 }

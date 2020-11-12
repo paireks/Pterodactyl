@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using Grasshopper.Kernel;
 using PterodactylCharts;
+using PterodactylEngine;
 using Rhino.Geometry;
 
 namespace Pterodactyl
@@ -30,72 +31,30 @@ namespace Pterodactyl
         protected override void BeforeSolveInstance()
         {
             base.BeforeSolveInstance();
-            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-            {
-                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath());
-            }
-            else
-            {
-                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()).Length > 0)
-                {
-                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-                    {
-                        if (f.Contains(this.InstanceGuid.ToString()))
-                        {
-                            try { System.IO.File.Delete(f); }
-                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + " : " + ex.Message); }
-                        }
-                    }
-                }
-            }
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             GraphElements graphElements = null;
             GraphSettings graphSettings = null;
-            string path = PterodactylGrasshopperBitmapGoo.CreateTemporaryFilePath(this);
 
             DA.GetData(0, ref graphElements);
             DA.GetData(1, ref graphSettings);
 
             Graph graphObject = new Graph();
-            graphObject.GraphData(true, graphElements, graphSettings, path);
-
-            graphObject.Export();
             dialogImage = graphObject;
-            using (Image i = Image.FromFile(path))
+            PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo();
+            graphObject.GraphData(true, graphElements, graphSettings, GH_bmp.ReferenceTag);
+            using (Bitmap b = graphObject.ExportBitmap())
             {
-                using (Bitmap b = new Bitmap(i))
-                {
-                    string reportPart = graphObject.Create();
-                    PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo(b.Clone(new Rectangle(0, 0, b.Width, b.Height), b.PixelFormat)
-                                                             , reportPart, path);
-                    DA.SetData(0, GH_bmp);
-                }
+                GH_bmp.Value = b.Clone(new Rectangle(0, 0, b.Width, b.Height), b.PixelFormat);
+                GH_bmp.ReportPart = graphObject.Create();
+                DA.SetData(0, GH_bmp);
             }
         }
 
         public override void RemovedFromDocument(GH_Document document)
         {
-            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-            {
-                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath());
-            }
-            else
-            {
-                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()).Length > 0)
-                {
-                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-                    {
-                        if (f.Contains(this.InstanceGuid.ToString()))
-                        {
-                            try { System.IO.File.Delete(f); }
-                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + " : " + ex.Message); }
-                        }
-                    }
-                }
-            }
             base.RemovedFromDocument(document);
         }
 

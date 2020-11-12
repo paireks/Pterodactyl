@@ -37,5 +37,10 @@ namespace PterodactylCharts
         }
 
         public PieChartEngine PieChartObject { get; set; }
+
+        public Bitmap ExportBitmap()
+        {
+            return PieChartObject.ExportBitmap();
+        }
     }
 }

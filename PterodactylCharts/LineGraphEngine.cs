@@ -39,6 +39,21 @@ namespace PterodactylCharts
             }
         }
 
+        internal Bitmap ExportBitmap()
+        {
+            var pngExporter = new PngExporter
+            {
+                Width = GraphWidth,
+                Height = GraphHeight,
+                Background = OxyColor.FromArgb(
+                    BackgroundColor.A,
+                    BackgroundColor.R,
+                    BackgroundColor.G,
+                    BackgroundColor.B)
+            };
+            return pngExporter.ExportToBitmap(MyModel);
+        }
+
         public PlotView ChartCreator()
         {
             PlotView myPlot = new PlotView();
@@ -116,7 +131,7 @@ namespace PterodactylCharts
             }
             else
             {
-                reportPart = "";
+                reportPart = "![" + Title + "][" + Path + "]";
             }
             return reportPart;
         }

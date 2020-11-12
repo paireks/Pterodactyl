@@ -53,14 +53,21 @@
     <Reference Include="Grasshopper, Version=6.12.19029.6380, Culture=neutral, PublicKeyToken=dda4f5ec2cd80803, processorArchitecture=MSIL">
       <HintPath>..\Pterodactyl\packages\Grasshopper.6.12.19029.6381\lib\net45\Grasshopper.dll</HintPath>
     </Reference>
+    <Reference Include="GrasshopperBitmap">
+      <HintPath>..\Pterodactyl\packages\ShapeDiver\GrasshopperBitmap.dll</HintPath>
+    </Reference>
     <Reference Include="Rhino.UI, Version=6.12.19029.6380, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
       <HintPath>..\Pterodactyl\packages\RhinoCommon.6.12.19029.6381\lib\net45\Rhino.UI.dll</HintPath>
     </Reference>
     <Reference Include="RhinoCommon, Version=6.12.19029.6380, Culture=neutral, PublicKeyToken=552281e97c755530, processorArchitecture=MSIL">
       <HintPath>..\Pterodactyl\packages\RhinoCommon.6.12.19029.6381\lib\net45\RhinoCommon.dll</HintPath>
     </Reference>
+    <Reference Include="ShapeDiverMLDoc">
+      <HintPath>..\..\..\..\..\Repositories\ShapeDiverMarkupLanguageDocument\ShapeDiverMLDoc\ShapeDiverMLDocComponents\bin\ShapeDiverMLDoc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -80,9 +87,17 @@
     <Compile Include="HorizontalLine.cs" />
     <Compile Include="Hyperlink.cs" />
     <Compile Include="Image.cs" />
+    <Compile Include="MarkdownDocument.cs" />
     <Compile Include="MathBlock.cs" />
     <Compile Include="OrderedList.cs" />
     <Compile Include="PieChart.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="PterodactylGrasshopperBitmapGoo.cs" />
+    <Compile Include="PterodactylGrasshopperBitmapParam.cs" />
     <Compile Include="Quote.cs" />
     <Compile Include="SaveReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -95,6 +110,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sd_parameter_bitmap_24x24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\Pterodactyl\packages\RhinoCommon.6.12.19029.6381\build\net45\RhinoCommon.targets" Condition="Exists('..\Pterodactyl\packages\RhinoCommon.6.12.19029.6381\build\net45\RhinoCommon.targets')" />

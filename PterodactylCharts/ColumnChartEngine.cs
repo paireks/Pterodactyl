@@ -68,6 +68,12 @@ namespace PterodactylCharts
             return myPlot;
         }
 
+        internal Bitmap ExportBitmap()
+        {
+            var pngExporter = new PngExporter { Width = 600, Height = 400, Background = OxyColors.White };
+            return pngExporter.ExportToBitmap(MyModel);
+        }
+
         public void Export()
         {
             if (Path.EndsWith(".png"))
@@ -87,7 +93,7 @@ namespace PterodactylCharts
             }
             else
             {
-                reportPart = "";
+                reportPart = "![" + Title + "][" + Path + "]";
             }
             return reportPart;
         }

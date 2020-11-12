@@ -1,4 +1,6 @@
 ﻿using OxyPlot.WindowsForms;
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace PterodactylCharts
@@ -28,5 +30,10 @@ namespace PterodactylCharts
         }
 
         public GraphEngine GraphObject { get; set; }
+
+        public Bitmap ExportBitmap()
+        {
+            return GraphObject.ExportBitmap();
+        }
     }
 }

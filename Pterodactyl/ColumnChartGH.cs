@@ -5,6 +5,7 @@ using Grasshopper.Kernel;
 using Rhino.Geometry;
 using PterodactylCharts;
 using System.Windows.Forms;
+using PterodactylEngine;
 
 namespace Pterodactyl
 {
@@ -44,25 +45,6 @@ namespace Pterodactyl
         protected override void BeforeSolveInstance()
         {
             base.BeforeSolveInstance();
-            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-            {
-                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath());
-            }
-            else
-            {
-                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()).Length > 0)
-                {
-                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-                    {
-                        if (f.Contains(this.InstanceGuid.ToString()))
-                        {
-                            try { System.IO.File.Delete(f); }
-                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + " : " + ex.Message); }
-                        }
-                    }
-                }
-            }
-            dialogImage = null;
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
@@ -72,7 +54,6 @@ namespace Pterodactyl
             List<string> names = new List<string>();
             string textFormat = "";
             List<Color> colors = new List<Color>();
-            string path = PterodactylGrasshopperBitmapGoo.CreateTemporaryFilePath(this);
 
             DA.GetData(0, ref title);
             DA.GetDataList(1, values);
@@ -81,41 +62,19 @@ namespace Pterodactyl
             DA.GetDataList(4, colors);
 
             ColumnChart chartObject = new ColumnChart();
-            chartObject.ColumnChartData(true, title, values, names, textFormat, colors, path);
-            chartObject.Export();
             dialogImage = chartObject;
-            using (Image i = Image.FromFile(path))
+            PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo();
+            chartObject.ColumnChartData(true, title, values, names, textFormat, colors, GH_bmp.ReferenceTag);
+            using (Bitmap b = chartObject.ExportBitmap())
             {
-                using (Bitmap b = new Bitmap(i))
-                {
-                    string reportPart = chartObject.Create();
-                    PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo(b.Clone(new Rectangle(0, 0, b.Width, b.Height), b.PixelFormat)
-                                                             , reportPart, path);
-                    DA.SetData(0, GH_bmp);
-                }
+                GH_bmp.Value = b.Clone(new Rectangle(0, 0, b.Width, b.Height), b.PixelFormat);
+                GH_bmp.ReportPart = chartObject.Create();
+                DA.SetData(0, GH_bmp);
             }
         }
 
         public override void RemovedFromDocument(GH_Document document)
         {
-            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-            {
-                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath());
-            }
-            else
-            {
-                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()).Length > 0)
-                {
-                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-                    {
-                        if (f.Contains(this.InstanceGuid.ToString()))
-                        {
-                            try { System.IO.File.Delete(f); }
-                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + " : " + ex.Message); }
-                        }
-                    }
-                }
-            }
             base.RemovedFromDocument(document);
         }
 

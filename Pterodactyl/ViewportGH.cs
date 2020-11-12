@@ -2,6 +2,7 @@
 using Grasshopper.Kernel;
 using PterodactylRh;
 using PterodactylEngine;
+using System.Drawing;
 
 namespace Pterodactyl
 {
@@ -39,83 +40,36 @@ namespace Pterodactyl
         protected override void BeforeSolveInstance()
         {
             base.BeforeSolveInstance();
-            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-            {
-                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath());
-            }
-            else
-            {
-                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()).Length > 0)
-                {
-                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-                    {
-                        if (f.Contains(this.InstanceGuid.ToString()))
-                        {
-                            try { System.IO.File.Delete(f); }
-                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + " : " + ex.Message); }
-                        }
-                    }
-                }
-            }
         }
 
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string title = string.Empty;
             string viewportName = string.Empty;
-            string pathToFile = PterodactylGrasshopperBitmapGoo.CreateTemporaryFilePath(this);
             bool drawAxes = false;
             bool drawGrid = false;
             bool drawGridAxes = false;
             bool transparentBackground = true;
             DA.GetData(0, ref title);
             DA.GetData(1, ref viewportName);
-            //DA.GetData(2, ref pathToFile);
             DA.GetData(2, ref drawAxes);
             DA.GetData(3, ref drawGrid);
             DA.GetData(4, ref drawGridAxes);
             DA.GetData(5, ref transparentBackground);
 
             VieportRh reportDocument = new VieportRh();
-            reportDocument.Capture(viewportName, pathToFile, drawAxes, drawGrid, drawGridAxes, transparentBackground);
-
-            //string reportPart;
-            Image reportObject = new Image(title, pathToFile);
-            //reportPart = reportObject.Create();
-
-            //DA.SetData(0, reportPart);
-            using (System.Drawing.Image i = System.Drawing.Image.FromFile(pathToFile))
+            PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo();
+            PterodactylEngine.Image reportObject = new PterodactylEngine.Image(title, GH_bmp.ReferenceTag);
+            using (System.Drawing.Bitmap b = reportDocument.CaptureToBitmap(viewportName, drawAxes, drawGrid, drawGridAxes, transparentBackground))
             {
-                using (System.Drawing.Bitmap b = new System.Drawing.Bitmap(i))
-                {
-                    string reportPart = reportObject.Create();
-                    PterodactylGrasshopperBitmapGoo GH_bmp = new PterodactylGrasshopperBitmapGoo(b.Clone(new System.Drawing.Rectangle(0, 0, b.Width, b.Height), b.PixelFormat)
-                                                             , reportPart, pathToFile);
-                    DA.SetData(0, GH_bmp);
-                }
+                GH_bmp.Value = b.Clone(new Rectangle(0, 0, b.Width, b.Height), b.PixelFormat);
+                GH_bmp.ReportPart = reportObject.Create();
+                DA.SetData(0, GH_bmp);
             }
         }
 
         public override void RemovedFromDocument(GH_Document document)
         {
-            if (!System.IO.Directory.Exists(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-            {
-                System.IO.Directory.CreateDirectory(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath());
-            }
-            else
-            {
-                if (System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()).Length > 0)
-                {
-                    foreach (string f in System.IO.Directory.GetFiles(PterodactylGrasshopperBitmapGoo.GetTemporaryFolderPath()))
-                    {
-                        if (f.Contains(this.InstanceGuid.ToString()))
-                        {
-                            try { System.IO.File.Delete(f); }
-                            catch (Exception ex) { AddRuntimeMessage(GH_RuntimeMessageLevel.Warning, "Unable to delete file at " + f + " : " + ex.Message); }
-                        }
-                    }
-                }
-            }
             base.RemovedFromDocument(document);
         }
 

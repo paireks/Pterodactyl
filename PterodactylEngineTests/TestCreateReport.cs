@@ -21,7 +21,7 @@ namespace UnitTestEngine
     {
         [Theory]
         [ClassData(typeof(TestCreateReportHelper))]
-        public void CorrectData(List<string> reportParts, string title, bool tableOfContents, string expectedReport)
+        public void CorrectData(List<object> reportParts, string title, bool tableOfContents, string expectedReport)
         {
             CreateReport testObject = new CreateReport(reportParts, title, tableOfContents);
             Assert.Equal(reportParts, testObject.ReportParts);
@@ -31,10 +31,10 @@ namespace UnitTestEngine
 
         [Theory]
         [ClassData(typeof(TestCreateReportHelper))]
-        public void CheckReportCreation(List<string> reportParts, string title, bool tableOfContents, string expected)
+        public void CheckReportCreation(List<object> reportParts, string title, bool tableOfContents, string expected)
         {
             CreateReport testObject = new CreateReport(reportParts, title, tableOfContents);
-            string actual = testObject.Create();
+            string actual = testObject.Create().Markup;
 
             Assert.Equal(expected, actual);
         }

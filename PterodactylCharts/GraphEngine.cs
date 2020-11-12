@@ -4,6 +4,7 @@ using OxyPlot.WindowsForms;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using System;
 
 namespace PterodactylCharts
 {
@@ -53,6 +54,17 @@ namespace PterodactylCharts
             return myPlot;
         }
 
+        internal Bitmap ExportBitmap()
+        {
+            var pngExporter = new PngExporter
+            {
+                Width = Settings.Sizes.Width,
+                Height = Settings.Sizes.Height,
+                Background = OxyColor.FromArgb(Settings.GraphColor.A, Settings.GraphColor.R, Settings.GraphColor.G, Settings.GraphColor.B)
+            };
+            return pngExporter.ExportToBitmap(MyModel);
+        }
+
         public void Export()
         {
             if (Path.EndsWith(".png"))
@@ -77,7 +89,7 @@ namespace PterodactylCharts
             }
             else
             {
-                reportPart = "";
+                reportPart = "![" + Settings.Title + "][" + Path + "]";
             }
             return reportPart;
         }
