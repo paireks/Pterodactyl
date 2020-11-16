@@ -6,6 +6,7 @@ using System.Linq;
 
 namespace PterodactylEngine
 {
+    [Serializable]
     public class MarkdownDocument : IMLDoc
     {
         List<IMLDocAsset> m_assets;

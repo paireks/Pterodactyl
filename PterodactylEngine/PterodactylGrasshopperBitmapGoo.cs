@@ -9,6 +9,7 @@ using System.IO;
 
 namespace PterodactylEngine
 {
+    [Serializable]
     public class PterodactylGrasshopperBitmapGoo : GrasshopperBitmapGoo, IMLDocAsset
     {
         string _refTag;
