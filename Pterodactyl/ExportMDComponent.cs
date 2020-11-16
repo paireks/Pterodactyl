@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using Grasshopper.Kernel;
 using Grasshopper.Kernel.Parameters;
 using Grasshopper.Kernel.Types;
 using PterodactylEngine;
-using Rhino.Geometry;
 using ShapeDiver.Public.Grasshopper.Parameters;
 using ShapeDiver.Public.Grasshopper.Parameters.SDMLDoc;
 

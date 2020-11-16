@@ -42,11 +42,6 @@ namespace Pterodactyl
             pManager.AddParameter(new PterodactylGrasshopperBitmapParam(), "Report Part", "Report Part", "Created part of the report (Markdown text with referenced Image)", GH_ParamAccess.item);
         }
 
-        protected override void BeforeSolveInstance()
-        {
-            base.BeforeSolveInstance();
-        }
-
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string title = "";
@@ -71,11 +66,6 @@ namespace Pterodactyl
                 GH_bmp.ReportPart = chartObject.Create();
                 DA.SetData(0, GH_bmp);
             }
-        }
-
-        public override void RemovedFromDocument(GH_Document document)
-        {
-            base.RemovedFromDocument(document);
         }
 
         private ColumnChart dialogImage;

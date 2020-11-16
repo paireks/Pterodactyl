@@ -1,16 +1,11 @@
 ﻿using GH_IO.Serialization;
-using Grasshopper.Kernel;
 using Grasshopper.Kernel.Types;
 using ShapeDiver.Public.Grasshopper.Parameters;
 using ShapeDiver.Public.Grasshopper.Parameters.SDMLDoc;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PterodactylEngine
 {
@@ -128,11 +123,9 @@ namespace PterodactylEngine
 
         public MemoryStream ToStream()
         {
-            using (MemoryStream ms = new MemoryStream())
-            {
-                this.Value.Save(ms, ImageFormat.Png);
-                return ms;
-            }
+            MemoryStream ms = new MemoryStream();
+            this.Value.Save(ms, ImageFormat.Png);
+            return ms;
         }
     }
 }

@@ -45,11 +45,6 @@ namespace Pterodactyl
         }
         public override bool IsBakeCapable => false;
 
-        protected override void BeforeSolveInstance()
-        {
-            base.BeforeSolveInstance();
-        }
-
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string title = "";
@@ -74,11 +69,6 @@ namespace Pterodactyl
                 GH_bmp.ReportPart = chartObject.Create();
                 DA.SetData(0, GH_bmp);
             }
-        }
-
-        public override void RemovedFromDocument(GH_Document document)
-        {
-            base.RemovedFromDocument(document);
         }
 
         private BarChart dialogImage;
