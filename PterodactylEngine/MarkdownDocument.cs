@@ -55,6 +55,16 @@ namespace PterodactylEngine
                 string markupOut = this.m_markup;
                 string assetFolder = ((new FileInfo(FilePath).Directory.FullName) + "\\" + (new FileInfo(FilePath).Name.Split('.')[0]) + "\\");
                 if (!Directory.Exists(assetFolder)) Directory.CreateDirectory(assetFolder);
+                else
+                {
+                    if (WriteAssetsToFolder)
+                    {
+                        foreach (string f in Directory.GetFiles(assetFolder))
+                        {
+                            File.Delete(f);
+                        }
+                    }
+                }
                 foreach (IMLDocAsset asset in this.m_assets)
                 {
                     string filename = assetFolder + asset.ReferenceTag + Utils.GetDefaultExtension(asset.ContentType);
