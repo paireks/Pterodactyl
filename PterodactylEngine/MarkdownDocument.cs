@@ -53,22 +53,25 @@ namespace PterodactylEngine
             try
             {
                 string markupOut = this.m_markup;
-                string assetFolder = ((new FileInfo(FilePath).Directory.FullName) + "\\" + (new FileInfo(FilePath).Name.Split('.')[0]) + "\\");
+                string assetFolder = ((new FileInfo(FilePath).Directory.FullName) + "/" + (new FileInfo(FilePath).Name.Split('.')[0]) + "/");
                 if (!Directory.Exists(assetFolder)) Directory.CreateDirectory(assetFolder);
                 else
                 {
                     if (WriteAssetsToFolder)
                     {
+                        int maxfilecount = this.m_assets.Count * 3;
+                        int fc = 0;
                         foreach (string f in Directory.GetFiles(assetFolder))
                         {
-                            File.Delete(f);
+                            if (fc > maxfilecount) File.Delete(f);
+                            fc += 1;
                         }
                     }
                 }
                 foreach (IMLDocAsset asset in this.m_assets)
                 {
                     string filename = assetFolder + asset.ReferenceTag + Utils.GetDefaultExtension(asset.ContentType);
-                    string relfilename = filename.Replace((new FileInfo(FilePath).Directory.FullName + "\\"), string.Empty);
+                    string relfilename = filename.Replace((new FileInfo(FilePath).Directory.FullName + "/"), string.Empty);
                     markupOut = markupOut.Replace(("[" + asset.ReferenceTag + "]"), ("(" + relfilename + ")"));
                     if (WriteAssetsToFolder)
                     {
