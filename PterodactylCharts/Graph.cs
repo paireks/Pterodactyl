@@ -14,6 +14,7 @@ namespace PterodactylCharts
         {
             GraphObject = new GraphEngine(showGraph, graphElements, graphSettings, path);
             PlotView myPlot = GraphObject.ChartCreator();
+            Text = myPlot.Model.Title;
             Controls.Add(myPlot);
         }
         public string Create()

@@ -16,7 +16,7 @@ namespace UnitTestEngine
         public TestGraphElementsHelper()
         {
             Add(null, null, "Graph Elements");
-            Add(testData, new GraphLegend("Legend", 2), "Graph Elements");
+            Add(testData, new GraphLegend("Legend", 2, 0,0), "Graph Elements") ;
         }
     }
     public class TestGraphElements

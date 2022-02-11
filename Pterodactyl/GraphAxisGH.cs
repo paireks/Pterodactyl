@@ -19,6 +19,7 @@ namespace Pterodactyl
         {
             pManager.AddTextParameter("X Axis Name", "X Axis Name", "Name of the X axis", GH_ParamAccess.item, "x");
             pManager.AddTextParameter("Y Axis Name", "Y Axis Name", "Name of the y axis", GH_ParamAccess.item, "y");
+            pManager.AddTextParameter("C Axis Name", "C Axis Name", "Name of the color axis (used in Scatter Data)", GH_ParamAccess.item, "Color range");
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -28,11 +29,13 @@ namespace Pterodactyl
         {
             string xAxisName = "";
             string yAxisName = "";
+            string cAxisName = "";
 
             DA.GetData(0, ref xAxisName);
             DA.GetData(1, ref yAxisName);
+            DA.GetData(2, ref cAxisName);
 
-            GraphAxis graphAxis = new GraphAxis(xAxisName, yAxisName);
+            GraphAxis graphAxis = new GraphAxis(xAxisName, yAxisName, cAxisName);
 
             DA.SetData(0, graphAxis);
         }

@@ -13,8 +13,8 @@ namespace UnitTestEngine
             new List<List<double>> { new List<double> { -2, 0, 4 }, new List<double> { 5, 2, -1 } },
             new List<string> { "First", "Second" },
             new List<DataType> { new DataType(Color.Navy), new DataType(Color.AliceBlue) });
-        GraphElements graphElements = new GraphElements(graphData, new GraphLegend("Legend", 0));
-        GraphSettings graphSettings = new GraphSettings("Test title", new GraphSizes(200, 200), Color.AliceBlue, new GraphAxis("X", "Y"));
+        GraphElements graphElements = new GraphElements(graphData, new GraphLegend("Legend", 0,0,0));
+        GraphSettings graphSettings = new GraphSettings("Test title", 14, new GraphSizes(200, 200), Color.AliceBlue, new GraphAxis("X", "Y"), 0);
         public TestGraphEngineHelper()
         {
             Add(false, graphElements, graphSettings, @"SampleFolder\Test.png", @"![Test title](SampleFolder\Test.png)");

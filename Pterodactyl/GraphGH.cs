@@ -44,6 +44,7 @@ namespace Pterodactyl
             graphObject.GraphData(showGraph, graphElements, graphSettings, path);
             if (showGraph)
             {
+                graphObject.Size = new System.Drawing.Size(graphSettings.Sizes.Width, graphSettings.Sizes.Height+30);
                 graphObject.ShowDialog();
             }
 

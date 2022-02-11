@@ -79,6 +79,7 @@ namespace PterodactylCharts
                 MyModel.LegendPosition = legendPosition;
             }
 
+
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = XName });
             MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = YName });
 
@@ -104,6 +105,7 @@ namespace PterodactylCharts
                         BackgroundColor.B)};
                 pngExporter.ExportToFile(MyModel, Path);
             }
+            
         }
 
         public string Create()

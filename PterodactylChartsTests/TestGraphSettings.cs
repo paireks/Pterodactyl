@@ -20,7 +20,7 @@ namespace UnitTestEngine
         [ClassData(typeof(TestGraphSettingsHelper))]
         public void CorrectData(string graphTitle, GraphSizes graphSizes, Color graphColor, GraphAxis graphAxis, string toString)
         {
-            GraphSettings testObject = new GraphSettings(graphTitle, graphSizes, graphColor, graphAxis);
+            GraphSettings testObject = new GraphSettings(graphTitle, 14, graphSizes, graphColor, graphAxis, 0);
             Assert.Equal(graphTitle, testObject.Title);
             Assert.Equal(graphSizes, testObject.Sizes);
             Assert.Equal(graphColor, testObject.GraphColor);

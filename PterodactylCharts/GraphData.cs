@@ -18,10 +18,11 @@ namespace PterodactylCharts
             {
                 throw new ArgumentException("X Values tree should have the same number of branches like Y Values tree");
             }
-            if (XValues.Count != ValuesNames.Count)
+            if (XValues.Count!= ValuesNames.Count)
             {
-                throw new ArgumentException("X Values tree's number of branches != Values Names elements of list");
+                throw new ArgumentException("X Values tree's number of branches != Values Names elements of list\nFor annotations you can enter any text as it will not be displayed");
             }
+           
             if (XValues.Count != DataTypes.Count)
             {
                 throw new ArgumentException("X Values tree's number of branches != Data Types elements of list");

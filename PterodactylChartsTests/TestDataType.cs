@@ -50,7 +50,7 @@ namespace UnitTestEngine
         {
             DataType testObject = new DataType(color, markerType);
             Assert.Equal(color, testObject.DataColor);
-            Assert.Equal(markerType, testObject.Markers);
+            Assert.Equal(markerType, testObject.Marker);
             Assert.Equal(dataType, testObject.TypeOfData);
             Assert.Equal(toString, testObject.ToString());
         }

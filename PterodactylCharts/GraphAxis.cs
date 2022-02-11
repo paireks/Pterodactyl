@@ -10,6 +10,12 @@ namespace PterodactylCharts
             XAxisName = xAxisName;
             YAxisName = yAxisName;
         }
+        public GraphAxis(string xAxisName, string yAxisName, string cAxisName)
+        {
+            XAxisName = xAxisName;
+            YAxisName = yAxisName;
+            CAxisName = cAxisName;
+        }
 
         public override string ToString()
         {
@@ -20,5 +26,6 @@ namespace PterodactylCharts
 
         public string XAxisName { get; set; }
         public string YAxisName { get; set; }
+        public string CAxisName { get; set; }
     }
 }
