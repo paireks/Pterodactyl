@@ -28,7 +28,7 @@ namespace Pterodactyl
            0);
             pManager.AddIntegerParameter("Orientation", "Orientation", "Legend Orientation as integer 0 = Vertical,  1 = Horizontal",
            GH_ParamAccess.item,
-           0);
+           1);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {

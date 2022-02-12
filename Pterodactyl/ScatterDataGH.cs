@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Grasshopper.Kernel;
+using Grasshopper.Kernel.Data;
 using PterodactylCharts;
+using System.Linq;
 
 namespace Pterodactyl
 {
@@ -16,10 +18,10 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddColourParameter("Palette", "Palette", "Add a list of colors to map the Values. Maybe any number from 1 to 4096", GH_ParamAccess.list, new List<Color> {Color.Black, Color.Orange, Color.Red});
+            pManager.AddColourParameter("Palette", "Palette", "Add a list of colors to map the Values. Maybe any number from 1 to 4096", GH_ParamAccess.tree, new List<Color> {Color.Black, Color.Orange, Color.Red});
             pManager.AddIntegerParameter("Marker", "Marker", "Choose point marker: 0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("Sizes", "Sizes","Choose marker sizes 0.1 - 50.0", GH_ParamAccess.list);
-            pManager.AddNumberParameter("C Values", "C Values", "Numbers corresponding to each X&Y Values\nThey will determine point color from the Palette (Pallete range: C Values min to max)", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Sizes", "Sizes","Choose marker sizes 0.1 - 50.0", GH_ParamAccess.tree);
+            pManager.AddNumberParameter("Values", "Values", "Numbers corresponding to each X&Y Values\nThey will determine point color from the Palette (Pallete range: Values min to max)", GH_ParamAccess.tree);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -27,19 +29,23 @@ namespace Pterodactyl
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
-            List<Color> palette = new List<Color>();
-            List<double> sizes = new List<double>();
-            List<double> values = new List<double>();
+            
+            GH_Structure<Grasshopper.Kernel.Types.GH_Colour> tColour = new GH_Structure<Grasshopper.Kernel.Types.GH_Colour>();
+            GH_Structure<Grasshopper.Kernel.Types.GH_Number> tSize = new GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
+            GH_Structure<Grasshopper.Kernel.Types.GH_Number> tValues = new GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
             int marker = 0;
 
-            DA.GetDataList(0, palette);
+            DA.GetDataTree(0, out tColour);
             DA.GetData(1, ref marker);
-            DA.GetDataList(2, sizes);
-            DA.GetDataList(3, values);
+            DA.GetDataTree(2, out tSize);
+            DA.GetDataTree(3, out tValues);
+          
+            Color[] palette = tColour.FlattenData().Select(s => s.Value).ToArray();
+            double[] sizes = tSize.FlattenData().Select(s => s.Value).ToArray();
+            double[] values = tValues.FlattenData().Select(s => s.Value).ToArray();
+            
+            DataType dataType = new DataType(palette, marker, sizes, values);
 
-            DataType dataType = new DataType(palette.ToArray(), marker, sizes.ToArray(), values.ToArray());
-
-            /// have to flatten input if you want output to be also flat
             DA.SetData(0, dataType);
         }
         protected override System.Drawing.Bitmap Icon

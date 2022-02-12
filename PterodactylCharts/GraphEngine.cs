@@ -26,6 +26,7 @@ namespace PterodactylCharts
             PlotView myPlot = new PlotView();
 
             MyModel = new PlotModel { Title = Settings.Title, TitleFontSize = Settings.TitleSize};
+            int positionTier = 0;
             
             for (int i = 0; i < Elements.Data.DataTypes.Count; i++)
             {
@@ -41,22 +42,25 @@ namespace PterodactylCharts
                 }
                 else if (Elements.Data.DataTypes[i].TypeOfData == 2)
                 {
-                    AddScatterSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
-                        Elements.Data.XValues[i], Elements.Data.YValues[i]);
-
                     MyModel.Axes.Add(new LinearColorAxis
                     {
                         Position = AxisPosition.Right,
-                        Title = Settings.Axis.CAxisName,
+                        Title = Elements.Data.ValuesNames[i],
+                        PositionTier = positionTier,
                         MinimumPadding = Settings.Axis.GlobalAxisPadding,
                         MaximumPadding = Settings.Axis.GlobalAxisPadding,
                         AxisTitleDistance = 5,
-                        Key = "ColorAxis",
+                        Key = "ColorAxis_" + i.ToString(),
                         Minimum = Elements.Data.DataTypes[i].ScatterValues.Min(),
                         Maximum = Elements.Data.DataTypes[i].ScatterValues.Max(),
                         Palette = new OxyPalette(Elements.Data.DataTypes[i].ScatterPalette.Select(c =>
                          OxyColor.FromArgb(a: c.A, r: c.R, g: c.G, b: c.B)))
                     });
+
+                    AddScatterSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
+                        Elements.Data.XValues[i], Elements.Data.YValues[i], MyModel.Axes.Last().Key);
+
+                    positionTier++;
                 }
                 else
                 {
@@ -118,7 +122,7 @@ namespace PterodactylCharts
                 svgExporter.ExportToFile(MyModel, Path);
             }
             else if (Path.Trim().Length > 0)
-                throw new ArgumentOutOfRangeException("Supported file extensions are only .png and .svg");
+                throw new ArgumentOutOfRangeException("Supported file extensions are only .png");
         }
 
         public string Create()
@@ -219,25 +223,20 @@ namespace PterodactylCharts
 
             model.Series.Add(pointSeries);
         }
-        public void AddScatterSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues)
+        public void AddScatterSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues, string key)
         {
-            if (xValues.Count != dataType.ScatterValues.Length)
-                throw new ArgumentException(" Scatter values must be the same size as X and Y values");
-
             var scatter = new ScatterSeries()
             {
                 MarkerType = (MarkerType) dataType.Marker,
-                ColorAxisKey  = "ColorAxis",
+                ColorAxisKey  = key,
                 DataFieldX = Settings.Axis.XAxisName,
                 DataFieldY = Settings.Axis.YAxisName,
                 Background = OxyColor.FromArgb(a: Settings.GraphColor.A, r: Settings.GraphColor.R, g: Settings.GraphColor.G, b: Settings.GraphColor.B)
             };
 
-            if (valueName.Trim() != "")
-                scatter.Title = valueName;
-            else
-                scatter.RenderInLegend = false;
-
+            // disable as there is palette colors and this cannot be shown in legend
+            // we should use colour axis lable to show info
+            scatter.RenderInLegend = false;
 
             for (int i = 0; i < xValues.Count; i++)
             {
