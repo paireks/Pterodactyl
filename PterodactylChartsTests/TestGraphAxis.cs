@@ -24,6 +24,18 @@ namespace UnitTestEngine
             GraphAxis testObject = new GraphAxis(xAxisName, yAxisName);
             Assert.Equal(xAxisName, testObject.XAxisName);
             Assert.Equal(yAxisName, testObject.YAxisName);
+            Assert.Equal(toString, testObject.ToString()); 
+        }
+
+        [Theory]
+        [ClassData(typeof(TestGraphAxisHelper))]
+        public void CorrectAdvancedData(string xAxisName, string yAxisName, string cAxisName, double gPadding, string toString)
+        {
+            GraphAxis testObject = new GraphAxis(xAxisName, yAxisName);
+            Assert.Equal(xAxisName, testObject.XAxisName);
+            Assert.Equal(yAxisName, testObject.YAxisName);
+            Assert.Equal(cAxisName, testObject.CAxisName);
+            Assert.Equal(gPadding, testObject.GlobalAxisPadding);
             Assert.Equal(toString, testObject.ToString());
         }
     }

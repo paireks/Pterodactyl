@@ -48,8 +48,8 @@ namespace PterodactylCharts
                     {
                         Position = AxisPosition.Right,
                         Title = Settings.Axis.CAxisName,
-                        MinimumPadding = 0,
-                        MaximumPadding = 0,
+                        MinimumPadding = Settings.Axis.GlobalAxisPadding,
+                        MaximumPadding = Settings.Axis.GlobalAxisPadding,
                         AxisTitleDistance = 5,
                         Key = "ColorAxis",
                         Minimum = Elements.Data.DataTypes[i].ScatterValues.Min(),
@@ -70,12 +70,22 @@ namespace PterodactylCharts
             MyModel.LegendPlacement = (LegendPlacement) Elements.Legend.Placement;
             MyModel.LegendOrientation = (LegendOrientation) Elements.Legend.Orientation;
             
-            MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Bottom, Title = Settings.Axis.XAxisName, MinimumPadding = 0, MaximumPadding = 0, AxisTitleDistance = 5 });
-            MyModel.Axes.Add(new LinearAxis { Position = AxisPosition.Left, Title = Settings.Axis.YAxisName, MinimumPadding = 0, MaximumPadding = 0, AxisTitleDistance = 5 });
+            MyModel.Axes.Add(new LinearAxis { 
+                Position = AxisPosition.Bottom, 
+                Title = Settings.Axis.XAxisName, 
+                MinimumPadding = Settings.Axis.GlobalAxisPadding, 
+                MaximumPadding = Settings.Axis.GlobalAxisPadding, 
+                AxisTitleDistance = 5 });
+            MyModel.Axes.Add(new LinearAxis { 
+                Position = AxisPosition.Left, 
+                Title = Settings.Axis.YAxisName, 
+                MinimumPadding = Settings.Axis.GlobalAxisPadding, 
+                MaximumPadding = Settings.Axis.GlobalAxisPadding, 
+                AxisTitleDistance = 5 });
             MyModel.Padding = new OxyThickness(Settings.Padding);
             myPlot.Model = MyModel;
 
-            myPlot.Dock = System.Windows.Forms.DockStyle.Bottom;
+            myPlot.Dock = System.Windows.Forms.DockStyle.Fill;
             myPlot.Location = new Point(0, 0);
             myPlot.Size = new Size(Settings.Sizes.Width, Settings.Sizes.Height);
             myPlot.TabIndex = 0;
@@ -192,7 +202,6 @@ namespace PterodactylCharts
 
             model.Series.Add(pointSeries);
         }
-
         public void AddScatterSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues)
         {
             if (xValues.Count != dataType.ScatterValues.Length)
@@ -236,7 +245,6 @@ namespace PterodactylCharts
                 model.Annotations.Add(pta);  
             }
         }
-
 
         public bool ShowGraph { get; set; }
         public GraphElements Elements { get; set; }

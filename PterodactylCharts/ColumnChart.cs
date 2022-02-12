@@ -35,7 +35,24 @@ namespace PterodactylCharts
         {
             ColumnChartObject.Export();
         }
+        protected override bool ProcessCmdKey(ref Message message, Keys keys)
+        {
+            switch (keys)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    return true; // signal that we've processed this key
+            }
+
+            // run base implementation
+            return base.ProcessCmdKey(ref message, keys);
+        }
 
         public ColumnChartEngine ColumnChartObject { get; set; }
+
+        private void ColumnChart_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

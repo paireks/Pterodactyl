@@ -54,6 +54,54 @@ namespace UnitTestEngine
             Assert.Equal(dataType, testObject.TypeOfData);
             Assert.Equal(toString, testObject.ToString());
         }
+
+        // advanced 
+        [Theory]
+        [ClassData(typeof(TestDataTypePointHelper))]
+        public void CorrectDataPoint2(Color color, int markerType, double size, string toString, int dataType)
+        {
+            DataType testObject = new DataType(color, markerType, size);
+            Assert.Equal(color, testObject.DataColor);
+            Assert.Equal(markerType, testObject.Marker);
+            Assert.Equal(size, testObject.MarkerSizes[0]);
+            Assert.Equal(dataType, testObject.TypeOfData);
+            Assert.Equal(toString, testObject.ToString());
+        }
+        [Theory]
+        [ClassData(typeof(TestDataTypeLineHelper))]
+        public void CorrectDataLine2(Color color, int interpolation, int style, double thickness, string toString, int dataType)
+        {
+            DataType testObject = new DataType(color, interpolation, style, thickness);
+            Assert.Equal(color, testObject.DataColor);
+            Assert.Equal(interpolation, testObject.LineInterpolation);
+            Assert.Equal(style, testObject.LineStyle);
+            Assert.Equal(thickness, testObject.LineWeight);
+            Assert.Equal(dataType, testObject.TypeOfData);
+            Assert.Equal(toString, testObject.ToString());
+        }
+        [Theory]
+        [ClassData(typeof(TestDataTypePointHelper))]
+        public void CorrectDataScatter(Color[] colors, int marker, double[] sizes, double[] values, string toString, int dataType)
+        {
+            DataType testObject = new DataType(colors, marker, sizes, values);
+            Assert.Equal(colors, testObject.ScatterPalette);
+            Assert.Equal(marker, testObject.Marker);
+            Assert.Equal(sizes, testObject.MarkerSizes);
+            Assert.Equal(values, testObject.ScatterValues);
+            Assert.Equal(dataType, testObject.TypeOfData);
+            Assert.Equal(toString, testObject.ToString());
+        }
+        [Theory]
+        [ClassData(typeof(TestDataTypePointHelper))]
+        public void CorrectAnnotation(string[] text, double size, string toString, int dataType)
+        {
+            DataType testObject = new DataType(text, size);
+            Assert.Equal(text, testObject.AnnotationTexts);
+            Assert.Equal(size, testObject.AnnotationTextSize);
+            Assert.Equal(dataType, testObject.TypeOfData);
+            Assert.Equal(toString, testObject.ToString());
+        }
+
         [Theory]
         [ClassData(typeof(TestDataTypePointExceptionHelper))]
         public void CheckExceptions(Color color, int markerType, string message)

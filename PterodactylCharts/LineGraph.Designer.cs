@@ -40,6 +40,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "LineGraph";
             this.Text = "LineGraph";
+            this.Load += new System.EventHandler(this.LineGraph_Load);
             this.ResumeLayout(false);
 
         }

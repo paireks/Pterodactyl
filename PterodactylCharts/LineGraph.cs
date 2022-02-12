@@ -32,5 +32,22 @@ namespace PterodactylCharts
         }
 
         public LineGraphEngine LineGraphObject { get; set; }
+        protected override bool ProcessCmdKey(ref Message message, Keys keys)
+        {
+            switch (keys)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    return true; // signal that we've processed this key
+            }
+
+            // run base implementation
+            return base.ProcessCmdKey(ref message, keys);
+        }
+
+        private void LineGraph_Load(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }

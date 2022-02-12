@@ -11,7 +11,7 @@ namespace Pterodactyl
         /// Initializes a new instance of the AnnotationDataGH class.
         /// </summary>
         public AnnotationDataGH()
-           : base("Point Anntotation", "Point Anntotation",
+           : base("Point Annotation", "Point Anntotation",
                "Add point tag",
                "Pterodactyl", "Advanced Graph")
         {

@@ -26,6 +26,7 @@ namespace PterodactylCharts
         }
 
         // advanced settings
+        //point
         public DataType(Color color, int marker, double size)
         {
             DataColor = color;
@@ -43,6 +44,7 @@ namespace PterodactylCharts
                 throw new ArgumentException("Marker size can't be larger than 50 or smaller than 0.1");
             }
         }
+        //line
         public DataType(Color color, int interpolation, int style, double thickness)
         {
             DataColor = color;
@@ -80,7 +82,7 @@ namespace PterodactylCharts
 
             if (Marker > 6 || Marker < 0)
             {
-                throw new ArgumentException("Marker can't be larger than 6 or smaller than 0");
+                throw new ArgumentException("Marker style can't be larger than 6 or smaller than 0");
             }
             foreach (var ms in MarkerSizes)
             {
@@ -93,12 +95,12 @@ namespace PterodactylCharts
             {
                 if (ms > double.MaxValue || ms < double.MinValue)
                 {
-                    throw new ArgumentException("Values must be double number");
+                    throw new ArgumentException("S Values must be a double precision number");
                 }
             }
             if (MarkerSizes.Length != ScatterValues.Length)
             {
-                throw new ArgumentException("Marker sizes and values count must be the same");
+                throw new ArgumentException("Marker sizes and S Values count must be the same");
             }
         }
         // tag 

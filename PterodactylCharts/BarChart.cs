@@ -37,5 +37,22 @@ namespace PterodactylCharts
         }
 
         public BarChartEngine BarChartObject { get; set; }
+        protected override bool ProcessCmdKey(ref Message message, Keys keys)
+        {
+            switch (keys)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    return true; // signal that we've processed this key
+            }
+
+            // run base implementation
+            return base.ProcessCmdKey(ref message, keys);
+        }
+
+        private void BarChart_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -37,9 +37,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1140, 873);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ColumnChart";
             this.Text = "ColumnChart";
+            this.Load += new System.EventHandler(this.ColumnChart_Load);
             this.ResumeLayout(false);
 
         }

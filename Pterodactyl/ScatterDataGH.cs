@@ -9,17 +9,17 @@ namespace Pterodactyl
     public class ScatterDataGH : GH_Component
     {
         public ScatterDataGH()
-  : base("Scatter Data", "Scatter Data",
-      "Add point data",
-      "Pterodactyl", "Advanced Graph")
+         : base("Scatter Data", "Scatter Data",
+        "Add point data",
+        "Pterodactyl", "Advanced Graph")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
             pManager.AddColourParameter("Palette", "Palette", "Add a list of colors to map the Values. Maybe any number from 1 to 4096", GH_ParamAccess.list, new List<Color> {Color.Black, Color.Orange, Color.Red});
             pManager.AddIntegerParameter("Marker", "Marker", "Choose point marker: 0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("Sizes", "Sizes","Choose marker sizes 0.1 - 50.0.", GH_ParamAccess.list);
-            pManager.AddNumberParameter("Values", "Values", "Scatter values that will determine point color", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Sizes", "Sizes","Choose marker sizes 0.1 - 50.0", GH_ParamAccess.list);
+            pManager.AddNumberParameter("C Values", "C Values", "Numbers corresponding to each X&Y Values\nThey will determine point color from the Palette (Pallete range: C Values min to max)", GH_ParamAccess.list);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {

@@ -21,10 +21,10 @@ namespace Pterodactyl
                 Color.Black);
             pManager.AddIntegerParameter("Marker", "Marker",
                 "Choose marker as: 0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus",
-                GH_ParamAccess.item, 1);
+                GH_ParamAccess.item, 2);
             pManager.AddNumberParameter("Size", "Size",
-               "Choose marker size 0.1 - 50.0. Multiple values will generatate scatter cloud.",
-               GH_ParamAccess.item, 1);
+               "Choose marker size 0.1 - 50.0",
+               GH_ParamAccess.item, 4.5d);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
