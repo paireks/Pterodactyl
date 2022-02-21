@@ -21,7 +21,7 @@ namespace Pterodactyl
             pManager.AddColourParameter("Palette", "Palette", "Add a list of colors to map the Values. Maybe any number from 1 to 4096", GH_ParamAccess.tree, new List<Color> {Color.Black, Color.Orange, Color.Red});
             pManager.AddIntegerParameter("Marker", "Marker", "Choose point marker: 0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus", GH_ParamAccess.item, 1);
             pManager.AddNumberParameter("Sizes", "Sizes","Choose marker sizes 0.1 - 50.0", GH_ParamAccess.tree);
-            pManager.AddNumberParameter("Params", "Params", "Number parameters corresponding to each X&Y Value pair\nIt will determine the point color from the Palette (Pallete range is [Values min to max]", GH_ParamAccess.tree);
+            pManager.AddNumberParameter("Params", "Params", "Number parameters corresponding to each X&Y Value pair\nIt will determine the pair color from the Palette range (Pallete range is [Params min to max]", GH_ParamAccess.tree);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
