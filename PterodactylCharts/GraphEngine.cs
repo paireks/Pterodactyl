@@ -42,20 +42,24 @@ namespace PterodactylCharts
                 }
                 else if (Elements.Data.DataTypes[i].TypeOfData == 2)
                 {
-                    MyModel.Axes.Add(new LinearColorAxis
+                    // only add if we set a name
+                    if (Elements.Data.ValuesNames[i].Trim() != "")
                     {
-                        Position = AxisPosition.Right,
-                        Title = Elements.Data.ValuesNames[i],
-                        PositionTier = positionTier,
-                        MinimumPadding = Settings.Axis.GlobalAxisPadding,
-                        MaximumPadding = Settings.Axis.GlobalAxisPadding,
-                        AxisTitleDistance = 5,
-                        Key = "ColorAxis_" + i.ToString(),
-                        Minimum = Elements.Data.DataTypes[i].ScatterValues.Min(),
-                        Maximum = Elements.Data.DataTypes[i].ScatterValues.Max(),
-                        Palette = new OxyPalette(Elements.Data.DataTypes[i].ScatterPalette.Select(c =>
-                         OxyColor.FromArgb(a: c.A, r: c.R, g: c.G, b: c.B)))
-                    });
+                        MyModel.Axes.Add(new LinearColorAxis
+                        {
+                            Position = AxisPosition.Right,
+                            Title = Elements.Data.ValuesNames[i],
+                            PositionTier = positionTier,
+                            MinimumPadding = Settings.Axis.GlobalAxisPadding,
+                            MaximumPadding = Settings.Axis.GlobalAxisPadding,
+                            AxisTitleDistance = 5,
+                            Key = "ColorAxis_" + i.ToString(),
+                            Minimum = Elements.Data.DataTypes[i].ScatterValues.Min(),
+                            Maximum = Elements.Data.DataTypes[i].ScatterValues.Max(),
+                            Palette = new OxyPalette(Elements.Data.DataTypes[i].ScatterPalette.Select(c =>
+                             OxyColor.FromArgb(a: c.A, r: c.R, g: c.G, b: c.B)))
+                        });
+                    }
 
                     AddScatterSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
                         Elements.Data.XValues[i], Elements.Data.YValues[i], MyModel.Axes.Last().Key);

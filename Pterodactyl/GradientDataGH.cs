@@ -6,6 +6,8 @@ using Grasshopper.Kernel.Data;
 using PterodactylCharts;
 using System.Linq;
 
+// GradientData Code written by Anton Kerezov
+
 namespace Pterodactyl
 {
     public class GradientDataGH : GH_Component
