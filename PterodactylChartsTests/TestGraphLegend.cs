@@ -30,7 +30,7 @@ namespace UnitTestEngine
         [ClassData(typeof(TestGraphLegendHelper))]
         public void CorrectData(string title, int position, string toString, int place, int orient)
         {
-            GraphLegend testObject = new GraphLegend(title, position, place, orient);
+            GraphLegend testObject = new GraphLegend(title, position, place, orient, 0);
             Assert.Equal(title, testObject.Title);
             Assert.Equal(position, testObject.Position);
             Assert.Equal(place, testObject.Placement);
@@ -41,7 +41,7 @@ namespace UnitTestEngine
         [ClassData(typeof(TestGraphLegendExceptionHelper))]
         public void CheckExceptions(string title, int position, string message)
         {
-            var exception = Assert.Throws<ArgumentException>(() => new GraphLegend(title, position,0,0));
+            var exception = Assert.Throws<ArgumentException>(() => new GraphLegend(title, position,0,0, 0));
             Assert.Equal(message, exception.Message);
         }
     }

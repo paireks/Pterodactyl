@@ -74,6 +74,7 @@ namespace PterodactylCharts
             }
 
             MyModel.LegendTitle = Elements.Legend.Title;
+            MyModel.LegendFontSize = Elements.Legend.TextSize;
             MyModel.LegendPosition = (LegendPosition)Elements.Legend.Position;
             MyModel.LegendPlacement = (LegendPlacement) Elements.Legend.Placement;
             MyModel.LegendOrientation = (LegendOrientation) Elements.Legend.Orientation;
@@ -83,10 +84,12 @@ namespace PterodactylCharts
                 Title = Settings.Axis.XAxisName, 
                 MinimumPadding = Settings.Axis.GlobalAxisPadding, 
                 MaximumPadding = Settings.Axis.GlobalAxisPadding, 
+                FontSize = Settings.Axis.TextSize,
                 AxisTitleDistance = 5 });
             MyModel.Axes.Add(new LinearAxis { 
                 Position = AxisPosition.Left, 
-                Title = Settings.Axis.YAxisName, 
+                Title = Settings.Axis.YAxisName,
+                FontSize = Settings.Axis.TextSize,
                 MinimumPadding = Settings.Axis.GlobalAxisPadding, 
                 MaximumPadding = Settings.Axis.GlobalAxisPadding, 
                 AxisTitleDistance = 5 });

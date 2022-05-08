@@ -10,16 +10,21 @@ namespace PterodactylCharts
             XAxisName = xAxisName;
             YAxisName = yAxisName;
         }
-        public GraphAxis(string xAxisName, string yAxisName, string cAxisName, double gPadding)
+        public GraphAxis(string xAxisName, string yAxisName, string cAxisName, double gPadding, double size)
         {
             XAxisName = xAxisName;
             YAxisName = yAxisName;
             CAxisName = cAxisName;
             GlobalAxisPadding = gPadding;
+            TextSize = size;
 
             if (GlobalAxisPadding > 250 || GlobalAxisPadding < 0)
             {
                 throw new ArgumentException("Padding is limited from 0.00 to 1.00");
+            }
+            if (TextSize > 140 || TextSize <  5)
+            {
+                throw new ArgumentException("Text size 140 <> 5");
             }
         }
 
@@ -34,5 +39,6 @@ namespace PterodactylCharts
         public string YAxisName { get; set; }
         public string CAxisName { get; set; }
         public double GlobalAxisPadding { get; set; }
+        public double TextSize { get; set; }
     }
 }

@@ -39,7 +39,7 @@ namespace PterodactylCharts
             {
                 throw new ArgumentException("Marker can't be larger than 6 or smaller than 0");
             }
-            if (MarkerSizes[0] > 50 || MarkerSizes[0] < 0.1d)
+            if (MarkerSizes[0] > 100 || MarkerSizes[0] < 0.1d)
             {
                 throw new ArgumentException("Marker size can't be larger than 50 or smaller than 0.1");
             }
@@ -86,7 +86,7 @@ namespace PterodactylCharts
             }
             foreach (var ms in MarkerSizes)
             {
-                if (ms > 50 || ms < 0.1d)
+                if (ms > 100 || ms < 0.1d)
                 {
                     throw new ArgumentException("Marker sizes can't be larger than 50 or smaller than 0.1");
                 }
@@ -116,9 +116,9 @@ namespace PterodactylCharts
             {
                 throw new ArgumentException("Annotation array is empty");
             }
-            if (AnnotationTextSize > 48d || AnnotationTextSize < 6d)
+            if (AnnotationTextSize > 72d || AnnotationTextSize < 6d)
             {
-                throw new ArgumentException("Annotation sizes can't be larger than 48 or smaller than 6pt");
+                throw new ArgumentException("Annotation sizes can't be larger than 72 or smaller than 6pt");
             }
         }
 

@@ -18,9 +18,9 @@ namespace PterodactylCharts
             {
                 throw new ArgumentException("Padding is limited from 0 to 250");
             }
-            if (TitleSize > 72 || TitleSize < 7.5)
+            if (TitleSize > 140 || TitleSize < 5)
             {
-                throw new ArgumentException("Title size is limited from 7.5 to 72pt");
+                throw new ArgumentException("Title size is limited from 5 to 140pt");
             }
         }
 

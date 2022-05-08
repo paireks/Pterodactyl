@@ -29,6 +29,7 @@ namespace Pterodactyl
             pManager.AddIntegerParameter("Orientation", "Orientation", "Legend Orientation as integer 0 = Vertical,  1 = Horizontal",
            GH_ParamAccess.item,
            1);
+            pManager.AddNumberParameter("Text size", "Text size", "Text size", GH_ParamAccess.item, 12);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -40,13 +41,15 @@ namespace Pterodactyl
             int position = 0;
             int place = 0;
             int orient = 0;
+            double size = 1; 
 
             DA.GetData(0, ref title);
             DA.GetData(1, ref position);
             DA.GetData(2, ref place);
             DA.GetData(3, ref orient);
+            DA.GetData(4, ref size);
 
-            GraphLegend legend = new GraphLegend(title, position, place, orient);
+            GraphLegend legend = new GraphLegend(title, position, place, orient, size);
 
             DA.SetData(0, legend);
         }

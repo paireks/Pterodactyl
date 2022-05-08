@@ -23,7 +23,7 @@ namespace Pterodactyl
                 "Choose marker as: 0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus",
                 GH_ParamAccess.item, 2);
             pManager.AddNumberParameter("Size", "Size",
-               "Choose marker size 0.1 - 50.0",
+               "Choose marker size 0.1 - 100.0",
                GH_ParamAccess.item, 4.5d);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)

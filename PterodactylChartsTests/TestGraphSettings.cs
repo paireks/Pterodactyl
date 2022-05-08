@@ -11,7 +11,7 @@ namespace UnitTestEngine
     {
         public TestGraphSettingsHelper()
         {
-            Add("Title example", new GraphSizes(200, 200), Color.Aqua, new GraphAxis("X", "Y","C", 0), "Graph Settings");
+            Add("Title example", new GraphSizes(200, 200), Color.Aqua, new GraphAxis("X", "Y","C", 0, 2), "Graph Settings");
         }
     }
     public class TestGraphSettings

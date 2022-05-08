@@ -5,12 +5,14 @@ namespace PterodactylCharts
 {
     public class GraphLegend
     {
-        public GraphLegend(string title, int position, int placement, int orientation)
+        public GraphLegend(string title, int position, int placement, int orientation, double size)
         {
             Title = title;
             Position = position;
             Placement = placement;
             Orientation = orientation;
+            TextSize = size;
+
 
             if (Position > 11 || Position < 0)
             {
@@ -26,6 +28,10 @@ namespace PterodactylCharts
             {
                 throw new ArgumentException("Placement should be between 0 and 1");
             }
+            if (TextSize > 140 || TextSize < 5)
+            {
+                throw new ArgumentException("Text size 140 <> 5");
+            }
         }
 
         public override string ToString()
@@ -39,6 +45,7 @@ namespace PterodactylCharts
         public int Position { get; set; }
         public int Placement { get; set; }
         public int Orientation { get; set; }
+        public double TextSize { get; set; }
 
     }
 }
