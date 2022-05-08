@@ -78,6 +78,8 @@ namespace PterodactylCharts
             MyModel.LegendPosition = (LegendPosition)Elements.Legend.Position;
             MyModel.LegendPlacement = (LegendPlacement) Elements.Legend.Placement;
             MyModel.LegendOrientation = (LegendOrientation) Elements.Legend.Orientation;
+            if (MyModel.LegendTitle.Trim() == "")
+                  MyModel.LegendTitleFontSize = 1;
             
             MyModel.Axes.Add(new LinearAxis { 
                 Position = AxisPosition.Bottom, 
