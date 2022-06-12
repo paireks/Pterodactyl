@@ -266,6 +266,29 @@ namespace PterodactylCharts
                 pta.Y = yValues[i];
                 pta.Text = dataType.AnnotationTexts[i];
                 pta.FontSize = dataType.AnnotationTextSize;
+                switch (dataType.AnnotationTextPosition)
+                {
+                    case 0:
+                        pta.TextHorizontalAlignment = HorizontalAlignment.Center;
+                        pta.TextVerticalAlignment = VerticalAlignment.Middle;
+                        break;
+                    case 1:
+                        pta.TextHorizontalAlignment = HorizontalAlignment.Left;
+                        pta.TextVerticalAlignment = VerticalAlignment.Middle;
+                        break;
+                    case 2:
+                        pta.TextHorizontalAlignment = HorizontalAlignment.Right;
+                        pta.TextVerticalAlignment = VerticalAlignment.Middle;
+                        break;
+                    case 3:
+                        pta.TextHorizontalAlignment = HorizontalAlignment.Center;
+                        pta.TextVerticalAlignment = VerticalAlignment.Top;
+                        break;
+                    case 4:
+                        pta.TextHorizontalAlignment = HorizontalAlignment.Center;
+                        pta.TextVerticalAlignment = VerticalAlignment.Bottom;
+                        break;
+                }
                 pta.Fill = OxyColors.Transparent;
                 model.Annotations.Add(pta);  
             }

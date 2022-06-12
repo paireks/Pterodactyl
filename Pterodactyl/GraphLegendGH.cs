@@ -23,12 +23,8 @@ namespace Pterodactyl
                 "9-11 = Right positions",
                 GH_ParamAccess.item,
                 0);
-            pManager.AddIntegerParameter("Placement", "Placement", "Legend Position as integer 0 = Inside,  1 = Outside",
-           GH_ParamAccess.item,
-           0);
-            pManager.AddIntegerParameter("Orientation", "Orientation", "Legend Orientation as integer 0 = Vertical,  1 = Horizontal",
-           GH_ParamAccess.item,
-           1);
+            pManager.AddIntegerParameter("Placement", "Placement", "Legend Position as integer 0 = Inside,  1 = Outside", GH_ParamAccess.item,  0);
+            pManager.AddIntegerParameter("Orientation", "Orientation", "Legend Orientation as integer 0 = Vertical,  1 = Horizontal", GH_ParamAccess.item,  1);
             pManager.AddNumberParameter("Text size", "Text size", "Text size", GH_ParamAccess.item, 12);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)

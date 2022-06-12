@@ -37,7 +37,7 @@ namespace PterodactylCharts
 
             foreach (var dt in dataTypes)
             {
-                if (dt.TypeOfData == 3 && dt.ScatterValues.Length != xValues.Count)
+                if (dt.TypeOfData == 2 && dt.ScatterValues.Length != xValues.Count)
                     throw new ArgumentException("X Values and Y Values' trees numbers of elements should match Scatter Values' count");
             }
         }

@@ -95,7 +95,7 @@ namespace UnitTestEngine
         [ClassData(typeof(TestDataTypePointHelper))]
         public void CorrectAnnotation(string[] text, double size, string toString, int dataType)
         {
-            DataType testObject = new DataType(text, size);
+            DataType testObject = new DataType(text, size, 0);
             Assert.Equal(text, testObject.AnnotationTexts);
             Assert.Equal(size, testObject.AnnotationTextSize);
             Assert.Equal(dataType, testObject.TypeOfData);

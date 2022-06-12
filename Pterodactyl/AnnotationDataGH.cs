@@ -20,6 +20,7 @@ namespace Pterodactyl
         {
             pManager.AddTextParameter("Text", "Text", "Annotation text", GH_ParamAccess.list);
             pManager.AddNumberParameter("Size", "Size", "Choose text size 6 - 48pt", GH_ParamAccess.item, 9d);
+            pManager.AddIntegerParameter("Place", "Placement", "Legend Position as integer 0 = Centre,  1 = Left, 2 = Right, 3 = Top, 4 = Bottom", GH_ParamAccess.item, 0);
 
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
@@ -30,11 +31,13 @@ namespace Pterodactyl
         {
             List<string> tags = new List<string>();
             double size = 0;
+            int pos = 0; 
 
             DA.GetDataList(0, tags);
             DA.GetData(1, ref size);
+            DA.GetData(2, ref pos);
 
-            DataType dataType = new DataType(tags.ToArray(), size);
+            DataType dataType = new DataType(tags.ToArray(), size, pos);
 
             DA.SetData(0, dataType);
         }

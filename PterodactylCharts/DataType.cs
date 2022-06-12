@@ -104,11 +104,11 @@ namespace PterodactylCharts
             }
         }
         // tag 
-        public DataType(string[] text, double size)
+        public DataType(string[] text, double size, int position)
         {
             AnnotationTexts = text;
             AnnotationTextSize = size;
-
+            AnnotationTextPosition = position;
 
             TypeOfData = 3;
 
@@ -119,6 +119,10 @@ namespace PterodactylCharts
             if (AnnotationTextSize > 72d || AnnotationTextSize < 6d)
             {
                 throw new ArgumentException("Annotation sizes can't be larger than 72 or smaller than 6pt");
+            }
+            if (AnnotationTextPosition > 4 || AnnotationTextPosition < 0)
+            {
+                throw new ArgumentException("Annotation position index out of range");
             }
         }
 
@@ -155,6 +159,7 @@ namespace PterodactylCharts
         public double[] MarkerSizes { get; set; }
         public string[] AnnotationTexts { get; set; } = new string[1] { "" };
         public double AnnotationTextSize { get; set; }
+        public int AnnotationTextPosition { get; set; }
         
     }
 }
