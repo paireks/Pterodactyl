@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Wojciech Radaczyński code-structures")]
 [assembly: AssemblyProduct("Pterodactyl")]
-[assembly: AssemblyCopyright("Copyright ©  2022 W. Radaczynski, A. Kerezov")]
+[assembly: AssemblyCopyright("© 2022 W. Radaczynski, A. Kerezov")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
