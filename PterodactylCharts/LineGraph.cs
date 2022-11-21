@@ -31,6 +31,19 @@ namespace PterodactylCharts
             LineGraphObject.Export();
         }
 
+        protected override bool ProcessCmdKey(ref Message message, Keys keys)
+        {
+            switch (keys)
+            {
+                case Keys.Escape:
+                    this.Close();
+                    return true; // signal that we've processed this key
+            }
+
+            // run base implementation
+            return base.ProcessCmdKey(ref message, keys);
+        }
+
         public LineGraphEngine LineGraphObject { get; set; }
     }
 }
