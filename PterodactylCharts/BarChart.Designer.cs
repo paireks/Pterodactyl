@@ -39,6 +39,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "BarChart";
             this.Text = "BarChart";
+            this.Resize += new System.EventHandler(this.OnResize);
             this.ResumeLayout(false);
         }
 

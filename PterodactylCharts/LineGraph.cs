@@ -41,6 +41,16 @@ namespace PterodactylCharts
             }
             return base.ProcessCmdKey(ref message, keys);
         }
+        
+        private void OnResize(object sender, System.EventArgs e)
+        {
+            UpdateTitle();
+        }
+
+        private void UpdateTitle()
+        {
+            Text = $@"Line Graph [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+        }
 
         public LineGraphEngine LineGraphObject { get; set; }
     }

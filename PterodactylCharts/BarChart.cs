@@ -41,6 +41,16 @@ namespace PterodactylCharts
             }
             return base.ProcessCmdKey(ref message, keys);
         }
+        
+        private void OnResize(object sender, System.EventArgs e)
+        {
+            UpdateTitle();
+        }
+
+        private void UpdateTitle()
+        {
+            Text = $@"Bar Chart [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+        }
 
         public BarChartEngine BarChartObject { get; set; }
     }

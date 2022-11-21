@@ -39,8 +39,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LineGraph";
             this.Text = "LineGraph";
+            this.Resize += new System.EventHandler(this.OnResize);
             this.ResumeLayout(false);
-
         }
 
         #endregion

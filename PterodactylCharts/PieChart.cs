@@ -41,6 +41,16 @@ namespace PterodactylCharts
             }
             return base.ProcessCmdKey(ref message, keys);
         }
+        
+        private void OnResize(object sender, System.EventArgs e)
+        {
+            UpdateTitle();
+        }
+
+        private void UpdateTitle()
+        {
+            Text = $@"Pie Chart [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+        }
 
         public PieChartEngine PieChartObject { get; set; }
     }
