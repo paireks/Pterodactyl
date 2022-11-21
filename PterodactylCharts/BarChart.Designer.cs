@@ -40,7 +40,6 @@
             this.Name = "BarChart";
             this.Text = "BarChart";
             this.ResumeLayout(false);
-
         }
 
         #endregion

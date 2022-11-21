@@ -40,9 +40,8 @@
             this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.Name = "Graph";
             this.Text = "Graph";
-            this.Resize += new System.EventHandler(this.Graph_Resize);
+            this.Resize += new System.EventHandler(this.OnResize);
             this.ResumeLayout(false);
-
         }
 
         #endregion

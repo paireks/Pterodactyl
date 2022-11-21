@@ -36,11 +36,9 @@ namespace PterodactylCharts
             switch (keys)
             {
                 case Keys.Escape:
-                    this.Close();
-                    return true; // signal that we've processed this key
+                    Close();
+                    return true;
             }
-
-            // run base implementation
             return base.ProcessCmdKey(ref message, keys);
         }
 

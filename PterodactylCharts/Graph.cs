@@ -35,22 +35,20 @@ namespace PterodactylCharts
             switch (keys)
             {
                 case Keys.Escape:
-                    this.Close();
-                    return true; // signal that we've processed this key
+                    Close();
+                    return true;
             }
-
-            // run base implementation
             return base.ProcessCmdKey(ref message, keys);
         }
 
-        private void Graph_Resize(object sender, System.EventArgs e)
+        private void OnResize(object sender, System.EventArgs e)
         {
             UpdateTitle();
         }
 
         private void UpdateTitle()
         {
-            Text = $"Graph [{this.Size.Width}x{this.Size.Height}px] - Press Esc to close ...  ";
+            Text = $@"Graph [{Size.Width}x{Size.Height}px] - Press Esc to close...";
         }
     }
 }
