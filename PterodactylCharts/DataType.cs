@@ -38,7 +38,7 @@ namespace PterodactylCharts
             }
             if (MarkerSizes[0] > 100 || MarkerSizes[0] < 0.1d)
             {
-                throw new ArgumentException("Marker size can't be larger than 50 or smaller than 0.1");
+                throw new ArgumentException("Marker size can't be larger than 100 or smaller than 0.1");
             }
         }
         
