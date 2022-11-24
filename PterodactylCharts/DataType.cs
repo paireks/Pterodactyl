@@ -92,12 +92,12 @@ namespace PterodactylCharts
             {
                 if (ms > double.MaxValue || ms < double.MinValue)
                 {
-                    throw new ArgumentException("S Values must be a double precision number");
+                    throw new ArgumentException("Scatter Values must be a double precision number");
                 }
             }
             if (MarkerSizes.Length != ScatterValues.Length)
             {
-                throw new ArgumentException("Marker sizes and S Values count must be the same");
+                throw new ArgumentException("Marker sizes and Scatter Values count must be the same");
             }
         }
         
@@ -115,7 +115,7 @@ namespace PterodactylCharts
             }
             if (AnnotationTextSize > 72d || AnnotationTextSize < 6d)
             {
-                throw new ArgumentException("Annotation sizes can't be larger than 72 or smaller than 6pt");
+                throw new ArgumentException("Annotation sizes can't be larger than 72 or smaller than 6");
             }
             if (AnnotationTextPosition > 4 || AnnotationTextPosition < 0)
             {
