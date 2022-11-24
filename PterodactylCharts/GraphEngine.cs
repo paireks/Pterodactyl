@@ -106,7 +106,7 @@ namespace PterodactylCharts
         {
             var pointSeries = new ScatterSeries()
             {
-                MarkerType = (MarkerType)dataType.Markers,
+                MarkerType = (MarkerType)dataType.Marker,
                 MarkerFill = OxyColor.FromArgb(a: dataType.DataColor.A, r: dataType.DataColor.R, g: dataType.DataColor.G, b: dataType.DataColor.B),
                 DataFieldX = Settings.Axis.XAxisName,
                 DataFieldY = Settings.Axis.YAxisName,

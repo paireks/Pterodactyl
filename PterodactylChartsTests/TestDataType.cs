@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using PterodactylCharts;
 using Xunit;
 
@@ -50,7 +49,7 @@ namespace UnitTestEngine
         {
             DataType testObject = new DataType(color, markerType);
             Assert.Equal(color, testObject.DataColor);
-            Assert.Equal(markerType, testObject.Markers);
+            Assert.Equal(markerType, testObject.Marker);
             Assert.Equal(dataType, testObject.TypeOfData);
             Assert.Equal(toString, testObject.ToString());
         }
