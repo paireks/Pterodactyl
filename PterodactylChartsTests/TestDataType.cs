@@ -54,6 +54,26 @@ namespace UnitTestEngine
             Add(Color.Aqua, 5, "Marker can't be larger than 4 or smaller than 0");
         }
     }
+    
+    public class TestDataTypePointAdvancedHelper : TheoryData<Color, int, double, string, TypeOfData>
+    {
+        public TestDataTypePointAdvancedHelper()
+        {
+            Add(Color.Aqua, 0, 0.2, "Point Data", TypeOfData.Point);
+            Add(Color.FromArgb(2, 10, 23, 12), 4, 11.5, "Point Data", TypeOfData.Point);
+        }
+    }
+    
+    public class TestDataTypePointAdvancedExceptionHelper : TheoryData<Color, int, double, string>
+    {
+        public TestDataTypePointAdvancedExceptionHelper()
+        {
+            Add(Color.Aqua, -1, 0.2, "Marker can't be larger than 6 or smaller than 0");
+            Add(Color.Aqua, 7, 0.2, "Marker can't be larger than 6 or smaller than 0");
+            Add(Color.Aqua, 0, 0.09, "Marker size can't be larger than 100 or smaller than 0.1");
+            Add(Color.Aqua, 0, 100.1, "Marker size can't be larger than 100 or smaller than 0.1");
+        }
+    }
 
     public class TestDataType
     {
@@ -103,6 +123,26 @@ namespace UnitTestEngine
         public void CheckExceptions(Color color, int markerType, string message)
         {
             var exception = Assert.Throws<ArgumentException>(() => new DataType(color, markerType));
+            Assert.Equal(message, exception.Message);
+        }
+        
+        [Theory]
+        [ClassData(typeof(TestDataTypePointAdvancedHelper))]
+        public void CorrectDataPointAdvanced(Color color, int markerType, double markerSize, string toString, TypeOfData typeOfData)
+        {
+            DataType testObject = new DataType(color, markerType, markerSize);
+            Assert.Equal(color, testObject.DataColor);
+            Assert.Equal(markerType, testObject.Marker);
+            Assert.Equal(markerSize, testObject.MarkerSizes[0]);
+            Assert.Single(testObject.MarkerSizes);
+            Assert.Equal(typeOfData, testObject.TypeOfData);
+            Assert.Equal(toString, testObject.ToString());
+        }
+        [Theory]
+        [ClassData(typeof(TestDataTypePointAdvancedExceptionHelper))]
+        public void DataPointAdvanceExceptions(Color color, int markerType, double markerSize, string message)
+        {
+            var exception = Assert.Throws<ArgumentException>(() => new DataType(color, markerType, markerSize));
             Assert.Equal(message, exception.Message);
         }
     }
