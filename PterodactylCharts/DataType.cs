@@ -6,48 +6,20 @@ namespace PterodactylCharts
 {
     public class DataType
     {
+        #region Line
+
         public DataType(Color color)
         {
             DataColor = color;
             TypeOfData = TypeOfData.Line;
         }
-        public DataType(Color color, int marker)
-        {
-            DataColor = color;
-            Marker = marker;
-
-            TypeOfData = TypeOfData.Point;
-
-            if (Marker > 4 || Marker < 0)
-            {
-                throw new ArgumentException("Marker can't be larger than 4 or smaller than 0");
-            }
-        }
         
-        public DataType(Color color, int marker, double size)
-        {
-            DataColor = color;
-            Marker = marker;
-            MarkerSizes = new [] { size };
-
-            TypeOfData = TypeOfData.Point;
-
-            if (Marker > 6 || Marker < 0)
-            {
-                throw new ArgumentException("Marker can't be larger than 6 or smaller than 0");
-            }
-            if (MarkerSizes[0] > 100 || MarkerSizes[0] < 0.1d)
-            {
-                throw new ArgumentException("Marker size can't be larger than 100 or smaller than 0.1");
-            }
-        }
-        
-        public DataType(Color color, int interpolation, int style, double thickness)
+        public DataType(Color color, int interpolation, int lineStyle, double lineWeight)
         {
             DataColor = color;
             LineInterpolation = interpolation;
-            LineStyle = style;
-            LineWeight = thickness;
+            LineStyle = lineStyle;
+            LineWeight = lineWeight;
 
             TypeOfData = TypeOfData.Line;
 
@@ -64,13 +36,52 @@ namespace PterodactylCharts
                 throw new ArgumentException("Line thickness can be from 0.1 to 20.0");
             }
         }
+
+        #endregion
+
+        #region Point
+
+        public DataType(Color color, int marker)
+        {
+            DataColor = color;
+            Marker = marker;
+
+            TypeOfData = TypeOfData.Point;
+
+            if (Marker > 4 || Marker < 0)
+            {
+                throw new ArgumentException("Marker can't be larger than 4 or smaller than 0");
+            }
+        }
         
-        public DataType(Color[] colors, int marker, double[] sizes, double[] values)
+        public DataType(Color color, int marker, double markerSize)
+        {
+            DataColor = color;
+            Marker = marker;
+            MarkerSizes = new [] { markerSize };
+
+            TypeOfData = TypeOfData.Point;
+
+            if (Marker > 6 || Marker < 0)
+            {
+                throw new ArgumentException("Marker can't be larger than 6 or smaller than 0");
+            }
+            if (MarkerSizes[0] > 100 || MarkerSizes[0] < 0.1d)
+            {
+                throw new ArgumentException("Marker size can't be larger than 100 or smaller than 0.1");
+            }
+        }
+
+        #endregion
+
+        #region Scatter
+
+        public DataType(Color[] colors, int marker, double[] markerSizes, double[] scatterValues)
         {
             ScatterPalette = colors;
             Marker = marker;
-            MarkerSizes = sizes;
-            ScatterValues = values;
+            MarkerSizes = markerSizes;
+            ScatterValues = scatterValues;
 
             TypeOfData = TypeOfData.Scatter;
 
@@ -88,7 +99,7 @@ namespace PterodactylCharts
                     throw new ArgumentException("Marker sizes can't be larger than 50 or smaller than 0.1");
                 }
             }
-            foreach (var ms in values)
+            foreach (var ms in scatterValues)
             {
                 if (ms > double.MaxValue || ms < double.MinValue)
                 {
@@ -100,12 +111,16 @@ namespace PterodactylCharts
                 throw new ArgumentException("Marker sizes and Scatter Values count must be the same");
             }
         }
-        
-        public DataType(string[] text, double size, int position)
+
+        #endregion
+
+        #region Annotation
+
+        public DataType(string[] annotationTexts, double annotationTextSize, int annotationTextPosition)
         {
-            AnnotationTexts = text;
-            AnnotationTextSize = size;
-            AnnotationTextPosition = position;
+            AnnotationTexts = annotationTexts;
+            AnnotationTextSize = annotationTextSize;
+            AnnotationTextPosition = annotationTextPosition;
 
             TypeOfData = TypeOfData.Annotation;
 
@@ -122,6 +137,8 @@ namespace PterodactylCharts
                 throw new ArgumentException("Annotation position index out of range");
             }
         }
+
+        #endregion
 
         public override string ToString()
         {
