@@ -241,7 +241,7 @@ namespace PterodactylCharts
             var scatter = new ScatterSeries()
             {
                 MarkerType = (MarkerType)dataType.Marker,
-                ColorAxisKey = key, // key is very important for multi bt
+                ColorAxisKey = key, // key is very 
                 DataFieldX = Settings.Axis.XAxisName,
                 DataFieldY = Settings.Axis.YAxisName,
                 Background = OxyColor.FromArgb(a: Settings.GraphColor.A, r: Settings.GraphColor.R, g: Settings.GraphColor.G, b: Settings.GraphColor.B)
