@@ -14,7 +14,7 @@ namespace PterodactylCharts
             Axis = graphAxis;
             Padding = padding;
 
-            if (Padding > 250 || Padding < 0)
+            if (Padding > 250|| Padding < 0)
             {
                 throw new ArgumentException("Padding is limited from 0 to 250");
             }
