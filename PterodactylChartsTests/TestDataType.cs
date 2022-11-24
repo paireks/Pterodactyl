@@ -1,25 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using PterodactylCharts;
+using PterodactylCharts.Enums;
 using Xunit;
 
 namespace UnitTestEngine
 {
-    public class TestDataTypeLineHelper : TheoryData<Color, string, int>
+    public class TestDataTypeLineHelper : TheoryData<Color, string, TypeOfData>
     {
         public TestDataTypeLineHelper()
         {
-            Add(Color.Aqua, "Line Data", 0);
-            Add(Color.FromArgb(2, 10,23,12), "Line Data", 0);
+            Add(Color.Aqua, "Line Data", TypeOfData.Line);
+            Add(Color.FromArgb(2, 10,23,12), "Line Data", TypeOfData.Line);
         }
     }
-    public class TestDataTypePointHelper : TheoryData<Color, int, string, int>
+    public class TestDataTypePointHelper : TheoryData<Color, int, string, TypeOfData>
     {
         public TestDataTypePointHelper()
         {
-            Add(Color.Aqua, 0, "Point Data", 1);
-            Add(Color.FromArgb(2, 10, 23, 12), 4, "Point Data", 1);
+            Add(Color.Aqua, 0, "Point Data", TypeOfData.Point);
+            Add(Color.FromArgb(2, 10, 23, 12), 4, "Point Data", TypeOfData.Point);
         }
     }
 
@@ -36,21 +36,21 @@ namespace UnitTestEngine
     {
         [Theory]
         [ClassData(typeof(TestDataTypeLineHelper))]
-        public void CorrectDataLine(Color color, string toString, int dataType)
+        public void CorrectDataLine(Color color, string toString, TypeOfData typeOfData)
         {
             DataType testObject = new DataType(color);
             Assert.Equal(color, testObject.DataColor);
-            Assert.Equal(dataType, testObject.TypeOfData);
+            Assert.Equal(typeOfData, testObject.TypeOfData);
             Assert.Equal(toString, testObject.ToString());
         }
         [Theory]
         [ClassData(typeof(TestDataTypePointHelper))]
-        public void CorrectDataPoint(Color color, int markerType, string toString, int dataType)
+        public void CorrectDataPoint(Color color, int markerType, string toString, TypeOfData typeOfData)
         {
             DataType testObject = new DataType(color, markerType);
             Assert.Equal(color, testObject.DataColor);
             Assert.Equal(markerType, testObject.Marker);
-            Assert.Equal(dataType, testObject.TypeOfData);
+            Assert.Equal(typeOfData, testObject.TypeOfData);
             Assert.Equal(toString, testObject.ToString());
         }
         [Theory]

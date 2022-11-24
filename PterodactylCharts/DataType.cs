@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Concurrent;
 using System.Drawing;
-using System.Collections;
+using PterodactylCharts.Enums;
 
 namespace PterodactylCharts
 {
@@ -10,30 +9,28 @@ namespace PterodactylCharts
         public DataType(Color color)
         {
             DataColor = color;
-            TypeOfData = 0;
+            TypeOfData = TypeOfData.Line;
         }
-        public DataType(Color color, int markers)
+        public DataType(Color color, int marker)
         {
             DataColor = color;
-            Marker = markers;
+            Marker = marker;
 
-            TypeOfData = 1;
+            TypeOfData = TypeOfData.Point;
 
             if (Marker > 4 || Marker < 0)
             {
                 throw new ArgumentException("Marker can't be larger than 4 or smaller than 0");
             }
         }
-
-        // advanced settings
-        //point
+        
         public DataType(Color color, int marker, double size)
         {
             DataColor = color;
             Marker = marker;
-            MarkerSizes = new double[1] { size };
+            MarkerSizes = new [] { size };
 
-            TypeOfData = 1;
+            TypeOfData = TypeOfData.Point;
 
             if (Marker > 6 || Marker < 0)
             {
@@ -44,7 +41,7 @@ namespace PterodactylCharts
                 throw new ArgumentException("Marker size can't be larger than 50 or smaller than 0.1");
             }
         }
-        //line
+        
         public DataType(Color color, int interpolation, int style, double thickness)
         {
             DataColor = color;
@@ -52,7 +49,7 @@ namespace PterodactylCharts
             LineStyle = style;
             LineWeight = thickness;
 
-            TypeOfData = 0;
+            TypeOfData = TypeOfData.Line;
 
             if (LineInterpolation > 4 || LineInterpolation < 0)
             {
@@ -67,15 +64,15 @@ namespace PterodactylCharts
                 throw new ArgumentException("Line thickness can be from 0.1 to 20.0");
             }
         }
-        // scatter
+        
         public DataType(Color[] colors, int marker, double[] sizes, double[] values)
         {
-            ScatterPalette = colors; // palette
+            ScatterPalette = colors;
             Marker = marker;
             MarkerSizes = sizes;
             ScatterValues = values;
 
-            TypeOfData = 2;
+            TypeOfData = TypeOfData.Scatter;
 
             if (ScatterPalette.Length > 4096 || ScatterPalette.Length < 1)
                 throw new ArgumentException("Palette is should have at least one color or max 4096 unique colors");
@@ -103,14 +100,14 @@ namespace PterodactylCharts
                 throw new ArgumentException("Marker sizes and S Values count must be the same");
             }
         }
-        // tag 
+        
         public DataType(string[] text, double size, int position)
         {
             AnnotationTexts = text;
             AnnotationTextSize = size;
             AnnotationTextPosition = position;
 
-            TypeOfData = 3;
+            TypeOfData = TypeOfData.Annotation;
 
             if (AnnotationTexts.Length == 0)
             {
@@ -129,37 +126,36 @@ namespace PterodactylCharts
         public override string ToString()
         {
             string stringRepresentation;
-            if (TypeOfData == 0)
+            switch (TypeOfData)
             {
-                stringRepresentation = "Line Data";
-            }
-            else if (TypeOfData == 1)
-            {
-                stringRepresentation = "Point Data";
-            }
-            else if (TypeOfData == 2)
-            {
-                stringRepresentation = "Scatter Data";
-            }
-            else
-            {
-                stringRepresentation = "Annotation Data";
+                case TypeOfData.Line:
+                    stringRepresentation = "Line Data";
+                    break;
+                case TypeOfData.Point:
+                    stringRepresentation = "Point Data";
+                    break;
+                case TypeOfData.Scatter:
+                    stringRepresentation = "Scatter Data";
+                    break;
+                default:
+                    stringRepresentation = "Annotation Data";
+                    break;
             }
             return stringRepresentation;
         }
 
-        public Color DataColor { get; set; }
-        public int TypeOfData { get; }
-        public int Marker { get; set; }
-        public int LineInterpolation { get; set; }
-        public int LineStyle { get; set; }
-        public double LineWeight { get; set; }
-        public double[] ScatterValues { get; set; }
-        public Color[] ScatterPalette { get; set; }
-        public double[] MarkerSizes { get; set; }
-        public string[] AnnotationTexts { get; set; } = new string[1] { "" };
-        public double AnnotationTextSize { get; set; }
-        public int AnnotationTextPosition { get; set; }
+        public Color DataColor { get; }
+        public TypeOfData TypeOfData { get; }
+        public int Marker { get; }
+        public int LineInterpolation { get; }
+        public int LineStyle { get; }
+        public double LineWeight { get; }
+        public double[] ScatterValues { get; }
+        public Color[] ScatterPalette { get; }
+        public double[] MarkerSizes { get; }
+        public string[] AnnotationTexts { get; } = { "" };
+        public double AnnotationTextSize { get; }
+        public int AnnotationTextPosition { get; }
 
     }
 }

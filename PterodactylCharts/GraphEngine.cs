@@ -4,6 +4,7 @@ using OxyPlot.WindowsForms;
 using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using PterodactylCharts.Enums;
 
 namespace PterodactylCharts
 {
@@ -24,7 +25,7 @@ namespace PterodactylCharts
 
             for (int i = 0; i < Elements.Data.ValuesNames.Count; i++)
             {
-                if (Elements.Data.DataTypes[i].TypeOfData == 0)
+                if (Elements.Data.DataTypes[i].TypeOfData == TypeOfData.Line)
                 {
                     AddLineSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
                         Elements.Data.XValues[i], Elements.Data.YValues[i]);

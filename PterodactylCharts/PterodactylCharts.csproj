@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="ColumnChartEngine.cs" />
     <Compile Include="DataType.cs" />
+    <Compile Include="Enums\TypeOfData.cs" />
     <Compile Include="Graph.cs">
       <SubType>Form</SubType>
     </Compile>
