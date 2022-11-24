@@ -14,6 +14,29 @@ namespace UnitTestEngine
             Add(Color.FromArgb(2, 10,23,12), "Line Data", TypeOfData.Line);
         }
     }
+
+    public class TestDataTypeLineAdvancedHelper : TheoryData<Color, int, int, double, string, TypeOfData>
+    {
+        public TestDataTypeLineAdvancedHelper()
+        {
+            Add(Color.Aqua, 2, 3, 0.5, "Line Data", TypeOfData.Line);
+            Add(Color.Red, 3, 2, 10.2, "Line Data", TypeOfData.Line);
+        }
+    }
+
+    public class TestDataTypeLineAdvancedHelperExceptions : TheoryData<Color, int, int, double, string>
+    {
+        public TestDataTypeLineAdvancedHelperExceptions()
+        {
+            Add(Color.Aqua, -1, 3, 0.5, "Interpolation can't be larger than 4 or smaller than 0");
+            Add(Color.Aqua, 5, 3, 0.5, "Interpolation can't be larger than 4 or smaller than 0");
+            Add(Color.Aqua, 2, -1, 0.5, "Line Style can't be larger than 4 or smaller than 0");
+            Add(Color.Aqua, 2, 5, 0.5, "Line Style can't be larger than 4 or smaller than 0");
+            Add(Color.Aqua, 2, 3, 20.1, "Line thickness can be from 0.1 to 20.0");
+            Add(Color.Aqua, 2, 3, 0.09, "Line thickness can be from 0.1 to 20.0");
+        }
+    }
+
     public class TestDataTypePointHelper : TheoryData<Color, int, string, TypeOfData>
     {
         public TestDataTypePointHelper()
@@ -43,6 +66,28 @@ namespace UnitTestEngine
             Assert.Equal(typeOfData, testObject.TypeOfData);
             Assert.Equal(toString, testObject.ToString());
         }
+
+        [Theory]
+        [ClassData(typeof(TestDataTypeLineAdvancedHelper))]
+        public void CorrectDataLineAdvance(Color color, int interpolation, int lineStyle, double lineWeight, string toString, TypeOfData typeOfData)
+        {
+            DataType testObject = new DataType(color, interpolation, lineStyle, lineWeight);
+            Assert.Equal(color, testObject.DataColor);
+            Assert.Equal(typeOfData, testObject.TypeOfData);
+            Assert.Equal(toString, testObject.ToString());
+            Assert.Equal(interpolation, testObject.LineInterpolation);
+            Assert.Equal(lineStyle, testObject.LineStyle);
+            Assert.Equal(lineWeight, testObject.LineWeight);
+        }
+        
+        [Theory]
+        [ClassData(typeof(TestDataTypeLineAdvancedHelperExceptions))]
+        public void DataLineAdvanceExceptions(Color color, int interpolation, int lineStyle, double lineWeight, string message)
+        {
+            var exception = Assert.Throws<ArgumentException>(() => new DataType(color, interpolation, lineStyle, lineWeight));
+            Assert.Equal(message, exception.Message);
+        }
+        
         [Theory]
         [ClassData(typeof(TestDataTypePointHelper))]
         public void CorrectDataPoint(Color color, int markerType, string toString, TypeOfData typeOfData)
