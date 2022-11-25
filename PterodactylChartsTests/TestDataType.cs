@@ -75,6 +75,30 @@ namespace UnitTestEngine
         }
     }
 
+    public class TestDataTypeScatterHelper : TheoryData<Color[], int, double[], double[], string, TypeOfData>
+    {
+        public TestDataTypeScatterHelper()
+        {
+            Add(new []{Color.Aqua, Color.Red}, 2, new []{0.5}, new []{0.2}, "Scatter Data", TypeOfData.Scatter);
+            Add(new []{Color.Aqua, Color.Yellow, Color.Red}, 3, new []{0.6, 0.4}, new []{0.2, 1.1}, "Scatter Data", TypeOfData.Scatter);
+        }
+    }
+
+    public class TestDataTypeScatterExceptionHelper : TheoryData<Color[], int, double[], double[], string>
+    {
+        public TestDataTypeScatterExceptionHelper()
+        {
+            Add(new Color[]{}, 2, new []{0.5}, new []{0.2}, "Palette is should have at least one color or max 4096 unique colors");
+            Add(new Color[4097], 2, new []{0.5}, new []{0.2}, "Palette is should have at least one color or max 4096 unique colors");
+            Add(new []{Color.Aqua, Color.Red}, -1, new []{0.5}, new []{0.2}, "Marker style can't be larger than 6 or smaller than 0");
+            Add(new []{Color.Aqua, Color.Red}, 7, new []{0.5}, new []{0.2}, "Marker style can't be larger than 6 or smaller than 0");
+            Add(new []{Color.Aqua, Color.Red}, 2, new []{0.5, 0.4, 0.1}, new []{0.3, double.PositiveInfinity, 0.2}, "Scatter Values must be a double precision number");
+            Add(new []{Color.Aqua, Color.Red}, 2, new []{0.5, 0.4, -0.1}, new []{0.3, 0.2, 0.1}, "Marker sizes can't be larger than 100 or smaller than 0.1");
+            Add(new []{Color.Aqua, Color.Red}, 2, new []{0.5, 0.4, 100.1}, new []{0.3, 0.2, 0.1}, "Marker sizes can't be larger than 100 or smaller than 0.1");
+            Add(new []{Color.Aqua, Color.Red}, 2, new []{0.5, 0.1}, new []{0.3, 0.2, 10.2}, "Marker sizes and Scatter Values count must be the same");
+        }
+    }
+
     public class TestDataType
     {
         [Theory]
@@ -140,9 +164,30 @@ namespace UnitTestEngine
         }
         [Theory]
         [ClassData(typeof(TestDataTypePointAdvancedExceptionHelper))]
-        public void DataPointAdvanceExceptions(Color color, int markerType, double markerSize, string message)
+        public void DataPointAdvancedExceptions(Color color, int markerType, double markerSize, string message)
         {
             var exception = Assert.Throws<ArgumentException>(() => new DataType(color, markerType, markerSize));
+            Assert.Equal(message, exception.Message);
+        }
+
+        [Theory]
+        [ClassData(typeof(TestDataTypeScatterHelper))]
+        public void CorrectDataScatter(Color[] colors, int marker, double[] markerSizes, double[] scatterValues, string toString, TypeOfData typeOfData)
+        {
+            DataType testObject = new DataType(colors, marker, markerSizes, scatterValues);
+            Assert.Equal(colors, testObject.ScatterPalette);
+            Assert.Equal(marker, testObject.Marker);
+            Assert.Equal(markerSizes, testObject.MarkerSizes);
+            Assert.Equal(scatterValues, testObject.ScatterValues);
+            Assert.Equal(toString, testObject.ToString());
+            Assert.Equal(typeOfData, testObject.TypeOfData);
+        }
+        
+        [Theory]
+        [ClassData(typeof(TestDataTypeScatterExceptionHelper))]
+        public void DataScatterAdvancedExceptions(Color[] colors, int marker, double[] markerSizes, double[] scatterValues, string message)
+        {
+            var exception = Assert.Throws<ArgumentException>(() => new DataType(colors, marker, markerSizes, scatterValues));
             Assert.Equal(message, exception.Message);
         }
     }

@@ -96,7 +96,7 @@ namespace PterodactylCharts
             {
                 if (ms > 100 || ms < 0.1d)
                 {
-                    throw new ArgumentException("Marker sizes can't be larger than 50 or smaller than 0.1");
+                    throw new ArgumentException("Marker sizes can't be larger than 100 or smaller than 0.1");
                 }
             }
             foreach (var ms in scatterValues)
