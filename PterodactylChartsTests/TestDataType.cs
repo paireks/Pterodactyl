@@ -99,6 +99,27 @@ namespace UnitTestEngine
         }
     }
 
+    public class TestDataTypeAnnotationHelper : TheoryData<string[], double, int, string, TypeOfData>
+    {
+        public TestDataTypeAnnotationHelper()
+        {
+            Add(new []{"Text A"}, 6.2, 2, "Annotation Data", TypeOfData.Annotation);
+            Add(new []{"Text A", "Text B"}, 10.1, 0, "Annotation Data", TypeOfData.Annotation);
+        }
+    }
+    
+    public class TestDataTypeAnnotationExceptionHelper : TheoryData<string[], double, int, string>
+    {
+        public TestDataTypeAnnotationExceptionHelper()
+        {
+            Add(new []{"Text A"}, 5.9, 2, "Annotation sizes can't be larger than 72 or smaller than 6");
+            Add(new []{"Text A"}, 72.1, 2, "Annotation sizes can't be larger than 72 or smaller than 6");
+            Add(new string[]{}, 6.0, 2, "Annotation array is empty");
+            Add(new []{"Text A"}, 6.0, -1, "Annotation position index out of range");
+            Add(new []{"Text A"}, 6.0, 5, "Annotation position index out of range");
+        }
+    }
+
     public class TestDataType
     {
         [Theory]
@@ -188,6 +209,26 @@ namespace UnitTestEngine
         public void DataScatterAdvancedExceptions(Color[] colors, int marker, double[] markerSizes, double[] scatterValues, string message)
         {
             var exception = Assert.Throws<ArgumentException>(() => new DataType(colors, marker, markerSizes, scatterValues));
+            Assert.Equal(message, exception.Message);
+        }
+
+        [Theory]
+        [ClassData(typeof(TestDataTypeAnnotationHelper))]
+        public void CorrectDataAnnotation(string[] annotationTexts, double annotationTextSize, int annotationTextPosition, string toString, TypeOfData typeOfData)
+        {
+            DataType testObject = new DataType(annotationTexts, annotationTextSize, annotationTextPosition);
+            Assert.Equal(annotationTexts, testObject.AnnotationTexts);
+            Assert.Equal(annotationTextSize, testObject.AnnotationTextSize);
+            Assert.Equal(annotationTextPosition, testObject.AnnotationTextPosition);
+            Assert.Equal(toString, testObject.ToString());
+            Assert.Equal(typeOfData, testObject.TypeOfData);
+        }
+        
+        [Theory]
+        [ClassData(typeof(TestDataTypeAnnotationExceptionHelper))]
+        public void DataAnnotationExceptions(string[] annotationTexts, double annotationTextSize, int annotationTextPosition, string message)
+        {
+            var exception = Assert.Throws<ArgumentException>(() => new DataType(annotationTexts, annotationTextSize, annotationTextPosition));
             Assert.Equal(message, exception.Message);
         }
     }
