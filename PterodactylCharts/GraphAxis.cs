@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Text;
+using PterodactylCharts.Enums;
 
 namespace PterodactylCharts
 {
@@ -7,16 +7,18 @@ namespace PterodactylCharts
     {
         public GraphAxis(string xAxisName, string yAxisName)
         {
+            GraphAxisType = GraphAxisType.XAndY;
             XAxisName = xAxisName;
             YAxisName = yAxisName;
         }
-        public GraphAxis(string xAxisName, string yAxisName, string cAxisName, double gPadding, double size)
+        public GraphAxis(string xAxisName, string yAxisName, string colorAxisName, double globalAxisPadding, double textSize)
         {
+            GraphAxisType = GraphAxisType.XAndYAndColor;
             XAxisName = xAxisName;
             YAxisName = yAxisName;
-            CAxisName = cAxisName;
-            GlobalAxisPadding = gPadding;
-            TextSize = size;
+            ColorAxisName = colorAxisName;
+            GlobalAxisPadding = globalAxisPadding;
+            TextSize = textSize;
 
             if (GlobalAxisPadding > 250 || GlobalAxisPadding < 0)
             {
@@ -24,21 +26,26 @@ namespace PterodactylCharts
             }
             if (TextSize > 150 || TextSize < 5)
             {
-                throw new ArgumentException("Text size must be in range  [5-150]pt");
+                throw new ArgumentException("Text size must be in range [5-150] pt");
             }
         }
 
         public override string ToString()
         {
-            StringBuilder stringRepresentation = new StringBuilder();
-            stringRepresentation.AppendFormat("Graph Axises{0}X Axis: {1}{0}Y Axis: {2}{0}C Axis: {3}{0}Padding: {4}", Environment.NewLine, XAxisName, YAxisName, CAxisName, GlobalAxisPadding);
-            return stringRepresentation.ToString();
+            switch (GraphAxisType)
+            {
+                case GraphAxisType.XAndY:
+                    return "Graph Axis with X and Y";
+                default:
+                    return "Graph Axis with X and Y and Color";
+            }
         }
 
-        public string XAxisName { get; set; }
-        public string YAxisName { get; set; }
-        public string CAxisName { get; set; }
-        public double GlobalAxisPadding { get; set; }
-        public double TextSize { get; set; }
+        public string XAxisName { get; }
+        public string YAxisName { get; }
+        public string ColorAxisName { get; }
+        public double GlobalAxisPadding { get; }
+        public double TextSize { get; }
+        public GraphAxisType GraphAxisType { get; }
     }
 }
