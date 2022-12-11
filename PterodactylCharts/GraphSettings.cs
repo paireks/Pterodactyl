@@ -5,6 +5,14 @@ namespace PterodactylCharts
 {
     public class GraphSettings
     {
+        public GraphSettings(string graphTitle, GraphSizes graphSizes, Color graphColor, GraphAxis graphAxis)
+        {
+            Title = graphTitle;
+            GraphColor = graphColor;
+            Sizes = graphSizes;
+            Axis = graphAxis;
+        }
+        
         public GraphSettings(string graphTitle, double titleSize, GraphSizes graphSizes, Color graphColor, GraphAxis graphAxis, double padding)
         {
             Title = graphTitle;
