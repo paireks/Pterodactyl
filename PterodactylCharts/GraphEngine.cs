@@ -50,8 +50,8 @@ namespace PterodactylCharts
                             MinimumPadding = Settings.Axis.GlobalAxisPadding,
                             MaximumPadding = Settings.Axis.GlobalAxisPadding,
                             AxisTitleDistance = 5,
-                            PositionTier = positionTier, // this allows for multiple tiers if colors are provieded in GH
-                            Key = "ColorAxis_" + i.ToString(), // setting the key kelps idetntify the tiers
+                            PositionTier = positionTier, // this allows for multiple tiers if colors are provided in GH
+                            Key = "ColorAxis_" + i, // setting the key helps identify the tiers
                             Minimum = Elements.Data.DataTypes[i].ScatterValues.Min(),
                             Maximum = Elements.Data.DataTypes[i].ScatterValues.Max(),
                             Palette = new OxyPalette(Elements.Data.DataTypes[i].ScatterPalette.Select(c =>
@@ -66,7 +66,7 @@ namespace PterodactylCharts
                 }
                 else
                 {
-                    AddAnnotatons(MyModel, Elements.Data.DataTypes[i],
+                    AddAnnotations(MyModel, Elements.Data.DataTypes[i],
                      Elements.Data.XValues[i], Elements.Data.YValues[i]);
                 }
             }
@@ -138,11 +138,7 @@ namespace PterodactylCharts
         {
             string reportPart;
 
-            if (Path.EndsWith(".png"))
-            {
-                reportPart = "![" + Settings.Title + "](" + Path + ")";
-            }
-            else if (Path.EndsWith(".svg"))
+            if (Path.EndsWith(".png") || Path.EndsWith(".svg"))
             {
                 reportPart = "![" + Settings.Title + "](" + Path + ")";
             }
@@ -177,12 +173,9 @@ namespace PterodactylCharts
                 case 4:
                     lineSeries.InterpolationAlgorithm = InterpolationAlgorithms.ChordalCatmullRomSpline;
                     break;
-                default:
-                    break;
             }
 
-
-            lineSeries.LineStyle = (LineStyle)dataType.LineStyle;
+            lineSeries.LineStyle = (LineStyle) dataType.LineStyle;
             lineSeries.StrokeThickness = dataType.LineWeight;
 
             if (valueName.Trim() != "")
@@ -254,10 +247,10 @@ namespace PterodactylCharts
 
             model.Series.Add(scatter);
         }
-        public void AddAnnotatons(PlotModel model, DataType dataType, List<double> xValues, List<double> yValues)
+        public void AddAnnotations(PlotModel model, DataType dataType, List<double> xValues, List<double> yValues)
         {
             if (xValues.Count != dataType.AnnotationTexts.Length)
-                throw new ArgumentException("Annotation should contain count of items corresponging to X and Y axis");
+                throw new ArgumentException("Annotation should contain count of items corresponding to X and Y axis");
 
             for (int i = 0; i < xValues.Count; i++)
             {
