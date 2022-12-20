@@ -40,34 +40,15 @@ namespace PterodactylCharts
                 }
                 else if (Elements.Data.DataTypes[i].TypeOfData  == Enums.TypeOfData.Scatter)
                 {
-                    // only add if we set a name
-                    if (Elements.Data.ValuesNames[i].Trim() != "")
-                    {
-                        MyModel.Axes.Add(new LinearColorAxis
-                        {
-                            Position = AxisPosition.Right,
-                            Title = Elements.Data.ValuesNames[i],
-                            MinimumPadding = Settings.Axis.GlobalAxisPadding,
-                            MaximumPadding = Settings.Axis.GlobalAxisPadding,
-                            AxisTitleDistance = 5,
-                            PositionTier = positionTier, // this allows for multiple tiers if colors are provided in GH
-                            Key = "ColorAxis_" + i, // setting the key helps identify the tiers
-                            Minimum = Elements.Data.DataTypes[i].ScatterValues.Min(),
-                            Maximum = Elements.Data.DataTypes[i].ScatterValues.Max(),
-                            Palette = new OxyPalette(Elements.Data.DataTypes[i].ScatterPalette.Select(c =>
-                             OxyColor.FromArgb(a: c.A, r: c.R, g: c.G, b: c.B)))
-                        });
-                    }
-
-                    AddScatterSeries(MyModel, Elements.Data.DataTypes[i], Elements.Data.ValuesNames[i],
-                        Elements.Data.XValues[i], Elements.Data.YValues[i], MyModel.Axes.Last().Key);
-
+                    MyModel.Axes.Add(CreateLinearColorAxis(i, positionTier));
                     positionTier++;
+                    AddScatterSeries(MyModel, Elements.Data.DataTypes[i],
+                        Elements.Data.XValues[i], Elements.Data.YValues[i], MyModel.Axes.Last().Key);
                 }
                 else
                 {
                     AddAnnotations(MyModel, Elements.Data.DataTypes[i],
-                     Elements.Data.XValues[i], Elements.Data.YValues[i]);
+                        Elements.Data.XValues[i], Elements.Data.YValues[i]);
                 }
             }
 
@@ -76,8 +57,6 @@ namespace PterodactylCharts
             MyModel.LegendPosition = (LegendPosition)Elements.Legend.Position;
             MyModel.LegendPlacement = (LegendPlacement)Elements.Legend.Placement;
             MyModel.LegendOrientation = (LegendOrientation)Elements.Legend.Orientation;
-            if (MyModel.LegendTitle.Trim() == "")
-                MyModel.LegendTitleFontSize = 1;
 
             MyModel.Axes.Add(new LinearAxis
             {
@@ -99,13 +78,11 @@ namespace PterodactylCharts
             });
             MyModel.Padding = new OxyThickness(Settings.Padding);
             myPlot.Model = MyModel;
-
             myPlot.Dock = System.Windows.Forms.DockStyle.Fill;
             myPlot.Location = new Point(0, 0);
             myPlot.Size = new Size(Settings.Sizes.Width, Settings.Sizes.Height);
             myPlot.TabIndex = 0;
-
-
+            
             return myPlot;
         }
 
@@ -148,7 +125,8 @@ namespace PterodactylCharts
             }
             return reportPart;
         }
-        public void AddLineSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues)
+
+        private void AddLineSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues)
         {
             var lineSeries = new LineSeries
             {
@@ -177,12 +155,7 @@ namespace PterodactylCharts
 
             lineSeries.LineStyle = (LineStyle) dataType.LineStyle;
             lineSeries.StrokeThickness = dataType.LineWeight;
-
-            if (valueName.Trim() != "")
-                lineSeries.Title = valueName;
-            else
-                lineSeries.RenderInLegend = false;
-
+            lineSeries.Title = valueName;
 
             for (int i = 0; i < xValues.Count; i++)
             {
@@ -191,7 +164,8 @@ namespace PterodactylCharts
 
             model.Series.Add(lineSeries);
         }
-        public void AddPointSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues)
+
+        private void AddPointSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues)
         {
             var pointSeries = new ScatterSeries()
             {
@@ -210,13 +184,8 @@ namespace PterodactylCharts
             }
             else
                 pointSeries.MarkerFill = OxyColors.Transparent;
-
-            // dont show empty lines in legend
-            if (valueName.Trim() != "")
-                pointSeries.Title = valueName;
-            else
-                pointSeries.RenderInLegend = false;
-
+            
+            pointSeries.Title = valueName;
 
             for (int i = 0; i < xValues.Count; i++)
             {
@@ -225,20 +194,18 @@ namespace PterodactylCharts
 
             model.Series.Add(pointSeries);
         }
-        public void AddScatterSeries(PlotModel model, DataType dataType, string valueName, List<double> xValues, List<double> yValues, string key)
+
+        private void AddScatterSeries(PlotModel model, DataType dataType, List<double> xValues, List<double> yValues, string key)
         {
-            var scatter = new ScatterSeries()
+            var scatter = new ScatterSeries
             {
                 MarkerType = (MarkerType)dataType.Marker,
                 ColorAxisKey = key,
                 DataFieldX = Settings.Axis.XAxisName,
                 DataFieldY = Settings.Axis.YAxisName,
-                Background = OxyColor.FromArgb(a: Settings.GraphColor.A, r: Settings.GraphColor.R, g: Settings.GraphColor.G, b: Settings.GraphColor.B)
+                Background = OxyColor.FromArgb(a: Settings.GraphColor.A, r: Settings.GraphColor.R, g: Settings.GraphColor.G, b: Settings.GraphColor.B),
+                RenderInLegend = false
             };
-
-            // disable as there is palette colors and this cannot be shown in legend
-            // we should use colour axis lable to show info
-            scatter.RenderInLegend = false;
 
             for (int i = 0; i < xValues.Count; i++)
             {
@@ -247,18 +214,21 @@ namespace PterodactylCharts
 
             model.Series.Add(scatter);
         }
-        public void AddAnnotations(PlotModel model, DataType dataType, List<double> xValues, List<double> yValues)
+
+        private void AddAnnotations(PlotModel model, DataType dataType, List<double> xValues, List<double> yValues)
         {
             if (xValues.Count != dataType.AnnotationTexts.Length)
                 throw new ArgumentException("Annotation should contain count of items corresponding to X and Y axis");
 
             for (int i = 0; i < xValues.Count; i++)
             {
-                var pta = new PointAnnotation();
-                pta.X = xValues[i];
-                pta.Y = yValues[i];
-                pta.Text = dataType.AnnotationTexts[i];
-                pta.FontSize = dataType.AnnotationTextSize;
+                var pta = new PointAnnotation
+                {
+                    X = xValues[i],
+                    Y = yValues[i],
+                    Text = dataType.AnnotationTexts[i],
+                    FontSize = dataType.AnnotationTextSize
+                };
                 switch (dataType.AnnotationTextPosition)
                 {
                     case 0:
@@ -287,10 +257,28 @@ namespace PterodactylCharts
             }
         }
 
-        public bool ShowGraph { get; set; }
-        public GraphElements Elements { get; set; }
-        public GraphSettings Settings { get; set; }
-        public string Path { get; set; }
-        public PlotModel MyModel { get; set; }
+        private LinearColorAxis CreateLinearColorAxis(int dataId, int positionTier)
+        {
+            return new LinearColorAxis
+            {
+                Position = AxisPosition.Right,
+                Title = Elements.Data.ValuesNames[dataId],
+                MinimumPadding = Settings.Axis.GlobalAxisPadding,
+                MaximumPadding = Settings.Axis.GlobalAxisPadding,
+                AxisTitleDistance = 5,
+                PositionTier = positionTier, // this allows for multiple tiers if colors are provided in GH
+                Key = "ColorAxis_" + dataId, // setting the key helps identify the tiers
+                Minimum = Elements.Data.DataTypes[dataId].ScatterValues.Min(),
+                Maximum = Elements.Data.DataTypes[dataId].ScatterValues.Max(),
+                Palette = new OxyPalette(Elements.Data.DataTypes[dataId].ScatterPalette.Select(c =>
+                    OxyColor.FromArgb(a: c.A, r: c.R, g: c.G, b: c.B)))
+            };
+        } 
+
+        public bool ShowGraph { get; }
+        public GraphElements Elements { get; }
+        public GraphSettings Settings { get; }
+        public string Path { get; }
+        private PlotModel MyModel { get; set; }
     }
 }
