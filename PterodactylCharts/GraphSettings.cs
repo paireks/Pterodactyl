@@ -28,7 +28,7 @@ namespace PterodactylCharts
             }
             if (TitleSize > 140 || TitleSize < 5)
             {
-                throw new ArgumentException("Title size is limited from 5 to 140pt");
+                throw new ArgumentException("Title size is limited from 5 to 140");
             }
         }
 
