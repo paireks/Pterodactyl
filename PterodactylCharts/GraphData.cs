@@ -33,6 +33,11 @@ namespace PterodactylCharts
                     throw new ArgumentException("Inside each branch of X Values and Y Values trees numbers of elements of lists should match");
                 }
             }
+            foreach (var dt in dataTypes)
+            {
+                if (dt.TypeOfData == Enums.TypeOfData.Scatter && dt.ScatterValues.Length != xValues.Count)
+                    throw new ArgumentException("X Values and Y Values' tree branch numbers of elements should match Scatter Values' count");
+            }
         }
         public override string ToString()
         {

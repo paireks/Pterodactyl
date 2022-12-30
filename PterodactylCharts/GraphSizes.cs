@@ -14,9 +14,9 @@ namespace PterodactylCharts
             {
                 throw new ArgumentException("Width and Height values shouldn't be smaller than 200");
             }
-            if (Width > 1000 || Height > 1000)
+            if (Width > 1920 || Height > 1920)
             {
-                throw new ArgumentException("Width and Height values shouldn't be larger than 1000");
+                throw new ArgumentException("Width and Height values shouldn't be larger than 1920");
             }
         }
 
