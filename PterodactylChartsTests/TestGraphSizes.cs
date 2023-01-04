@@ -23,8 +23,8 @@ namespace UnitTestEngine
         {
             Add(-400, 500, "Width and Height values shouldn't be smaller than 200");
             Add(400, 199, "Width and Height values shouldn't be smaller than 200");
-            Add(1001, 200, "Width and Height values shouldn't be larger than 1000");
-            Add(1000, 1001, "Width and Height values shouldn't be larger than 1000");
+            Add(1921, 200, "Width and Height values shouldn't be larger than 1920");
+            Add(1000, 1921, "Width and Height values shouldn't be larger than 1920");
         }
     }
     public class TestGraphSizes
