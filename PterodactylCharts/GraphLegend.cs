@@ -46,7 +46,7 @@ namespace PterodactylCharts
         public override string ToString()
         {
             StringBuilder stringRepresentation = new StringBuilder();
-            stringRepresentation.AppendFormat("Graph Legend{0}Title: {1}{0}Position: {2}{0}Orientation: {3}{0}Placement: {4}", Environment.NewLine, Title, Position, Orientation, Placement);
+            stringRepresentation.AppendFormat("Graph Legend{0}Title: {1}", Environment.NewLine, Title);
             return stringRepresentation.ToString();
         }
 
