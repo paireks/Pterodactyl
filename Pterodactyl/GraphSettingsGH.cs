@@ -17,11 +17,13 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddTextParameter("Title", "Title", "Set title for a graph", GH_ParamAccess.item,
-                "Title");
+            // Please arrange as you see most logical. Now should be fully backwards compatible.
+            pManager.AddTextParameter("Title", "Title", "Set title for a graph", GH_ParamAccess.item,"Title");   
             pManager.AddGenericParameter("Graph Sizes", "Graph Sizes", "Set graph sizes", GH_ParamAccess.item);
-            pManager.AddColourParameter("Color", "Color", "Set background color for graph", GH_ParamAccess.item, Color.White);
+            pManager.AddColourParameter("Background", "Background", "Set background color for graph", GH_ParamAccess.item, Color.White);
             pManager.AddGenericParameter("Graph Axis", "Graph Axis", "Set axises of graph", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Graph Padding", "Graph Padding", " The padding around the graph. Default is 10", GH_ParamAccess.item, 10d);
+            pManager.AddNumberParameter("Title Size", "Title Size", " The title size", GH_ParamAccess.item, 16d);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -33,13 +35,17 @@ namespace Pterodactyl
             GraphSizes graphSizes = null;
             Color graphColor = Color.Empty;
             GraphAxis graphAxis = null;
+            double padding = 0;
+            double tSize = 0;
 
-            DA.GetData(0, ref graphTitle);
+            DA.GetData(0, ref graphTitle);            
             DA.GetData(1, ref graphSizes);
             DA.GetData(2, ref graphColor);
             DA.GetData(3, ref graphAxis);
+            DA.GetData(4, ref padding);
+            DA.GetData(5, ref tSize);
 
-            GraphSettings graphSettings = new GraphSettings(graphTitle, graphSizes, graphColor, graphAxis);
+            GraphSettings graphSettings = new GraphSettings(graphTitle, tSize, graphSizes, graphColor, graphAxis, padding);
 
             DA.SetData(0, graphSettings);
         }
