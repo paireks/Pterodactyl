@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using Grasshopper.Kernel;
 using PterodactylCharts;
-using Rhino.Geometry;
 
 namespace Pterodactyl
 {
@@ -17,13 +15,12 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            // Please arrange as you see most logical. Now should be fully backwards compatible.
             pManager.AddTextParameter("Title", "Title", "Set title for a graph", GH_ParamAccess.item,"Title");   
             pManager.AddGenericParameter("Graph Sizes", "Graph Sizes", "Set graph sizes", GH_ParamAccess.item);
             pManager.AddColourParameter("Background", "Background", "Set background color for graph", GH_ParamAccess.item, Color.White);
-            pManager.AddGenericParameter("Graph Axis", "Graph Axis", "Set axises of graph", GH_ParamAccess.item);
-            pManager.AddNumberParameter("Graph Padding", "Graph Padding", " The padding around the graph. Default is 10", GH_ParamAccess.item, 10d);
-            pManager.AddNumberParameter("Title Size", "Title Size", " The title size", GH_ParamAccess.item, 16d);
+            pManager.AddGenericParameter("Graph Axis", "Graph Axis", "Set axes of graph", GH_ParamAccess.item);
+            pManager.AddNumberParameter("Graph Padding", "Graph Padding", "The padding around the graph", GH_ParamAccess.item, 10d);
+            pManager.AddNumberParameter("Title Size", "Title Size", "The title size", GH_ParamAccess.item, 16d);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {

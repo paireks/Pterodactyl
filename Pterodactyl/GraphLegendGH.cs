@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Grasshopper.Kernel;
 using PterodactylCharts;
-using Rhino.Geometry;
 
 namespace Pterodactyl
 {
