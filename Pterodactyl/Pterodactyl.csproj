@@ -69,6 +69,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnotationDataGH.cs" />
     <Compile Include="BarChartGH.cs" />
     <Compile Include="CodeBlockGH.cs" />
     <Compile Include="ColumnChartGH.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="SaveReportGH.cs" />
     <Compile Include="PterodactylInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScatterDataGH.cs" />
     <Compile Include="StrikeGH.cs" />
     <Compile Include="StrongGH.cs" />
     <Compile Include="TableGH.cs" />

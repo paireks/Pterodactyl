@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Pterodactyl")]
-[assembly: AssemblyDescription("Simple report generator")]
+[assembly: AssemblyDescription("The most advanced report generator")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Wojciech Radaczyński code-structures")]
 [assembly: AssemblyProduct("Pterodactyl")]
-[assembly: AssemblyCopyright("Copyright ©  2020 Wojciech Radaczynski")]
+[assembly: AssemblyCopyright("Copyright ©  2023 Wojciech Radaczynski and Anton Kerezov")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
