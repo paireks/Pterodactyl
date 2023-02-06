@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeBlock.cs" />
-    <Compile Include="CreateReport.cs" />
+    <Compile Include="Report.cs" />
     <Compile Include="DynamicMathBlock.cs" />
     <Compile Include="Emphasis.cs" />
     <Compile Include="Flowchart.cs" />

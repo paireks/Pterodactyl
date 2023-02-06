@@ -1,16 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace PterodactylEngine
 {
-    public class CreateReport
+    public class Report
     {
         private List<string> _reportParts;
         private string _title;
         private bool _tableOfContents;
 
 
-        public CreateReport(List<string> reportParts, string title, bool tableOfContents)
+        public Report(List<string> reportParts, string title, bool tableOfContents)
         {
             ReportParts = reportParts;
             TableOfContents = tableOfContents;
@@ -19,24 +20,24 @@ namespace PterodactylEngine
 
         public string Create()
         {
-            string report = "";
+            StringBuilder report = new StringBuilder();
 
-                if (Title != "")
+            if (Title != "")
             {
-                report += "# " + Title + Environment.NewLine;
+                report.AppendLine("# " + Title);
             }
 
             if (TableOfContents)
             {
-                report += "[TOC]" + Environment.NewLine;
+                report.AppendLine("[TOC]");
             }
 
             foreach (string part in ReportParts)
             {
-                report += part + Environment.NewLine;
+                report.AppendLine(part);
             }
 
-            return report;
+            return report.ToString();
         }
 
         public List<string> ReportParts

@@ -5,9 +5,9 @@ using Xunit;
 
 namespace UnitTestEngine
 {
-    public class TestCreateReportHelper : TheoryData<List<string>, string, bool, string>
+    public class TestReportHelper : TheoryData<List<string>, string, bool, string>
     {
-        public TestCreateReportHelper()
+        public TestReportHelper()
         {
             Add(new List<string>{"Empty"}, "Test title", false,
                 "# Test title" + Environment.NewLine + "Empty" + Environment.NewLine);
@@ -17,23 +17,23 @@ namespace UnitTestEngine
         }
     }
 
-    public class TestCreateReport
+    public class TestReport
     {
         [Theory]
-        [ClassData(typeof(TestCreateReportHelper))]
+        [ClassData(typeof(TestReportHelper))]
         public void CorrectData(List<string> reportParts, string title, bool tableOfContents, string expectedReport)
         {
-            CreateReport testObject = new CreateReport(reportParts, title, tableOfContents);
+            Report testObject = new Report(reportParts, title, tableOfContents);
             Assert.Equal(reportParts, testObject.ReportParts);
             Assert.Equal(title, testObject.Title);
             Assert.Equal(tableOfContents, testObject.TableOfContents);
         }
 
         [Theory]
-        [ClassData(typeof(TestCreateReportHelper))]
+        [ClassData(typeof(TestReportHelper))]
         public void CheckReportCreation(List<string> reportParts, string title, bool tableOfContents, string expected)
         {
-            CreateReport testObject = new CreateReport(reportParts, title, tableOfContents);
+            Report testObject = new Report(reportParts, title, tableOfContents);
             string actual = testObject.Create();
 
             Assert.Equal(expected, actual);

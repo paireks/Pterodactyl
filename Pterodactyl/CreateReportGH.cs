@@ -34,7 +34,7 @@ namespace Pterodactyl
             DA.GetData(2, ref tableOfContents);
 
             string report;
-            CreateReport reportObject = new CreateReport(reportParts, title, tableOfContents);
+            Report reportObject = new Report(reportParts, title, tableOfContents);
             report = reportObject.Create();
 
             DA.SetData(0, report);
