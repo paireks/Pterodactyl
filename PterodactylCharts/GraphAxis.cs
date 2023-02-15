@@ -20,9 +20,9 @@ namespace PterodactylCharts
             GlobalAxisPadding = globalAxisPadding;
             TextSize = textSize;
 
-            if (GlobalAxisPadding > 250 || GlobalAxisPadding < 0)
+            if (GlobalAxisPadding > 1.0 || GlobalAxisPadding < 0.0)
             {
-                throw new ArgumentException("Padding is limited from 0.00 to 250.00");
+                throw new ArgumentException("Padding is limited from 0.00 to 1.00");
             }
             if (TextSize > 150 || TextSize < 5)
             {

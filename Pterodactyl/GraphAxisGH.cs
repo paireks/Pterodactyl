@@ -18,7 +18,7 @@ namespace Pterodactyl
             pManager.AddTextParameter("Y Axis Name", "Y Axis Name", "Name of the y axis", GH_ParamAccess.item, "y");
             pManager.AddTextParameter("C Axis Name", "C Axis Name", "Name of the color axis (used in Scatter Data)", GH_ParamAccess.item, "Color range");
             pManager.AddNumberParameter("Axis Padding", "Axis Padding", "Offset distance from X & Y Axis to plot data from 0.00 - 1.00", GH_ParamAccess.item, 0.01);
-            pManager.AddNumberParameter("Text size", "Text size", "Text size", GH_ParamAccess.item, 9);
+            pManager.AddNumberParameter("Text size", "Text size", "Text size", GH_ParamAccess.item, 12);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {

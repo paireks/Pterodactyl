@@ -18,7 +18,7 @@ namespace UnitTestEngine
         public TestGraphAxisWithColorHelper()
         {
             Add("XAxis", "Y Axis Name", "Color Axis Name", 0.0, 15.0, "Graph Axis with X and Y and Color");
-            Add("X", "Y", "Color", 20.0, 100.0, "Graph Axis with X and Y and Color");
+            Add("X", "Y", "Color", 1.0, 100.0, "Graph Axis with X and Y and Color");
         }
     }
 
@@ -26,10 +26,10 @@ namespace UnitTestEngine
     {
         public TestGraphAxisWithColorExceptionHelper()
         {
-            Add("X", "Y", "Color", -1, 100.0, "Padding is limited from 0.00 to 250.00");
-            Add("X", "Y", "Color", 251, 100.0, "Padding is limited from 0.00 to 250.00");
-            Add("X", "Y", "Color", 20.0, 4, "Text size must be in range [5-150] pt");
-            Add("X", "Y", "Color", 20.0, 151, "Text size must be in range [5-150] pt");
+            Add("X", "Y", "Color", -0.01, 100.0, "Padding is limited from 0.00 to 1.00");
+            Add("X", "Y", "Color", 1.01, 100.0, "Padding is limited from 0.00 to 1.00");
+            Add("X", "Y", "Color", 0.0, 4, "Text size must be in range [5-150] pt");
+            Add("X", "Y", "Color", 0.0, 151, "Text size must be in range [5-150] pt");
         }
     }
 
