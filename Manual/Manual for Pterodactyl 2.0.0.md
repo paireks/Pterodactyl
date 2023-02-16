@@ -15,7 +15,7 @@ Pterodactyl is an open-source plug-in for Grasshopper.
 **Requirements:**
 
 - Rhino 6 or 7
-- Markdown editor, Typora is recommended (free during beta: https://typora.io/), or if you look for something open-source, check Mark Text (https://marktext.app/)
+- Markdown editor, Typora is recommended (https://typora.io/), or if you look for something open-source, check MarkText (https://marktext.app/)
 
 **Contact:** If you have any specific questions, email me: w.radaczynski@gmail.com
 
@@ -87,12 +87,6 @@ Advanced Graph component will help you to create complex graph with many differe
 ### Tips
 
 **Look at the tips given in a Basic Graph chapter at first - all of them will work for Advanced Graph as well.**
-
-Here are the tips that will work only for Advanced Graphs:
-
-- If you need to create a line plot that has a markers: combine Line data with Point data for the same set of data:
-
-  ![AdvancedGraphTip1](Img\AdvancedGraphTip1.png)
 
 ### Components
 
@@ -496,7 +490,7 @@ File can be constantly opened in Typora, but remember that it won't always refre
 - Click on a Typora
 - Close and reopen Typora
 
-Many Markdown editors (like Mark Text) won't allow you to do constant changes outside editors (with Grasshopper) and they want you to confirm that you're going to change document externally every time something changes.
+Many Markdown editors (like MarkText) won't allow you to do constant changes outside editors (with Grasshopper) and they want you to confirm that you're going to change document externally every time something changes.
 
 ## Tools
 
