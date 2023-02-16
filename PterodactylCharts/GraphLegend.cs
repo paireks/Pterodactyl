@@ -10,9 +10,9 @@ namespace PterodactylCharts
             Title = title;
             Position = position;
 
-            if (Position > 12 || Position < 0)
+            if (Position > 11 || Position < 0)
             {
-                throw new ArgumentException("Position should be between 0 and 12");
+                throw new ArgumentException("Position should be between 0 and 11");
             }
         }
         
@@ -25,9 +25,9 @@ namespace PterodactylCharts
             TextSize = textSize;
 
 
-            if (Position > 12 || Position < 0)
+            if (Position > 11 || Position < 0)
             {
-                throw new ArgumentException("Position should be between 0 and 12");
+                throw new ArgumentException("Position should be between 0 and 11");
             }
             if (Placement > 1 || Placement < 0)
             {
