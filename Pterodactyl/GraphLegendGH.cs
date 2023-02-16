@@ -16,11 +16,11 @@ namespace Pterodactyl
         {
             pManager.AddTextParameter("Title", "Title", "Set title of a legend", GH_ParamAccess.item, "Legend");
             pManager.AddIntegerParameter("Position", "Position",
-                "Legend Position as integer from 0 to 11. " +
+                "Legend Position as integer from 0 to 12. " +
                 "0-2 = Top positions, " +
                 "3-5 = Bottom positions, " +
-                "6-8 = Left positions," +
-                "9-11 = Right positions",
+                "6-8 = Left positions, " +
+                "9-11 = Right positions, 12 = Outside",
                 GH_ParamAccess.item,
                 0);
             pManager.AddIntegerParameter("Placement", "Placement", "Legend Position as integer 0 = Inside,  1 = Outside", GH_ParamAccess.item, 0);

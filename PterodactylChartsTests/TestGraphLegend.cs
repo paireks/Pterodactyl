@@ -12,7 +12,7 @@ namespace UnitTestEngine
         public TestGraphLegendHelper()
         {
             Add("Title example", 0, "Graph Legend" + Environment.NewLine + "Title: Title example");
-            Add("Title example", 11, "Graph Legend" + Environment.NewLine + "Title: Title example");
+            Add("Title example", 12, "Graph Legend" + Environment.NewLine + "Title: Title example");
         }
     }
 
@@ -20,8 +20,8 @@ namespace UnitTestEngine
     {
         public TestGraphLegendExceptionHelper()
         {
-            Add("Title example", -1, "Position should be between 0 and 11");
-            Add("Title example", 12, "Position should be between 0 and 11");
+            Add("Title example", -1, "Position should be between 0 and 12");
+            Add("Title example", 13, "Position should be between 0 and 12");
         }
     }
     
@@ -30,7 +30,7 @@ namespace UnitTestEngine
         public TestGraphLegendAdvancedHelper()
         {
             Add("Title example", 0, 0, 0, 5.0, "Graph Legend" + Environment.NewLine + "Title: Title example");
-            Add("Title example", 11, 1, 1, 140.0, "Graph Legend" + Environment.NewLine + "Title: Title example");
+            Add("Title example", 12, 1, 1, 140.0, "Graph Legend" + Environment.NewLine + "Title: Title example");
         }
     }
 
@@ -38,8 +38,8 @@ namespace UnitTestEngine
     {
         public TestGraphLegendAdvancedExceptionHelper()
         {
-            Add("Title example", -1, 0, 0, 5.0, "Position should be between 0 and 11");
-            Add("Title example", 12, 0, 0, 5.0, "Position should be between 0 and 11");
+            Add("Title example", -1, 0, 0, 5.0, "Position should be between 0 and 12");
+            Add("Title example", 13, 0, 0, 5.0, "Position should be between 0 and 12");
             Add("Title example", 0, 2, 0, 5.0, "Placement should be between 0 and 1");
             Add("Title example", 0, -1, 0, 5.0, "Placement should be between 0 and 1");
             Add("Title example", 0, 0, -1, 5.0, "Orientation should be between 0 and 1");
