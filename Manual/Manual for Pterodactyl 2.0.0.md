@@ -44,8 +44,9 @@ OxyPlot
 
 Pterodactyl will help you to build those documents step by step. Components are creating small parts of text, that are written in Markdown. These parts are called Report Parts.
 
-<div style="text-align: center;">
-    <img src="Img\ReportPart.png" alt="Logo" style="zoom:100%;display:block;margin-left:auto;margin-right:auto " /></div>
+<p align="center">
+    <img src="Img\ReportPart.png" alt="Logo" style="zoom:100%;" />
+</p>
 
 To create report you need to add all those Report Parts to an egg component, which is called Create Report. This component will create report that will be later ready to save.
 
