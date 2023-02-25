@@ -679,14 +679,14 @@ The text for the node is also it's id, so if you connect two nodes with the same
 Let's plug two nodes to one starting node:
 
 <p align="center">
-    <img src="Img\Flowchart2In1.png" alt="FlowChart2In1" style="zoom:100%;" />
+    <img src="Img\Flowchart2in1.png" alt="FlowChart2In1" style="zoom:100%;" />
 </p>
 
 
 No let's try to connect those two to a new one:
 
 <p align="center">
-    <img src="Img\Flowchart1In2.png" alt="FlowChart1In2" style="zoom:100%;" />
+    <img src="Img\Flowchart1in2.png" alt="FlowChart1in2" style="zoom:100%;" />
 </p>
 
 
