@@ -150,10 +150,24 @@ Examples:
     <img src="Img\DataGraphExample3.png" alt="DataGraphExample3" style="zoom:100%;" />
 </p>
 
-#### Data Type (Point Data / Line Data)
+#### Data Styles
 
-There are two types of data that you can create: Line or Point. Both of those components take Color as an argument. In Point Data you can also set type of the markers, by setting Marker input from 0 to 4.
+##### Point Data
+                                                                                   
+Point data defines the appearance of point information that is passed to the Graph Data component. You can define the color as any RGB value, the type of marker as interger (0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus) and the size of the marker [0.1-100.0]  
 
+##### Line Data
+                                                                                   
+Line Data is similar to point data but instead of drawing points it connects them with lines. You can define the color as any RGB value, the interpolation between the points (0 - None 1 - UniformCatmullRomSpline 2 - CatmullRomSpline 3 - CanonicalSpline 4 - ChordalCatmullRomSpline), the line style (0 - Solid, 1 - Dash, 2 - Dot, 3 - DashDot, 4 - DashDotDot) and the thicnkess [0.1-20.0] 
+                                                                   
+##### Point Annotation
+                                                                                   
+Point annotation draws text in relation to the points specified in the Graph Data component. You can set the text, the size and the location (0 = Centre, 1 = Left, 2 = Right, 3 = Top, 4 = Bottom).
+                                                                                 
+##### Scatter Data
+                                                                                   
+Scatter Data is very similar to point data. It draws points to the graph, however, you can additionally specify color and size gradients. You can define the color range as a list of colors or a gradient, one type of marker as interger (0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus), the list of marker sizes [0.1-50.0] and the list of color parameters that specify the corresponding color for each point (this list should be equal lenght as the X&Y value lists). The color pallete range is determined from the min. and max. values from the Params list.
+                                                                          
 <p align="center">
     <img src="Img\DataTypes.png" alt="DataTypes" style="zoom:100%;" />
 </p>
