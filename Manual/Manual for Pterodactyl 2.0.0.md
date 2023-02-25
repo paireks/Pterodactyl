@@ -154,11 +154,11 @@ Examples:
 
 ##### Point Data
                                                                                    
-Point data defines the appearance of point information that is passed to the Graph Data component. You can define the color as any RGB value, the type of marker as interger (0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus) and the size of the marker [0.1-100.0]  
+Point data defines the appearance of point information that is passed to the Graph Data component. You can define the color as any RGB value, the type of marker as interger (0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus) and the size of the marker [0.1-100.0].
 
 ##### Line Data
                                                                                    
-Line Data is similar to point data but instead of drawing points it connects them with lines. You can define the color as any RGB value, the interpolation between the points (0 - None 1 - UniformCatmullRomSpline 2 - CatmullRomSpline 3 - CanonicalSpline 4 - ChordalCatmullRomSpline), the line style (0 - Solid, 1 - Dash, 2 - Dot, 3 - DashDot, 4 - DashDotDot) and the thicnkess [0.1-20.0] 
+Line Data is similar to point data but instead of drawing points it connects them with lines. You can define the color as any RGB value, the interpolation between the points (0 - None 1 - UniformCatmullRomSpline 2 - CatmullRomSpline 3 - CanonicalSpline 4 - ChordalCatmullRomSpline), the line style (0 - Solid, 1 - Dash, 2 - Dot, 3 - DashDot, 4 - DashDotDot) and the thicnkess [0.1-20.0].
                                                                    
 ##### Point Annotation
                                                                                    
@@ -179,26 +179,26 @@ Graph Legend will help you to set the legend in your graph.
 <p align="center">
     <img src="Img\GraphLegend.png" alt="GraphLegend" style="zoom:100%;" />
 </p>
-
-You need to set a title of the legend and a position (as an integer number).
-
-You can set position from 0 to 12, here it's how it works:
-
+                                                                     
+You need to set a title of the legend and it also can  be empty text if you wish to hide the title. The position is an integer from 0-11. You can also set the legend placement: inside = 0 or outside = 1 of the main graph area. The placement is also related to the Position. Additionally, the legend can be horizontal or vertical as set in Orientation parameter. The text size lets you adjust the preffered size of the items. 
+                                                                       
 <p align="center">
     <img src="Img\GraphLegendPosition.png" alt="GraphLegendPosition" style="zoom:50%;" />
 </p>
 
-To set the colors of the data that are shown in the legend - set them in Data Type component.
+The colors of the data entires that are shown in the legend are set depending on the color parameters of the Data Type components.
 
 #### Graph Settings
 
-Graph Settings requires to take 4 arguments: 
+Graph Settings takes these arguments: 
 
 - Title - this will be a title of the graph,
 - Graph Sizes (from Graph Sizes component),
-- Color - this will be a background color of the graph,
+- Background - this will be a background color of the graph,
 - Graph Axis (from Graph Axis component)
-
+- Graph Padding - add empty space around the graph if numbers or legends are cropped   
+- Title Size - regulate the text size of the main title
+                                                                                      
 Graph Settings need to be connected with Graph component.
 
  <p align="center">
@@ -207,7 +207,7 @@ Graph Settings need to be connected with Graph component.
 
 #### Graph Sizes
 
-Graph Sizes will let you set the size of a graph. Width and Height can be between 200 and 1000.
+Graph Sizes will let you set the size of a graph. Width and Height can be between 200 and 1920px.
 
 When you change the Height - it will be visible in a preview window (Show Graph) and in the report.
 
@@ -219,11 +219,15 @@ When you change the Width - it will be visible only in the report - that's becau
 
 #### Graph Axis
 
-This component will set the names of the x and y axis:
+This component will set the names of the x and y axis. Additionally there is a  C Axis parameter that sets the name of the color gradient axis that appears only when you use the Scatter Data component. To hide this axis set empty string in the Value Names parameter (Graph Data component) correspondig to the Scatter data. Furthermore, you can specify Padding [0.1 - 1.0] for the axis and the text size of the axis names. 
 
  <p align="center">
     <img src="Img\GraphAxis.png" alt="GraphAxis" style="zoom:100%;" />
 </p>
+                                                                   
+#### Sample Files
+
+The sample files inclided here (make link to files) show more information on how to use the advanced graph components.                                                                    
 
 ## Basic Graphs
 
