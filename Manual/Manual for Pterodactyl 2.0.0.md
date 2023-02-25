@@ -646,47 +646,53 @@ Creating flowchart can help you for example to document your complex Grasshopper
 
 In flowchart you have nodes and links between those nodes:
 
- <p align="center">
+<p align="center">
     <img src="Img\FlowChart0.png" alt="FlowChart0" style="zoom:100%;" />
 </p>
+
 
 To start flowchart we need to use Flowchart Start Node, then we connect Flowchart Nodes or Links, then at the end we connect end Flowchart Nodes to Flowchart component that will create Report Part.
 
 To modify the link between both nodes - we need to add Flowchart Link component between those nodes:
 
- <p align="center">
+<p align="center">
     <img src="Img\FlowChartModifiedLink.png" alt="FlowChartModifiedLink" style="zoom:100%;" />
 </p>
+
 
 There are 4 types (0 - 3) of link that you can choose.
 
 You can as well change a style of a node (change the shape of it from 0 to 8):
 
- <p align="center">
+<p align="center">
     <img src="Img\FlowChartShape.png" alt="FlowChartShape" style="zoom:100%;" />
 </p>
 
+
 The text for the node is also it's id, so if you connect two nodes with the same name:
 
- <p align="center">
+<p align="center">
     <img src="Img\FlowChartTheSameName.png" alt="FlowChartTheSameName" style="zoom:100%;" />
 </p>
 
+
 Let's plug two nodes to one starting node:
 
- <p align="center">
+<p align="center">
     <img src="Img\FlowChart2In1.png" alt="FlowChart2In1" style="zoom:100%;" />
 </p>
 
+
 No let's try to connect those two to a new one:
 
- <p align="center">
+<p align="center">
     <img src="Img\FlowChart1In2.png" alt="FlowChart1In2" style="zoom:100%;" />
 </p>
 
+
 Let's present more complex flowchart example:
 
- <p align="center">
+<p align="center">
     <img src="Img\FlowChartComplexExample.png" alt="FlowChartComplexExample" style="zoom:100%;" />
 </p>
 
