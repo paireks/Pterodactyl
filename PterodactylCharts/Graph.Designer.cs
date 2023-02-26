@@ -37,11 +37,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1596, 883);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.Margin = new System.Windows.Forms.Padding(7);
             this.Name = "Graph";
             this.Text = "Graph";
             this.Resize += new System.EventHandler(this.OnResize);
             this.ResumeLayout(false);
+
         }
 
         #endregion

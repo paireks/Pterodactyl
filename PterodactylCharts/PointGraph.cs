@@ -49,7 +49,7 @@ namespace PterodactylCharts
 
         private void UpdateTitle()
         {
-            Text = $@"Point Graph [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+            Text = $@"Point Graph [{ClientSize.Width}x{ClientSize.Height}px]";
         }
 
         public PointGraphEngine PointGraphObject { get; set; }

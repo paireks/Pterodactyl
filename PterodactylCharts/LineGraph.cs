@@ -49,7 +49,7 @@ namespace PterodactylCharts
 
         private void UpdateTitle()
         {
-            Text = $@"Line Graph [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+            Text = $@"Line Graph [{ClientSize.Width}x{ClientSize.Height}px]";
         }
 
         public LineGraphEngine LineGraphObject { get; set; }

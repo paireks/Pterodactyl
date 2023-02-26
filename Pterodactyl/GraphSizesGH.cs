@@ -17,12 +17,12 @@ namespace Pterodactyl
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddIntegerParameter("Width", "Width", "Set width", GH_ParamAccess.item, 600);
-            pManager.AddIntegerParameter("Height", "Height", "Set height", GH_ParamAccess.item, 400);
+            pManager.AddIntegerParameter("Width", "Width", "Set width in px", GH_ParamAccess.item, 600);
+            pManager.AddIntegerParameter("Height", "Height", "Set height in px", GH_ParamAccess.item, 400);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Graph Sizes", "Graph Sizes", "Size of graph", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Graph Sizes", "Graph Sizes", "Size of graph used in image export", GH_ParamAccess.item);
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {

@@ -49,7 +49,7 @@ namespace PterodactylCharts
 
         private void UpdateTitle()
         {
-            Text = $@"Bar Chart [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+            Text = $@"Bar Chart [{ClientSize.Width}x{ClientSize.Height}px]";
         }
 
         public BarChartEngine BarChartObject { get; set; }

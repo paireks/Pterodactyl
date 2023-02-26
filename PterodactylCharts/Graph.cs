@@ -12,10 +12,12 @@ namespace PterodactylCharts
 
         public void GraphData(bool showGraph, GraphElements graphElements, GraphSettings graphSettings, string path)
         {
+            //set windows proportions to the size the user set
+            ClientSize = new System.Drawing.Size(graphSettings.Sizes.Width, graphSettings.Sizes.Height);
             GraphObject = new GraphEngine(showGraph, graphElements, graphSettings, path);
             PlotView myPlot = GraphObject.ChartCreator();
             Controls.Add(myPlot);
-            UpdateTitle();
+            UpdateTitle();   
         }
         public string Create()
         {
@@ -48,7 +50,8 @@ namespace PterodactylCharts
 
         private void UpdateTitle()
         {
-            Text = $@"Graph [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+            // client size is more accurate measuere than Size. It corresponds to the saved file dimensions
+            Text = $@"Graph [{ClientSize.Width}x{ClientSize.Height}px]"; // remove esc as it is intuitive
         }
     }
 }

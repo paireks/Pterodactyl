@@ -49,7 +49,7 @@ namespace PterodactylCharts
 
         private void UpdateTitle()
         {
-            Text = $@"Column Chart [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+            Text = $@"Column Chart [{ClientSize.Width}x{ClientSize.Height}px]";
         }
 
         public ColumnChartEngine ColumnChartObject { get; set; }

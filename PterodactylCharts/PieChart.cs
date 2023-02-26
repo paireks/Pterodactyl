@@ -49,7 +49,7 @@ namespace PterodactylCharts
 
         private void UpdateTitle()
         {
-            Text = $@"Pie Chart [{Size.Width}x{Size.Height}px] - Press Esc to close...";
+            Text = $@"Pie Chart [{ClientSize.Width}x{ClientSize.Height}px]";
         }
 
         public PieChartEngine PieChartObject { get; set; }
