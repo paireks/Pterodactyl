@@ -291,4 +291,7 @@
     <Error Condition="!Exists('packages\Grasshopper.6.24.20079.23341\build\net45\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grasshopper.6.24.20079.23341\build\net45\Grasshopper.targets'))" />
   </Target>
   <Import Project="packages\Grasshopper.6.24.20079.23341\build\net45\Grasshopper.targets" Condition="Exists('packages\Grasshopper.6.24.20079.23341\build\net45\Grasshopper.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)\Pterodactyl.gha"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
