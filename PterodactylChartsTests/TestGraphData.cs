@@ -52,7 +52,7 @@ namespace UnitTestEngine
                 new List<List<double>> { new List<double> { -2, 0, 4 }, new List<double> { 5, 2, -1 } },
                 new List<string> { "First", "Second" },
                 new List<DataType> { new DataType(Color.Navy) },
-                "X Values tree's number of branches != Data Types elements of list");
+                "X Values tree's number of branches != Data Types elements. Current values:\nLine\n");
         }
     }
     public class TestGraphData
