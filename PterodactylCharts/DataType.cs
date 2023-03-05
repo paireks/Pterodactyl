@@ -76,7 +76,7 @@ namespace PterodactylCharts
 
         #region Scatter
 
-        public DataType(Color[] colors, int marker, double[] markerSizes, double[] scatterValues)
+        public DataType(double[] scatterValues, double[] markerSizes, int marker, Color[] colors)
         {
             ScatterPalette = colors;
             Marker = marker;

@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using PterodactylCharts.Enums;
 
 namespace PterodactylCharts
 {
@@ -42,9 +44,15 @@ namespace PterodactylCharts
             int index = 0;
             foreach (var dt in dataTypes)
             {
-                if (dt.TypeOfData == Enums.TypeOfData.Scatter && dt.ScatterValues.Length != xValues[index].Count)
-                    throw new ArgumentException("The Scater Params count should match the items in the corresponding X Values and Y Values' tree branch");
+                if (dt.TypeOfData == TypeOfData.Scatter && dt.ScatterValues.Length != xValues[index].Count)
+                    throw new ArgumentException("The Scatter Params count should match the items in the corresponding X Values and Y Values' tree branch");
                 index++;
+            }
+
+            int numberOfScatterDataTypes = dataTypes.Count(dataType => dataType.TypeOfData == TypeOfData.Scatter);
+            if (numberOfScatterDataTypes > 1)
+            {
+                throw new ArgumentException("Cannot have more than 1 Scatter Data Types, as it would create multiple different Color legends");
             }
 
         }
@@ -55,9 +63,9 @@ namespace PterodactylCharts
             return stringRepresentation.ToString();
         }
 
-        public List<List<double>> XValues { get; set; }
-        public List<List<double>> YValues { get; set; }
-        public List<string> ValuesNames { get; set; }
-        public List<DataType> DataTypes { get; set; }
+        public List<List<double>> XValues { get; }
+        public List<List<double>> YValues { get; }
+        public List<string> ValuesNames { get; }
+        public List<DataType> DataTypes { get; }
     }
 }

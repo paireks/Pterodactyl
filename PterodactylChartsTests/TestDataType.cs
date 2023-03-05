@@ -195,7 +195,7 @@ namespace UnitTestEngine
         [ClassData(typeof(TestDataTypeScatterHelper))]
         public void CorrectDataScatter(Color[] colors, int marker, double[] markerSizes, double[] scatterValues, string toString, TypeOfData typeOfData)
         {
-            DataType testObject = new DataType(colors, marker, markerSizes, scatterValues);
+            DataType testObject = new DataType(scatterValues, markerSizes, marker, colors);
             Assert.Equal(colors, testObject.ScatterPalette);
             Assert.Equal(marker, testObject.Marker);
             Assert.Equal(markerSizes, testObject.MarkerSizes);
@@ -208,7 +208,7 @@ namespace UnitTestEngine
         [ClassData(typeof(TestDataTypeScatterExceptionHelper))]
         public void DataScatterAdvancedExceptions(Color[] colors, int marker, double[] markerSizes, double[] scatterValues, string message)
         {
-            var exception = Assert.Throws<ArgumentException>(() => new DataType(colors, marker, markerSizes, scatterValues));
+            var exception = Assert.Throws<ArgumentException>(() => new DataType(scatterValues, markerSizes, marker, colors));
             Assert.Equal(message, exception.Message);
         }
 

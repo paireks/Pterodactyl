@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using Grasshopper.Kernel;
-using Grasshopper.Kernel.Data;
 using PterodactylCharts;
-using System.Linq;
 
 // GradientData Code written by Anton Kerezov
 
@@ -14,16 +12,16 @@ namespace Pterodactyl
     {
         public ScatterDataGH()
          : base("Scatter Data", "Scatter Data",
-        "Add point sizes and parametes to create gradients that fit in the specified palette",
+        "Add point sizes and parameters to create gradients that fit in the specified palette",
         "Pterodactyl", "Advanced Graph")
         {
         }
         protected override void RegisterInputParams(GH_Component.GH_InputParamManager pManager)
         {
-            pManager.AddColourParameter("Palette", "Palette", "Add a list of colors to map the Values. Maybe any number from 1 to 4096", GH_ParamAccess.tree, new List<Color> { Color.Black, Color.Orange, Color.Red });
+            pManager.AddNumberParameter("Values", "Values", "Number parameters corresponding to each X&Y value pair. It will determine the color from the Palette range. Palette range goes from min to max.", GH_ParamAccess.list);
+            pManager.AddNumberParameter("Sizes", "Sizes", "Marker sizes, should match values.", GH_ParamAccess.list);
             pManager.AddIntegerParameter("Marker", "Marker", "Choose point marker: 0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus", GH_ParamAccess.item, 1);
-            pManager.AddNumberParameter("Sizes", "Sizes", "Choose marker sizes 0.1 - 50.0", GH_ParamAccess.tree);
-            pManager.AddNumberParameter("Params", "Params", "Number parameters corresponding to each X&Y Value pair\nIt will determine the pair color from the Palette range (Pallete range is [Params min to max]", GH_ParamAccess.tree);
+            pManager.AddColourParameter("Color Palette", "Color Palette", "Add a list of colors to create a Palette. Palette range goes from min to max.", GH_ParamAccess.list, new List<Color> { Color.Red, Color.Yellow, Color.Green });
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -32,21 +30,17 @@ namespace Pterodactyl
         protected override void SolveInstance(IGH_DataAccess DA)
         {
 
-            GH_Structure<Grasshopper.Kernel.Types.GH_Colour> tColour = new GH_Structure<Grasshopper.Kernel.Types.GH_Colour>();
-            GH_Structure<Grasshopper.Kernel.Types.GH_Number> tSize = new GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
-            GH_Structure<Grasshopper.Kernel.Types.GH_Number> tValues = new GH_Structure<Grasshopper.Kernel.Types.GH_Number>();
+            List<double> values = new List<double>();
+            List<double> sizes = new List<double>();
             int marker = 0;
+            List<Color> palette = new List<Color>();
 
-            DA.GetDataTree(0, out tColour);
-            DA.GetData(1, ref marker);
-            DA.GetDataTree(2, out tSize);
-            DA.GetDataTree(3, out tValues);
+            DA.GetDataList(0, values);
+            DA.GetDataList(1, sizes);
+            DA.GetData(2, ref marker);
+            DA.GetDataList(3, palette);
 
-            Color[] palette = tColour.FlattenData().Select(s => s.Value).ToArray();
-            double[] sizes = tSize.FlattenData().Select(s => s.Value).ToArray();
-            double[] values = tValues.FlattenData().Select(s => s.Value).ToArray();
-
-            DataType dataType = new DataType(palette, marker, sizes, values);
+            DataType dataType = new DataType(values.ToArray(), sizes.ToArray(), marker, palette.ToArray());
 
             DA.SetData(0, dataType);
         }
