@@ -98,17 +98,8 @@ namespace PterodactylCharts
                 };
                 pngExporter.ExportToFile(MyModel, Path);
             }
-            else if (Path.EndsWith(".svg"))
-            {
-                var svgExporter = new OxyPlot.WindowsForms.SvgExporter
-                {
-                    Width = Settings.Sizes.Width,
-                    Height = Settings.Sizes.Height,
-                };
-                svgExporter.ExportToFile(MyModel, Path);
-            }
             else
-                throw new ArgumentException("Supported file extensions are only .png or .svg");
+                throw new ArgumentException("Supported file extensions are only .png");
         }
 
         public string Create()
