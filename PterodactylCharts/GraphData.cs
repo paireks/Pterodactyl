@@ -29,7 +29,7 @@ namespace PterodactylCharts
                 var names = "";
                 foreach (var dt in dataTypes)
                 {
-                    names += dt.TypeOfData.ToString() + "\n";
+                    names += dt.TypeOfData + "\n";
                 }
                 throw new ArgumentException("X Values tree's number of branches != Data Types elements. Current values:\n" + names);
             }
@@ -49,12 +49,16 @@ namespace PterodactylCharts
                 index++;
             }
 
+            int numberOfPointDataTypes = dataTypes.Count(dataType => dataType.TypeOfData == TypeOfData.Point);
             int numberOfScatterDataTypes = dataTypes.Count(dataType => dataType.TypeOfData == TypeOfData.Scatter);
             if (numberOfScatterDataTypes > 1)
             {
                 throw new ArgumentException("Cannot have more than 1 Scatter Data Types, as it would create multiple different Color legends");
             }
-
+            if (numberOfPointDataTypes > 0 && numberOfScatterDataTypes > 0)
+            {
+                throw new ArgumentException("Cannot have Scatter Data Type at the same time with Point Data Type");
+            }
         }
         public override string ToString()
         {

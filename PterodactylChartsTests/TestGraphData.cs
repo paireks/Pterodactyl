@@ -62,6 +62,15 @@ namespace UnitTestEngine
                     new DataType(new []{0.3, 1.6}, new []{2.0, 5.0}, 2, new []{Color.Red})
                 },
                 "Cannot have more than 1 Scatter Data Types, as it would create multiple different Color legends");
+            Add(new List<List<double>> { new List<double> { 0, 1 }, new List<double> { 1, 2 } },
+                new List<List<double>> { new List<double> { -2, 0 }, new List<double> { 5, 2 } },
+                new List<string> { "First", "Second" },
+                new List<DataType>
+                {
+                    new DataType(new []{0.5, 0.6}, new []{0.1, 0.2}, 1, new []{Color.Aqua}),
+                    new DataType(Color.Red, 3)
+                },
+                "Cannot have Scatter Data Type at the same time with Point Data Type");
         }
     }
     public class TestGraphData
