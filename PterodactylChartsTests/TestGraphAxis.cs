@@ -13,23 +13,23 @@ namespace UnitTestEngine
         }
     }
     
-    public class TestGraphAxisWithColorHelper : TheoryData<string, string, string, double, double, string>
+    public class TestGraphAxisWithColorHelper : TheoryData<string, string, double, double, string>
     {
         public TestGraphAxisWithColorHelper()
         {
-            Add("XAxis", "Y Axis Name", "Color Axis Name", 0.0, 15.0, "Graph Axis with X and Y and Color");
-            Add("X", "Y", "Color", 1.0, 100.0, "Graph Axis with X and Y and Color");
+            Add("XAxis", "Y Axis Name", 0.0, 15.0, "Graph Axis with X and Y and Color");
+            Add("X", "Y", 1.0, 100.0, "Graph Axis with X and Y and Color");
         }
     }
 
-    public class TestGraphAxisWithColorExceptionHelper : TheoryData<string, string, string, double, double, string>
+    public class TestGraphAxisWithColorExceptionHelper : TheoryData<string, string, double, double, string>
     {
         public TestGraphAxisWithColorExceptionHelper()
         {
-            Add("X", "Y", "Color", -0.01, 100.0, "Padding is limited from 0.00 to 1.00");
-            Add("X", "Y", "Color", 1.01, 100.0, "Padding is limited from 0.00 to 1.00");
-            Add("X", "Y", "Color", 0.0, 4, "Text size must be in range [5-150] pt");
-            Add("X", "Y", "Color", 0.0, 151, "Text size must be in range [5-150] pt");
+            Add("X", "Y", -0.01, 100.0, "Padding is limited from 0.00 to 1.00");
+            Add("X", "Y", 1.01, 100.0, "Padding is limited from 0.00 to 1.00");
+            Add("X", "Y", 0.0, 4, "Text size must be in range [5-150] pt");
+            Add("X", "Y", 0.0, 151, "Text size must be in range [5-150] pt");
         }
     }
 
@@ -48,13 +48,12 @@ namespace UnitTestEngine
         
         [Theory]
         [ClassData(typeof(TestGraphAxisWithColorHelper))]
-        public void TestGraphAxisWithColor(string xAxisName, string yAxisName, string colorAxisName, double globalAxisPadding, double textSize, string toString)
+        public void TestGraphAxisWithColor(string xAxisName, string yAxisName, double globalAxisPadding, double textSize, string toString)
         {
-            GraphAxis testObject = new GraphAxis(xAxisName, yAxisName, colorAxisName, globalAxisPadding, textSize);
+            GraphAxis testObject = new GraphAxis(xAxisName, yAxisName, globalAxisPadding, textSize);
             Assert.Equal(GraphAxisType.XAndYAndColor, testObject.GraphAxisType);
             Assert.Equal(xAxisName, testObject.XAxisName);
             Assert.Equal(yAxisName, testObject.YAxisName);
-            Assert.Equal(colorAxisName, testObject.ColorAxisName);
             Assert.Equal(globalAxisPadding, testObject.GlobalAxisPadding);
             Assert.Equal(textSize, testObject.TextSize);
             Assert.Equal(toString, testObject.ToString());
@@ -62,9 +61,9 @@ namespace UnitTestEngine
 
         [Theory]
         [ClassData(typeof(TestGraphAxisWithColorExceptionHelper))]
-        public void TestGraphAxisWithColor_ThrowsException(string xAxisName, string yAxisName, string colorAxisName, double globalAxisPadding, double textSize, string message)
+        public void TestGraphAxisWithColor_ThrowsException(string xAxisName, string yAxisName, double globalAxisPadding, double textSize, string message)
         {
-            var exception = Assert.Throws<ArgumentException>(() => new GraphAxis(xAxisName, yAxisName, colorAxisName, globalAxisPadding, textSize));
+            var exception = Assert.Throws<ArgumentException>(() => new GraphAxis(xAxisName, yAxisName, globalAxisPadding, textSize));
             Assert.Equal(message, exception.Message);
         }
     }

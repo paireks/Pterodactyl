@@ -11,12 +11,11 @@ namespace PterodactylCharts
             XAxisName = xAxisName;
             YAxisName = yAxisName;
         }
-        public GraphAxis(string xAxisName, string yAxisName, string colorAxisName, double globalAxisPadding, double textSize)
+        public GraphAxis(string xAxisName, string yAxisName, double globalAxisPadding, double textSize)
         {
             GraphAxisType = GraphAxisType.XAndYAndColor;
             XAxisName = xAxisName;
             YAxisName = yAxisName;
-            ColorAxisName = colorAxisName;
             GlobalAxisPadding = globalAxisPadding;
             TextSize = textSize;
 
@@ -43,7 +42,6 @@ namespace PterodactylCharts
 
         public string XAxisName { get; }
         public string YAxisName { get; }
-        public string ColorAxisName { get; }
         public double GlobalAxisPadding { get; }
         public double TextSize { get; }
         public GraphAxisType GraphAxisType { get; }
