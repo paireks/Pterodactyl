@@ -20,8 +20,7 @@ namespace Pterodactyl
         {
             pManager.AddTextParameter("Text", "Text", "Annotation text", GH_ParamAccess.list);
             pManager.AddNumberParameter("Size", "Size", "Choose text size 6 - 48pt", GH_ParamAccess.item, 9d);
-            pManager.AddIntegerParameter("Place", "Placement", "Legend Position as integer 0 = Centre,  1 = Left, 2 = Right, 3 = Top, 4 = Bottom", GH_ParamAccess.item, 0);
-
+            pManager.AddIntegerParameter("Place", "Placement", "Legend Position as integer, from 0 to 4", GH_ParamAccess.item, 0);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
