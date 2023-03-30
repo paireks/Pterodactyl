@@ -154,19 +154,22 @@ Examples:
 
 ##### Point Data
 
-Point data defines the appearance of point information that is passed to the Graph Data component. You can define the color as any RGB value, the type of marker as interger (0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus) and the size of the marker [0.1-100.0].
+Point data defines the appearance of a point information that is passed to the Graph Data component. You can define the color, the type of marker, and the size of the marker.
 
 ##### Line Data
 
-Line Data is similar to point data but instead of drawing points it connects them with lines. You can define the color as any RGB value, the interpolation between the points (0 - None 1 - UniformCatmullRomSpline 2 - CatmullRomSpline 3 - CanonicalSpline 4 - ChordalCatmullRomSpline), the line style (0 - Solid, 1 - Dash, 2 - Dot, 3 - DashDot, 4 - DashDotDot) and the thicnkess [0.1-20.0].
-                                                                   
+Line Data is similar to point data, but instead of drawing points, it connects them with lines. You can define the color, the interpolation between the points, the line style, and the thickness.
+
+<p align="center">
+    <img src="Img\LineTypes.png" alt="DataGraphExample3" style="zoom:100%;" />
+</p>
+
 ##### Point Annotation
 
-Point annotation draws text in relation to the points specified in the Graph Data component. You can set the text, the size and the location (0 = Center, 1 = Left, 2 = Right, 3 = Top, 4 = Bottom).
-                                                                                 
+Point annotation draws text in relation to the points specified in the Graph Data component. You can set the text, the size and the location.
 ##### Scatter Data
 
-Scatter Data is very similar to point data. It draws points to the graph, however, you can additionally specify color and size gradients. You can define the color range as a list of colors or a gradient, one type of marker as interger (0 - None, 1 - Circle, 2 - Square, 3 - Diamond, 4 - Triangle, 5 - Cross, 6 - Plus), the list of marker sizes [0.1-50.0] and the list of color parameters that specify the corresponding color for each point (this list should be equal lenght as the X&Y value lists). The color pallete range is determined from the min. and max. values from the Params list.
+Scatter Data is very similar to point data. It draws points to the graph, however, you can additionally specify color and size gradients. You can define the color range as a list of colors or a gradient, one type of marker as integer, and the list of marker sizes for each point. The Color Palette determines the color range, which is used for each point, cause depending on it's own value - proper color from Color Palette will be picked.
                                                                           
 <p align="center">
     <img src="Img\DataTypes.png" alt="DataTypes" style="zoom:100%;" />
@@ -211,17 +214,13 @@ Graph Settings need to be connected with Graph component.
 
 Graph Sizes will let you set the size of a graph.
 
-When you change the Height - it will be visible in a preview window (Show Graph) and in the report.
-
-When you change the Width - it will be visible only in the report - that's because width in a preview depends on a size of a window.
-
  <p align="center">
     <img src="Img\GraphSizes.png" alt="GraphSizes" style="zoom:100%;" />
 </p>
 
 #### Graph Axis
 
-This component will set the names of the x and y axis. Additionally there is a C Axis parameter that sets the name of the color gradient axis that appears only when you use the Scatter Data component. To hide this axis set empty string in the Value Names parameter (Graph Data component) corresponding to the Scatter data. Furthermore, you can specify Padding [0.1 - 1.0] for the axis and the text size of the axis names.
+This component will set the names of the x and y axis. Furthermore, you can specify Padding for the axes and the text size of the axes names.
 
  <p align="center">
     <img src="Img\GraphAxis.png" alt="GraphAxis" style="zoom:100%;" />

@@ -23,7 +23,7 @@ namespace Pterodactyl
                 "2 - CatmullRomSpline\n" +
                 "3 - CanonicalSpline\n" +
                 "4 - ChordalCatmullRomSpline", GH_ParamAccess.item, 0);
-            pManager.AddIntegerParameter("Line Style", "Line Style", "0 - Solid, 1 - Dash, 2 - Dot, 3 - DashDot, 4 - DashDotDot", GH_ParamAccess.item, 0);
+            pManager.AddIntegerParameter("Line Style", "Line Style", "0 - Solid, 1 - Dash, 2 - Dot, 3 - DashDot, 4 - DashDashDot", GH_ParamAccess.item, 0);
             pManager.AddNumberParameter("Line Weight", "Line Weight", "A value from 0.1 to 20.0", GH_ParamAccess.item, 2);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
