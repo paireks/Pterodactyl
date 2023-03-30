@@ -12,12 +12,12 @@ Hey! Thank you for using Pterodactyl! ;)
 
 Pterodactyl is an open-source plug-in for Grasshopper.
 
-**Purpose:** creating reports inside Grasshopper. Those reports or documents can be later saved to pdf/html/docx/LaTeX files.
+**Purpose:** creating reports inside Grasshopper.
 
 **Requirements:**
 
-- Rhino 6 or 7
-- Markdown editor, Typora is recommended (https://typora.io/), or if you look for something open-source, check MarkText (https://marktext.app/)
+- Rhino 7
+- Markdown editor, Typora is recommended (https://typora.io/). If you look for something open-source - check out MarkText (https://marktext.app/)
 
 **Contact:** If you have any specific questions, email me: w.radaczynski@gmail.com
 
@@ -610,8 +610,13 @@ You can set a Title and Table of Contents for the document here:
 <p align="center">
     <img src="Img\CreateReport3.png" alt="CreateReport3" style="zoom:100%;" />
 </p>
-
 To open the document - see the Save Report component.
+
+From 2.0.0. version there is an option to enable auto-spacing. This feature will add spaces between Report Parts. Some Markdown viewers require these spaces in between different elements to render it properly.
+
+<p align="center">
+    <img src="Img\Autospacing.png" alt="Autospacing" style="zoom:100%;" />
+</p>
 
 #### Save Report
 
