@@ -172,16 +172,14 @@ Point annotation draws text in relation to the points specified in the Graph Dat
 Scatter Data is very similar to point data. It draws points to the graph, however, you can additionally specify color and size gradients. You can define the color range as a list of colors or a gradient, one type of marker as integer, and the list of marker sizes for each point. The Color Palette determines the color range, which is used for each point, cause depending on it's own value - proper color from Color Palette will be picked.
                                                                           
 <p align="center">
-    <img src="Img\DataTypes.png" alt="DataTypes" style="zoom:100%;" />
+    <img src="Img\ScatterData.png" alt="DataTypes" style="zoom:100%;" />
 </p>
+
 
 #### Graph Legend
 
 Graph Legend will help you to set the legend in your graph.
 
-<p align="center">
-    <img src="Img\GraphLegend.png" alt="GraphLegend" style="zoom:100%;" />
-</p>
 
 You need to set a title of the legend and it also can  be empty text if you wish to hide the title. The position is an integer from 0-11. You can also set the legend placement: inside = 0 or outside = 1 of the main graph area. The placement is also related to the Position. Additionally, the legend can be horizontal or vertical as set in Orientation parameter. The text size lets you adjust the preferred size of the items. 
                                                                        
@@ -197,10 +195,10 @@ The colors of the data entires that are shown in the legend are set depending on
 Graph Settings takes these arguments: 
 
 - Title - this will be a title of the graph,
-- Graph Sizes (from Graph Sizes component),
+- Graph Sizes (from Graph Sizes component)
 - Background - this will be a background color of the graph,
 - Graph Axis (from Graph Axis component)
-- Graph Padding - add empty space around the graph if numbers or legends are cropped   
+- Graph Padding - add empty space around the graph   
 - Title Size - regulate the text size of the main title
                                                                                       
 
