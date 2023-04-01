@@ -51,10 +51,6 @@ namespace PterodactylCharts
 
             int numberOfPointDataTypes = dataTypes.Count(dataType => dataType.TypeOfData == TypeOfData.Point);
             int numberOfScatterDataTypes = dataTypes.Count(dataType => dataType.TypeOfData == TypeOfData.Scatter);
-            if (numberOfScatterDataTypes > 1)
-            {
-                throw new ArgumentException("Cannot have more than 1 Scatter Data Types, as it would create multiple different Color legends");
-            }
             if (numberOfPointDataTypes > 0 && numberOfScatterDataTypes > 0)
             {
                 throw new ArgumentException("Cannot have Scatter Data Type at the same time with Point Data Type");
