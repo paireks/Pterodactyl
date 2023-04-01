@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pterodactyl", "Pterodactyl.csproj", "{74F03D25-2367-48B5-8AE7-76923EC6E69E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PterodactylTests", "..\PterodactylTests\PterodactylTests.csproj", "{29A56BBA-3764-4DFF-A958-118C694D1890}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PterodactylEngine", "..\PterodactylEngine\PterodactylEngine.csproj", "{051E55CA-2599-4A05-83B3-41A86B17BFD9}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PterodactylEngineTests", "..\PterodactylEngineTests\PterodactylEngineTests.csproj", "{3BFA51A0-AF31-45B0-8280-C6FB72003BE3}"
@@ -30,11 +28,6 @@ Global
 		{74F03D25-2367-48B5-8AE7-76923EC6E69E}.PterodactylEngineTests|Any CPU.Build.0 = PterodactylEngineTests|Any CPU
 		{74F03D25-2367-48B5-8AE7-76923EC6E69E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74F03D25-2367-48B5-8AE7-76923EC6E69E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29A56BBA-3764-4DFF-A958-118C694D1890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29A56BBA-3764-4DFF-A958-118C694D1890}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29A56BBA-3764-4DFF-A958-118C694D1890}.PterodactylEngineTests|Any CPU.ActiveCfg = Release|Any CPU
-		{29A56BBA-3764-4DFF-A958-118C694D1890}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29A56BBA-3764-4DFF-A958-118C694D1890}.Release|Any CPU.Build.0 = Release|Any CPU
 		{051E55CA-2599-4A05-83B3-41A86B17BFD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{051E55CA-2599-4A05-83B3-41A86B17BFD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{051E55CA-2599-4A05-83B3-41A86B17BFD9}.PterodactylEngineTests|Any CPU.ActiveCfg = PterodactylEngineTests|Any CPU

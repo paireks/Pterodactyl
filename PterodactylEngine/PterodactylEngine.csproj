@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PterodactylEngine</RootNamespace>
     <AssemblyName>PterodactylEngine</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
@@ -69,7 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CodeBlock.cs" />
-    <Compile Include="CreateReport.cs" />
+    <Compile Include="Report.cs" />
     <Compile Include="DynamicMathBlock.cs" />
     <Compile Include="Emphasis.cs" />
     <Compile Include="Flowchart.cs" />

@@ -6,11 +6,11 @@
 
 ## Purpose
 
-Pterodactyl is an open-source plug-in for Grasshopper (Rhino 6) created for the purpose of generating custom documents, reports, articles, etc. that can be updated in real time. 
+Pterodactyl is an open-source plug-in for Grasshopper (Rhino 7) created for the purpose of generating custom documents, reports, articles, etc. that can be updated in real time. 
 
 ## How it works?
 
-Pterodactyl sends data (saves it locally) as .md, which is Markdown filename extension. To open it or to save it as pdf, html, docx or LaTeX, you need Typora, which is completely free, lightweight text editor. You can download it [here](https://typora.io/).
+Pterodactyl sends data (saves it locally) as .md, which is Markdown filename extension. To open it or to save it as pdf, html, docx or LaTeX, you need Typora or other Markdown editor. You can download it [here](https://typora.io/).
 
 Basically it works like this:
 
@@ -22,7 +22,7 @@ You can try other Markdown editors, Typora is recommended.
 
 
 
-## Features (1.2.0)
+## Features (2.0.0)
 
 - Format text (strong, emphasis, underline, strike)
 - Insert images
@@ -42,14 +42,9 @@ You can try other Markdown editors, Typora is recommended.
 - Page break
 - Flowcharts
 
-## Future plans
-
-- Advanced math graphs
-- Karamba3D templates
-
 ## License (MIT License)
 
-Copyright © 2020 Wojciech Radaczyński
+Copyright © 2023 Wojciech Radaczyński
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -64,10 +59,6 @@ Credits:
 OxyPlot 
 - license: https://github.com/oxyplot/oxyplot/blob/develop/LICENSE
 - sourcecode / info: https://github.com/oxyplot/oxyplot
-
-## Tutorials
-
-Examples will be posted in the future on my youtube channel, here: https://www.youtube.com/channel/UCfXkMo1rOMhKGBoNwd7JPsw
 
 ## Contact
 

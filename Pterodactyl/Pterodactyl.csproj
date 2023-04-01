@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Pterodactyl</RootNamespace>
     <AssemblyName>Pterodactyl</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <NuGetPackageImportStamp>
@@ -69,6 +69,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnotationDataGH.cs" />
     <Compile Include="BarChartGH.cs" />
     <Compile Include="CodeBlockGH.cs" />
     <Compile Include="ColumnChartGH.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="SaveReportGH.cs" />
     <Compile Include="PterodactylInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScatterDataGH.cs" />
     <Compile Include="StrikeGH.cs" />
     <Compile Include="StrongGH.cs" />
     <Compile Include="TableGH.cs" />
@@ -255,6 +257,12 @@
   <ItemGroup>
     <None Include="Resources\PterodactylCodeBlock.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPointData2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PterodactylPointData1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -264,9 +272,6 @@
   </Target>
   -->
   <PropertyGroup>
-    <PostBuildEvent>Copy "$(TargetPath)" "C:\Users\code-structures\AppData\Roaming\Grasshopper\Libraries\Pterodactyl\Pterodactyl.gha"
-
-</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <FallbackCulture>en-US</FallbackCulture>
@@ -286,4 +291,7 @@
     <Error Condition="!Exists('packages\Grasshopper.6.24.20079.23341\build\net45\Grasshopper.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Grasshopper.6.24.20079.23341\build\net45\Grasshopper.targets'))" />
   </Target>
   <Import Project="packages\Grasshopper.6.24.20079.23341\build\net45\Grasshopper.targets" Condition="Exists('packages\Grasshopper.6.24.20079.23341\build\net45\Grasshopper.targets')" />
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)\Pterodactyl.gha"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

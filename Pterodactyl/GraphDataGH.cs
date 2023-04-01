@@ -26,9 +26,8 @@ namespace Pterodactyl
                                                                 " Each branch represents new series of data.",
                 GH_ParamAccess.tree);
             pManager.AddTextParameter("Values Names", "Values Names",
-                "List of names of values, each item should match each branch of X and Y Values. It will appear if" +
-                " Show Legend == True.", GH_ParamAccess.list);
-            pManager.AddGenericParameter("Data Type", "Data Type",
+                "List of names of values, each item should match each branch of X and Y Values.", GH_ParamAccess.list);
+            pManager.AddGenericParameter("Data Types", "Data Types",
                 "Set data type as list, each data type should match each series of data", GH_ParamAccess.list);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)

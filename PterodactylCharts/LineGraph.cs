@@ -31,6 +31,27 @@ namespace PterodactylCharts
             LineGraphObject.Export();
         }
 
+        protected override bool ProcessCmdKey(ref Message message, Keys keys)
+        {
+            switch (keys)
+            {
+                case Keys.Escape:
+                    Close();
+                    return true;
+            }
+            return base.ProcessCmdKey(ref message, keys);
+        }
+        
+        private void OnResize(object sender, System.EventArgs e)
+        {
+            UpdateTitle();
+        }
+
+        private void UpdateTitle()
+        {
+            Text = $@"Line Graph [{ClientSize.Width}x{ClientSize.Height}px]";
+        }
+
         public LineGraphEngine LineGraphObject { get; set; }
     }
 }

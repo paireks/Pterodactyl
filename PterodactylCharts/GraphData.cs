@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using PterodactylCharts.Enums;
 
 namespace PterodactylCharts
 {
@@ -24,7 +26,12 @@ namespace PterodactylCharts
             }
             if (XValues.Count != DataTypes.Count)
             {
-                throw new ArgumentException("X Values tree's number of branches != Data Types elements of list");
+                var names = "";
+                foreach (var dt in dataTypes)
+                {
+                    names += dt.TypeOfData + "\n";
+                }
+                throw new ArgumentException("X Values tree's number of branches != Data Types elements. Current values:\n" + names);
             }
             for (int i = 0; i < XValues.Count; i++)
             {
@@ -32,6 +39,21 @@ namespace PterodactylCharts
                 {
                     throw new ArgumentException("Inside each branch of X Values and Y Values trees numbers of elements of lists should match");
                 }
+            }
+
+            int index = 0;
+            foreach (var dt in dataTypes)
+            {
+                if (dt.TypeOfData == TypeOfData.Scatter && dt.ScatterValues.Length != xValues[index].Count)
+                    throw new ArgumentException("The Scatter Params count should match the items in the corresponding X Values and Y Values' tree branch");
+                index++;
+            }
+
+            int numberOfPointDataTypes = dataTypes.Count(dataType => dataType.TypeOfData == TypeOfData.Point);
+            int numberOfScatterDataTypes = dataTypes.Count(dataType => dataType.TypeOfData == TypeOfData.Scatter);
+            if (numberOfPointDataTypes > 0 && numberOfScatterDataTypes > 0)
+            {
+                throw new ArgumentException("Cannot have Scatter Data Type at the same time with Point Data Type");
             }
         }
         public override string ToString()
@@ -41,9 +63,9 @@ namespace PterodactylCharts
             return stringRepresentation.ToString();
         }
 
-        public List<List<double>> XValues { get; set; }
-        public List<List<double>> YValues { get; set; }
-        public List<string> ValuesNames { get; set; }
-        public List<DataType> DataTypes { get; set; }
+        public List<List<double>> XValues { get; }
+        public List<List<double>> YValues { get; }
+        public List<string> ValuesNames { get; }
+        public List<DataType> DataTypes { get; }
     }
 }

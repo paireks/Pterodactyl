@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-
 using Grasshopper.Kernel;
 using PterodactylCharts;
-using Rhino.Geometry;
 
 namespace Pterodactyl
 {
@@ -11,7 +8,7 @@ namespace Pterodactyl
     {
         public GraphAxisGH()
           : base("Graph Axis", "Graph Axis",
-              "Add axises for the graph",
+              "Add axes for the graph",
               "Pterodactyl", "Advanced Graph")
         {
         }
@@ -19,20 +16,26 @@ namespace Pterodactyl
         {
             pManager.AddTextParameter("X Axis Name", "X Axis Name", "Name of the X axis", GH_ParamAccess.item, "x");
             pManager.AddTextParameter("Y Axis Name", "Y Axis Name", "Name of the y axis", GH_ParamAccess.item, "y");
+            pManager.AddNumberParameter("Axis Padding", "Axis Padding", "Offset distance from X & Y Axis to plot data from 0.00 - 1.00", GH_ParamAccess.item, 0.01);
+            pManager.AddNumberParameter("Text size", "Text size", "Text size", GH_ParamAccess.item, 12);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
-            pManager.AddGenericParameter("Graph Axis", "Graph Axis", "Graph axises", GH_ParamAccess.item);
+            pManager.AddGenericParameter("Graph Axis", "Graph Axis", "Graph axes", GH_ParamAccess.item);
         }
         protected override void SolveInstance(IGH_DataAccess DA)
         {
             string xAxisName = "";
             string yAxisName = "";
+            double padding = 0;
+            double size = 0;
 
             DA.GetData(0, ref xAxisName);
             DA.GetData(1, ref yAxisName);
+            DA.GetData(2, ref padding);
+            DA.GetData(3, ref size);
 
-            GraphAxis graphAxis = new GraphAxis(xAxisName, yAxisName);
+            GraphAxis graphAxis = new GraphAxis(xAxisName, yAxisName, padding, size);
 
             DA.SetData(0, graphAxis);
         }

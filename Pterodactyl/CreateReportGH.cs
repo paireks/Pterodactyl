@@ -18,6 +18,8 @@ namespace Pterodactyl
             pManager.AddTextParameter("Report Parts", "Report Parts", "Report parts as list", GH_ParamAccess.list, "Empty");
             pManager.AddTextParameter("Title", "Title", "Sets report's title", GH_ParamAccess.item, "");
             pManager.AddBooleanParameter("Table Of Contents", "Table Of Contents", "Creates table of contents if True", GH_ParamAccess.item, false);
+            pManager.AddBooleanParameter("Auto-Spacing", "Auto-Spacing", "Adds automatic spacing between lines",
+                GH_ParamAccess.item, false);
         }
         protected override void RegisterOutputParams(GH_Component.GH_OutputParamManager pManager)
         {
@@ -28,16 +30,16 @@ namespace Pterodactyl
             List<string> reportParts = new List<string>();
             string title = string.Empty;
             bool tableOfContents = false;
+            bool autoSpacing = false;
 
             DA.GetDataList(0, reportParts);
             DA.GetData(1, ref title);
             DA.GetData(2, ref tableOfContents);
+            DA.GetData(3, ref autoSpacing);
 
-            string report;
-            CreateReport reportObject = new CreateReport(reportParts, title, tableOfContents);
-            report = reportObject.Create();
+            Report report = new Report(reportParts, title, tableOfContents, autoSpacing);
 
-            DA.SetData(0, report);
+            DA.SetData(0, report.Create());
         }
 
         protected override System.Drawing.Bitmap Icon

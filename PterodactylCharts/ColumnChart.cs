@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using OxyPlot.WindowsForms;
-using OxyPlot;
 using System.Windows.Forms;
-using OxyPlot.Axes;
-using OxyPlot.Series;
 
 namespace PterodactylCharts
 {
@@ -34,6 +29,27 @@ namespace PterodactylCharts
         public void Export()
         {
             ColumnChartObject.Export();
+        }
+
+        protected override bool ProcessCmdKey(ref Message message, Keys keys)
+        {
+            switch (keys)
+            {
+                case Keys.Escape:
+                    Close();
+                    return true;
+            }
+            return base.ProcessCmdKey(ref message, keys);
+        }
+        
+        private void OnResize(object sender, System.EventArgs e)
+        {
+            UpdateTitle();
+        }
+
+        private void UpdateTitle()
+        {
+            Text = $@"Column Chart [{ClientSize.Width}x{ClientSize.Height}px]";
         }
 
         public ColumnChartEngine ColumnChartObject { get; set; }
