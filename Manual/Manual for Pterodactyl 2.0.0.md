@@ -169,7 +169,7 @@ Line Data is similar to point data, but instead of drawing points, it connects t
 Point annotation draws text in relation to the points specified in the Graph Data component. You can set the text, the size and the location.
 ##### Scatter Data
 
-Scatter Data is very similar to point data. It draws points to the graph, however, you can additionally specify color and size gradients. You can define the color range as a list of colors or a gradient, one type of marker as integer, and the list of marker sizes for each point. The Color Palette determines the color range, which is used for each point, cause depending on it's own value - proper color from Color Palette will be picked.
+Scatter Data is very similar to point data. It draws points to the graph, however, you can additionally specify color and size gradients. You can define the color range as a list of colors or a gradient, one type of marker as integer, and the list of marker sizes for each point. The Color Palette determines the color range, which is used for each point, cause depending on it's own value - proper color from Color Palette will be picked. If you do not use the standard legend and only the colour bar axis, you can hide the legend title text by entering an empty string in the Graph Legend component. 
                                                                           
 <p align="center">
     <img src="Img\ScatterData.png" alt="DataTypes" style="zoom:100%;" />
